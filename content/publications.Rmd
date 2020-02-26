@@ -3,4 +3,4 @@ author: Yihui Xie
 title: About Hugo XMin
 ---
 
-These are my sick projects
+These are my sick publications

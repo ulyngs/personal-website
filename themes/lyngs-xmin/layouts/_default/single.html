@@ -1,12 +1,25 @@
 {{ partial "header.html" . }}
-<div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-</div>
 
-<main>
-{{ .Content }}
-</main>
+<div class="main-container container">
+  
+  <main>
+    <h1>THIS IS DRAWING FROM THEMES/LYNGS-XMIN/LAYOUTS/_DEFAULT/SINGLE.HTML ARGH!</h1>
+  {{ .Content }}
+  
+  <!-- if we're on the blog page, then show the posts -->
+  {{ if eq .URL "/blog/"}}
+    <ul>
+      {{ range .Site.RegularPages }}
+        <li>
+          <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{end}}
+  
+  </main>
+  
+</div>
 
 {{ partial "footer.html" . }}
