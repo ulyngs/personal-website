@@ -1,6 +1,78 @@
 ---
-author: Yihui Xie
+author: Ulrik Lyngs
 title: About Hugo XMin
 ---
 
-These are my sick projects
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(here)
+
+#### publications #####
+publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
+
+#### all other entries #####
+cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
+
+```
+
+## Ulysses in Cyberspace: Attention, Self-Control and Digital Design <span class="status">[current]</span>
+Light-weight laptops and smartphones let us do anything, anywhere. Yet, when everything is always available, many users get distracted by their devices and struggle with self-control. On app stores, an entire niche has emerged for 'anti-distraction tools' which claim to help people self-regulate by blocking distractions, tracking device use, or gamifying intended use. Which design features actually help users self-regulate their use of digital devices, and can theories of cognitive control from the behavioural neurosciences help us?
+
+This is the focus of my PhD research, where my collaborators include [Sir Nigel Shadbolt](https://www.jesus.ox.ac.uk/people/professor-sir-nigel-shadbolt-freng-frs) (my primary supervisor), [Reuben Binns](https://www.reubenbinns.com), [Max van Kleek](https://hip.cat/emax/), [Jun Zhao](https://www.cs.ox.ac.uk/people/jun.zhao/), [Michael Inzlicht](http://michaelinzlicht.com), [Kai Lukoff](http://www.kailukoff.com), [Petr Slovák](https://uclic.ucl.ac.uk/people/petr-slovak), [Helena Webb](https://www.cs.ox.ac.uk/people/helena.webb/) [Marina Jirotka](https://www.cs.ox.ac.uk/people/marina.jirotka/), and [Ryan McKay](https://pure.royalholloway.ac.uk/portal/en/persons/ryan-mckay_cda72457-6d2a-4ed6-91d7-cfd5904b91e4.html)
+
+
+<div class="row">
+```{r results='asis', echo=FALSE}
+self_control <- publications %>% 
+  filter(project == "digital-self-control") %>% 
+  arrange(desc(year)) %>% 
+  mutate(html = str_c("<div class='col-sm-4'><p>**", 
+                      title, 
+                      "**<br>",
+                      authors_full,
+                      "</div>"))
+
+cat(self_control$html)
+```
+</div>
+
+
+## Religion: A Cultural Tool for Self-Regulation <span class="status">[past]</span>
+‘Self-control’ is the capacity to override our own inner states or responses. For example, we exercise self-control when we suppress a desire to eat junk food, or resist an urge to check Facebook when we should be writing a paper. As ’nudge’ theorists and advertisers have long known, however, our behavior and capacity for self-control is greatly influenced by our environment. One ancient cultural tool to guide people’s behavior and self-control is religion. Moral norms of virtues and vices, rituals where people affirm their beliefs and reflect on their behavior, social structures such as gender segregation that reduces exposure to 'temptations' - all of these can be seen as culturally evolved tools for scaffolding self-regulation. My MA dissertation in the Study of Religion and Psychology was supervised by [Uffe Schjødt](http://pure.au.dk/portal/en/us@teo.au.dk) and explored current evidence on and models of the relationship between religion and self-control.
+
+<div class="row">
+```{r results='asis', echo=FALSE}
+rel_self_control <- publications %>% 
+  filter(project == "religion-self-control") %>% 
+  mutate(html = str_c("<div class='col-sm-4'><p>**", 
+                      title, 
+                      "**<br>",
+                      authors_full,
+                      "</div>"))
+
+cat(rel_self_control$html)
+```
+</div>
+
+## Hearing in Colour: Expectation and Perception <span class="status">[past]</span>
+[Research in the US](https://www.ncbi.nlm.nih.gov/pubmed/17087569) has found that people see faces as darker if they categorise them as African American than if they categorise them as White American, even if the objective skin tone is exactly identical. 
+In other words, learned associations with a racial category can distort actual perception. 
+In Brazil, however, anthropologists have long argued that race categories are very different from the US. 
+In collaboration with [Emma Cohen](https://www.anthro.ox.ac.uk/people/dr-emma-cohen), [Daniel Levin](https://www.vanderbilt.edu/psychological_sciences/bio/daniel-levin), [Wall Hattori](http://orcid.org/0000-0002-6904-0292), and [Martha Newson](https://www.anthro.ox.ac.uk/people/martha-newson), I carried out a series of experimental studies in Natal, Brazil, to see whether the brightness distortion effect from race categories found in the US would replicate. 
+In addition, we investigated whether racial associations coupled with speech accent could similarly influence perceived skin tone.
+
+<div class="row">
+```{r results='asis', echo=FALSE}
+hearing_colour <- publications %>% 
+  filter(project == "hearing-colour") %>% 
+  mutate(html = str_c("<div class='col-sm-4'><p>**", 
+                      title, 
+                      "**<br>",
+                      authors_full,
+                      "</div>"))
+
+cat(hearing_colour$html)
+```
+</div>
