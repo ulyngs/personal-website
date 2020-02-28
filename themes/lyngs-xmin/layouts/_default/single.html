@@ -3,19 +3,48 @@
 <div class="main-container container">
   
   <main>
-    <!--<h1>THIS IS DRAWING FROM THEMES/LYNGS-XMIN/LAYOUTS/_DEFAULT/SINGLE.HTML</h1>-->
+    <h1>THIS IS DRAWING FROM THEMES/LYNGS-XMIN/LAYOUTS/_DEFAULT/SINGLE.HTML</h1>
   {{ .Content }}
   
   <!-- if we're on the blog page, then show the posts -->
-  {{ if eq .URL "/blog/"}}
-    <ul>
-      {{ range where .Site.RegularPages "Section" "post"}}
-        <li>
-          <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-        </li>
-      {{ end }}
-    </ul>
+  {{ if eq .RelPermalink "/blog/"}}
+    
+    <div class="row">
+      <!-- this is for the posts -->
+      <div class="col-sm-9">
+        
+        {{ range where .Site.RegularPages "Section" "post"}}
+          <div class="row">
+            <div class="col-sm-3">
+              {{ .Date.Format "January 2, 2006" }}
+            </div>
+            
+            <div class="col-sm-6">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+              <p>{{ .Params.description | markdownify }}</p>
+            </div>
+            
+            <div class="col-sm-3">
+                <a href="{{ .RelPermalink }}"><img src="{{ .Params.teaser }}" class="img-fluid"></a>
+            </div>
+            
+          </div>
+        {{ end }}
+      </div>
+      
+      <!-- this is for the categories -->
+      <div class="col-sm-3">
+        <h3>Categories</h3>
+        <ul>
+          {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Title}}</a><span class="postcount"> ({{len .Pages }})</span>
+            </li>
+          {{end}}
+          
+        </ul>
+      </div>
+    </div>
   {{end}}
   
   </main>
