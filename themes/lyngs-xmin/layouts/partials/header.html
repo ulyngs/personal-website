@@ -8,32 +8,39 @@
     <!-- UL: replace CSS with Bootstrap 4 -->
     <!-- <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" /> -->
     <!-- <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" /> -->
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="/academicons/css/academicons.min.css"/>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- add CSS for floating table of contents-->
     <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
     
     {{ partial "head_custom.html" . }}
+    
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="header-container fluid-container">
-      
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="header-container">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mr-auto">
+        <div class="container">
         <a class="navbar-brand" href="/index.html">ULRIK LYNGS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <div class="navbar-nav">
+          <div class="navbar-nav ml-auto">
             {{ range .Site.Menus.main }}
               <li class="nav-item"><a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
             {{ end }}
             </ul>
           </div>
-          </nav>
+          
         </div>
+      </nav>
       </div>
       
     </div>
