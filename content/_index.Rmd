@@ -33,14 +33,14 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="row">
 <div class="col-sm-3">
 
-<img alt="Photo of Ulrik Lyngs" src="/images/redd-workshop/redd-logo-rect.png" class="img-fluid"/>
+<img alt="Reducing Digital Distraction logo" src="/images/redd-workshop/redd-logo-rect.png" class="img-fluid"/>
 
 </div>
 
 <div class="col-sm-9">
 ##### The ReDD Workshop: A Template for Supporting People in Regaining Control Over Digital Device Use
 <div class="featured-links"> 
-[Paper](https://arxiv.org/pdf/2001.04180.pdf) | [Data and materials](https://osf.io/qtg7h/)
+[Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health) | [Materials](https://osf.io/hdvtm/)
 </div>
 
 <span class="tldr-label">Summary:</span> Students often struggle to get the benefits of digital connectivity without comprising their ability to be immersed in academic work or facing negative effects on their well-being. In collaboration with the Counselling Service at the University of Oxford, I run the ’Reducing Digital Distraction’ (ReDD) workshops, in which students reflect on their struggles and goals around digital device use, which they match with concrete tools and strategies.
@@ -52,7 +52,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="col-sm-3">
 
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zj9I-2gjths"></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zj9I-2gjths" allowfullscreen></iframe>
 </div>
 
 </div>
@@ -73,7 +73,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="col-sm-3">
 
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zj9I-2gjths"></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/kf-TwEo954s" allowfullscreen></iframe>
 </div>
 
 </div>
@@ -81,7 +81,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="col-sm-9">
 ##### Self-Control in Cyberspace: Applying Dual Systems Theory to a Review of Digital Self-Control Tools
 <div class="featured-links"> 
-[Paper](https://arxiv.org/pdf/2001.04180.pdf) | [Data and materials](https://osf.io/qtg7h/)
+[Paper](https://arxiv.org/pdf/1902.00157.pdf) | [Data and materials](https://osf.io/zyj4h/) | [Video of full talk at CHI'19](https://www.youtube.com/watch?v=sJf_F7faczU&t=955s)
 </div>
 
 <span class="tldr-label">Summary:</span> We analyse 367 apps and browser extensions from the Google Play, Chrome Web, and Apple App stores to identify common core design features and intervention strategies afforded by current tools for digital self-control. Second, we adapt and apply an integrative dual systems model of self-regulation as a framework for organising and evaluating the design features found.
@@ -94,19 +94,17 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="row">
 <div class="col-sm-3">
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zj9I-2gjths"></iframe>
-</div>
+<img alt="Reducing Digital Distraction logo" src="/images/rmd-workshop.png" class="img-fluid"/>
 
 </div>
 
 <div class="col-sm-9">
 ##### Introduction to reproducible research with R Markdown
 <div class="featured-links"> 
-[Paper](https://arxiv.org/pdf/2001.04180.pdf) | [Data and materials](https://osf.io/qtg7h/)
+[Course slides](https://ulyngs.github.io/rmarkdown-workshop-2019/) | [GitHub](https://github.com/ulyngs/rmarkdown-workshop-2019)
 </div>
 
-<span class="tldr-label">Summary:</span> R Markdown is a fantastic tool for reproducible research. It allows you to mix text written in markdown with chunks of executable code written in languages such as R or Python. I teach a 2-day workshop which introduces the essentials of R Markdown and how it can be used to write reproducible academic papers.
+<span class="tldr-label">Summary:</span> R Markdown allows you to mix text written in markdown with chunks of code in languages such as R or Python. I teach a 2-day workshop that introduces the essentials of R Markdown and how to use it to write reproducible research papers.
 </div>
 
 </div>
@@ -115,9 +113,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 <div class="row">
 <div class="col-sm-3">
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zj9I-2gjths"></iframe>
-</div>
+<img alt="Screenshot of an oxforddown PDF compiled in RStudio" src="https://raw.githubusercontent.com/ulyngs/oxforddown/master/screenshots/compiled_pdf.png" class="img-fluid"/>
 
 </div>
 
@@ -127,7 +123,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 [GitHub](https://github.com/ulyngs/oxforddown) | [Video tutorial](https://www.youtube.com/watch?v=Yf1W1BBS9cU)
 </div>
 
-<span class="tldr-label">Summary:</span> I wanted to write my PhD thesis in R Markdown, and use a traditional Oxford University LaTeX template to format it. There were no existing R packages for this, so I developed one myself. `oxforddown` uses combines `bookdown` (with heavy inspiration from `thesisdown`) with the beautiful and time tested OxThesis LaTeX template.
+<span class="tldr-label">Summary:</span> I wanted to write my PhD thesis in R Markdown, and use a traditional Oxford University LaTeX template to format it. There were no existing R packages for this, so I developed one. `oxforddown` combines `bookdown` (with heavy inspiration from `thesisdown`) and the beautiful and time-tested OxThesis LaTeX template.
 
 </div>
 
