@@ -21,6 +21,9 @@ body {
   font-weight: 300;
   font-size: 14px;
 }
+h3 {
+  font-size: 1.75em;
+}
 
 .navbar-brand {
   font-size: 2.5em;
@@ -56,4 +59,34 @@ body {
 /* footer */
 footer {
   margin-bottom: 2em;
+}
+
+
+
+/*----- PROJECT PAGE -----*/
+.project-work {
+  margin-bottom: 2em;
+  margin-left: 4em;
+  margin-top: 1.6em;
+}
+.project-entries .status-current {
+  color: #1b8931;
+  font-size: 0.6em;
+  padding: 2px
+  margin-left: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  top: -3px;
+}
+
+.project-entries .status-past {
+  color: #72492C;
+  font-size: 0.6em;
+  padding: 2px
+  margin-left: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  top: -3px;
 }
