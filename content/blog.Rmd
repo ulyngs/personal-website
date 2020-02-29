@@ -1,6 +1,3 @@
 ---
-author: Yihui Xie
-title: About Hugo XMin
+title: "blog"
 ---
-
-This is my sick blog
