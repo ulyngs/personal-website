@@ -31,5 +31,29 @@ body {
 
 /* styling to copy old website layout */
 .main-container {
-  padding-top: 7em;
+  padding-top: 7.5em;
+}
+
+
+/* front page */
+.link-wrapper {
+  margin-top: 0.5em;
+}
+.link-wrapper a {
+  color: black;
+}
+.featured-work {
+  margin-top: 2.5em;
+}
+.featured-work-entry {
+  margin-top: 2em;
+}
+.tldr-label {
+  font-style: italic;
+}
+
+
+/* footer */
+footer {
+  margin-bottom: 2em;
 }
