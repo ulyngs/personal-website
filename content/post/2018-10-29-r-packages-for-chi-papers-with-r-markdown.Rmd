@@ -1,0 +1,33 @@
+---
+title: "R packages for CHI papers with R Markdown"
+description: |
+  In a previous blog post, I detailed at length the nitty-gritty of how one might take the ACM Master Article LaTeX templates and get them to play nicely with R Markdown. To make it super easy in practice, I created two R packages which supply easy-to-use R Markdown templates in RStudio for CHI Proceedings and CHI Extended Abstracts.
+author: "Ulrik Lyngs"
+date: 2018-10-29
+categories:
+  - rmarkdown
+  - LaTeX 
+  - reproducibility
+  - ACM CHI
+teaser: "/post/2018-10-29-r-packages-for-chi-papers-with-r-markdown/preview.png"
+
+---
+
+So, I previously wrote at [great length](https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/) about how to use the [ACM Master Article LaTeX templates](https://www.acm.org/publications/proceedings-template) (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
+
+To make it speedy and easy in practice specifically in relation to the [ACM CHI Conference](https://sigchi.org), I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for [ACM CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) as well as [ACM CHI Extended Abstracts](https://github.com/ulyngs/chi-ea-rmd-template).
+
+![CHI proceedings template added to RStudio](/post/2018-11-02-how-to-build-safari-app-extensions/preview.png)
+
+![Template content knitted to PDF](/post/2018-11-02-how-to-build-safari-app-extensions/compiled.png)
+
+For now, these packages can be installed using the `devtools` for R:
+```r
+# The package isn't on CRAN yet - install the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("ulyngs/chi-proc-rmd-template")
+ #and/or
+devtools::install_github("ulyngs/chi-proc-ea-template")
+``` 
+
+As described in the **README.md** files on the two github repos, installing these packages will add two new templates to the available R Markdown templates in RStudio. The sample content has lots of examples (adapted and developed from the sample content included with the ACM Master Articles) that should make it easy for anyone interested to get up to speed on how to write CHI submissions in R Markdown!
