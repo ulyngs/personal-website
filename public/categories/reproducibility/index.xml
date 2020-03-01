@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reproducibility on ULRIK LYNGS</title>
+    <link>/categories/reproducibility/</link>
+    <description>Recent content in reproducibility on ULRIK LYNGS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/reproducibility/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Create New Chunk Options in R Markdown</title>
+      <link>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</guid>
+      <description>For the 2019 ACM CHI conference I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM’s LaTeX template. It worked in the end (the source file for our paper is here, an R package with our template is here, and a related blog post is here).
+However, one of the challenges along the way was that I was missing chunk options to be able to set all the necessary parameters from R Markdown.</description>
+    </item>
+    
+    <item>
+      <title>R packages for CHI papers with R Markdown</title>
+      <link>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</guid>
+      <description>So, I previously wrote at great length about how to use the ACM Master Article LaTeX templates (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
+To make it speedy and easy in practice specifically in relation to the ACM CHI Conference, I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for ACM CHI Proceedings as well as ACM CHI Extended Abstracts.</description>
+    </item>
+    
+    <item>
+      <title>How to Write ACM Articles with R Markdown</title>
+      <link>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</guid>
+      <description>NOTE: After writing this post, I created two R packages which add R Markdown templates for CHI Proceedings and CHI Extended Abstract manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.
+I love R Markdown. I use R for almost all my data analyses and visualisations, and Rmd files help me keep an interactive lab notebook of the steps I took while making it quick and easy to reproduce everything.</description>
+    </item>
+    
+    <item>
+      <title>Digging Science Out of a Hole: The Reproducibility Index</title>
+      <link>/post/2016/09/26/digging-science-out-of-a-hole-the-reproducibility-index/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/09/26/digging-science-out-of-a-hole-the-reproducibility-index/</guid>
+      <description>Note: After I wrote this blog post, helpful folks over at PsychMAP shared some excellent initiatives that address the same issue: Curate Science is a crowdsourced collection and annotation of replications, and Pub Peer is a browser plug-in that gives you other researchers’ comments on the article you’re reading. Check them out!
+Science is in trouble. For decades, we have paid lip service to the notion that scientific knowledge can be trusted because it is reproducible.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Making Statistics Make Sense | ULRIK LYNGS</title>
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
+    
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <div class="header-container">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mr-auto">
+        <div class="container">
+        <a class="navbar-brand" href="/index.html">ULRIK LYNGS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <div class="navbar-nav ml-auto">
+            
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            
+              <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+            
+              <li class="nav-item"><a class="nav-link" href="/publications/">Publications</a></li>
+            
+              <li class="nav-item"><a class="nav-link" href="/cv/">CV</a></li>
+            
+              <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+            
+            </ul>
+          </div>
+          
+        </div>
+      </nav>
+      </div>
+      
+    </div>
+
+
+<div class="main-container container blog-post">
+  
+  <main>
+    <div class="post-meta">
+      <h1><span class="title">Making Statistics Make Sense</span></h1>
+      <p class="byline">Ulrik Lyngs | February 26, 2017</p>
+      
+      <img src="/post/2018-10-28-making-statistics-make-sense/preview.jpg" class="img-fluid">
+      <hr>
+    </div>
+    <div class="post-content">
+      
+
+
+<p>Learning statistics is unavoidable for researchers. Aside from a few last refuges like literary theory, philosophy, or ethnography, understanding the world by analysing quantitative data reigns king in nearly all fields. If a psychologist wants to know whether power posing makes people behave more confidently, he conducts experiments and uses statistics to judge whether his hypotheses were supported. If a social scientist wants to understand motivations of Trump vs Clinton voters, statistics tell her how many people to survey, and afterwards whether the voters are different.</p>
+<p>For most people, however, statistics is hard, and many find the mere idea of learning it terrifying. I remember taking a statistics course in which the lecturer after each class would project a huge image of cute puppies onto the screen, to calm down the frustrated humanities students in the room…</p>
+<p>Even among established academic researchers, the level of statistical literacy is often not what it ought to be. One researcher used a computer program to recalculate critical statistical tests in 250,000 articles published in major psychology journals, and found that <a href="https://www.ncbi.nlm.nih.gov/pubmed/26497820"><em>one in eight</em> had at least one grossly inconsistent <em>p</em>-value</a> that may have invalidated the article’s statistical conclusions. A recent review of papers published in top-journals (e.g. <em>Science</em>) found that <a href="http://www.nature.com/neuro/journal/v14/n9/full/nn.2886.html">15% used incorrect statistical procedures</a>, and another review drily remarked that it’s “<a href="http://onlinelibrary.wiley.com/doi/10.1890/0012-9658(2003)084%5B0810:DAAUIU%5D2.0.CO;2/abstract;jsessionid=219AEBEE8E81265F6BE027D500DC55D2.f02t02">easier to get a paper published if one uses erroneous statistical analysis than if one uses no statistical analysis at all</a>”.</p>
+<div id="what-to-do" class="section level1">
+<h1>What to do?</h1>
+<p>So what do we do about the fact that statistical literacy is exceedingly important, yet people find stats difficult and scary to learn and even senior researchers make blatant mistakes? One approach is to make statistics more fun to learn by using sexy and eye-grabbing data sets in statistics classes. For example, <a href="http://www.statisticshell.com">Andy Field</a>’s popular series of textbooks <em>Discovering Statistics</em> carry the subtitle “<em>… and Sex and Drugs and Rock ’n’Roll</em>” and has their reader learn statistics by analysing things like (lack of) personal hygiene at festivals, the effect of using Coke as a contraceptive, and the relationship between being off-one’s-face drunk and getting into physical fights (!).</p>
+<p>Such a ‘sugar coating’ approach, however, only takes us so far. A more radical approach is to reconsider the statistical vocabulary we use in the first place.</p>
+<p>The purpose of a scientific vocabulary, I would argue, is to (a) give concrete form to useful concepts (b) in a way that’s concise and puts minimal strain on our working memory, and which (c) is quick and easy to learn and remember. How are we doing in statistics, relative to this target? Do we use terms that make our concepts clear, transparent, and easy to memorise? Or (you can probably tell where I’m going with this…) have we created a wasteland of arbitrary symbols and names of statistical inventors that both makes terms difficult to remember and obscures their internal relationships? I think the latter is true to a disturbing degree.</p>
+</div>
+<div id="the-problem-with-statistics---example-1-the-chi-squared-test" class="section level1">
+<h1>The problem with statistics - Example 1: the chi-squared test</h1>
+<p>Imagine I want to know if there’s a relationship between how often people go fishing and how often they eat fish. I might go and ask 1,701 random people two questions: <em>How often do you go fishing?</em> and <em>How often do you eat fish?</em> Let’s say I get these results:</p>
+<p><img src="http://ulriklyngs.com/sites/default/files/fishing-histogram.jpg" /></p>
+<p>These are the distributions of people answering ’Never’, ‘Sometimes’, and ‘Always’ to my two questions (‘Always’ means that you just can’t ever stop yourselves fishing, or, that you just can’t stop putting fish in your mouth because it’s too delicious). I ask each person both questions, so each person has one score in one distribution and one in the other, and it’s the relationship between the two that we are interested in. We can show the data in another way to get the combinations of answers:</p>
+<p><img src="http://ulriklyngs.com/sites/default/files/fishing-xtab.png" /></p>
+<p>There seems to be a relationship - among people that “Always” go fishing, 48% never eats fish, whereas among people that “Never” go fishing, only 29% never eats fish. We seem to have a negative relationship, where people who go fishing more often are less likely to eat fish. But maybe this relation is just a coincidence? How do I test that? One way is to think about what proportion of responses of ‘Never’, ‘Sometimes’ and ‘Always’ I’d expect on ‘Eats fish’ if it actually doesn’t matter whether people go fishing. In this case, no matter what people answer on ‘Goes fishing’ I should see the same distribution of answers to ‘Eats fish’, as I do overall. Like this:</p>
+<p><img src="http://ulriklyngs.com/sites/default/files/fishing-expectations_0.jpg" /></p>
+<p>In other words, I can find out what proportions of eating fish I <em>expect</em> to see if it doesn’t change with how often one goes fishing. Then I check how different the proportions I actually <em>observe</em> are from what I expected. Finally, I can find out how likely it is that I get this difference just by chance, if there isn’t actually a real difference - and this is my “<em>p</em>-value”.</p>
+<p>Now, what might be a sensible name for such a test? It’s kind of a Proportions_Observed-vs-Proportions_Expected test. Maybe it’s called a POPE-test? And maybe there’s a subscript that disambiguate it from similar tests that use the same idea, while making it obvious that the tests share a relationship? Well, the convention statisticians settled on is to call it a “chi-squared”-test. You know, just to make things obvious.</p>
+</div>
+<div id="the-problem-with-statistics---example-2-chi-squares-measures-of-association" class="section level1">
+<h1>The problem with statistics - Example 2: chi-square’s measures of association</h1>
+<p>Okay, let’s return to our example. Let’s say that my POPE, apologies, my <em>chi-squared test</em> tells me it is super unlikely to see a difference between expected and observed proportions this large by chance. In the jargon, my result is “statistically significant”.</p>
+<p>“Statistically significant”, however, doesn’t mean “this effect is big and important”. It just means “I am unlikely to observe this data by chance if there’s no actual relationship between my variables”. It doesn’t tell me anything about the <em>size</em> of the relationship. (We should all pledge to stop calling effects “significant” and instead say e.g. “detectable”, so we don’t in the minds of our readers - or ourselves - conflate the existence of a relationship with its magnitude or importance. A ‘statistically significant effect’ only means that it’s ‘statistically detectable’. Moving on.) So what do I do if I want to know how strong the association is?</p>
+<p>Here’s one approach: Say I find that how often people eat fish varies depending on how often they go fishing. When we look at the data it seems that there is a negative relationship, where people less frequently eat fish the more often they go fishing. (Maybe people who fish more also eat less fish because they acquire greater empathy with fish, after seeing them repeatedly trying to escape from the hook…) How do I put an objective number on how strong the relationship is?</p>
+<p>I might start by counting the number of times where a participant who scores higher than other participants on ‘goes fishing’ also scores higher than others on ‘eats fish’. Statisticians call this “concordant pairs”:</p>
+<p><img src="http://ulriklyngs.com/sites/default/files/fishing-concordant.jpg" /></p>
+<p>In my drawing, some people say they ‘always’ goes fishing, and also say that they ‘always’ eat fish. The participants who score lower than ‘always’ on goes fishing and also lower than ‘always’ on eats fish, form ‘concordant’ pairs with the always-always people.</p>
+<p>Next I count the number of times where the opposite happens. That is, the times where a participant who scores higher than other participants on ‘goes fishing’ scores <strong>lower</strong> on ‘eats fish’ than the others. Statisticians call this “discordant pairs”:</p>
+<p><img src="http://ulriklyngs.com/sites/default/files/fishing-discordant.jpg" /></p>
+<p>In my drawing, some people say they ‘never’ goes fishing, and also that they ‘always’ eat fish. People who score higher than ‘never’ on goes fishing but lower than ‘always’ on eats fish, form ‘discordant’ pairs with the never-always people.</p>
+<p>Now, if I’ve got a strong negative relationship where people who more often goes fishing almost always eat less fish than those who less often goes fishing, then there will be many more discordant pairs than concordant pairs. So one simple measure of effect size is the difference between concordant pairs and discordant pairs, compared to the total number of those pairs.</p>
+<p>What might such a test be called? It’s a kind of Concordant-vs-Discordant-Pairs Test. Maybe it’s called a Concordance-Difference-Test, or ConDif for short? Again, clever people might come up with lots of variations on this kind of test, so maybe there’s a good name for this general approach, like ConDif, and then various subscripts that disambiguate related tests from one another, while making it obvious that they take the same kind of approach?</p>
+<p>Well, statisticians’ name for this test is ‘Goodman-Kruskal’s gamma test’, or just ‘gamma test’. Okay, okay. But have they at least been consistent and named the test variations that use the difference between concordant and discordant pairs something with ‘gamma’? Not quite. Some of the popular variations on the approach are called “Yule’s Q”, “Somer’s d”, and “Kendall’s tau” (Kendall’s tau in turn has versions a, b, and c).</p>
+<div id="how-to-do-statistics-better" class="section level4">
+<h4>How to do statistics better</h4>
+<p>I could go on, but this should be enough to illustrate the point. For students who struggle with learning statistics, or for researchers who aren’t themselves statisticians, our obscure vocabulary makes understanding and remembering the concepts unnecessarily difficult. It increases the number of terms to learn (with the consequence that many give up in frustration or just can’t be bothered) and puts a smokescreen over the relationship between tests.</p>
+<p>If we accept that statistics is both a) super important and b) super difficult for many people, then we need to think hard about the best ways to teach and communicate it. We might try to sugar coat our current terms to students. However, sugar coating only takes us so far when our vocabulary is arcane and obscure in the first place. In some cases we do have okay terminology or have made an effort to improve the ones we had. For example, the term ‘ANOVA’ is alright - it’s short for ‘ANalysis Of Variance’ and gives a hint that it works on a principle of comparing variance between groups. Similarly, the simple term ‘bell-curve’, used in place of the obscure ‘Gaussian distribution’, substitutes veneration of a statistics guru with a term that gives an immediate reminder of what it points to.</p>
+<p>Reforming our statistics vocabulary is a low-hanging fruit that should make statistics quicker to learn, more transparent to understand, and easier to use. As we move into the era of big data, where a basic level of statistical literacy is essential, it’s about time to get started.</p>
+<table class="simple-table style-top">
+<thead>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+Current term
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+Better term
+</div>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+chi-squared test
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+POPE<br />
+(w/ chi-squared as subscript)
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+statistically significant
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+statistically detectable?
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+Kruskal-Goodman’s gamma
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+ConDif
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+Yule’s Q
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+ConDif<br />
+(it’s essentially gamma applied to a 2x2 table)
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+Somer’s d
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+ConDif<br />
+(w/ Somer’s d as subscript)
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+Kendall’s tau
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+ConDif<br />
+(w/ Kendall’s tau as subscript)
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+<em>t</em>-test
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+StdMeanDif<br />
+(w/ Student’s t as subscript)
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+F-ratio
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+…
+</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%">
+<div class="paragraph">
+…
+</div>
+</td>
+<td style="width:49%">
+<div class="paragraph">
+…
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    </div>
+  </main>
+</div>
+  <footer class="footer container">
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  <hr/>
+  © Ulrik Lyngs 2020
+  
+  </footer>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+  <script src="/js/navbar-hide.js"></script>
+  </body>
+</html>
+

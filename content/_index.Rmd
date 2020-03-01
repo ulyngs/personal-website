@@ -6,7 +6,7 @@ title: Home
 <div class="row">
 
 <div class="col col-lg-3 col-md-4 col-sm-6">
-<img alt="Photo of Ulrik Lyngs" src="http://ulriklyngs.com/sites/default/files/headshot_0.jpg" class="img-fluid"/>
+<img alt="Photo of Ulrik Lyngs" src="/images/headshot_small.jpg" class="img-fluid"/>
 </div>
 
 <div class="col col-lg-6 col-md-4 col-sm-6">
@@ -25,12 +25,19 @@ Department of Computer Science \
 University of Oxford \
 OX1 3QD Oxford, UK \
 ulrik.lyngs@cs.ox.ac.uk \
-<div class="link-wrapper"><a href="https://github.com/ulyngs" class="git-link"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a><a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fab fa-twitter fa-2x"></i></a><a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a></div>
+<div class="link-wrapper">
+<a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+<a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+</div>
 </div>
 </div>
 
+<div class="featured-work">
 ## Recent work
-<div class="row">
+</div>
+
+<div class="row featured-work-entry">
 <div class="col-sm-3">
 
 <img alt="Reducing Digital Distraction logo" src="/images/redd-workshop/redd-logo-rect.png" class="img-fluid"/>
@@ -38,17 +45,18 @@ ulrik.lyngs@cs.ox.ac.uk \
 </div>
 
 <div class="col-sm-9">
-##### The ReDD Workshop: A Template for Supporting People in Regaining Control Over Digital Device Use
+##### The ReDD Workshop: Supporting People in Regaining Control Over Digital Device Use
 <div class="featured-links"> 
 [Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health) | [Materials](https://osf.io/hdvtm/)
 </div>
 
-<span class="tldr-label">Summary:</span> Students often struggle to get the benefits of digital connectivity without comprising their ability to be immersed in academic work or facing negative effects on their well-being. In collaboration with the Counselling Service at the University of Oxford, I run the ’Reducing Digital Distraction’ (ReDD) workshops, in which students reflect on their struggles and goals around digital device use, which they match with concrete tools and strategies.
+<span class="tldr-label">Summary:</span> Many students find that constant digital connectivity has negative effects on their wellbeing, and makes it difficult for them to focus on academic work.
+With the the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I run ’Reducing Digital Distraction’ (ReDD) workshops, where we help students reflect on their struggles and goals around digital device use, and give them tools and strategies for taking control.
 </div>
 
 </div>
 
-<div class="row">
+<div class="row featured-work-entry">
 <div class="col-sm-3">
 
 <div class="embed-responsive embed-responsive-16by9">
@@ -63,13 +71,13 @@ ulrik.lyngs@cs.ox.ac.uk \
 [Paper](https://arxiv.org/pdf/2001.04180.pdf) | [Data and materials](https://osf.io/qtg7h/)
 </div>
 
-<span class="tldr-label">Summary:</span> Hundreds of thousands of people use browser extensions such as 'Newsfeed Eradicator' to make Facebook less distracting. We tested how removing the newsfeed or adding goal prompts and reminders on Facebook affect behaviour and perceived control. We found that both interventions have large effects on behaviour and help people stay on task and avoid distraction. But goal reminders can be annoying, and removing the newsfeed make some fear missing out on information.
+<span class="tldr-label">Summary: </span>Many people use browser extensions such as 'Newsfeed Eradicator' to make Facebook less distracting. We studied how removing the newsfeed or adding goal prompts and reminders on Facebook affect behaviour and perceived control. Both interventions helped people stay on task and avoid distraction, with large --- and distinct --- effects on behaviour.
 </div>
 
 </div>
 
 
-<div class="row">
+<div class="row featured-work-entry">
 <div class="col-sm-3">
 
 <div class="embed-responsive embed-responsive-16by9">
@@ -91,7 +99,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 
 
 
-<div class="row">
+<div class="row featured-work-entry">
 <div class="col-sm-3">
 
 <img alt="Reducing Digital Distraction logo" src="/images/rmd-workshop.png" class="img-fluid"/>
@@ -99,9 +107,9 @@ ulrik.lyngs@cs.ox.ac.uk \
 </div>
 
 <div class="col-sm-9">
-##### Introduction to reproducible research with R Markdown
+##### Workshop teaching: Reproducible research with R Markdown
 <div class="featured-links"> 
-[Course slides](https://ulyngs.github.io/rmarkdown-workshop-2019/) | [GitHub](https://github.com/ulyngs/rmarkdown-workshop-2019)
+[GitHub](https://github.com/ulyngs/rmarkdown-workshop-2019) | [Course slides](https://ulyngs.github.io/rmarkdown-workshop-2019/)
 </div>
 
 <span class="tldr-label">Summary:</span> R Markdown allows you to mix text written in markdown with chunks of code in languages such as R or Python. I teach a 2-day workshop that introduces the essentials of R Markdown and how to use it to write reproducible research papers.
@@ -110,7 +118,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 </div>
 
 
-<div class="row">
+<div class="row featured-work-entry">
 <div class="col-sm-3">
 
 <img alt="Screenshot of an oxforddown PDF compiled in RStudio" src="https://raw.githubusercontent.com/ulyngs/oxforddown/master/screenshots/compiled_pdf.png" class="img-fluid"/>
@@ -118,7 +126,7 @@ ulrik.lyngs@cs.ox.ac.uk \
 </div>
 
 <div class="col-sm-9">
-##### `oxforddown`: A template for writing Oxford University theses in R Markdown
+##### `oxforddown`: Writing a reproducible Oxford University thesis in R Markdown
 <div class="featured-links"> 
 [GitHub](https://github.com/ulyngs/oxforddown) | [Video tutorial](https://www.youtube.com/watch?v=Yf1W1BBS9cU)
 </div>

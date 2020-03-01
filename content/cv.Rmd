@@ -6,11 +6,11 @@ title: "Ulrik Lyngs: CV"
 <!-- add a floating table of contents: https://afeld.github.io/bootstrap-toc/ -->
 <div class="row cv-page">
 <!-- sidebar, which will move to the top on a small screen -->
-<div class="col-sm-3">
+<div class="col-sm-2">
 <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
 </div>
 
-<div class="col-sm-9">
+<div class="col-sm-10">
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -34,7 +34,7 @@ My **academic and professional background** is highly interdisciplinary, and I t
 
 My **personal interests** include travelling & couchsurfing, samatha meditation, dancing (Cuban salsa and swing), and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
-Download a brief version of [my CV as PDF](https://github.com/ulyngs/pagedown-cv/raw/master/_pdfs/lyngs_cv_2019_june.pdf).
+Download a brief version of [my CV as PDF](/pdfs/2020_lyngs_cv_brief.pdf).
 
 # Academia {.domain-header}
 ## Education

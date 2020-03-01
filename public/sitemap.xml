@@ -3,117 +3,173 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/note/2017/06/14/another-note/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+    <loc>/post/2019/04/30/367-tools-of-resistance-in-the-battle-for-online-attention/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/attention/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/example/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+    <loc>/categories/digital-self-control/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/digital-wellbeing/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/distraction/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/note/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tutorial/</loc>
-    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/note/2017/06/13/a-quick-note/</loc>
-    <lastmod>2017-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2016/02/14/a-plain-markdown-post/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/blogdown/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/hugo/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/markdown/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/mathjax/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/pandoc/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rstudio/</loc>
-    <lastmod>2016-02-14T00:00:00+00:00</lastmod>
+    <loc>/post/2019/02/20/how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-documents/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2015/07/23/hello-r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/knitr/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/latex/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/lua/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/pandoc/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/rmarkdown/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2015/07/23/lorem-ipsum/</loc>
-    <lastmod>2015-07-23T00:00:00+00:00</lastmod>
+    <loc>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</loc>
+    <lastmod>2019-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/reproducibility/</loc>
+    <lastmod>2019-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/browser-extensions/</loc>
+    <lastmod>2018-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018/11/02/how-to-build-safari-app-extensions/</loc>
+    <lastmod>2018-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/safari/</loc>
+    <lastmod>2018-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/xcode/</loc>
+    <lastmod>2018-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/acm-chi/</loc>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</loc>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</loc>
+    <lastmod>2018-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/self-control/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/tech-design/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017/07/06/ulysses-in-cyberspace/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017/02/26/making-statistics-make-sense/</loc>
+    <lastmod>2017-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/statistics/</loc>
+    <lastmod>2017-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/usability/</loc>
+    <lastmod>2017-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016/09/26/digging-science-out-of-a-hole-the-reproducibility-index/</loc>
+    <lastmod>2016-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
   </url>
   
   <url>
     <loc>/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>/publications/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>/cv/</loc>
   </url>
   
 </urlset>

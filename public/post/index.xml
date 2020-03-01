@@ -1,46 +1,104 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on A minimal Hugo website</title>
+    <title>Posts on ULRIK LYNGS</title>
     <link>/post/</link>
-    <description>Recent content in Posts on A minimal Hugo website</description>
+    <description>Recent content in Posts on ULRIK LYNGS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>A Plain Markdown Post</title>
-      <link>/post/2016/02/14/a-plain-markdown-post/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+      <title>367 Tools of Resistance in the Battle for Online Attention</title>
+      <link>/post/2019/04/30/367-tools-of-resistance-in-the-battle-for-online-attention/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2016/02/14/a-plain-markdown-post/</guid>
-      <description>This sample post is mainly for blogdown users. If you do not use blogdown, you can skip the first section.
-1. Markdown or R Markdown This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.</description>
+      <guid>/post/2019/04/30/367-tools-of-resistance-in-the-battle-for-online-attention/</guid>
+      <description>Many people struggle to control their use of digital devices: With news updates, engaging games, and an endless stream of social media available at your fingertips, it is difficult to avoid being distracted or sucked in.
+In fact, having good self-control over your device use is often made difficult on purpose, because the business models of many tech companies depend on people using products and services as much as possible.</description>
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>How to Use Pandoc Filters for Advanced Customisation of Your R Markdown Documents</title>
+      <link>/post/2019/02/20/how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-documents/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <guid>/post/2019/02/20/how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-documents/</guid>
+      <description>The problem I’m developing an R package called oxforddown to write my PhD thesis in R Markdown and format it with the time-tested OxThesis LaTeX template used by many an Oxford grad student.
+However, one feature of the OxThesis template just wouldn’t play nicely with R Markdown:
+To highlight post-viva corrections, the template has a feature that lets you wrap inline corrections in the LaTeX command \mccorrect{corrected text here} and put longer blocks of corrections in the LaTeX environment \begin{mccorrection} corrected long text here \end{correction}.</description>
     </item>
     
     <item>
-      <title>Lorem Ipsum</title>
-      <link>/post/2015/07/23/lorem-ipsum/</link>
-      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
+      <title>How to Create New Chunk Options in R Markdown</title>
+      <link>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2015/07/23/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Quisque mattis volutpat lorem vitae feugiat.</description>
+      <guid>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</guid>
+      <description>For the 2019 ACM CHI conference I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM’s LaTeX template. It worked in the end (the source file for our paper is here, an R package with our template is here, and a related blog post is here).
+However, one of the challenges along the way was that I was missing chunk options to be able to set all the necessary parameters from R Markdown.</description>
+    </item>
+    
+    <item>
+      <title>How to Build Safari App Extensions</title>
+      <link>/post/2018/11/02/how-to-build-safari-app-extensions/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/11/02/how-to-build-safari-app-extensions/</guid>
+      <description>You can find the Safari App Extension I describe in this blog post on the App Store — if you find this blog post valuable, please consider downloading a copy!
+I previously wrote a little browser extension for Chrome and Safari that reduces Facebook to just the functionality I find useful, by removing the newsfeed and most other things that distract me on the front page. With the most recent update of Safari, however, my extension was automatically turned off everytime I closed the browser.</description>
+    </item>
+    
+    <item>
+      <title>R packages for CHI papers with R Markdown</title>
+      <link>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</guid>
+      <description>So, I previously wrote at great length about how to use the ACM Master Article LaTeX templates (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
+To make it speedy and easy in practice specifically in relation to the ACM CHI Conference, I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for ACM CHI Proceedings as well as ACM CHI Extended Abstracts.</description>
+    </item>
+    
+    <item>
+      <title>How to Write ACM Articles with R Markdown</title>
+      <link>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</guid>
+      <description>NOTE: After writing this post, I created two R packages which add R Markdown templates for CHI Proceedings and CHI Extended Abstract manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.
+I love R Markdown. I use R for almost all my data analyses and visualisations, and Rmd files help me keep an interactive lab notebook of the steps I took while making it quick and easy to reproduce everything.</description>
+    </item>
+    
+    <item>
+      <title>Ulysses in Cyberspace</title>
+      <link>/post/2017/07/06/ulysses-in-cyberspace/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/07/06/ulysses-in-cyberspace/</guid>
+      <description>NOTE: This blog post was first written for the Oxford Internet Institute’s Connected Life conference. Find the original post here.
+For decades, tech companies have competed to make devices that do more faster, and with less user effort. In a current culmination of this trend, powerful smartphones have enabled us to truly do anything anywhere anytime. But a surprising opposition has emerged against the ruling wisdom that ‘convenience is king’.</description>
+    </item>
+    
+    <item>
+      <title>Making Statistics Make Sense</title>
+      <link>/post/2017/02/26/making-statistics-make-sense/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/02/26/making-statistics-make-sense/</guid>
+      <description>Learning statistics is unavoidable for researchers. Aside from a few last refuges like literary theory, philosophy, or ethnography, understanding the world by analysing quantitative data reigns king in nearly all fields. If a psychologist wants to know whether power posing makes people behave more confidently, he conducts experiments and uses statistics to judge whether his hypotheses were supported. If a social scientist wants to understand motivations of Trump vs Clinton voters, statistics tell her how many people to survey, and afterwards whether the voters are different.</description>
+    </item>
+    
+    <item>
+      <title>Digging Science Out of a Hole: The Reproducibility Index</title>
+      <link>/post/2016/09/26/digging-science-out-of-a-hole-the-reproducibility-index/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/09/26/digging-science-out-of-a-hole-the-reproducibility-index/</guid>
+      <description>Note: After I wrote this blog post, helpful folks over at PsychMAP shared some excellent initiatives that address the same issue: Curate Science is a crowdsourced collection and annotation of replications, and Pub Peer is a browser plug-in that gives you other researchers’ comments on the article you’re reading. Check them out!
+Science is in trouble. For decades, we have paid lip service to the notion that scientific knowledge can be trusted because it is reproducible.</description>
     </item>
     
   </channel>

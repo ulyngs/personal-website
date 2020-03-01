@@ -1,40 +1,175 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on A minimal Hugo website</title>
+    <title>Categories on ULRIK LYNGS</title>
     <link>/categories/</link>
-    <description>Recent content in Categories on A minimal Hugo website</description>
+    <description>Recent content in Categories on ULRIK LYNGS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Example</title>
-      <link>/categories/example/</link>
-      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <title>attention</title>
+      <link>/categories/attention/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/example/</guid>
+      <guid>/categories/attention/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>/categories/hugo/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+      <title>digital self-control</title>
+      <link>/categories/digital-self-control/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/hugo/</guid>
+      <guid>/categories/digital-self-control/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>digital wellbeing</title>
+      <link>/categories/digital-wellbeing/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r/</guid>
+      <guid>/categories/digital-wellbeing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distraction</title>
+      <link>/categories/distraction/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/distraction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knitr</title>
+      <link>/categories/knitr/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/knitr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LaTeX</title>
+      <link>/categories/latex/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lua</title>
+      <link>/categories/lua/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/lua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandoc</title>
+      <link>/categories/pandoc/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/pandoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rmarkdown</title>
+      <link>/categories/rmarkdown/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducibility</title>
+      <link>/categories/reproducibility/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/reproducibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>browser extensions</title>
+      <link>/categories/browser-extensions/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/browser-extensions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>safari</title>
+      <link>/categories/safari/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/safari/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xcode</title>
+      <link>/categories/xcode/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/xcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACM CHI</title>
+      <link>/categories/acm-chi/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/acm-chi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>self-control</title>
+      <link>/categories/self-control/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/self-control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech design</title>
+      <link>/categories/tech-design/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tech-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistics</title>
+      <link>/categories/statistics/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>usability</title>
+      <link>/categories/usability/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/usability/</guid>
       <description></description>
     </item>
     

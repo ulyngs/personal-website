@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX on ULRIK LYNGS</title>
+    <link>/categories/latex/</link>
+    <description>Recent content in LaTeX on ULRIK LYNGS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/latex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Use Pandoc Filters for Advanced Customisation of Your R Markdown Documents</title>
+      <link>/post/2019/02/20/how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-documents/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/02/20/how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-documents/</guid>
+      <description>The problem I’m developing an R package called oxforddown to write my PhD thesis in R Markdown and format it with the time-tested OxThesis LaTeX template used by many an Oxford grad student.
+However, one feature of the OxThesis template just wouldn’t play nicely with R Markdown:
+To highlight post-viva corrections, the template has a feature that lets you wrap inline corrections in the LaTeX command \mccorrect{corrected text here} and put longer blocks of corrections in the LaTeX environment \begin{mccorrection} corrected long text here \end{correction}.</description>
+    </item>
+    
+    <item>
+      <title>How to Create New Chunk Options in R Markdown</title>
+      <link>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/02/03/how-to-create-new-chunk-options-in-r-markdown/</guid>
+      <description>For the 2019 ACM CHI conference I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM’s LaTeX template. It worked in the end (the source file for our paper is here, an R package with our template is here, and a related blog post is here).
+However, one of the challenges along the way was that I was missing chunk options to be able to set all the necessary parameters from R Markdown.</description>
+    </item>
+    
+    <item>
+      <title>R packages for CHI papers with R Markdown</title>
+      <link>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/</guid>
+      <description>So, I previously wrote at great length about how to use the ACM Master Article LaTeX templates (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
+To make it speedy and easy in practice specifically in relation to the ACM CHI Conference, I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for ACM CHI Proceedings as well as ACM CHI Extended Abstracts.</description>
+    </item>
+    
+    <item>
+      <title>How to Write ACM Articles with R Markdown</title>
+      <link>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/07/18/how-to-write-acm-articles-with-r-markdown/</guid>
+      <description>NOTE: After writing this post, I created two R packages which add R Markdown templates for CHI Proceedings and CHI Extended Abstract manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.
+I love R Markdown. I use R for almost all my data analyses and visualisations, and Rmd files help me keep an interactive lab notebook of the steps I took while making it quick and easy to reproduce everything.</description>
+    </item>
+    
+  </channel>
+</rss>
