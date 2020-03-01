@@ -1,17 +1,18 @@
 {{ partial "header.html" . }}
 
-<div class="main-container container">
-  
-  <div class="article-meta">
-  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
-  {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-  {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-  </div>
+<div class="main-container container blog-post">
   
   <main>
-  {{ .Content }}
+    <div class="post-meta">
+      <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+      <p class="byline">{{ .Params.author }} | {{ .Date.Format "January 2, 2006" }}</p>
+      <!--{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}-->
+      <img src="{{ .Params.teaser }}" class="img-fluid">
+      <hr>
+    </div>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
   </main>
-
-
 </div>
 {{ partial "footer.html" . }}

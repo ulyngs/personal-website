@@ -209,3 +209,52 @@ footer {
 .posts-sidebar a {
   color: black;
 }
+
+/* ---- BLOG POST ---- */
+.main-container.blog-post {
+  max-width: 680px;
+}
+.blog-post .post-meta p {
+  color: #777;
+  margin-bottom: 0;
+}
+.blog-post .post-meta {
+  margin-bottom: 2em;
+}
+.blog-post .post-meta img {
+  padding: 2em;
+}
+
+.blog-post hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 1em;
+  max-width: 300px;
+}
+
+.blog-post .post-content p,
+.blog-post .post-content li {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.58;
+  /*font-family: Palatino, serif !important;*/
+}
+.blog-post .post-content ul {
+  margin-bottom: 2em;
+}
+.blog-post .post-content img {
+  padding: 1em;
+}
+.blog-post .post-content .figure {
+  margin-bottom: 2em;
+}
+.blog-post .post-content .caption {
+  color: rgba(0, 0, 0, 0.541176);
+  font-size: 1.1em;
+}
+.blog-post .post-content h1,
+.blog-post .post-content h2 {
+  margin-top: 1em;
+}
