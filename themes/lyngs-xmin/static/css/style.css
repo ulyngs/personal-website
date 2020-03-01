@@ -58,7 +58,8 @@ h3 {
 
 /* footer */
 footer {
-  margin-bottom: 2em;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 
@@ -90,3 +91,48 @@ footer {
   position: relative;
   top: -3px;
 }
+
+
+/* ------ PUBLICATIONS PAGE ------ */
+.publications-page caption {
+  caption-side: top;
+  font-size: 1.5em;
+  padding: 0;
+  margin-bottom: 0px;
+  color: black;
+}
+.publications-page caption span {
+  display: none;
+}
+
+.publications-page thead {
+  display: none;
+}
+
+.publications-page .pub-title {
+  font-weight: 700;
+}
+
+.publications-page td {
+  padding-bottom: 1em;
+}
+
+.publications-page table {
+  margin-bottom: 3em;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.publications-page tbody td:first-child {
+  padding-right: 1.5em;
+  /*vertical-align: top;*/
+  width: 15%;
+}
+.publications-page tbody td:nth-child(2) {
+  width: 85%;
+}
+
+.publications-page .pub-title a {
+  color: black;
+}
+

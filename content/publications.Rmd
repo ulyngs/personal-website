@@ -11,6 +11,14 @@ knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 ```
 
 
+<div class="row publications-page">
+
+<div class="col-sm-2">
+</div>
+
+<div class="col-sm-10">
+
+
 ```{r}
 # create the table data
 publications <- readxl::read_xlsx(here("_data/publications.xlsx"))
@@ -44,5 +52,9 @@ for (cur_year in years){
     knitr::kable(caption = cur_year) %>% 
     print()
 }
+
 ```
 
+</div>
+
+</div> <!-- end row -->
