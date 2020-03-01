@@ -136,3 +136,44 @@ footer {
   color: black;
 }
 
+
+/* ---- CV PAGE ---- */
+#toc {
+  position: fixed;
+  top: 7.8em !important;
+}
+
+.cv-page h1 {
+  font-size: 2.2em;
+}
+.cv-page h2 {
+  font-size: 1.7em;
+}
+.cv-page h3 {
+  font-size: 1.3em;
+}
+.cv-page .domain-header {
+  margin-top: 1.5em;
+}
+.cv-page thead {
+  display: none;
+}
+.cv-page table {
+  margin-bottom: 1.5em;
+  table-layout: fixed;
+  width: 100%;
+}
+.cv-page tbody td:first-child {
+  padding-right: 1.5em;
+  vertical-align: top;
+  width: 15%;
+}
+.cv-page tbody td:nth-child(2) {
+  width: 85%;
+}
+.cv-page td {
+  padding-bottom: 0.1em;
+}
+.cv-page .work-title {
+  font-size: 1.2em;
+}

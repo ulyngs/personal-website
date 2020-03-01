@@ -4,12 +4,10 @@ title: "Ulrik Lyngs: CV"
 
 
 <!-- add a floating table of contents: https://afeld.github.io/bootstrap-toc/ -->
-<div class="row">
-  <!-- sidebar, which will move to the top on a small screen -->
+<div class="row cv-page">
+<!-- sidebar, which will move to the top on a small screen -->
 <div class="col-sm-3">
-  
-  <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
-
+<nav id="toc" data-toggle="toc" class="sticky-top"></nav>
 </div>
 
 <div class="col-sm-9">
@@ -28,22 +26,18 @@ cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
 
 ```
 
-<br>
-
 # Summary
 
 I am passionate about using insights from the behavioural neurosciences to **design digital technology that is sensitive to human limitations and biases**, particularly in relation to attention and self-regulation.
 
 My **academic and professional background** is highly interdisciplinary, and I try to integrate best practices from many work spheres, such as using tools from large-scale event management to structure academic projects.
 
-My **personal interests** include travelling & couchsurfing, samatha meditation, dancing (Cuban salsa and swing), and playing music (whatever instruments I can get my hands on, and ideally with the [Karaoke Collective](https://karaokecollective.com)).
+My **personal interests** include travelling & couchsurfing, samatha meditation, dancing (Cuban salsa and swing), and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
 Download a brief version of [my CV as PDF](https://github.com/ulyngs/pagedown-cv/raw/master/_pdfs/lyngs_cv_2019_june.pdf).
 
-<br>
-
-# Academia
-## Education {.education .nohead}
+# Academia {.domain-header}
+## Education
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
@@ -53,8 +47,9 @@ cv_entries %>%
   kable()
 ```
 
-## Research {.tabset .output-header}
-### Publications {.nohead .publications}
+
+## Research
+### Publications
 ```{r}
 publications_table <- publications %>%
   arrange(desc(year), type) %>%
@@ -81,11 +76,12 @@ publications_table %>%
 
 ```
 
-### Talks {}
+
+### Talks
 ```{r, message=FALSE, warning=FALSE}
 library(lubridate)
 library(DT)
-cv_entries %>% 
+talks_table <- cv_entries %>% 
   filter(type == 'talk') %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
   mutate(what = str_c("<em>", what, "</em>, ", where)) %>% 
@@ -95,11 +91,14 @@ cv_entries %>%
   arrange(desc(Date)) %>% 
   mutate(Date = str_c(year(Date),
                       ", ",
-                      month(Date, label = TRUE))) %>% 
-  datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(
-  pageLength = 10
-))
+                      month(Date, label = TRUE)))
+  
+# DT library doesn't seem to be working
+#talks_table %>% 
+  #datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
 
+talks_table %>% 
+  kable()
 
 # cv_entries %>% 
 #   filter(type == 'talk') %>% 
@@ -110,7 +109,8 @@ cv_entries %>%
   
 ```
 
-### Posters {.nohead .posters}
+
+### Posters
 ```{r}
 cv_entries %>% 
   filter(type == 'poster') %>%
@@ -120,7 +120,8 @@ cv_entries %>%
   kable()
 ```
 
-## Teaching experience {.teaching .service .nohead}
+
+## Teaching experience
 ```{r}
 cv_entries %>% 
   filter(type == 'teaching') %>% 
@@ -132,8 +133,8 @@ cv_entries %>%
   kable()
 ```
 
-## Other {.tabset .output-header}
-### Grants and Awards {.grants .nohead}
+## Other
+### Grants and Awards
 ```{r}
 cv_entries %>% 
   filter(type == 'grants_and_awards') %>% 
@@ -144,7 +145,7 @@ cv_entries %>%
 ```
 
 
-### Media coverage {.media .nohead}
+### Media coverage
 ```{r}
 cv_entries %>% 
   filter(type == 'media') %>%
@@ -152,7 +153,7 @@ cv_entries %>%
   kable()
 ```
 
-### Service {.service .nohead}
+### Service
 ```{r}
 cv_entries %>% 
   filter(type == 'service') %>% 
@@ -174,8 +175,8 @@ cv_entries %>%
 ```
 
 
-# Work (non-academia)
-## Selected work experience {.work .nohead .vertical-top}
+# Work
+## Selected employments
 ```{r}
 cv_entries %>% 
   filter(type == 'work', is.na(website)) %>% 
@@ -187,7 +188,7 @@ cv_entries %>%
   kable()
 ```
 
-## Professional development {.prof-dev .nohead}
+## Professional development
 ```{r}
 cv_entries %>% 
   filter(type == 'prof-dev') %>% 
@@ -212,8 +213,9 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'technical') %>% 
-  mutate(what = str_c("- *", what, "* ", additional_info)) %>% 
-  select(what) %>% 
+  mutate(what = str_c("• ", what, " ", additional_info)) %>% 
+  select(type, what) %>% 
+  mutate(type = "") %>% 
   kable()
 ```
 
