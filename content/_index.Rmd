@@ -50,8 +50,8 @@ ulrik.lyngs@cs.ox.ac.uk \
 [Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health) | [Materials](https://osf.io/hdvtm/)
 </div>
 
-<span class="tldr-label">Summary:</span> Many students find that constant digital connectivity has negative effects on their wellbeing, and makes it difficult to focus on their academic work.
-With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I run ’Reducing Digital Distraction’ (ReDD) workshops, where we help students reflect on their struggles and goals around digital device use, and give them tools and strategies for taking control.
+<span class="tldr-label">Summary:</span> Many students find that constant digital connectivity challenges their mental wellbeing, and makes it difficult to focus on academic work.
+With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I run the ’Reducing Digital Distraction’ (ReDD) workshop, where students reflect on their struggles and goals around digital device use, and implement concrete tools and strategies for taking control.
 </div>
 
 </div>
@@ -92,7 +92,7 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 [Paper](https://arxiv.org/pdf/1902.00157.pdf) | [Data and materials](https://osf.io/zyj4h/) | [Video of full talk at CHI'19](https://www.youtube.com/watch?v=sJf_F7faczU&t=955s)
 </div>
 
-<span class="tldr-label">Summary:</span> No systematic reviews had been done of the hundreds of apps and browser extensions for supporting self-control over digital devices that are available on online stores. We reviewed design features in 367 such tools on the Google Play, Chrome Web, and Apple App stores and analysed them using a dual systems model of self-regulation.
+<span class="tldr-label">Summary:</span> No systematic reviews have been done of the hundreds of apps and browser extensions for supporting self-control over digital devices that are available on online stores. We reviewed design features in 367 such tools on the Google Play, Chrome Web, and Apple App stores and analysed them using a dual systems model of self-regulation.
 </div>
 
 </div>
