@@ -27,7 +27,10 @@ cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
 
 
 ### The ReDD Workshop: Supporting People in Regaining Control Over Digital Device Use <span class="status-current">[current]</span>
-Self-control struggles are a key factor in many negative effects of digital device use on well-being, such as prob- lematic use of social media. Students, in particular, often struggle to get the benefits of digital connectivity without comprising their ability to be immersed in academic work or facing negative effects on their well-being. We present an early glimpse at a collaboration with the Counselling Ser- vice at the University of Oxford around the ’Reducing Digital Distraction’ (ReDD) workshops, which attempts to tackle this challenge. In these workshops, students reflect on their struggles and goals around digital device use, which they match with concrete tools and strategies.
+Self-control struggles are a key factor in many negative effects of digital device use on well-being, such as problematic use of social media. 
+Students, in particular, often struggle to get the benefits of digital connectivity without comprising their ability to be immersed in academic work or experience negative effects on their well-being. 
+Together with the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I attempt to address this challenge via the ’Reducing Digital Distraction’ (ReDD) workshop. 
+In these workshops, students reflect on their struggles and goals around digital device use, and experiment with concrete tools and strategies.
 
 My main collaborator for this project is Maureen Freed, Deputy Head of [Counselling at the University of Oxford](https://www.ox.ac.uk/students/welfare/counselling), in addition to [Petr Slovák](https://uclic.ucl.ac.uk/people/petr-slovak), [Max van Kleek](https://hip.cat/emax/), and [Sir Nigel Shadbolt](https://www.jesus.ox.ac.uk/people/professor-sir-nigel-shadbolt-freng-frs).
 
