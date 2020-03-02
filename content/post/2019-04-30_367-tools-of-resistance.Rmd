@@ -6,7 +6,7 @@ description: |
 author: "Ulrik Lyngs"
 date: 2019-04-30
 categories: ["digital self-control", "digital wellbeing", "distraction", "attention"]
-teaser: "/post/2019-04-30_367-tools-of-resistance/preview.png"
+teaser: "/post/2019-04-30_367-tools-of-resistance/preview.jpg"
 
 ---
 
