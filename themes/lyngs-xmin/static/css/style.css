@@ -259,3 +259,15 @@ footer {
 .blog-post .post-content h3 {
   margin-top: 1.5em;
 }
+.blog-post .post-content h1 {
+  font-size: 2em;
+}
+.blog-post .post-content h2 {
+  font-size: 1.75em;
+}
+.blog-post .post-content h3 {
+  font-size: 1.5em;
+}
+.blog-post .footnotes li p {
+  font-size: 1em;
+}
