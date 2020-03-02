@@ -13,17 +13,20 @@ teaser: "/post/2018-11-02-how-to-build-safari-app-extensions/10_add_safari_ext.p
 ---
 
 ```{r setup, include=FALSE}
-library(knitr)
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '60%', fig.align = 'center')
-image_path <- "/post/2018-11-02-how-to-build-safari-app-extensions/"
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
+knitr::opts_knit$set(bookdown.internal.label = FALSE)
 
+image_path <- "/post/2018-11-02-how-to-build-safari-app-extensions/"
 ```
 
 *You can [find the Safari App Extension I describe in this blog post on the App Store](https://apps.apple.com/gb/app/no-distractions-for-facebook/id1464306838?mt=12) --- if you find this blog post valuable, please consider downloading a copy!* 
 
 I previously wrote a little browser extension for Chrome and Safari that reduces Facebook to just the functionality I find useful, by removing the newsfeed and most other things that distract me on the front page.
-![Facebook minimised](/post/2018-11-02-how-to-build-safari-app-extensions/1_FB_minimised.png)
+
+```{r, fig.cap="Facebook with no distractions"}
+knitr::include_graphics(str_c(image_path, "1_FB_minimised.png"), error = FALSE) 
+```
 
 With the most recent update of Safari, however, my extension was automatically turned off everytime I closed the browser. 
 And I discovered that Apple has an ongoing plan to integrate extensions to Safari with the usual development of Apple apps, instead of following the more [interoperable approach](https://www.reddit.com/r/apple/comments/8onctq/psa_safari_on_macos_mojave_no_longer_supports/) to browser extensions taken by e.g. Chrome and Firefox. 
@@ -37,51 +40,89 @@ Mostly because I couldn't find a single tutorial online that just walked through
 So, to make this learning quicker and easier for others, here's a tutorial that walks through a simple example of how to build my `"No Distractions" for Facebook` as a Safari App Extension:
 
 
-# Step 1: Get Xcode
+### Step 1: Get Xcode
 If you haven't already, install Apple's IDE [Xcode](https://developer.apple.com/xcode/).
 
 
-# Step 2: Create a project in Xcode
+### Step 2: Create a project in Xcode
 Open Xcode, create a new project, choose 'Cocoa App' under the macOS project templates, and click 'next'.
-![Create cocoa app](/post/2018-11-02-how-to-build-safari-app-extensions//2_create_cocoa_app.png)
+
+```{r, fig.cap="Create cocoa app"}
+knitr::include_graphics(str_c(image_path, "2_create_cocoa_app.png"), error = FALSE) 
+```
+
 
 Give the project a name, e.g. 'Facebook Minimiser'. Untick 'Use Storyboards', 'Include Unit Tests' and 'Include UI Tests', as we'll just do a minimal example, then click 'next'. 
-![Name project](/post/2018-11-02-how-to-build-safari-app-extensions//3_name_project.png)
+
+```{r, fig.cap="Name project"}
+knitr::include_graphics(str_c(image_path, "3_name_project.png"), error = FALSE) 
+```
 
 Choose where to save the project - let's just save on the desktop for this tutorial. Click 'create'.
-![Save project](/post/2018-11-02-how-to-build-safari-app-extensions//4_save_project.png)
+
+```{r, fig.cap="Save project"}
+knitr::include_graphics(str_c(image_path, "4_save_project.jpg"), error = FALSE) 
+```
+
 
 Now we see the template app open in Xcode.
-![Template project open in Xcode](/post/2018-11-02-how-to-build-safari-app-extensions/5_xcode_project.png)
+
+```{r, fig.cap="Template project open in Xcode"}
+knitr::include_graphics(str_c(image_path, "5_xcode_project.jpg"), error = FALSE) 
+```
 
 
-# Step 3: Add a Safari Extension 'target' to the app
+### Step 3: Add a Safari Extension 'target' to the app
 If you, like me, are new to Xcode, try running the current template app by clicking the 'play' triangle icon in the top left. This will build and run the app:
-![Build template app](/post/2018-11-02-how-to-build-safari-app-extensions/6_build_app.png)
 
-As we haven't added any user interface to the app, the opened application window will just be blank
-![Blank template app opened](/post/2018-11-02-how-to-build-safari-app-extensions/7_blank_app.png)
+```{r, fig.cap="Build template app"}
+knitr::include_graphics(str_c(image_path, "6_build_app.png"), error = FALSE) 
+```
+
+As we haven't added any user interface to the app, the opened application window will just be blank:
+
+```{r, fig.cap="Blank template app opened"}
+knitr::include_graphics(str_c(image_path, "7_blank_app.png"), error = FALSE) 
+```
 
 Close the application again:
-![Closing template app](/post/2018-11-02-how-to-build-safari-app-extensions/8_close_app.png)
+
+```{r, fig.cap="Closing template app"}
+knitr::include_graphics(str_c(image_path, "8_close_app.png"), error = FALSE) 
+```
 
 Now we add a Safari Extension ['target'](https://medium.com/@andersongusmao/xcode-targets-with-multiples-build-configuration-90a575ddc687) to our app. Click 'File' -> 'New' -> 'Target...':
-![Adding extension target](/post/2018-11-02-how-to-build-safari-app-extensions/9_add_ext_target.png)
+
+```{r, fig.cap="Adding extension target"}
+knitr::include_graphics(str_c(image_path, "9_add_ext_target.jpg"), error = FALSE) 
+```
 
 Under 'macOS', choose 'Safari Extension' then click 'next'.
-![Choosing Safari Extension template](/post/2018-11-02-how-to-build-safari-app-extensions/10_add_safari_ext.png)
 
-Give the extension a name, e.g. 'Facebook Minimiser Extension' and click 'Finish'.
-![Name extension target](/post/2018-11-02-how-to-build-safari-app-extensions/11_name_ext.png)
+```{r, fig.cap="Choosing Safari Extension template"}
+knitr::include_graphics(str_c(image_path, "10_add_safari_ext.png"), error = FALSE) 
+```
+
+Give the extension a name, e.g. 'Facebook Minimiser Extension' and click 'Finish':
+
+```{r, fig.cap="Name extension target"}
+knitr::include_graphics(str_c(image_path, "11_name_ext.png"), error = FALSE) 
+```
 
 When Xcode asks whether it should 'Activate "Facebook Minimiser Extension" scheme?', click 'cancel'.
-![](/post/2018-11-02-how-to-build-safari-app-extensions/12_cancel_this.png)
+
+```{r, fig.cap="Name extension target"}
+knitr::include_graphics(str_c(image_path, "12_cancel_this.png"), error = FALSE) 
+```
 
 Now a folder called 'Facebook Minimiser Extension' has been added to the project:
-![Extension added](/post/2018-11-02-how-to-build-safari-app-extensions/13_ext_added.png)
+
+```{r, fig.cap="Extension added"}
+knitr::include_graphics(str_c(image_path, "13_ext_added.jpg"), error = FALSE) 
+```
 
 
-# Step 4: Try building the empty extension and enable it in Safari
+### Step 4: Try building the empty extension and enable it in Safari
 If you click the 'play' triangle icon in the top left, the app will again be built and run.
 
 Apple tells us that
@@ -89,31 +130,57 @@ Apple tells us that
 > When you build your app, Xcode builds your Safari App Extension first, then embeds it inside the finished app bundle. As soon as your app runs, your extension is ready for use in Safari.
 
 Let's go over to Safari, then go to Safari > Preferences. Click the 'Extensions' pane.
-![Safari preferences extensions pane](/post/2018-11-02-how-to-build-safari-app-extensions/14_ext_missing.png)
 
-Uh-oh - where's our extension? Turns out that unless we sign our extension with a developer certificate, it won't automatically appear. If you haven't already turned on the Development menu in Safari, go to Safari > Preferences > Advanced, then tick 'Show Develop menu in menu bar'.
-![Adding Develop menu](/post/2018-11-02-how-to-build-safari-app-extensions/15_dev_menu.png)
+```{r, fig.cap="Safari preferences extensions pane"}
+knitr::include_graphics(str_c(image_path, "14_ext_missing.jpg"), error = FALSE) 
+```
+
+Uh-oh - where's our extension? 
+Turns out that unless we sign our extension with a developer certificate, it won't automatically appear. 
+If you haven't already turned on the Development menu in Safari, go to Safari > Preferences > Advanced, then tick 'Show Develop menu in menu bar'.
+
+```{r, fig.cap="Adding Develop menu"}
+knitr::include_graphics(str_c(image_path, "15_dev_menu.png"), error = FALSE) 
+```
 
 Now go to 'Develop' in the top menu, click 'Allow Unsigned Extensions' and type in your password.
-![Allowing unsigned extensions](/post/2018-11-02-how-to-build-safari-app-extensions/16_allow_unsigned.png)
+
+```{r, fig.cap="Allowing unsigned extensions"}
+knitr::include_graphics(str_c(image_path, "16_allow_unsigned.jpg"), error = FALSE) 
+```
 
 Hooray, now our extension shows up! If we tick to enable it, we see its icon in the toolbar:
-![Enabling the extension](/post/2018-11-02-how-to-build-safari-app-extensions/17_enable_ext.png)
+
+```{r, fig.cap="Enabling the extension"}
+knitr::include_graphics(str_c(image_path, "17_enable_ext.jpg"), error = FALSE) 
+```
 
 
-# Step 5: Injecting a style sheet
-## Create the style sheet file
+### Step 5: Injecting a style sheet
+#### Create the style sheet file
 The extension doesn't do anything yet. Go back to Xcode and create a new file by right-clicking the 'Facebook Minimiser Extension' folder:
-![Adding file](/post/2018-11-02-how-to-build-safari-app-extensions/18_add_file.png)
+
+```{r, fig.cap="Adding file"}
+knitr::include_graphics(str_c(image_path, "18_add_file.jpg"), error = FALSE) 
+```
 
 Select 'Empty' and click 'next':
-![Choosing file type](/post/2018-11-02-how-to-build-safari-app-extensions/19_choose_type.png)
+
+```{r, fig.cap="Choosing file type"}
+knitr::include_graphics(str_c(image_path, "19_choose_type.jpg"), error = FALSE) 
+```
 
 Let's name our stylesheet **style.css**, set the target to 'Facebook Minimiser Extension', then click 'create':
-![Naming file and choosing target](/post/2018-11-02-how-to-build-safari-app-extensions/20_name_file.png)
+
+```{r, fig.cap="Naming file and choosing target"}
+knitr::include_graphics(str_c(image_path, "20_name_file.jpg"), error = FALSE) 
+```
 
 As an initial test, let's hide the news feed. In Safari, navigate to Facebook, right click on the page, select 'Inspect Element', and find the id or class of the element that contains the feed:
-![Inspecting Facebook HTML](/post/2018-11-02-how-to-build-safari-app-extensions/21_inspect_FB.png)
+
+```{r, fig.cap="Inspecting Facebook HTML"}
+knitr::include_graphics(str_c(image_path, "21_inspect_FB.jpg"), error = FALSE) 
+```
 
 Now go back to Xcode and add this corresponding CSS code to **style.css**:
 
@@ -124,36 +191,53 @@ Now go back to Xcode and add this corresponding CSS code to **style.css**:
 }
 ```
 
-![Updating style.css to hide news feed](/post/2018-11-02-how-to-build-safari-app-extensions/22_feed_css.png)
+```{r, fig.cap="Updating style.css to hide news feed"}
+knitr::include_graphics(str_c(image_path, "22_feed_css.png"), error = FALSE) 
+```
 
-## Include the style sheet file in the extension's **Info.plist** file
-In the 'Facebook Minimiser Extension' folder, click the **Info.plist* file. Expand the 'NSExtension' element and click the plus icon to add a new element:
-![Add element to NSExtension in **Info.plist**](/post/2018-11-02-how-to-build-safari-app-extensions/23_add_NSExt_ele.png)
+#### Include the style sheet file in the extension's **Info.plist** file
+In the 'Facebook Minimiser Extension' folder, click the **Info.plist* file. Expand the 'NSExtension' element and click the plus icon to add a new element [^manifest-footnote]:
 
-<aside>
-The **Info.plist** file is quite similar to the **manifest.json** file used in Chrome extensions.
-</aside>
+```{r, fig.cap="Add element to NSExtension in **Info.plist**"}
+knitr::include_graphics(str_c(image_path, "23_add_NSExt_ele.png"), error = FALSE) 
+```
+
+[^manifest-footnote]: The **Info.plist** file is quite similar to the **manifest.json** file used in Chrome extensions.
 
 Name this element 'SFSafariStyleSheet' and set its type to 'Array'. Expand the element and click the plus icon to add a new element:
-![Specify array 'SFSafariStyleSheet'](/post/2018-11-02-how-to-build-safari-app-extensions/24_add_style_ele.png)
+
+```{r, fig.cap="Specify array 'SFSafariStyleSheet'"}
+knitr::include_graphics(str_c(image_path, "24_add_style_ele.png"), error = FALSE) 
+```
 
 Set the type of this element to 'Dictionary', expand it and click the plus icon to add a new element:
-![Set to dictionary and add element](/post/2018-11-02-how-to-build-safari-app-extensions/25_add_to_dict.png)
+
+```{r, fig.cap="Set to dictionary and add element"}
+knitr::include_graphics(str_c(image_path, "25_add_to_dict.png"), error = FALSE) 
+```
 
 Name this element 'Style Sheet', leave its type as 'String', and give it the value 'style.css':
-![Point to our style sheet](/post/2018-11-02-how-to-build-safari-app-extensions/26_add_style.png)
 
-## Set websites to target
+```{r, fig.cap="Point to our style sheet"}
+knitr::include_graphics(str_c(image_path, "26_add_style.png"), error = FALSE) 
+```
+
+#### Set websites to target
 Finally, expand 'SFSafariWebsiteAccess' and under 'Allowed Domains' set the 'Item 0' element's value to '*.facebook.com':
-![Inject only on Facebook](/post/2018-11-02-how-to-build-safari-app-extensions/27_allow_FB.png)
+
+```{r, fig.cap="Inject only on Facebook"}
+knitr::include_graphics(str_c(image_path, "27_allow_FB.jpg"), error = FALSE) 
+```
 
 Now, if we rebuild our app and activate the extension in Safari, we see the news feed has been hidden:
 
 ```{r, out.width="50%"}
-knitr::include_graphics(c("/post/2018-11-02-how-to-build-safari-app-extensions/28_enable.png", "/post/2018-11-02-how-to-build-safari-app-extensions/29_feed_removed.png"), error = FALSE)
+knitr::include_graphics(c(str_c(image_path, "28_enable.png"), 
+                          str_c(image_path, "29_feed_removed.jpg")),
+                        error = FALSE)
 ```
 
-# Step 6: Tweak the CSS
+### Step 6: Tweak the CSS
 Finally, tweak the content of style.css to build my Facebook Minimiser:
 
 ```css
@@ -196,9 +280,9 @@ body {
 
 And now we get a nice, simple, and distraction free Facebook experience:
 
-```{r, layout="l-body-outset"}
-knitr::include_graphics("/post/2018-11-02-how-to-build-safari-app-extensions/30_FB_again.png", error = FALSE)
+```{r, fig.cap="Distraction-free Facebook!"}
+knitr::include_graphics(str_c(image_path, "30_FB_again.png"), error = FALSE)
 ```
 
-# Step 7: Celebrate! (almost)
+### Step 7: Celebrate! (almost)
 These are the basic steps to embed a basic Safari Extension in an app using Xcode. I did find (and filed a bug report to Apple) that in Mojave, my extensions would at times mysteriously [disappear from Safari > Preferences > Extensions](https://forums.developer.apple.com/thread/109893) - hopefully this won't occur on your machine and/or Apple will fix this bug ASAP.
