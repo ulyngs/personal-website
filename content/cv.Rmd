@@ -49,8 +49,8 @@ cv_entries %>%
 
 
 ## Research
-### Publications
-```{r}
+<!-- ### Publications -->
+```{r, eval=FALSE}
 publications_table <- publications %>%
   arrange(desc(year), type) %>%
   mutate(author_year = str_c(authors_full, " (", year, "). ")) %>%
