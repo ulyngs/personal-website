@@ -76,6 +76,9 @@ footer {
   margin-left: 4em;
   margin-top: 1.6em;
 }
+.project-work a {
+  color: black;
+}
 .project-entries .status-current {
   color: #1b8931;
   font-size: 0.6em;

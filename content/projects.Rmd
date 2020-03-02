@@ -40,10 +40,15 @@ My main collaborator for this project is Maureen Freed, Deputy Head of [Counsell
 redd <- publications %>% 
   filter(project == "redd-workshop") %>% 
   arrange(desc(year)) %>%  
-  mutate(html = str_c("<div class='col-sm-4'><p>**", 
-                      title, 
-                      "**<br>",
+  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
+                      title,  
+                      "**](",
+                      pdf,
+                      ")<br>",
                       authors_full,
+                      "<br>*",
+                      venue_abbrev,
+                      "*",
                       "</div>"))
 
 cat(redd$html)
@@ -61,10 +66,15 @@ This is the focus of my PhD research, where my collaborators include [Sir Nigel 
 self_control <- publications %>% 
   filter(project == "digital-self-control") %>% 
   arrange(desc(year)) %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>**", 
-                      title, 
-                      "**<br>",
+  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
+                      title,  
+                      "**](",
+                      pdf,
+                      ")<br>",
                       authors_full,
+                      "<br>*",
+                      venue_abbrev,
+                      "*",
                       "</div>"))
 
 cat(self_control$html)
@@ -79,10 +89,15 @@ cat(self_control$html)
 ```{r results='asis', echo=FALSE}
 rel_self_control <- publications %>% 
   filter(project == "religion-self-control") %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>**", 
-                      title, 
-                      "**<br>",
+  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
+                      title,  
+                      "**](",
+                      pdf,
+                      ")<br>",
                       authors_full,
+                      "<br>*",
+                      venue_abbrev,
+                      "*",
                       "</div>"))
 
 cat(rel_self_control$html)
@@ -100,10 +115,15 @@ In addition, we investigated whether racial associations coupled with speech acc
 ```{r results='asis', echo=FALSE}
 hearing_colour <- publications %>% 
   filter(project == "hearing-colour") %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>**", 
-                      title, 
-                      "**<br>",
+  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
+                      title,  
+                      "**](",
+                      pdf,
+                      ")<br>",
                       authors_full,
+                      "<br>*",
+                      venue_abbrev,
+                      "*",
                       "</div>"))
 
 cat(hearing_colour$html)
