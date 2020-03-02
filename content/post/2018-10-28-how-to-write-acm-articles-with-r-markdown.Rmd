@@ -9,9 +9,16 @@ categories:
   - LaTeX 
   - reproducibility
   - ACM CHI
-teaser: "/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/preview.png"
+teaser: "/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/preview.jpg"
 
 ---
+```{r setup, include=FALSE}
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
+knitr::opts_knit$set(bookdown.internal.label = FALSE)
+
+image_path <- "/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/"
+```
 
 *NOTE: After writing this post, I [created two R packages](https://ulriklyngs.com/blog/r-packages-for-chi-papers-with-r-markdown) which add R Markdown templates for [CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) and [CHI Extended Abstract](https://github.com/ulyngs/chi-ea-rmd-template) manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.*
 
@@ -32,7 +39,9 @@ _Note: I'll assume you're using RStudio for this tutorial_
 
 To use the ACM article template, we'd normally download the latest version [from here](https://www.acm.org/publications/proceedings-template). For the purposes of this tutorial, however, clone or download [this GitHub repo](https://github.com/ulyngs/acm-articles-rmd) which I set up with just the files you need to follow along and understand how things work. Open the R Project file in the repo's root folder. Now let's have a look at the files in the **step1** folder:
 
-<img class="img-responsive" alt="Step 1 files" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step1-files.png">
+```{r, fig.cap="Step 1 files"}
+knitr::include_graphics(str_c(image_path, "step1-files.png"), error = FALSE) 
+```
 
 This folder contains the necessary files to compile the most recent CHI proceedings template (these files are a subset of the files in the acmart-master folder which you can download via the ACM page I linked to above):
 
@@ -56,7 +65,9 @@ output:
 
 If you click 'Knit', the CHI proceedings template with sample content should compile to this pdf (if you get an error message, its probably for [this reason](https://github.com/jgm/pandoc/issues/970)):
 
-<img class="img-responsive" alt="Step 1 compiled to pdf" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step1-compiled.png">
+```{r, fig.cap="Step 1 compiled to pdf"}
+knitr::include_graphics(str_c(image_path, "step1-compiled.jpg"), error = FALSE) 
+```
 
 # Step 2. Adjust the LaTeX template to include your content
 Ok, so now we know how to compile to an arbitrary template without putting in any content. How do we put in the content from our Rmd file?
@@ -83,11 +94,15 @@ All other metadata (author names, whether you need title notes, etc.) we will ju
 
 Let's see what we get when we knit the result (**step2/step2.Rmd**):
 
-<img class="img-responsive" alt="Step 2 compiled first page" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step2-compiled-page1.png">
+```{r, fig.cap="Step 2 compiled first page"}
+knitr::include_graphics(str_c(image_path, "step2-compiled-page1.jpg"), error = FALSE) 
+```
 
 Ok, so title and abstract is plugged in correctly from the YAML header. Let's look at page 2:
 
-<img class="img-responsive" alt="Step 2 compiled second page" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step2-compiled-page2.png">
+```{r, fig.cap="Step 2 compiled second page"}
+knitr::include_graphics(str_c(image_path, "step2-compiled-page2.jpg"), error = FALSE) 
+```
 
 Argh! The body content as a whole is input correctly, but the in-text citations are not quite formatted the way we want, nor is the reference list shown in that nice ACM style. What's going on?
 
@@ -110,7 +125,9 @@ Ahh, now things make sense. In the .tex file, the citations and references have 
 # Step 3. Make sure citations are shown correctly
 Turns out this is easy. Go to the YAML header and under `bookdown::pdf_book:` add (with indentation) `citation_package: natbib`. This will make use of the LaTeX natbib package to insert citations into the .tex file, instead of inserting them as plain text. Let's knit again to see if this made a difference:
 
-<img class="img-responsive" alt="Step 3 compiled to pdf" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step3-compiled.png ">
+```{r, fig.cap="Step 3 compiled to pdf"}
+knitr::include_graphics(str_c(image_path, "step3-compiled.jpg"), error = FALSE) 
+```
 
 Yup, now it looks right. Let's have a look at the .tex to see what's actually going on. Now we see this around the Hume reference:
 
@@ -150,7 +167,10 @@ If we knit and inspect the generated .tex file, we can see that this chunk was t
 I.e. R Markdown generates the plot, creates a subfolder and saves the plot as a graphics file in there, then includes this generated file in the .tex file with the LaTeX syntax we'd expect. Magic! (Not to mention a **crucial step to automate to avoid errors in the research process**!)
 
 The output also looks as we'd expect:
-<img class="img-responsive" alt="Step 4 compiled to column width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step4-colwidth.png">
+
+```{r, fig.cap="Step 4: figure in column width"}
+knitr::include_graphics(str_c(image_path, "step4-colwidth.jpg"), error = FALSE) 
+```
 
 
 ## Two-column figures
@@ -177,7 +197,11 @@ If we inspect the .tex file, we see this code chunk is translated into this corr
 ```
 
 And the output looks correct (it's floating to a new page in our case):
-<img class="img-responsive" alt="Step 4 compiled to full width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step4-two-colwidth.png">
+
+```{r, fig.cap="Step 4: figure in full width"}
+knitr::include_graphics(str_c(image_path, "step4-two-colwidth.jpg"), error = FALSE) 
+```
+
 
 # Step 5. Handling tables
 To automatically grab data from our analyses and create a table in our CHI paper, we'll use ['kable'](https://bookdown.org/yihui/rmarkdown/r-code.html#tables).
@@ -232,7 +256,10 @@ If we knit and inspect the .tex, we see that the chunk has been translated into 
 ```
 
 And the output looks like this:
-<img class="img-responsive" alt="Step 5 column width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step5-colwidth.png">
+
+```{r, fig.cap="Step 5: table in column width"}
+knitr::include_graphics(str_c(image_path, "step5-colwidth.png"), error = FALSE) 
+```
 
 Awesome! No more errors from whatever obscure means through which you'd otherwise be getting your data into a LaTeX table.
 
@@ -251,8 +278,10 @@ iris %>%
 ````
 
 Et voilá, our table is put in a `\table*` environment in the .tex file and now spans two columns:
-<img class="img-responsive" alt="Step 5 full width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step5-two-col-width.png">
 
+```{r, fig.cap="Step 5: table in full width"}
+knitr::include_graphics(str_c(image_path, "step5-two-col-width.png"), error = FALSE) 
+```
 
 # Step 6. Referencing our figures and tables
 To finish off, how do we reference our figures and tables? Two options - the first is to simply use standard LaTeX syntax (you can use any LaTeX syntax within your Rmd file if you're compiling it to a PDF). For example:
@@ -268,7 +297,10 @@ That's fine, but if you want to keep the option of outputting to another format 
 ```
 
 Either way, the .tex output is the same, and so is the result:
-<img class="img-responsive" alt="Step 6 referencing figures and tables" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step6.png">
+
+```{r, fig.cap="Step 6: referencing figures and tables"}
+knitr::include_graphics(str_c(image_path, "step6.png"), error = FALSE) 
+```
 
 
 # Step 7. Celebrate!

@@ -61,7 +61,7 @@
       <h1><span class="title">How to Write ACM Articles with R Markdown</span></h1>
       <p class="byline">Ulrik Lyngs | July 18, 2018</p>
       
-      <img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/preview.png" class="img-fluid">
+      <img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/preview.jpg" class="img-fluid">
       <hr>
     </div>
     <div class="post-content">
@@ -79,7 +79,12 @@
 <h1>Step 1. Understand how to use (the ACM) LaTeX template with R Markdown</h1>
 <p><em>Note: I’ll assume you’re using RStudio for this tutorial</em></p>
 <p>To use the ACM article template, we’d normally download the latest version <a href="https://www.acm.org/publications/proceedings-template">from here</a>. For the purposes of this tutorial, however, clone or download <a href="https://github.com/ulyngs/acm-articles-rmd">this GitHub repo</a> which I set up with just the files you need to follow along and understand how things work. Open the R Project file in the repo’s root folder. Now let’s have a look at the files in the <strong>step1</strong> folder:</p>
-<p><img class="img-responsive" alt="Step 1 files" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step1-files.png"></p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step1-files.png" alt="Step 1 files" width="100%" />
+<p class="caption">
+Step 1 files
+</p>
+</div>
 <p>This folder contains the necessary files to compile the most recent CHI proceedings template (these files are a subset of the files in the acmart-master folder which you can download via the ACM page I linked to above):</p>
 <ul>
 <li><strong>acmart.cls</strong> provides the LaTeX class for the new ACM master template</li>
@@ -96,7 +101,12 @@ output:
 ---</code></pre>
 <p>(Note I use <code>bookdown::pdf_book:</code> as output instead of simply <code>pdf_document</code>. This is because <a href="https://bookdown.org/yihui/rmarkdown/books.html">bookdown</a> extends the referencing capability of R Markdown, so that we can reference figures with a syntax that also works when exporting to other formats than LaTeX/PDF.)</p>
 <p>If you click ‘Knit’, the CHI proceedings template with sample content should compile to this pdf (if you get an error message, its probably for <a href="https://github.com/jgm/pandoc/issues/970">this reason</a>):</p>
-<p><img class="img-responsive" alt="Step 1 compiled to pdf" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step1-compiled.png"></p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step1-compiled.jpg" alt="Step 1 compiled to pdf" width="100%" />
+<p class="caption">
+Step 1 compiled to pdf
+</p>
+</div>
 </div>
 <div id="step-2.-adjust-the-latex-template-to-include-your-content" class="section level1">
 <h1>Step 2. Adjust the LaTeX template to include your content</h1>
@@ -114,9 +124,19 @@ output:
 </ol>
 <p>All other metadata (author names, whether you need title notes, etc.) we will just set directly in sample-sigchi.tex - it’s not worth the effort (I think) to set up variables for this in your YAML header.</p>
 <p>Let’s see what we get when we knit the result (<strong>step2/step2.Rmd</strong>):</p>
-<p><img class="img-responsive" alt="Step 2 compiled first page" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step2-compiled-page1.png"></p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step2-compiled-page1.jpg" alt="Step 2 compiled first page" width="100%" />
+<p class="caption">
+Step 2 compiled first page
+</p>
+</div>
 <p>Ok, so title and abstract is plugged in correctly from the YAML header. Let’s look at page 2:</p>
-<p><img class="img-responsive" alt="Step 2 compiled second page" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step2-compiled-page2.png"></p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step2-compiled-page2.jpg" alt="Step 2 compiled second page" width="100%" />
+<p class="caption">
+Step 2 compiled second page
+</p>
+</div>
 <p>Argh! The body content as a whole is input correctly, but the in-text citations are not quite formatted the way we want, nor is the reference list shown in that nice ACM style. What’s going on?</p>
 <p>If we add <code>keep_tex: true</code> in the YAML header, as an indented line under <code>bookdown::pdf_document:</code>, we can knit again and inspect the intermediary .tex file that the PDF is generated from. We might notice the following in the .tex file:</p>
 <pre class="markdown"><code>(...) playable track for Guitar Hero Live.(Hume 1748)</code></pre>
@@ -128,7 +148,12 @@ Hume, D. 1748. \emph{An enquiry concerning human understanding}. Edited by L. A.
 <div id="step-3.-make-sure-citations-are-shown-correctly" class="section level1">
 <h1>Step 3. Make sure citations are shown correctly</h1>
 <p>Turns out this is easy. Go to the YAML header and under <code>bookdown::pdf_book:</code> add (with indentation) <code>citation_package: natbib</code>. This will make use of the LaTeX natbib package to insert citations into the .tex file, instead of inserting them as plain text. Let’s knit again to see if this made a difference:</p>
-<p><img class="img-responsive" alt="Step 3 compiled to pdf" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step3-compiled.png "></p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step3-compiled.jpg" alt="Step 3 compiled to pdf" width="100%" />
+<p class="caption">
+Step 3 compiled to pdf
+</p>
+</div>
 <p>Yup, now it looks right. Let’s have a look at the .tex to see what’s actually going on. Now we see this around the Hume reference:</p>
 <pre class="markdown"><code>(...) playable track for Guitar Hero Live.\citep{Hume1748}</code></pre>
 <p>So citations are now correctly inserted with <code>\citep{citation-key}</code>, and the bibliography is being generated by LaTeX itself via the final calls to <code>\bibliographystyle{ACM-Reference-Format}</code> and <code>\bibliography{$bibliography$}</code> in <strong>sample-sigchi.tex</strong>. Success!</p>
@@ -151,8 +176,13 @@ plot(pressure)
     \label{fig:tribute-plot}
 \end{figure}</code></pre>
 <p>I.e. R Markdown generates the plot, creates a subfolder and saves the plot as a graphics file in there, then includes this generated file in the .tex file with the LaTeX syntax we’d expect. Magic! (Not to mention a <strong>crucial step to automate to avoid errors in the research process</strong>!)</p>
-<p>The output also looks as we’d expect:
-<img class="img-responsive" alt="Step 4 compiled to column width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step4-colwidth.png"></p>
+<p>The output also looks as we’d expect:</p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step4-colwidth.jpg" alt="Step 4: figure in column width" width="100%" />
+<p class="caption">
+Step 4: figure in column width
+</p>
+</div>
 <div id="two-column-figures" class="section level2">
 <h2>Two-column figures</h2>
 <p>The acm-article template documentation tells us that to include a figure which spans two columns, we should put it in a <code>figure*</code> environment rather than a <code>figure</code> environment. How do we do this? Easy, add <code>fig.env='figure*'</code> to the chunk options:</p>
@@ -168,8 +198,13 @@ plot(pressure)
     \caption{This is a two-column plot of how great Tribute gets over time}
     \label{fig:two-col-tribute-plot}
 \end{figure*}</code></pre>
-<p>And the output looks correct (it’s floating to a new page in our case):
-<img class="img-responsive" alt="Step 4 compiled to full width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step4-two-colwidth.png"></p>
+<p>And the output looks correct (it’s floating to a new page in our case):</p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step4-two-colwidth.jpg" alt="Step 4: figure in full width" width="100%" />
+<p class="caption">
+Step 4: figure in full width
+</p>
+</div>
 </div>
 </div>
 <div id="step-5.-handling-tables" class="section level1">
@@ -210,8 +245,13 @@ iris %&gt;%
         \bottomrule
     \end{tabular}
 \end{table}</code></pre>
-<p>And the output looks like this:
-<img class="img-responsive" alt="Step 5 column width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step5-colwidth.png"></p>
+<p>And the output looks like this:</p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step5-colwidth.png" alt="Step 5: table in column width" width="100%" />
+<p class="caption">
+Step 5: table in column width
+</p>
+</div>
 <p>Awesome! No more errors from whatever obscure means through which you’d otherwise be getting your data into a LaTeX table.</p>
 <div id="two-column-tables" class="section level2">
 <h2>Two-column tables</h2>
@@ -223,8 +263,13 @@ iris %&gt;%
   head(10) %&gt;%          #show just the first 10 rows
   knitr::kable(format = &quot;latex&quot;, table.env=&#39;table*&#39;, booktabs = TRUE, caption = &quot;The favorite iris&#39; of Tenacious D.&quot;)
 ```</code></pre>
-<p>Et voilá, our table is put in a <code>\table*</code> environment in the .tex file and now spans two columns:
-<img class="img-responsive" alt="Step 5 full width" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step5-two-col-width.png"></p>
+<p>Et voilá, our table is put in a <code>\table*</code> environment in the .tex file and now spans two columns:</p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step5-two-col-width.png" alt="Step 5: table in full width" width="100%" />
+<p class="caption">
+Step 5: table in full width
+</p>
+</div>
 </div>
 </div>
 <div id="step-6.-referencing-our-figures-and-tables" class="section level1">
@@ -233,8 +278,13 @@ iris %&gt;%
 <pre class="markdown"><code>(...) over time is shown in Figure \ref{fig:col-width-tribute-plot}.</code></pre>
 <p>That’s fine, but if you want to keep the option of outputting to another format than PDF in the future, e.g. gitbook or Word, you’ll want to use bookdown’s slightly different syntax:</p>
 <pre class="markdown"><code>(...) over time is shown in Figure \@ref(fig:tribute-plot).</code></pre>
-<p>Either way, the .tex output is the same, and so is the result:
-<img class="img-responsive" alt="Step 6 referencing figures and tables" src="https://raw.githubusercontent.com/ulyngs/acm-articles-rmd/master/figures/step6.png"></p>
+<p>Either way, the .tex output is the same, and so is the result:</p>
+<div class="figure" style="text-align: center">
+<img src="/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/step6.png" alt="Step 6: referencing figures and tables" width="100%" />
+<p class="caption">
+Step 6: referencing figures and tables
+</p>
+</div>
 </div>
 <div id="step-7.-celebrate" class="section level1">
 <h1>Step 7. Celebrate!</h1>
