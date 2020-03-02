@@ -42,7 +42,7 @@ There are 8 types of output hooks that grab different types of output; we will m
 <p>Here is a random plot:</p>
 <pre class="r"><code>plot(pressure)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:random-plot"></span>
-<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-1.png" alt="A random plot" width="60%" />
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-1.png" alt="A random plot" width="100%" />
 <p class="caption">
 Figure 1: A random plot
 </p>
@@ -63,8 +63,8 @@ Figure 1: A random plot
 ##         return(x)
 ##     line_prompt(x, prompt = s, continue = s)
 ## }
-## &lt;bytecode: 0x7fac991f2998&gt;
-## &lt;environment: 0x7fac991ed3b8&gt;</code></pre>
+## &lt;bytecode: 0x7fdeb206a5e8&gt;
+## &lt;environment: 0x7fdeb2069180&gt;</code></pre>
 <p>Then we modify it:</p>
 <pre class="r"><code>knit_hooks$set(chunk = function(x, options) {
   return(&quot;Hello, world!&quot;)
@@ -89,7 +89,7 @@ Figure 1: A random plot
 <p>Let’s check if this works. Here’s our random plot again (Figure <a href="#fig:random-plot-no-hello">2</a>):</p>
 <pre class="r"><code>plot(pressure)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:random-plot-no-hello"></span>
-<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-no-hello-1.png" alt="A random plot" width="60%" />
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-no-hello-1.png" alt="A random plot" width="100%" />
 <p class="caption">
 Figure 2: A random plot
 </p>
@@ -117,11 +117,7 @@ Figure 2: A random plot
 \caption{A random plot}
 \end{figure}</code></pre>
 <p>We would like this to be done with a chunk option <code>description</code>.
-The approach we will take is to simply search use a <a href="https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions">regular expression</a> to find calls to <code>\includegraphics</code> in chunks’ LaTeX output, and then insert <code>\Description{A scatter plot of an exponentially growing curve}</code> after it.</p>
-<aside>
-If you want to follow along with this example, you must use a LaTeX template in which the command <code>\Description</code> has been defined.
-If you go to <a href="https://github.com/ulyngs/chi-proc-rmd-template">github.com/ulyngs/chi-proc-rmd-template</a> you will find the relevant files in <strong>chi-proc-rmd-template/inst/rmarkdown/templates/acm_chi_proc/skeleton/</strong> for using the ACM LaTex template alongside R Markdown.
-</aside>
+The approach we will take is to simply search use a <a href="https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions">regular expression</a> to find calls to <code>\includegraphics</code> in chunks’ LaTeX output, and then insert <code>\Description{A scatter plot of an exponentially growing curve}</code> after it.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>This should work:</p>
 <pre class="r"><code># store the usual chunk output function
 hook_chunk = knit_hooks$get(&#39;chunk&#39;)
@@ -148,7 +144,7 @@ knit_hooks$set(chunk = function(x, options) {
 <p><code>```{r my-description, echo=TRUE, fig.cap=&quot;A random plot&quot;, description=&quot;A scatter plot of an exponentially growing curve&quot;}</code></p>
 <pre class="r"><code>plot(pressure)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:my-description"></span>
-<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-1.png" alt="A random plot" width="60%" />
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-1.png" alt="A random plot" width="100%" />
 <p class="caption">
 Figure 3: A random plot
 </p>
@@ -165,7 +161,7 @@ Figure 3: A random plot
 <p>Let’s try again:</p>
 <pre class="r"><code>plot(pressure)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:my-description-correct"></span>
-<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-correct-1.png" alt="A random plot" width="60%" />
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-correct-1.png" alt="A random plot" width="100%" />
 <p class="caption">
 Figure 4: A random plot
 </p>
@@ -202,4 +198,11 @@ knit_hooks$set(chunk = function(x, options) {
 })</code></pre>
 <p>You can inspect this in context <a href="https://github.com/ulyngs/chi-proc-rmd-template/blob/master/inst/rmarkdown/templates/acm_chi_proc/skeleton/skeleton.Rmd">here</a>.</p>
 <p>Now go ahead and put your newfound customisation powers into practice!</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If you want to follow along with this example, you must use a LaTeX template in which the command <code>\Description</code> has been defined.
+If you go to <a href="https://github.com/ulyngs/chi-proc-rmd-template">github.com/ulyngs/chi-proc-rmd-template</a> you will find the relevant files in <strong>chi-proc-rmd-template/inst/rmarkdown/templates/acm_chi_proc/skeleton/</strong> for using the ACM LaTex template alongside R Markdown.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>

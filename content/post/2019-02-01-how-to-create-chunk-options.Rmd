@@ -16,9 +16,10 @@ teaser: "/post/2019-02-01-how-to-create-chunk-options/preview.png"
 ```{r setup, include=FALSE}
 library(knitr)
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '60%', fig.align = 'center')
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
 
 ```
+
 
 For the [2019 ACM CHI conference](http://chi2019.acm.org) I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM's LaTeX template.
 It worked in the end (the source file for our paper is [here](https://osf.io/zyj4h/), an R package with our template is [here](https://github.com/ulyngs/chi-proc-rmd-template), and a related blog post is [here](https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/)). 
@@ -152,13 +153,10 @@ What we want in our **.tex** file is this:
 ```
 
 We would like this to be done with a chunk option `description`. 
-The approach we will take is to simply search use a [regular expression](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) to find calls to `\includegraphics` in chunks' LaTeX output, and then insert `\Description{A scatter plot of an exponentially growing curve}` after it.
+The approach we will take is to simply search use a [regular expression](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) to find calls to `\includegraphics` in chunks' LaTeX output, and then insert `\Description{A scatter plot of an exponentially growing curve}` after it.[^follow-along-note]
 
-<aside>
-If you want to follow along with this example, you must use a LaTeX template in which the command `\Description` has been defined. 
+[^follow-along-note]: If you want to follow along with this example, you must use a LaTeX template in which the command `\Description` has been defined. 
 If you go to [github.com/ulyngs/chi-proc-rmd-template](https://github.com/ulyngs/chi-proc-rmd-template) you will find the relevant files in **chi-proc-rmd-template/inst/rmarkdown/templates/acm_chi_proc/skeleton/** for using the ACM LaTex template alongside R Markdown.
-</aside>
-
 
 This should work:
 
