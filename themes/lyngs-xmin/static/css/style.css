@@ -45,11 +45,17 @@ h3 {
 .link-wrapper a {
   color: black;
 }
+#recent-work {
+  margin-bottom: 0.5em;
+}
 .featured-work {
-  margin-top: 2.5em;
+  margin-top: 5em;
 }
 .featured-work-entry {
-  margin-top: 2em;
+  margin-bottom: 2.5em;
+}
+.featured-work-graphic {
+  padding-right: 2em;
 }
 .tldr-label {
   font-style: italic;
