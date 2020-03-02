@@ -9,17 +9,30 @@ categories:
   - LaTeX 
   - reproducibility
   - ACM CHI
-teaser: "/post/2018-10-29-r-packages-for-chi-papers-with-r-markdown/preview.png"
+teaser: "/post/2018-10-29-r-packages-for-chi-papers-with-r-markdown/preview.jpg"
 
 ---
+
+```{r setup, include=FALSE}
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
+knitr::opts_knit$set(bookdown.internal.label = FALSE)
+
+image_path <- "/post/2018-10-29-r-packages-for-chi-papers-with-r-markdown/"
+```
 
 So, I previously wrote at [great length](https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/) about how to use the [ACM Master Article LaTeX templates](https://www.acm.org/publications/proceedings-template) (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
 
 To make it speedy and easy in practice specifically in relation to the [ACM CHI Conference](https://sigchi.org), I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for [ACM CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) as well as [ACM CHI Extended Abstracts](https://github.com/ulyngs/chi-ea-rmd-template).
 
-![CHI proceedings template added to RStudio](/post/2018-11-02-how-to-build-safari-app-extensions/preview.png)
+```{r, fig.cap="CHI proceedings template added to RStudio"}
+knitr::include_graphics(str_c(image_path, "preview.jpg"), error = FALSE)
+```
 
-![Template content knitted to PDF](/post/2018-11-02-how-to-build-safari-app-extensions/compiled.png)
+```{r, fig.cap="Template content knitted to PDF"}
+knitr::include_graphics(str_c(image_path, "compiled.jpg"), error = FALSE)
+```
+
 
 For now, these packages can be installed using the `devtools` for R:
 ```r
