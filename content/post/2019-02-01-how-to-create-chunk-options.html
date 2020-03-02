@@ -1,0 +1,205 @@
+---
+title: "How to Create New Chunk Options in R Markdown"
+description: |
+  What to do when the chunk options you need to get R Markdown to do what you want are missing? You create the ones you need. It is incredibly useful to be able to do so --- unfortunately it can be a bit tricky to figure out how. Here's a quick guide.
+author: "Ulrik Lyngs"
+date: 2019-02-03
+categories:
+  - rmarkdown
+  - knitr
+  - LaTeX 
+  - reproducibility
+teaser: "/post/2019-02-01-how-to-create-chunk-options/preview.png"
+
+---
+
+
+
+<p>For the <a href="http://chi2019.acm.org">2019 ACM CHI conference</a> I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM’s LaTeX template.
+It worked in the end (the source file for our paper is <a href="https://osf.io/zyj4h/">here</a>, an R package with our template is <a href="https://github.com/ulyngs/chi-proc-rmd-template">here</a>, and a related blog post is <a href="https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/">here</a>).</p>
+<p>However, one of the challenges along the way was that I was missing chunk options to be able to set all the necessary parameters from R Markdown.
+For example, after an update to their LaTeX template, the ACM wanted figures to include a description for visually impaired readers.
+This was supposed to be accomplished by adding <code>\Description{This is a figure description}</code> inside the relevant figure environment in LaTeX.
+How to do this while staying within an R Markdown workflow?</p>
+<p>One option was to add descriptions manually in LaTeX as the last step before finishing the paper - that is, add <code>keep_tex: true</code> in the YAML header, manually add descriptions in the outputted <strong>.tex</strong> file, and then use this file to generate a new PDF.
+This would work but was error-prone: if I found some a that needed fixing in the R Markdown source file, I would need to knit again and do another manual adding of descriptions…</p>
+<p>The much better solution would be to have a chunk option ‘description’ that I could set directly in the R Markdown source file with something like <code>```{r my_figure, description=&quot;This is a figure description&quot;}</code>, and which would automatically add <code>\Description{This is a figure description}</code> when knitting to PDF.</p>
+<p>Fortunately, it turns out that it’s entirely possible, by simply creating a new chunk option yourself! Here’s how.</p>
+<div id="getting-a-grip-on-knitr-output-hooks" class="section level1">
+<h1>Getting a grip on knitr output hooks</h1>
+<p><a href="https://yihui.name/knitr/">Knitr</a>, the package which carries out the initial part of R Markdown’s magic, provides something called ‘hooks’.
+These are <a href="https://yihui.name/knitr/hooks/">“customisable functions to run before/after a code chunk, tweak the output, and manipulate chunk options”</a>.
+We will focus on the ‘output hooks’ which can be used to customise and polish <em>raw</em> output from chunks.
+There are 8 types of output hooks that grab different types of output; we will modify the <code>chunk</code> output hook which grab all the output of a chunk.</p>
+<p>A chunk output hook takes the form <code>function (x, options)</code> where <code>x</code> is a character string of the output and <code>options</code> is a list of the chunk options.</p>
+<p>To modify them, do something like this:</p>
+<pre class="r"><code>knit_hooks$set(chunk = function(x, options) {
+  # some code to modify chunk output hooks here
+})</code></pre>
+<div id="the-simplest-and-stupidest-possible-thing-we-might-do" class="section level2">
+<h2>The simplest (and stupidest) possible thing we might do</h2>
+<p>As a warm-up exercise, let’s get all chunks to output “Hello, world!”.</p>
+<p>Here is a random plot:</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:random-plot"></span>
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-1.png" alt="A random plot" width="60%" />
+<p class="caption">
+Figure 1: A random plot
+</p>
+</div>
+<p>First, let’s store the current configuration of the chunk output hook, and have a look at it as well:</p>
+<pre class="r"><code>(hook_chunk &lt;- knit_hooks$get(&#39;chunk&#39;))</code></pre>
+<pre><code>## function (x, options) 
+## {
+##     x = gsub(paste0(&quot;[\n]{2,}(&quot;, fence, &quot;|    )&quot;), &quot;\n\n\\1&quot;, 
+##         x)
+##     x = gsub(&quot;[\n]+$&quot;, &quot;&quot;, x)
+##     x = gsub(&quot;^[\n]+&quot;, &quot;\n&quot;, x)
+##     if (isTRUE(options$collapse)) {
+##         x = gsub(paste0(&quot;\n([&quot;, fence_char, &quot;]{3,})\n+\\1(&quot;, 
+##             tolower(options$engine), &quot;)?\n&quot;), &quot;\n&quot;, x)
+##     }
+##     if (is.null(s &lt;- options$indent)) 
+##         return(x)
+##     line_prompt(x, prompt = s, continue = s)
+## }
+## &lt;bytecode: 0x7fac991f2998&gt;
+## &lt;environment: 0x7fac991ed3b8&gt;</code></pre>
+<p>Then we modify it:</p>
+<pre class="r"><code>knit_hooks$set(chunk = function(x, options) {
+  return(&quot;Hello, world!&quot;)
+})</code></pre>
+<p>Now if we try do draw the random plot again we simply get:</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<p>Hello, world!</p>
+</div>
+<div id="creating-a-new-chunk-option" class="section level2">
+<h2>Creating a new chunk option</h2>
+<p>To make this minimally more useful, imagine if this only happened if we set a chunk option <code>hello</code>.</p>
+<p>Let’s first set the output hook back to what it was:</p>
+<pre class="r"><code>knit_hooks$set(chunk = hook_chunk)</code></pre>
+<p>Now let’s modify it again:</p>
+<pre class="r"><code>knit_hooks$set(chunk = function(x, options) {
+  if (!is.null(options$hello)) {
+    return(&quot;Hello, world!&quot;)
+  } else {
+    return(hook_chunk(x, options))
+  }
+})</code></pre>
+<p>Let’s check if this works. Here’s our random plot again (Figure <a href="#fig:random-plot-no-hello">2</a>):</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:random-plot-no-hello"></span>
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/random-plot-no-hello-1.png" alt="A random plot" width="60%" />
+<p class="caption">
+Figure 2: A random plot
+</p>
+</div>
+<p>And here it is with these chunk options:</p>
+<p><code>```{r, echo=TRUE, fig.cap=&quot;A random plot&quot;, hello=TRUE}</code></p>
+<p>Hello, world!</p>
+</div>
+</div>
+<div id="example-use-adding-description-to-latex-figure-output" class="section level1">
+<h1>Example use: Adding \Description{} to LaTeX figure output</h1>
+<p>Finally, let’s create an actually useful chunk option: the option to add a <code>\Description{}</code> to figures in PDF output, which is what I needed. For good measure, let’s start by resetting the chunk output hook to its original state:</p>
+<pre class="r"><code>knit_hooks$set(chunk = hook_chunk)</code></pre>
+<p>The problem we’re trying to solve is this: If we knit to PDF and set <code>keep_tex = TRUE</code> in the YAML header, we see that our random plot included in the <strong>.tex</strong> file in this way:</p>
+<pre class="latex"><code>\begin{figure}
+\centering
+\includegraphics{how-to-create-your-own-chunk-options-in-r-markdown_files/figure-latex/random-plot-1.pdf}
+\caption{A random plot}
+\end{figure}</code></pre>
+<p>What we want in our <strong>.tex</strong> file is this:</p>
+<pre class="latex"><code>\begin{figure}
+\centering
+\includegraphics{how-to-create-your-own-chunk-options-in-r-markdown_files/figure-latex/random-plot-1.pdf}
+\Description{A scatter plot of an exponentially growing curve}
+\caption{A random plot}
+\end{figure}</code></pre>
+<p>We would like this to be done with a chunk option <code>description</code>.
+The approach we will take is to simply search use a <a href="https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions">regular expression</a> to find calls to <code>\includegraphics</code> in chunks’ LaTeX output, and then insert <code>\Description{A scatter plot of an exponentially growing curve}</code> after it.</p>
+<aside>
+If you want to follow along with this example, you must use a LaTeX template in which the command <code>\Description</code> has been defined.
+If you go to <a href="https://github.com/ulyngs/chi-proc-rmd-template">github.com/ulyngs/chi-proc-rmd-template</a> you will find the relevant files in <strong>chi-proc-rmd-template/inst/rmarkdown/templates/acm_chi_proc/skeleton/</strong> for using the ACM LaTex template alongside R Markdown.
+</aside>
+<p>This should work:</p>
+<pre class="r"><code># store the usual chunk output function
+hook_chunk = knit_hooks$get(&#39;chunk&#39;)
+
+knit_hooks$set(chunk = function(x, options) {
+  regular_output = hook_chunk(x, options)
+
+  # if there is a description
+  if (!is.null(options$description)) {
+    # include the following LaTeX - \\1 refers to the regex grouping
+    latex_include &lt;- paste0(&quot;\\1\\\\Description\\{&quot;, options$description, &quot;\\}&quot;)
+    
+    # search and replace in the output
+    gsub(&#39;(\\\\includegraphics[^}]+})&#39;, latex_include, regular_output) 
+    
+  } else {
+    
+    # if there isn&#39;t a description just return unmodified
+    return(regular_output)  # pass to default hook
+    
+  }
+})</code></pre>
+<p>Now let’s try with these chunk options for Figure <a href="#fig:my-description">3</a>:</p>
+<p><code>```{r my-description, echo=TRUE, fig.cap=&quot;A random plot&quot;, description=&quot;A scatter plot of an exponentially growing curve&quot;}</code></p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:my-description"></span>
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-1.png" alt="A random plot" width="60%" />
+<p class="caption">
+Figure 3: A random plot
+</p>
+</div>
+<p>Uh-oh it actually doesn’t work, our LaTeX output still looks like this:</p>
+<pre class="latex"><code>\begin{figure}
+\centering
+\includegraphics{how-to-create-your-own-chunk-options-in-r-markdown_files/figure-latex/my-description-1.pdf}
+\caption{\label{fig:my-description}A random plot}
+\end{figure}</code></pre>
+<p>Turns out that when we’re trying to modify the output in this way, we need to be explicit with <strong>knitr</strong> that the figure output is intended to be treated as LaTeX (the explanation for why is here: <a href="https://github.com/yihui/knitr/issues/1464">github.com/yihui/knitr/issues/1464</a>).</p>
+<p>So when we want to modify LaTeX output in our R Markdown document, we must to add this to our setup chunk:</p>
+<pre class="r"><code>if (knitr::is_latex_output()) knitr::knit_hooks$set(plot = knitr::hook_plot_tex)</code></pre>
+<p>Let’s try again:</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:my-description-correct"></span>
+<img src="/post/2019-02-01-how-to-create-chunk-options_files/figure-html/my-description-correct-1.png" alt="A random plot" width="60%" />
+<p class="caption">
+Figure 4: A random plot
+</p>
+</div>
+<p>Yup the LaTeX generated for Figure <a href="#fig:my-description-correct">4</a> now looks the way we want:</p>
+<pre class="latex"><code>\begin{figure}
+\includegraphics{how-to-create-your-own-chunk-options-in-r-markdown_files/figure-latex/my-description-1}
+\Description{A scatter plot of an exponentially growing curve} 
+\caption{A random plot}
+\label{fig:my-description}
+\end{figure}</code></pre>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>It is super powerful to be able to create new own chunk options.
+In the R Markdown template for CHI proceedings, I also created a chunk option that allows chunks to be positioned vertically in PDF output by inserting the LaTeX commmand <code>\vspace</code>.
+The initial setup chunk looks like this:</p>
+<pre class="r"><code># create additional chunk options
+hook_chunk = knit_hooks$get(&#39;chunk&#39;)
+knit_hooks$set(chunk = function(x, options) {
+  txt = hook_chunk(x, options)
+  # add chunk option &#39;vspaceout&#39; to position chunks vertically with \vspace
+  if (!is.null(options$vspaceout)) {
+    latex_vspace &lt;- paste0(&quot;\\1\\\\vspace\\{&quot;, options$vspaceout, &quot;\\}&quot;)
+    txt &lt;- sub(&#39;(\\\\begin[^}]+})&#39;, latex_vspace, txt)  
+  }
+  # add chunk option &#39;description&#39; which adds \Description{...} to figures
+  if (!is.null(options$description)) {
+    latex_include &lt;- paste0(&quot;\\1\\\\Description\\{&quot;, options$description, &quot;\\}&quot;)
+    gsub(&#39;(\\\\includegraphics[^}]+})&#39;, latex_include, txt) 
+  } else {
+    return(txt)  # pass to default hook
+  }
+})</code></pre>
+<p>You can inspect this in context <a href="https://github.com/ulyngs/chi-proc-rmd-template/blob/master/inst/rmarkdown/templates/acm_chi_proc/skeleton/skeleton.Rmd">here</a>.</p>
+<p>Now go ahead and put your newfound customisation powers into practice!</p>
+</div>
