@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://ulriklyngs.com/"
 languageCode = "en-us"
 title = "ULRIK LYNGS"
 theme = "lyngs-xmin"
