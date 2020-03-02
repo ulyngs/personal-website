@@ -16,6 +16,7 @@ _NOTE: This blog post was first written for the Oxford Internet Institute's [Con
 For decades, tech companies have competed to make devices that do more faster, and with less user effort. 
 In a current culmination of this trend, powerful smartphones have enabled us to truly do anything anywhere anytime. 
 But a surprising opposition has emerged against the ruling wisdom that ‘convenience is king’. In the Guardian, writer [Jonathan Safran Foer complained](https://www.theguardian.com/books/2016/dec/03/jonathan-safran-foer-technology-diminishing-us) that he “like so many people I know”, felt that constant connectivity “distracted me, made concentration more difficult … [made me check] email while giving my kids a bath”. 
+
 The Economist recently ran a [feature on addictive apps](https://www.1843magazine.com/features/the-scientists-who-make-apps-addictive), and a whole market has emerged for apps that remove functionality from laptops and smartphones (e.g. [Freedom](https://freedom.to/) and [Newsfeed Eradicator](http://news-feed-eradicator.west.io/)), punish users for using Facebook when they shouldn’t (e.g. [Forest](https://www.forestapp.cc/en/)), or provide users with easy ways to track and visualise how much they use their digital devices (e.g. [RescueTime](https://www.rescuetime.com/)). 
 A [blog post on Medium](https://medium.com/time-dorks/the-distraction-free-iphone-or-why-im-happier-since-i-disabled-safari-80f8d525b0d8#.kzndqu22y) that gave advice on which apps to remove and which parental restrictions to apply to make your iPhone ‘distraction-free’ amassed hundreds of thousands of reads in a few days.
 
@@ -23,6 +24,7 @@ Scientific research on self-regulation may explain what’s going on.
 As we said above, the central goal for developers has been to give users the easiest possible access to the widest amount of functionality, leaving users to exercise willpower over how they use their devices. 
 Yet, a wealth of psychological research tells us that relying on ‘willpower’ is a [terrible self-control strategy](http://journals.sagepub.com/doi/abs/10.1177/1745691615623247). 
 Empirically, the difference between people who are good, and people who are terrible, at self-control isn’t that the former have stronger ‘willpower’. Rather, people high in self-control are [better at structuring their environment so that they are less exposed to temptation](http://www.sciencedirect.com/science/article/pii/S0191886914005339)(e.g. not keeping unhealthy foods in the house, going to a library to study, etc.). 
+
 Imagine one of your friends was attempting (and failing) to eat fewer cookies.
 As you try to help your friend, you discover that he brings a huge supply of cookies with him wherever he goes. 
 You probably wouldn’t advice him to just try harder not to eat cookies. 
@@ -34,6 +36,7 @@ I think Black Mirror-esque rhetoric should be left aside.
 Instead, we should see unwanted distraction from laptops and smartphones simply as a design problem. 
 Hundreds of anti-distraction tools now exist, and they use a surprising range of strategies to help users align their actual and intended behaviour. 
 Yet, research in human-computer interaction and psychology has focused mostly on documenting distraction from information communication technologies (ICTs), not on [how to design against it](https://people.ucsc.edu/~swhittak/papers/meTime_CHI16.pdf). 
+
 We need a focused research effort here: 
 Do the new anti-distraction tools actually change behaviour? 
 Why do they do so? 
