@@ -35,7 +35,7 @@ Hence, we find ourselves with a mess of publications in which true findings are 
 With the vast number of articles that have been (and are being) published, an unacceptably wide range of claims can be made to seem legitimate, by [cherrypicking the literature for papers in agreement](http://www.rationaloptimist.com/blog/the-real-risks-of-cherry-picking-scientific-data/).
 In fact, [the use of ‘statistical significance’ as a criterion for publication should cause such a mess](http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124), even in the absence of questionable research practices.
 
-#### Where do we go from here?
+### Where do we go from here?
 Psychologist Michael Inzlicht from the Toronto Laboratory for Social Neuroscience [sighed on his blog](http://michaelinzlicht.com/getting-better/2016/2/29/reckoning-with-the-past) that “During my dark moments, I feel like social psychology needs a redo, a fresh start”. 
 Is the way forward to ‘purify’ the scientific record, by retracting all publications that contain methodological flaws or erroneous statistical analyses? 
 Should we set up automatic algorithms to trawl through papers and publicly call out statistical errors? 
@@ -45,15 +45,15 @@ Could these efforts lead to a [witch hunt of (actual or perceived) shaming of re
 I think there is a solution that avoids a [(actual or perceived) witch hunt on researchers](http://andrewgelman.com/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/) whose published results and/or methodologies have been shady.
 We need three things to happen:
 
-#### 1\. Articles must be linked with their replication relation - we need a 'Replication Index'.
+### 1. Articles must be linked with their replication relation - we need a 'Replication Index'.
 
 That is, if I publish a paper that is an attempted replication of someone else’s study, then the original paper must be linked to my paper. To put it bluntly: The front page of all experimental papers should contain a badge listing how many times its results have been attempted replicated, and how many of those have been succesful - an at-a-glance indication of how much confidence to have in a given result, given the current status of the evidence. Let’s call this badge a ‘Replication Index’. The first publication of any experiment must keep a continually updated replication index.
 
-#### 2\. When we cite other people’s work, we must include the Replication Index at the time of writing.
+### 2. When we cite other people’s work, we must include the Replication Index at the time of writing.
 
 That is, if I cite an article in my paper, let’s call it “Brown 1992”, I won't write “X has been found to cause Y (Brown 1992)”. rather, I will write “X has been found to cause Y (Brown 1992, 8/6)”, which would mean that Browns' finding has been attempted replicated directly 8 times, and out of those, 6 have been successful. The point is to give the reader an indication of the confidence we should in the evidence used to back up a statement.
 
-#### 3\. We must publish all studies that are conducted with sound methodology.
+### 3. We must publish all studies conducted with sound methodology.
 
 For the Replication Index to be meaningful, we must publish all methodologically sound studies, no matter their outcome. That is, [common practice must be to preregister our studies,](http://www.apa.org/science/about/psa/2015/08/pre-registration.aspx) have the methodology and our planned analyses peer-reviewed (peer-review should safeguard against poor methodology, not against 'boring work'), and then publish the studies regardless of their result.
 

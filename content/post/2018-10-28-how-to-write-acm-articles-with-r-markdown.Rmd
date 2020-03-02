@@ -9,7 +9,7 @@ categories:
   - LaTeX 
   - reproducibility
   - ACM CHI
-teaser: "/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/preview.jpg"
+teaser: "/post/2018-07-18-how-to-write-acm-articles-with-r-markdown/preview.jpg"
 
 ---
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ library(stringr)
 knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
 knitr::opts_knit$set(bookdown.internal.label = FALSE)
 
-image_path <- "/post/2018-10-28-how-to-write-acm-articles-with-r-markdown/"
+image_path <- "/post/2018-07-18-how-to-write-acm-articles-with-r-markdown/"
 ```
 
 *NOTE: After writing this post, I [created two R packages](https://ulriklyngs.com/blog/r-packages-for-chi-papers-with-r-markdown) which add R Markdown templates for [CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) and [CHI Extended Abstract](https://github.com/ulyngs/chi-ea-rmd-template) manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.*

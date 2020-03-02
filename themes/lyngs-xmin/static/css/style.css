@@ -255,6 +255,7 @@ footer {
   font-size: 1.1em;
 }
 .blog-post .post-content h1,
-.blog-post .post-content h2 {
-  margin-top: 1em;
+.blog-post .post-content h2,
+.blog-post .post-content h3 {
+  margin-top: 1.5em;
 }
