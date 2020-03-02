@@ -10,13 +10,12 @@ title: Home
 </div>
 
 <div class="col col-lg-6 col-md-4 col-sm-6">
-I am a computer scientist, cognitive psychologist, and musician. 
-Currently, I am finishing my PhD with the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/) at Oxford University's [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/). 
+I am a computer scientist and cognitive psychologist, doing a PhD at [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, in the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/).
 
 My research focuses on **attention and self-control in relation to use of digital devices**. 
-Outside academia, I play random instruments in [The Karaoke Collective](https://karaokecollective.com).
+When I need a break from academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 
-I may be available for workshops on reproducible research with R Markdown, digital distraction, and as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+I may be available for workshops on reproducible research with R Markdown, or on digital distraction, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
 
 </div>
 
@@ -50,8 +49,8 @@ ulrik.lyngs@cs.ox.ac.uk \
 [Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health) | [Materials](https://osf.io/hdvtm/)
 </div>
 
-<span class="tldr-label">Summary:</span> Many students find that constant digital connectivity challenges their mental wellbeing, and makes it difficult to focus on academic work.
-With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I run the ’Reducing Digital Distraction’ (ReDD) workshop, where students reflect on their struggles and goals around digital device use, and implement concrete tools and strategies for taking control.
+<span class="tldr-label">Summary:</span> Constant digital connectivity can be challenging for mental wellbeing, and make it difficult to focus on academic work.
+With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I run the ’Reducing Digital Distraction’ (ReDD) workshop, where students reflect on their struggles and goals around digital device use, and explore concrete tools and strategies for taking control.
 </div>
 
 </div>
