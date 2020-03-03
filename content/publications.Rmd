@@ -55,11 +55,12 @@ for (cur_year in years){
   publications_table %>% 
     filter(year == cur_year) %>% 
     select(type, citation) %>%
-    knitr::kable(caption = cur_year) %>% 
+    knitr::kable(caption = cur_year, format = "html", table.attr='class="table-responsive"', escape = FALSE) %>%
     print()
 }
 
 ```
+
 
 </div>
 
