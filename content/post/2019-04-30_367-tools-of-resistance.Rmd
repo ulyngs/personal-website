@@ -12,19 +12,22 @@ teaser: "/post/2019-04-30_367-tools-of-resistance/preview.jpg"
 
 ```{r setup, include=FALSE}
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, error = FALSE, out.width = '100%', fig.align = 'center')
+knitr::opts_chunk$set(echo = FALSE, out.width = '100%', fig.align = 'center')
 
 # don't number figures with a caption
 knitr::opts_knit$set(bookdown.internal.label = FALSE)
 
 image_path <- "/post/2019-04-30_367-tools-of-resistance/"
 
+# stop knitr from throwing an error when image path doesn't (yet) exist
+options(knitr.graphics.error = FALSE)
+
 ```
 
 Many people struggle to control their use of digital devices: With news updates, engaging games, and an endless stream of social media available at your fingertips, it is difficult to avoid being distracted or sucked in.
 
 ```{r}
-knitr::include_graphics(str_c(image_path, "1struggles.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "1struggles.png"))
 ```
 
 
@@ -37,7 +40,7 @@ On the online stores for apps and browser extensions, there’s now a large mark
 This is not an entirely new development---Human-Computer Interaction (HCI) researchers have developed similar tools for a few years---but it is gathering momentum as Apple and Google recently reacted to these trends by building features for self-tracking and self-limiting into their mobile operating systems.
 
 ```{r, fig.cap="Many tools help support self-control over device use, using tricks such as blocking access to distracting websites (top left) or cutting down virtual trees if you use your smartphone during a focus session. Apple (bottom left) and Google (bottom right) recently begun to build similar functionality into their mobile operating systems."}
-knitr::include_graphics(str_c(image_path, "2tools.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "2tools.png"))
 ```
 
 Yet little is known about how these tools work. What novel features do they use to encourage digital self-control? What does psychology say about how they might work?
@@ -51,7 +54,7 @@ Our work helps guide future research by pointing to i) widely used or theoretica
 You can see all the tools we analysed in [this Google sheet](https://docs.google.com/spreadsheets/d/1BVBCBOZQY_K7qYmDiSIail07F6D1iDG1OkoFyazb5Y4/edit?usp=sharing). This plot shows the overall percentages of tools that included common features:
 
 ```{r}
-knitr::include_graphics(str_c(image_path, "3plot.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "3plot.png"))
 ```
 
 ## Block or remove distractions (74% of tools)
@@ -60,13 +63,13 @@ The most common type of feature is to **block or remove distractions**. That is,
 For example, the Chrome extension [Focusly](https://chrome.google.com/webstore/detail/focusly/jlihnplddpebplnfafhdanaiapbeikbk?hl=gb) allows people to block their own access to websites on a blacklist. In addition, it helps people stick with their intention by requiring them to type in a series of 46 arrow keys in a specific order, before they can stop a blocking session.
 
 ```{r, fig.cap="[Focusly](https://chrome.google.com/webstore/detail/focusly/jlihnplddpebplnfafhdanaiapbeikbk?hl=gb) blocks access to websites on a blacklist, then helps people stick with their intention by requiring them to type in a series of 46 arrow keys in a specific order, before they can stop a blocking session."}
-knitr::include_graphics(str_c(image_path, "4effort.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "4effort.png"))
 ```
 
 The perhaps most popular example of removing distracting functionality is the Chrome extension [News Feed Eradicator](https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=gb), which removes the newsfeed from Facebook and replaces it with a motivational quote. Many similar extensions do things such as remove suggested videos on YouTube, and some Android apps limit the amount of functionality available on a smartphone’s home screen.
 
 ```{r, layout="l-body-outset", fig.cap="[News Feed Eradicator](https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=gb) removes the newsfeed from Facebook and replaces it with a motivational quote"}
-knitr::include_graphics(str_c(image_path, "5eradicator.jpeg"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "5eradicator.jpeg"))
 ```
 
 ## Self-tracking (38% of tools)
@@ -75,14 +78,14 @@ Many other tools record and visualise how people use their device, or display ti
 For example, [RescueTime](https://www.rescuetime.com/dashboard) tracks how people use their laptops and displays visualisations of how that time was spent. A good number of these tools focus on how long people manage not to use your phone, such as the iOS app [Checkout of Your Phone](https://itunes.apple.com/gb/app/checkout-of-your-phone/id1051880452?mt=8&ign-mpt=uo%3D4).
 
 ```{r, fig.cap="[RescueTime](https://www.rescuetime.com/dashboard) (left) tracks and visualises time spent on laptops. [Checkout of Your Phone](https://itunes.apple.com/gb/app/checkout-of-your-phone/id1051880452?mt=8&ign-mpt=uo%3D4) (right) tracks how long you’ve time you’ve managed not to use your smartphone."}
-knitr::include_graphics(str_c(image_path, "6rescue.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "6rescue.png"))
 ```
 
 ## Goal advancement (35% of tools)
 Another common approach is to include features for nudging people towards working on the right tasks when they actually use their devices. For example, the Chrome extension [Todobook](https://chrome.google.com/webstore/detail/todobook/ihbejplhkeifejcpijadinaicidddbde?hl=en) replaces Facebook’s newsfeed with a todo-list which reminds the user of their tasks. Another example is the iOS app [Time](https://itunes.apple.com/gb/app/time-defeat-distraction/id1313017655?mt=8&ign-mpt=uo%3D4), a todo-list with a countdown timer that provides continual task reminders if the user leaves the app.
 
 ```{r fig.cap="[Todobook](https://chrome.google.com/webstore/detail/todobook/ihbejplhkeifejcpijadinaicidddbde?hl=en) (left) replaces Facebook’s newsfeed with a todo-list; the iOS app [Time](https://itunes.apple.com/gb/app/time-defeat-distraction/id1313017655?mt=8&ign-mpt=uo%3D4) (right) is a todo-list which provides continual task reminders if the user leaves the app."}
-knitr::include_graphics(str_c(image_path, "7todo.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "7todo.png"))
 ```
 
 ## Reward or punish (22% of tools)
@@ -91,7 +94,7 @@ Finally, many tools include features that **reward or punish** people for how th
 Other tools add *real-world* rewards or punishments, for example by making people pay money out of their bank account if they spend more than 1 hour on Facebook in a day ([Timewaste Timer](https://chrome.google.com/webstore/detail/timewaste-timer/pengblgbipcdkpigibniogojheaokckd?hl=gb)). The most extreme example is [PAVLOK](https://chrome.google.com/webstore/detail/pavlok-productivity/hefieeppocndiofffcfpkbfnjcooacib?hl=gb) which lets the user automatically administer themselves actual electrical shocks via a bracelet when they try to access websites on a blacklist (!).
 
 ```{r, fig.cap="([Timewaste Timer](https://chrome.google.com/webstore/detail/timewaste-timer/pengblgbipcdkpigibniogojheaokckd?hl=gb) takes money out of your bank account if you spend too much time on Facebook; [PAVLOK](https://chrome.google.com/webstore/detail/pavlok-productivity/hefieeppocndiofffcfpkbfnjcooacib?hl=gb) lets you automatically administer yourself electrical shocks via a bracelet if you try to access blacklisted websites."}
-knitr::include_graphics(str_c(image_path, "8reward.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "8reward.png"))
 ```
 
 ## The Psychology Behind the Tools
@@ -110,7 +113,7 @@ Sometimes we fail at self-control, even when we’re aware of if in the moment. 
 - the *delay* before you get the potential reward.
 
 ```{r, fig.cap="A summary of the dual systems model of self-regulation. **System 1** control refers to habits or instinctive responses that get triggered by external stimuli or internal states. **System 2** control refers to behaviour triggered by consciously held goals or intentions. **Self-control** is to use conscious System 2 control to override System 1 responses when the two are in control. The strength of conscious self-control depends on the **expected value of control**, a cost-benefit analysis of what you might gain from exercising self-control."}
-knitr::include_graphics(str_c(image_path, "9model.png"), error = FALSE)
+knitr::include_graphics(str_c(image_path, "9model.png"))
 ```
 
 This model is one powerful way to think about the features of digital self-control tools in terms of the psychological mechanisms they target. For example:
