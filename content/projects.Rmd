@@ -19,11 +19,11 @@ cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
 
 <div class="row project-entries">
 
-<div class="col-sm-2">
+<div class="col-lg-2 col-md-1">
 </div>
 
 <!-- begin entries here -->
-<div class="col-sm-10">
+<div class="col-lg-10 col-md-10">
 
 
 ### The ReDD Workshop: Supporting People in Regaining Control Over Digital Device Use <span class="status-current">[current]</span>
