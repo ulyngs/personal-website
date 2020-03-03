@@ -154,6 +154,38 @@ footer {
 #toc .nav-link {
   padding-left: 0.4em;
 }
+
+/* small screens */
+@media (max-width: 768px) {
+  
+  .main-container {
+    padding-top: 6em;
+  }
+  
+  /* override stickyness so that the navigation does not follow scrolling */
+  nav[data-toggle="toc"] {
+    margin-bottom: 1em;
+    margin-top: -1em;
+    position: static !important;
+    top: 2em;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle="toc"] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  /*
+  nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }
+  */
+}
+
+
+
+
 .cv-page h1 {
   font-size: 2.2em;
 }
