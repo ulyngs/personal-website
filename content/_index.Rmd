@@ -5,21 +5,21 @@ title: Home
 
 <div class="row">
 
-<div class="col col-lg-3 col-md-4 col-sm-6">
+<div class="col-lg-3 col-md-3">
 <img alt="Photo of Ulrik Lyngs" src="/images/headshot_small.jpg" class="img-fluid featured-work-graphic"/>
 </div>
 
-<div class="col col-lg-6 col-md-4 col-sm-6">
-I am a computer scientist and cognitive psychologist, doing a PhD at [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, in the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/).
+<div class="col-lg-6 col-md-6">
+I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, in the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/).
 
 My research focuses on **attention and self-control in relation to use of digital devices**. 
-When I need a break from academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
+Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 
-I may be available for workshops on reproducible research with R Markdown, or on digital distraction, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+I may be available for workshops or consultancy on reproducible research with R Markdown, or on digital distraction, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
 
 </div>
 
-<div class="col col-lg-3 col-md-4 col-sm-12">
+<div class="col-lg-3 col-md-3">
 Department of Computer Science \
 University of Oxford \
 OX1 3QD Oxford, UK \
