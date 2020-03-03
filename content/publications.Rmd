@@ -32,7 +32,7 @@ publications_table <- publications %>%
   )),
   pdf = ifelse(is.na(pdf), "", str_c(" <span class='publication-extra'>[pdf](", pdf, ")</span>")),
   materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")),
-  ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", materials, ")</span>")),
+  ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
   video = ifelse(is.na(video), "", str_c(" · <span class='publication-extra'>[video](", video, ")</span>")),
   bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>"))) %>% 
@@ -44,6 +44,7 @@ publications_table <- publications %>%
            
            ) %>%          
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) # make my name bold
+
 ```
 
 ```{r results='asis'}
