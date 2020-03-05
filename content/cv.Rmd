@@ -32,7 +32,7 @@ I am passionate about using insights from the behavioural neurosciences to **des
 
 My **academic and professional background** is highly interdisciplinary, and I try to integrate best practices from many work spheres, such as using tools from large-scale event management to structure academic projects.
 
-My **personal interests** include travelling & couchsurfing, samatha meditation, dancing (Cuban salsa and swing), and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
+My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
 Download a brief version of [my CV as PDF](/pdfs/2020_lyngs_cv_brief.pdf).
 
@@ -47,8 +47,17 @@ cv_entries %>%
   kable()
 ```
 
+## Grants and awards
+```{r}
+cv_entries %>% 
+  filter(type == 'grants_and_awards') %>% 
+  mutate(what = str_c(what, ", ", where)) %>% 
+  select(year_begin, what) %>% 
+  kable()
+```
 
-## Research
+<h2 data-toc-text="Research">Research dissemination</h2>
+<!-- ## Research dissemination -->
 <!-- ### Publications -->
 ```{r, eval=FALSE}
 publications_table <- publications %>%
@@ -78,41 +87,29 @@ publications_table %>%
 
 
 ### Talks
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, out.width='100%'}
 library(lubridate)
 library(DT)
 talks_table <- cv_entries %>% 
   filter(type == 'talk') %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
   mutate(what = str_c("<em>", what, "</em>, ", where)) %>% 
-  #select(Year = year_begin, Talk = what) %>%
   select(Date = date, Talk = what) %>% 
   mutate(Date = as_date(Date)) %>% 
   arrange(desc(Date)) %>% 
   mutate(Date = str_c(year(Date),
                       ", ",
                       month(Date, label = TRUE)))
-  
-# DT library doesn't seem to be working
-#talks_table %>% 
-  #datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
 
 talks_table %>% 
-  kable()
-
-# cv_entries %>% 
-#   filter(type == 'talk') %>% 
-#   mutate(what = str_c("*", what, "*, ", where)) %>% 
-#   select(year_begin, what) %>% 
-#   kable()
-  
+  datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
   
 ```
 
 
 ### Posters
 ```{r}
-cv_entries %>% 
+cv_entries %>%  
   filter(type == 'poster') %>%
   mutate(what = str_c("*", what, "*, ", where)) %>% 
   select(year_begin, what) %>% 
@@ -120,8 +117,8 @@ cv_entries %>%
   kable()
 ```
 
-
-## Teaching experience
+<h2 data-toc-text="Teaching">Teaching experience</h2>
+<!-- ## Teaching experience -->
 ```{r}
 cv_entries %>% 
   filter(type == 'teaching') %>% 
@@ -134,17 +131,6 @@ cv_entries %>%
 ```
 
 ## Other
-### Grants and Awards
-```{r}
-cv_entries %>% 
-  filter(type == 'grants_and_awards') %>% 
-  mutate(what = str_c(what, ", ", where)) %>% 
-  select(year_begin, what) %>% 
-  kable()
-
-```
-
-
 ### Media coverage
 ```{r}
 cv_entries %>% 
@@ -176,7 +162,8 @@ cv_entries %>%
 
 
 # Work
-## Selected employments
+<h2 data-toc-text="Employments">Selected employments</h2>
+<!-- ## Selected employments -->
 ```{r}
 cv_entries %>% 
   filter(type == 'work', is.na(website)) %>% 
@@ -188,7 +175,9 @@ cv_entries %>%
   kable()
 ```
 
-## Professional development
+<h2 data-toc-text="Development">Professional development</h2>
+<!-- ## Selected employments -->
+<!-- ## Professional development -->
 ```{r}
 cv_entries %>% 
   filter(type == 'prof-dev') %>% 
@@ -198,7 +187,18 @@ cv_entries %>%
 ```
 
 # Technical
-## Software development {.cv-table .nohead .vertical-top}
+## Skills
+```{r}
+cv_entries %>% 
+  filter(type == 'technical') %>% 
+  mutate(what = str_c("• ", what, " ", additional_info)) %>% 
+  select(type, what) %>% 
+  mutate(type = "") %>% 
+  kable()
+```
+
+<h2 data-toc-text="Software">Software development</h2>
+<!-- ## Software development -->
 ```{r}
 cv_entries %>% 
   filter(type == 'programming') %>% 
@@ -209,19 +209,8 @@ cv_entries %>%
   kable(align = c('l', 'l'))
 ```
 
-## Skills {.technical .nohead}
-```{r}
-cv_entries %>% 
-  filter(type == 'technical') %>% 
-  mutate(what = str_c("• ", what, " ", additional_info)) %>% 
-  select(type, what) %>% 
-  mutate(type = "") %>% 
-  kable()
-```
-
-
 # Personal
-## Skills & volunteering {.personal .service .nohead}
+## Skills & volunteering
 ```{r}
 cv_entries %>%
   filter(type == 'volunteering') %>%
@@ -233,5 +222,5 @@ cv_entries %>%
   kable()
 ```
 
-  </div>
+</div>
 </div>
