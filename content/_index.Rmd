@@ -130,7 +130,7 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 [GitHub](https://github.com/ulyngs/oxforddown) | [Video tutorial](https://www.youtube.com/watch?v=Yf1W1BBS9cU)
 </div>
 
-<span class="tldr-label">Summary:</span> I wanted to write my PhD thesis in R Markdown, and use a traditional Oxford University LaTeX template to format it. There were no existing R packages for this, so I developed one. The resulting package is called `oxforddown` and combines `bookdown` (with heavy inspiration from `thesisdown`) with the beautiful and time-tested OxThesis LaTeX template.
+<span class="tldr-label">Summary:</span> I wanted to write my PhD thesis in R Markdown, and use a traditional Oxford University LaTeX template to format it. There were no existing R packages for this, so I developed one. The resulting package is called `oxforddown` and combines `bookdown` (with heavy inspiration from `thesisdown`) with the beautiful and time-tested [OxThesis](https://github.com/mcmanigle/OxThesis) LaTeX template.
 
 </div>
 
