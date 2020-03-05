@@ -172,15 +172,15 @@ footer {
 
   /* PICK ONE */
   /* don't expand nested items, which pushes down the rest of the page when navigating */
-  nav[data-toggle="toc"] .nav .active .nav {
-    display: none;
-  }
+  /*nav[data-toggle="toc"] .nav .active .nav {*/
+    /*display: none;*/
+  /*}*/
   /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
-  /*
+  
   nav[data-toggle='toc'] .nav .nav {
     display: block;
   }
-  */
+  
 }
 
 
@@ -220,6 +220,10 @@ footer {
 .cv-page .work-title {
   font-size: 1.2em;
 }
+.cv-page .datatables {
+  margin-bottom: 2em;
+}
+
 
 /* ---- BLOG ---- */
 
