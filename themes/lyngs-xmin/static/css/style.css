@@ -47,6 +47,7 @@ a:hover {
 }
 
 /* for these, don't have them underline, but make them lighter on hover */
+.pub-title a,
 .blog-title a,
 .cv-navbar a,
 .navbar a,
@@ -55,7 +56,9 @@ a.email,
 .project-work-entry-title a {
   border-bottom: none;
   opacity: 1.0;
+  color: black;
 }
+.pub-title a:hover,
 .blog-title a:hover,
 .navbar a.nav-link:hover,
 a.email:hover,
