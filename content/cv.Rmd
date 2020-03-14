@@ -6,11 +6,11 @@ title: "Ulrik Lyngs: CV"
 <!-- add a floating table of contents: https://afeld.github.io/bootstrap-toc/ -->
 <div class="row cv-page">
 <!-- sidebar, which will move to the top on a small screen -->
-<div class="col-sm-2">
+<div class="col-sm-2 cv-navbar"> 
 <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
 </div>
 
-<div class="col-sm-10">
+<div class="col-sm-9 cv-entries">
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -223,4 +223,6 @@ cv_entries %>%
 ```
 
 </div>
+
+<div class="col-sm-1"></div>
 </div>
