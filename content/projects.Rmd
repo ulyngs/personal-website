@@ -12,126 +12,73 @@ library(here)
 #### publications #####
 publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
 
-#### all other entries #####
+#### cv entries #####
 cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
 
+#### projects ####
+projects <- readxl::read_xlsx(here("_data", "projects.xlsx"))
+
 ```
 
-<div class="row project-entries">
-
-<div class="col-lg-2 col-md-1">
-</div>
-
-<!-- begin entries here -->
-<div class="col-lg-10 col-md-10">
 
 
-### The ReDD Workshop: Supporting People in Regaining Control Over Digital Device Use <span class="status-current">[current]</span>
-Self-control struggles are a key factor in many negative effects of digital device use on well-being, such as problematic use of social media. 
-Students, in particular, often struggle to get the benefits of digital connectivity without comprising their ability to be immersed in academic work or experience negative effects on their well-being. 
-Together with the University of Oxford's [Counselling Service](https://www.ox.ac.uk/students/welfare/counselling), I attempt to address this challenge via the ’Reducing Digital Distraction’ (ReDD) workshop. 
-In these workshops, students reflect on their struggles and goals around digital device use, and experiment with concrete tools and strategies.
 
-My main collaborator for this project is Maureen Freed, Deputy Head of [Counselling at the University of Oxford](https://www.ox.ac.uk/students/welfare/counselling), in addition to [Petr Slovák](https://uclic.ucl.ac.uk/people/petr-slovak), [Max van Kleek](https://hip.cat/emax/), and [Sir Nigel Shadbolt](https://www.jesus.ox.ac.uk/people/professor-sir-nigel-shadbolt-freng-frs).
-
-
-<div class="row project-work">
 ```{r results='asis', echo=FALSE}
-redd <- publications %>% 
-  filter(project == "redd-workshop") %>% 
-  arrange(desc(year)) %>%  
-  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
-                      title,  
-                      "**](",
-                      pdf,
-                      ")<br>",
-                      authors_full,
-                      "<br>*",
-                      venue_abbrev,
-                      "*",
-                      "</div>"))
+generate_project_row <- function(id){
+  # open project row
+  cat("<div class='row project-entries'>")
+  
+  # add a column with teaser image
+  teaser_image_path <- projects %>% 
+    filter(project_id == id) %>% 
+    pull(teaser_image)
+  cat(str_c("<div class='col-lg-3 col-md-3'>", 
+            "<img src=", teaser_image_path,
+            " class='img-fluid featured-work-graphic'/></div>")
+      )
+   
+  # open column with project entries
+  cat("<div class='col-lg-9 col-md-9'>") 
+  
+  # add column with project title and description
+  cur_project <- projects %>% 
+    filter(project_id == id) %>% 
+    mutate(html = str_c("<h3>", 
+                        title, 
+                        ifelse(is_current, 
+                               " <span class='status-current'>[current]</span>",
+                               " <span class='status-past'>[past]</span>"),
+                        "</h3>", 
+                        description))
+  cat(cur_project$html)
+  
+  # add row with project work
+  cat("<div class='row project-work'>")
+  project_work <- publications %>% 
+  filter(project == id) %>% 
+    arrange(desc(year)) %>% 
+    mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
+                        ifelse(is.na(teaser_video),
+                               str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
+                               authors_full, "<br>*", 
+                               venue_abbrev, "*"),
+                               str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', teaser_video, '" allowfullscreen></iframe></div>')
+                              ),
+                        "</div>" )
+           )
+  cat(project_work$html)
+  cat("</div>")
+  
+  # close project entry column
+  cat("</div>") 
+  
+  # close project row
+  cat("</div>")
+}
 
-cat(redd$html)
+walk(projects$project_id, generate_project_row)
+
+
+
 ```
-</div>
 
-### Ulysses in Cyberspace: Attention, Self-Control and Digital Design <span class="status-current">[current]</span>
-Laptops and smartphones let us do anything, anywhere. Yet, when everything is always available, many users get distracted by their devices and struggle with self-control. On app stores, an entire niche has emerged for 'anti-distraction tools' which claim to help people self-regulate by blocking distractions, tracking device use, or gamifying intended use. Which design features actually help users self-regulate their use of digital devices, and can theories of cognitive control from the behavioural neurosciences help us?
-
-This is the focus of my PhD research, where my collaborators include [Sir Nigel Shadbolt](https://www.jesus.ox.ac.uk/people/professor-sir-nigel-shadbolt-freng-frs) (my primary supervisor), [Reuben Binns](https://www.reubenbinns.com), [Max van Kleek](https://hip.cat/emax/), [Jun Zhao](https://www.cs.ox.ac.uk/people/jun.zhao/), [Michael Inzlicht](http://michaelinzlicht.com), [Kai Lukoff](http://www.kailukoff.com), [Petr Slovák](https://uclic.ucl.ac.uk/people/petr-slovak), [Helena Webb](https://www.cs.ox.ac.uk/people/helena.webb/) [Marina Jirotka](https://www.cs.ox.ac.uk/people/marina.jirotka/), and [Ryan McKay](https://pure.royalholloway.ac.uk/portal/en/persons/ryan-mckay_cda72457-6d2a-4ed6-91d7-cfd5904b91e4.html)
-
-
-<div class="row project-work">
-```{r results='asis', echo=FALSE}
-self_control <- publications %>% 
-  filter(project == "digital-self-control") %>% 
-  arrange(desc(year)) %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
-                      title,  
-                      "**](",
-                      pdf,
-                      ")<br>",
-                      authors_full,
-                      "<br>*",
-                      venue_abbrev,
-                      "*",
-                      "</div>"))
-
-cat(self_control$html)
-```
-</div>
-
-
-### Religion: A Cultural Tool for Self-Regulation <span class="status-past">[past]</span>
-‘Self-control’ is the capacity to override our own inner states or responses. For example, we exercise self-control when we suppress a desire to eat junk food, or resist an urge to check Facebook when we should be writing a paper. As ’nudge’ theorists and advertisers have long known, however, our behavior and capacity for self-control is greatly influenced by our environment. One ancient cultural tool to guide people’s behavior and self-control is religion. Moral norms of virtues and vices, rituals where people affirm their beliefs and reflect on their behavior, social structures such as gender segregation that reduces exposure to 'temptations' - all of these can be seen as culturally evolved tools for scaffolding self-regulation. My MA dissertation in the Study of Religion and Psychology explored current evidence on, and models of, the relationship between religion and self-control, and was supervised by [Uffe Schjødt](http://pure.au.dk/portal/en/us@teo.au.dk).
-
-<div class="row project-work">
-```{r results='asis', echo=FALSE}
-rel_self_control <- publications %>% 
-  filter(project == "religion-self-control") %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
-                      title,  
-                      "**](",
-                      pdf,
-                      ")<br>",
-                      authors_full,
-                      "<br>*",
-                      venue_abbrev,
-                      "*",
-                      "</div>"))
-
-cat(rel_self_control$html)
-```
-</div>
-
-### Hearing in Colour: Expectation and Perception <span class="status-past">[past]</span>
-[Research in the US](https://www.ncbi.nlm.nih.gov/pubmed/17087569) has found that people see faces as darker if they categorise them as African American than if they categorise them as White American, even if the objective skin tone is exactly identical. 
-In other words, learned associations with a racial category can distort actual perception. 
-In Brazil, however, anthropologists have long argued that race categories are very different from the US. 
-In collaboration with [Emma Cohen](https://www.anthro.ox.ac.uk/people/dr-emma-cohen), [Daniel Levin](https://www.vanderbilt.edu/psychological_sciences/bio/daniel-levin), [Wall Hattori](http://orcid.org/0000-0002-6904-0292), and [Martha Newson](https://www.anthro.ox.ac.uk/people/martha-newson), I carried out a series of experimental studies in Natal, Brazil, to see whether the brightness distortion effect from race categories found in the US would replicate. 
-In addition, we investigated whether racial associations coupled with speech accent could similarly influence perceived skin tone.
-
-<div class="row project-work">
-```{r results='asis', echo=FALSE}
-hearing_colour <- publications %>% 
-  filter(project == "hearing-colour") %>% 
-  mutate(html = str_c("<div class='col-sm-4'><p>[**", 
-                      title,  
-                      "**](",
-                      pdf,
-                      ")<br>",
-                      authors_full,
-                      "<br>*",
-                      venue_abbrev,
-                      "*",
-                      "</div>"))
-
-cat(hearing_colour$html)
-```
-</div>
-
-
-
-</div>
-
-</div>
