@@ -46,6 +46,8 @@ a:hover {
   border-bottom: none;
 }
 
+/* for these, don't have them underline, but make them lighter on hover */
+.blog-title a,
 .cv-navbar a,
 .navbar a,
 .link-wrapper a,
@@ -54,6 +56,7 @@ a.email,
   border-bottom: none;
   opacity: 1.0;
 }
+.blog-title a:hover,
 .navbar a.nav-link:hover,
 a.email:hover,
 .row.project-entries .project-work-entry-title a:hover {
@@ -298,9 +301,6 @@ table.dataTable.no-footer {
 
 /* ---- BLOG ---- */
 
-.list-blog-posts .blog-title a {
-  color: black;
-}
 
 .blog-post-entry {
   margin-bottom: 4em;
