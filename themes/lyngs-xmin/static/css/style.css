@@ -19,11 +19,58 @@ body {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
 }
 h3 {
   font-size: 1.75em;
 }
+body .main-container p {
+  font-size: 1em;
+  line-height: 170%; 
+}
+
+code {
+  font-family: Consolas, Courier, "Courier New", 'STKaiti', 'KaiTi', 'SimKai', monospace;
+  /*background: #f9f9f9;*/
+  color: black;
+}
+
+/**** HYPERLINKS ******/
+/* by default black, underlined and no line on hover */
+a {
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+  border-bottom: none;
+}
+
+.cv-navbar a,
+.navbar a,
+.link-wrapper a,
+a.email,
+.project-work-entry-title a {
+  border-bottom: none;
+  opacity: 1.0;
+}
+.navbar a.nav-link:hover,
+a.email:hover,
+.row.project-entries .project-work-entry-title a:hover {
+  /*text-decoration: underline;*/
+  color: black;
+  opacity: 0.65;
+}
+
+/*.main-container p a,
+.main-container .project-entries a,
+.row.publications-page .publication-extra a,
+.row.cv-page .cv-entries a{
+  color: black;
+  border-bottom: 1px solid lightgray;
+}*/
+
+
 
 .navbar-brand {
   font-size: 2.5em;
@@ -71,30 +118,43 @@ footer {
 
 
 /*----- PROJECT PAGE -----*/
+.row.project-entries {
+  margin-bottom: 2em;
+}
+
 .project-work {
   margin-bottom: 2em;
-  margin-left: 4em;
+  margin-left: 0em;
+  padding-left: 0;
   margin-top: 1.6em;
 }
-.project-work a {
-  color: black;
+.project-work-entry {
+  padding: 0.8em 0.6em;
 }
+.project-work-entry p {
+  font-size: 0.95em !important;
+}
+
 .project-entries .status-current {
-  color: #1b8931;
-  font-size: 0.6em;
-  padding: 2px
-  margin-left: 0.8em;
+  display: none;
+  /*color: #1b8931;*/
+  color: grey;
+  font-size: 0.5em;
+  padding: 3px
+  margin-left: 1em;
   text-transform: uppercase;
   font-weight: bold;
   position: relative;
   top: -3px;
 }
-
+ 
 .project-entries .status-past {
-  color: #72492C;
-  font-size: 0.6em;
-  padding: 2px
-  margin-left: 0.8em;
+  display: none;
+  /*color: #72492C;*/
+  color: grey;
+  font-size: 0.5em;
+  padding: 3px
+  margin-left: 1em;
   text-transform: uppercase;
   font-weight: bold;
   position: relative;
@@ -103,6 +163,9 @@ footer {
 
 
 /* ------ PUBLICATIONS PAGE ------ */
+.publications-page td {
+  font-size: 0.95em;
+}
 .publications-page caption {
   caption-side: top;
   font-size: 1.5em;
@@ -139,10 +202,6 @@ footer {
 }
 .publications-page tbody td:nth-child(2) {
   width: 85%;
-}
-
-.publications-page .pub-title a {
-  color: black;
 }
 
 
@@ -183,7 +242,19 @@ footer {
   
 }
 
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
 
+.cv-entries tbody td {
+  border-bottom: none !important;
+  border-top: none !important;
+  padding: 0.2em 0em 0.4em 0.2em;
+  font-size: 1em;
+}
+.cv-entries tbody tr {
+  
+}
 
 
 .cv-page h1 {
@@ -281,10 +352,9 @@ footer {
 
 .blog-post .post-content p,
 .blog-post .post-content li {
-  font-size: 1.2em;
+  font-size: 1.15em;
   font-weight: 400;
-  line-height: 1.58;
-  /*font-family: Palatino, serif !important;*/
+  line-height: 180%; 
 }
 .blog-post .post-content ul {
   margin-bottom: 2em;
@@ -297,7 +367,7 @@ footer {
 }
 .blog-post .post-content .caption {
   color: rgba(0, 0, 0, 0.541176);
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
 .blog-post .post-content h1,
 .blog-post .post-content h2,
