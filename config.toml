@@ -37,5 +37,5 @@ footnotereturnlinkcontents = "↩"
 #    weight = 6
 
 [params]
-    description = "A website built through Hugo and blogdown."
+    description = "Personal website of Ulrik Lyngs."
     footer = "&copy; Ulrik Lyngs 2020. Powered by [Hugo](https://gohugo.io) and [blogdown](https://bookdown.org/yihui/blogdown/)."
