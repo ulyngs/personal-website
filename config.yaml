@@ -1,0 +1,40 @@
+baseurl: "https://ulriklyngs.com/"
+languageCode: "en-us"
+title: "ULRIK LYNGS"
+theme: "lyngs-xmin"
+googleAnalytics: "UA-84972342-1"
+disqusShortname: ""
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+footnotereturnlinkcontents: "↩"
+
+permalinks:
+    post: "/post/:year/:month/:day/:slug/"
+    note: "/note/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Projects"
+      url: "/projects/"
+      weight: 2
+    - name: "Publications"
+      url: "/publications/"
+      weight: 3
+    - name: "CV"
+      url: "/cv/"
+      weight: 4
+    - name: "Blog"
+      url: "/blog/"
+      weight: 5
+#    - name: '<i class="fa fa-rss" aria-hidden="true"></i>'
+#      url: "/index.xml"
+#      weight: 6
+
+params:
+    description: "Personal website of Ulrik Lyngs."
+    footer: |
+        &copy; Ulrik Lyngs 2020. 
+        Powered by [Hugo](https://gohugo.io) and [blogdown](https://bookdown.org/yihui/blogdown/). \
+        [Source of this website](https://github.com/ulyngs/personal-website).

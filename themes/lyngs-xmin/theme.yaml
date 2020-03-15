@@ -1,0 +1,14 @@
+name: "lyngs-xmin"
+license: "MIT"
+licenselink: "https://github.com/ulyngs/personal-website/blob/master/themes/lyngs-xmin/LICENSE.md"
+description: |
+  Lyngs XMin Hugo theme: 
+  an academic theme developed by Ulrik Lyngs by starting with Yihui Xie's eXtremely Minimal Hugo theme, adding Bootstrap 4 and hacking away from there.
+homepage: "https://ulriklyngs.com"
+tags: ["simple", "website", "personal", "academic", "blog"]
+features: ["blog"]
+min_version: "0.1" 
+
+author:
+  name: "Ulrik Lyngs"
+  homepage: "https://ulriklyngs.com"
