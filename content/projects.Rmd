@@ -21,14 +21,11 @@ projects <- readxl::read_xlsx(here("_data", "projects.xlsx"))
 ```
 
 
-
-
 ```{r results='asis', echo=FALSE}
 generate_project_row <- function(id){
-  # open project row
   cat("<div class='row project-entries'>")
   
-  # add a column with teaser image
+  # add column with teaser image
   teaser_image_path <- projects %>% 
     filter(project_id == id) %>% 
     pull(teaser_image)
@@ -40,7 +37,7 @@ generate_project_row <- function(id){
   # open column with project entries
   cat("<div class='col-lg-9 col-md-9'>") 
   
-  # add column with project title and description
+  # add project title and description
   cur_project <- projects %>% 
     filter(project_id == id) %>% 
     mutate(html = str_c("<h3>", 
@@ -55,17 +52,17 @@ generate_project_row <- function(id){
   # add row with project work
   cat("<div class='row project-work'>")
   project_work <- publications %>% 
-  filter(project == id) %>% 
-    arrange(desc(year)) %>% 
-    mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
-                        ifelse(is.na(teaser_video),
-                               str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
-                               authors_full, "<br>*", 
-                               venue_abbrev, "*"),
-                               str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', teaser_video, '" allowfullscreen></iframe></div>')
-                              ),
-                        "</div>" )
-           )
+    filter(project == id) %>% 
+      arrange(desc(year)) %>% 
+      mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
+                          ifelse(is.na(teaser_video),
+                                 str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
+                                 authors_full, "<br>*", 
+                                 venue_abbrev, "*"),
+                                 str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', teaser_video, '" allowfullscreen></iframe></div>')
+                                ),
+                          "</div>" )
+             )
   cat(project_work$html)
   cat("</div>")
   
@@ -77,8 +74,6 @@ generate_project_row <- function(id){
 }
 
 walk(projects$project_id, generate_project_row)
-
-
 
 ```
 
