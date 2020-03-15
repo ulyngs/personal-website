@@ -32,9 +32,10 @@ footnotereturnlinkcontents = "↩"
     url = "/blog/"
     weight = 5
 #[[menu.main]]
-#    name = "Subscribe"
+#    name = '<i class="fa fa-rss" aria-hidden="true"></i>'
 #    url = "/index.xml"
+#    weight = 6
 
 [params]
     description = "A website built through Hugo and blogdown."
-    footer = "&copy; Ulrik Lyngs 2020"
+    footer = "&copy; Ulrik Lyngs 2020. Powered by [Hugo](https://gohugo.io) and [blogdown](https://bookdown.org/yihui/blogdown/)."
