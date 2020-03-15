@@ -68,24 +68,15 @@ a.email:hover,
   opacity: 0.65;
 }
 
-/*.main-container p a,
-.main-container .project-entries a,
-.row.publications-page .publication-extra a,
-.row.cv-page .cv-entries a{
-  color: black;
-  border-bottom: 1px solid lightgray;
-}*/
 
-
-
+/* NAVBAR */
 .navbar-brand {
   font-size: 2.5em;
   font-weight: 300;
   color: #777 !important;
   line-height: 20px;
 }
-
-/* styling to copy old website layout */
+/* push content down below the sticky navbar */
 .main-container {
   padding-top: 7.5em;
 }
@@ -94,9 +85,6 @@ a.email:hover,
 /* front page */
 .link-wrapper {
   margin-top: 0.5em;
-}
-.link-wrapper a {
-  color: black;
 }
 #recent-work {
   margin-bottom: 0.5em;
@@ -278,10 +266,13 @@ table.dataTable.no-footer {
 .cv-page thead {
   display: none;
 }
-.cv-page table {
-  margin-bottom: 1.5em;
+.cv-page table{
+  margin-bottom: 3em;
   table-layout: fixed;
   width: 100%;
+}
+.cv-page .datatables.html-widget {
+  margin-bottom: 3em !important;
 }
 .cv-page tbody td:first-child {
   padding-right: 1.5em;
@@ -292,7 +283,7 @@ table.dataTable.no-footer {
   width: 85%;
 }
 .cv-page td {
-  padding-bottom: 0.1em;
+  padding-bottom: 0.2em;
 }
 .cv-page .work-title {
   font-size: 1.2em;
