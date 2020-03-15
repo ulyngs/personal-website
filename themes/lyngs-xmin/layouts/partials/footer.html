@@ -10,9 +10,20 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- for floating TOC -->
+  
+  <!-- use headroom.js (http://wicky.nillia.ms/headroom.js/) for hiding the header on scroll -->
+  <script src="/js/headroom.js"></script>
+  <script>
+    // grab an element
+    var myElement = document.querySelector(".navbar-header");
+    // construct an instance of Headroom, passing the element
+    var headroom  = new Headroom(myElement);
+    // initialise
+    headroom.init();
+  </script>
+  
+  <!-- for floating TOC on CV page -->
   <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
-  <script src="/js/navbar-hide.js"></script>
   
   <!-- add support for DT datatables -->
   <script src="{{ "lib/htmlwidgets-1.5.1/htmlwidgets.js" | relURL }}"></script>
