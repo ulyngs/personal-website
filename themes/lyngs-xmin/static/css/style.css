@@ -104,7 +104,11 @@ a.email:hover,
   margin-top: 5em;
 }
 .featured-work-entry {
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
+}
+/* this fixes spacing on mobile */
+.featured-work-entry iframe {
+  padding-bottom: 1em;
 }
 .featured-work-graphic {
   padding-right: 2em;
@@ -126,6 +130,9 @@ footer {
 .row.project-entries {
   margin-bottom: 2em;
 }
+.row.project-entries img {
+  padding-bottom: 0.8em;
+}
 
 .project-work {
   margin-bottom: 2em;
@@ -134,7 +141,10 @@ footer {
   margin-top: 1.6em;
 }
 .project-work-entry {
-  padding: 0.8em 0.6em;
+  padding: 0.7em 0.5em;
+}
+.project-work-entry iframe {
+  padding: 0.2em 1em 0.2em 0em;
 }
 .project-work-entry p {
   font-size: 0.95em !important;
