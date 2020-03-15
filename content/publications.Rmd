@@ -55,5 +55,5 @@ for (cur_year in years){
 
 <div class="col-sm-1"></div>
 
-<!-- close publications page -->
+<!-- close publications page --> 
 </div>
