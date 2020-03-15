@@ -56,7 +56,7 @@ cv_entries %>%
   kable()
 ```
 
-<h2 data-toc-text="Research">Research dissemination</h2>
+<h2 data-toc-text="Dissemination">Research dissemination</h2>
 <!-- ## Research dissemination -->
 <!-- ### Publications -->
 ```{r, eval=FALSE}
