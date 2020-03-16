@@ -11,13 +11,6 @@ library(glue)
 
 featured_work <- readxl::read_xlsx(here("_data", "featured_work.xlsx"))
 
-titles <- featured_work$title
-video <- featured_work %>% 
-  filter(title == titles[[2]])
-
-video$teaser_video
-
-glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item featured-work-graphic' src='{video$teaser_video}' allowfullscreen></iframe></div>")
 ```
 
 <!-- personal -->
