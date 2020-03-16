@@ -10,6 +10,7 @@ title: Home
 </div>
 
 <div class="col-lg-6 col-md-6">
+
 I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, with the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/).
 
 My research focuses on **attention and self-control in relation to use of digital devices**. 
@@ -20,33 +21,35 @@ I may be available for consultancy, teaching, or workshop facilitation in relati
 </div>
 
 <div class="col-lg-3 col-md-3">
+
 Department of Computer Science \
 University of Oxford \
 OX1 3QD Oxford, UK \
 ulrik.lyngs@cs.ox.ac.uk \
 <div class="link-wrapper">
-<a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-<a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
-<a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+  <a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+  <a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
+  <a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
 </div>
+
 </div>
+
 </div>
 
 <div class="featured-work">
 ## Recent work
 </div>
 
+<!-- 1st entry -->
 <div class="row featured-work-entry">
 <div class="col-sm-3">
-
-<img alt="Reducing Digital Distraction logo" src="/images/redd-workshop/redd-logo-rect.png" class="img-fluid featured-work-graphic"/>
-
+<a href="/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health.pdf"><img alt="Reducing Digital Distraction logo" src="/images/redd-workshop/redd-logo-rect.png" class="img-fluid featured-work-graphic"/></a>
 </div>
 
 <div class="col-sm-9">
 ##### The ReDD Workshop: Supporting People in Regaining Control Over Digital Device Use
 <div class="featured-links"> 
-[Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health) | [Materials](https://osf.io/hdvtm/)
+[Workshop paper](/pdfs/2020-02-20_Lyngs_CHI2020_workshop_rethinking_mental_health.pdf) | [Materials](https://osf.io/hdvtm/)
 </div>
 
 <span class="tldr-label">Summary:</span> Constant digital connectivity can be challenging for mental wellbeing, and make it difficult to focus on academic work.
@@ -55,6 +58,7 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 
 </div>
 
+<!-- 2nd entry -->
 <div class="row featured-work-entry">
 <div class="col-sm-3">
 
@@ -75,7 +79,7 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 
 </div>
 
-
+<!-- 3rd entry -->
 <div class="row featured-work-entry">
 <div class="col-sm-3">
 
@@ -97,11 +101,11 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 </div>
 
 
-
+<!-- 4th entry -->
 <div class="row featured-work-entry">
 
 <div class="col-sm-3">
-<img alt="Reducing Digital Distraction logo" src="/images/rmd-workshop.png" class="img-fluid featured-work-graphic"/>
+<a href="https://ulyngs.github.io/rmarkdown-workshop-2019/"><img alt="Reducing Digital Distraction logo" src="/images/rmd-workshop.png" class="img-fluid featured-work-graphic"/></a>
 </div>
 
 <div class="col-sm-9">
@@ -116,9 +120,10 @@ With the University of Oxford's [Counselling Service](https://www.ox.ac.uk/stude
 </div>
 
 
+<!-- 5th entry -->
 <div class="row featured-work-entry">
 <div class="col-sm-3">
-<img alt="Screenshot of an oxforddown PDF compiled in RStudio" src="/images/oxforddown_compiled_pdf.png" class="img-fluid featured-work-graphic"/>
+<a href="https://github.com/ulyngs/oxforddown"><img alt="Screenshot of an oxforddown PDF compiled in RStudio" src="/images/oxforddown_compiled_pdf.png" class="img-fluid featured-work-graphic"/></a>
 </div>
 
 <div class="col-sm-9">
