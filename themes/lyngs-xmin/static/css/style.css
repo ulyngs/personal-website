@@ -58,6 +58,7 @@ a:hover {
 }
 
 /* for these, don't have them underline, but make them lighter on hover */
+.featured-work-entry .teaser a,
 .pub-title a,
 .blog-title a,
 .cv-navbar a,
