@@ -13,16 +13,20 @@ title: "Ulrik Lyngs: CV"
 <div class="col-sm-9 cv-entries">
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(tidyverse)
 library(knitr)
 library(here)
+library(lubridate)
+library(DT)
 
 #### publications #####
-publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
+#publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
+publications <- readxl::read_xlsx("../_data/publications.xlsx")
 
 #### all other entries #####
-cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
+#cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
+cv_entries <- readxl::read_xlsx("../_data/cv_entries.xlsx")
 
 ```
 
@@ -59,7 +63,22 @@ cv_entries %>%
 <h2 data-toc-text="Dissemination">Research dissemination</h2>
 <!-- ## Research dissemination -->
 <!-- ### Publications -->
-```{r, eval=FALSE}
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="dissemination-tab">
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#talks">Talks</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#posters">Posters</a>
+</li>
+<!-- <li class="nav-item"> -->
+<!-- <a class="nav-link" data-toggle="tab" href="#publications">Publications</a> -->
+<!-- </li> -->
+</ul>
+
+```{r create-tables}
 publications_table <- publications %>%
   arrange(desc(year), type) %>%
   mutate(author_year = str_c(authors_full, " (", year, "). ")) %>%
@@ -73,23 +92,6 @@ publications_table <- publications %>%
   filter(type != "master's thesis") %>%
   select(type, citation)
 
-
-publications_table %>%
-  knitr::kable()
-
-# library(DT)
-# publications_table %>% 
-#   datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(
-#   pageLength = 10
-# ))
-
-```
-
-
-### Talks
-```{r, message=FALSE, warning=FALSE, out.width='100%'}
-library(lubridate)
-library(DT)
 talks_table <- cv_entries %>% 
   filter(type == 'talk') %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
@@ -101,21 +103,50 @@ talks_table <- cv_entries %>%
                       ", ",
                       month(Date, label = TRUE)))
 
-talks_table %>% 
-  datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
-  
-```
-
-
-### Posters
-```{r}
-cv_entries %>%  
+poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
   mutate(what = str_c("*", what, "*, ", where)) %>% 
   select(year_begin, what) %>% 
-  arrange(desc(year_begin)) %>% 
-  kable()
+  arrange(desc(year_begin))
+
 ```
+
+
+<!-- ### Talks -->
+```{r, message=FALSE, warning=FALSE, out.width='100%'}
+
+  
+```
+
+<!-- ### Posters -->
+```{r}
+
+```
+
+```{r results='asis'}
+# Tab panes
+cat('<div class="tab-content">')
+cat('<div class="tab-pane container active" id="talks">')
+#first tab content here
+talks_table %>% datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
+cat('</div>')
+
+cat('<div class="tab-pane container fade" id="posters">')
+#second tab content here
+poster_table %>% kable()
+cat('</div>')
+
+# cat('<div class="tab-pane container fade" id="publications">')
+# # 3rd tab content here
+# publications_table %>%
+#   datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
+# cat('</div>')
+
+cat('</div>') 
+```
+
+
+
 
 <h2 data-toc-text="Teaching">Teaching experience</h2>
 <!-- ## Teaching experience -->
@@ -225,4 +256,6 @@ cv_entries %>%
 </div>
 
 <div class="col-sm-1"></div>
+
 </div>
+

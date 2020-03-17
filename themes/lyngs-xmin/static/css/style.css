@@ -268,10 +268,22 @@ table.dataTable.no-footer {
   padding: 0.2em 0em 0.4em 0.2em;
   font-size: 1em;
 }
-.cv-entries tbody tr {
-  
+
+.cv-page .tab-content .tab-pane {
+  padding: 0;
+  margin: 0;
 }
 
+.cv-page .tab-content label {
+  padding: 1em 0em 0.8em 0.2em;
+}
+.cv-page .tab-content .tab-pane td {
+  padding: 0.2em 0em 0.4em 0.2em;
+}
+.cv-page .tab-content table {
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
 
 .cv-page h1 {
   font-size: 2.2em;
