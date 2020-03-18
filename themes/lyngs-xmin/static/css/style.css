@@ -374,13 +374,13 @@ table.dataTable.no-footer {
   margin-top: 1em;
 }
 .blog-post #hide-button {
-  position: -webkit-sticky;
+  /*position: -webkit-sticky;
   position: sticky;
-  top: 6.5em;
+  top: 6.5em;*/
   background-color: #eee;
   border-right: lightgrey;
   border-bottom: lightgrey;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .blog-post #toc a {
