@@ -377,6 +377,7 @@ table.dataTable.no-footer {
   /*position: -webkit-sticky;
   position: sticky;
   top: 6.5em;*/
+  margin-top: 35px;
   background-color: #eee;
   border-right: lightgrey;
   border-bottom: lightgrey;
@@ -434,7 +435,7 @@ table.dataTable.no-footer {
 .blog-post .post-content h1,
 .blog-post .post-content h2,
 .blog-post .post-content h3 {
-  margin-top: 40px;
+  margin-top: 35px;
 }
 .blog-post .post-content h1 {
   font-size: 2em;
