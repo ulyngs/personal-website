@@ -58,6 +58,7 @@ a:hover {
 }
 
 /* for these, don't have them underline, but make them lighter on hover */
+.blog-post #toc a,
 .featured-work-entry .teaser a,
 .pub-title a,
 .blog-title a,
@@ -328,7 +329,13 @@ table.dataTable.no-footer {
 
 
 /* ---- BLOG ---- */
-
+.blog-post .post-meta {
+  max-width: 900px;
+}
+.blog-post .blog-content {
+  max-width: 680px;
+  margin-left: 1em;
+}
 
 .blog-post-entry {
   margin-bottom: 4em;
@@ -356,8 +363,35 @@ table.dataTable.no-footer {
 
 /* ---- BLOG POST ---- */
 .main-container.blog-post {
-  max-width: 680px;
+  /*max-width: 680px;*/
 }
+
+/* toc navbar */
+.blog-post #toc {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4.8em;
+  margin-top: 1em;
+}
+.blog-post #hide-button {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6.5em;
+  background-color: #eee;
+  border-right: lightgrey;
+  border-bottom: lightgrey;
+  opacity: 0.6;
+}
+
+.blog-post #toc a {
+  opacity: 0.5;
+  border-left: none;
+}
+.blog-post #toc a:hover,
+.blog-post #toc a.nav-link.active {
+  opacity: 1;
+}
+
 .blog-post .post-meta p {
   color: #777;
   margin-bottom: 0;
@@ -400,7 +434,7 @@ table.dataTable.no-footer {
 .blog-post .post-content h1,
 .blog-post .post-content h2,
 .blog-post .post-content h3 {
-  margin-top: 1.5em;
+  margin-top: 40px;
 }
 .blog-post .post-content h1 {
   font-size: 2em;
