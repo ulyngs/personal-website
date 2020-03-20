@@ -37,6 +37,7 @@ ulrik.lyngs@cs.ox.ac.uk \
   <a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
   <a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
   <a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+</div>
 ```
 
 </div>

@@ -110,10 +110,11 @@ a.email:hover,
 }
 /* this fixes spacing on mobile */
 .featured-work-entry iframe {
-  padding-bottom: 1em;
+  padding-bottom: 0.8em;
 }
 .featured-work-graphic {
   padding-right: 2em;
+  padding-bottom: 0.8em;
 }
 .tldr-label {
   font-style: italic;
@@ -232,10 +233,23 @@ footer {
 }
 
 /* small screens */
+@media (max-width: 990px) {
+  #toc {
+    width: 600px;
+  }
+  .blog-content .post-content {
+    margin-top: 1.5em;
+  }
+}
+
 @media (max-width: 768px) {
   
   .main-container {
     padding-top: 6em;
+  }
+  
+  #toc {
+    width: 300px
   }
   
   /* override stickyness so that the navigation does not follow scrolling */
@@ -312,10 +326,10 @@ table.dataTable.no-footer {
 .cv-page tbody td:first-child {
   padding-right: 1.5em;
   vertical-align: top;
-  width: 15%;
+  width: 18%;
 }
 .cv-page tbody td:nth-child(2) {
-  width: 85%;
+  width: 82%;
 }
 .cv-page td {
   padding-bottom: 0.2em;
@@ -362,9 +376,8 @@ table.dataTable.no-footer {
 }
 
 /* ---- BLOG POST ---- */
-.main-container.blog-post {
-  /*max-width: 680px;*/
-}
+
+
 
 /* toc navbar */
 .blog-post #toc {
@@ -415,7 +428,7 @@ table.dataTable.no-footer {
 
 .blog-post .post-content p,
 .blog-post .post-content li {
-  font-size: 1.15em;
+  font-size: 1.1em;
   font-weight: 400;
   line-height: 180%; 
 }
