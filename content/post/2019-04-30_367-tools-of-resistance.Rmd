@@ -63,7 +63,7 @@ The most common type of feature is to **block or remove distractions**. That is,
 For example, the Chrome extension [Focusly](https://chrome.google.com/webstore/detail/focusly/jlihnplddpebplnfafhdanaiapbeikbk?hl=gb) allows people to block their own access to websites on a blacklist. In addition, it helps people stick with their intention by requiring them to type in a series of 46 arrow keys in a specific order, before they can stop a blocking session.
 
 ```{r, fig.cap="[Focusly](https://chrome.google.com/webstore/detail/focusly/jlihnplddpebplnfafhdanaiapbeikbk?hl=gb) blocks access to websites on a blacklist, then helps people stick with their intention by requiring them to type in a series of 46 arrow keys in a specific order, before they can stop a blocking session."}
-knitr::include_graphics(str_c(image_path, "4effort.png"))
+knitr::include_graphics(str_c(image_path, "4effort_small.jpg"))
 ```
 
 The perhaps most popular example of removing distracting functionality is the Chrome extension [News Feed Eradicator](https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=gb), which removes the newsfeed from Facebook and replaces it with a motivational quote. Many similar extensions do things such as remove suggested videos on YouTube, and some Android apps limit the amount of functionality available on a smartphone’s home screen.
