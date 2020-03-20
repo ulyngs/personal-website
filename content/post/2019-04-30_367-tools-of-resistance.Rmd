@@ -27,7 +27,7 @@ options(knitr.graphics.error = FALSE)
 Many people struggle to control their use of digital devices: With news updates, engaging games, and an endless stream of social media available at your fingertips, it is difficult to avoid being distracted or sucked in.
 
 ```{r}
-knitr::include_graphics(str_c(image_path, "1struggles.png"))
+knitr::include_graphics(str_c(image_path, "1struggles_small.jpg"))
 ```
 
 
@@ -40,7 +40,7 @@ On the online stores for apps and browser extensions, there’s now a large mark
 This is not an entirely new development---Human-Computer Interaction (HCI) researchers have developed similar tools for a few years---but it is gathering momentum as Apple and Google recently reacted to these trends by building features for self-tracking and self-limiting into their mobile operating systems.
 
 ```{r, fig.cap="Many tools help support self-control over device use, using tricks such as blocking access to distracting websites (top left) or cutting down virtual trees if you use your smartphone during a focus session. Apple (bottom left) and Google (bottom right) recently begun to build similar functionality into their mobile operating systems."}
-knitr::include_graphics(str_c(image_path, "2tools.png"))
+knitr::include_graphics(str_c(image_path, "2tools_small.jpg"))
 ```
 
 Yet little is known about how these tools work. What novel features do they use to encourage digital self-control? What does psychology say about how they might work?
