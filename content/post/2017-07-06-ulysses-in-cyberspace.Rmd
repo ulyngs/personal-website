@@ -7,7 +7,7 @@ date: 2017-07-06
 categories:
   - self-control
   - tech design
-teaser: "/post/2018-10-28-ulysses-in-cyberspace/preview.png"
+teaser: "/post/2018-10-28-ulysses-in-cyberspace/preview.jpg"
 
 ---
 
