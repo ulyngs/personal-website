@@ -17,7 +17,7 @@ cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
 
 #### projects ####
 projects <- readxl::read_xlsx(here("_data", "projects.xlsx"))
-
+ 
 ```
 
 
