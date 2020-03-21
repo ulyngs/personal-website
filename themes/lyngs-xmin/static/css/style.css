@@ -376,10 +376,10 @@ table.dataTable.no-footer {
 }
 
 /* ---- BLOG POST ---- */
-
-
-
 /* toc navbar */
+.blog-post #toc li ul {
+  padding-left: 0.3em;
+}
 .blog-post #toc {
   position: -webkit-sticky;
   position: sticky;
