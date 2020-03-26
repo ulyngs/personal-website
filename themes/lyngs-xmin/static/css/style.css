@@ -477,3 +477,7 @@ table.dataTable.no-footer {
 .blog-post .footnotes li p {
   font-size: 1em;
 }
+
+.utterances {
+  margin-top: 2em;
+}
