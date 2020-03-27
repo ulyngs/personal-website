@@ -481,3 +481,18 @@ table.dataTable.no-footer {
 .utterances {
   margin-top: 2em;
 }
+
+/* style code blocks */
+.hljs {
+  background: #f8f8f8;
+  color: #333;
+  padding: 1em;
+}
+pre code {
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 5px #eee;
+  line-height: 1.75;
+}
+code {
+  background: #f8f8f8;
+}

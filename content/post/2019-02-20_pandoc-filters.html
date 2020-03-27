@@ -60,6 +60,7 @@ It converts documents from one format to another by parsing the source file into
 <pre class="markdown"><code>---
 title: AST-what-now?
 author: Ulrik Lyngs
+
 ---
 
 ## my header
@@ -102,6 +103,7 @@ author: Ulrik Lyngs
 output:
   pdf_document:
     pandoc_args: [&quot;--lua-filter=toy_filter.lua&quot;]
+
 ---
 
 ## my header
@@ -156,6 +158,7 @@ output:
     css: style.css
   pdf_document:
     pandoc_args: [&quot;--lua-filter=toy_filter.lua&quot;]
+    
 ---
 
 ## my header

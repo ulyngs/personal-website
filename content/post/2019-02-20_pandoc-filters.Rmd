@@ -82,6 +82,7 @@ Imagine you have a simple document called **text.Rmd**:
 ---
 title: AST-what-now?
 author: Ulrik Lyngs
+
 ---
 
 ## my header
@@ -135,6 +136,7 @@ author: Ulrik Lyngs
 output:
   pdf_document:
     pandoc_args: ["--lua-filter=toy_filter.lua"]
+
 ---
 
 ## my header
@@ -220,6 +222,7 @@ output:
     css: style.css
   pdf_document:
     pandoc_args: ["--lua-filter=toy_filter.lua"]
+    
 ---
 
 ## my header
