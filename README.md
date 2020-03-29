@@ -3,7 +3,7 @@
 This repository holds the source files for my website [ulriklyngs.com](https://ulriklyngs.com).
 The website is powered by [Hugo](https://gohugo.io) and [`blogdown`](https://bookdown.org/yihui/blogdown/).
 
-I developed the theme for this website, `lyngs-xmin`, on the foundation of Yihui Xie's [XMin](https://github.com/yihui/hugo-xmin) theme, to which I first added Bootstrap 4, ported the design from my old website, and hacked from there.
+I created the theme for this website, `lyngs-xmin`, on the foundation of Yihui Xie's [XMin](https://github.com/yihui/hugo-xmin) theme, to which I first added Bootstrap 4, ported the design from my old website, and hacked from there.
 
 ## Features
 - content on the 'recent work' (on the Home page), Projects, Publications, and CV content is pulled in from spreadsheets (see the **_data/** folder
