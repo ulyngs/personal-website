@@ -1,5 +1,6 @@
 ---
 title: Publications
+menu: main
 ---
 
 ```{r setup, include=FALSE}

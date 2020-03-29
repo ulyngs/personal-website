@@ -43,12 +43,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <div class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto">
+            {{ $currentPage := . }}
+          
             {{ range .Site.Menus.main }}
-              <li class="nav-item"><a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              <li class="nav-item"><a class="nav-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a></li> -->
             {{ end }}
-            </ul>
-          </div>
+          </ul>
           
         </div>
       </nav>
