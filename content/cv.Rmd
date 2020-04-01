@@ -1,5 +1,6 @@
 ---
-title: "Ulrik Lyngs: CV"
+title: "CV"
+menu: main
 ---
 
 

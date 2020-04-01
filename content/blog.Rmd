@@ -1,3 +1,4 @@
 ---
-title: "blog"
+title: "Blog"
+menu: main
 ---
