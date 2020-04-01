@@ -20,10 +20,11 @@ publications <- readxl::read_xlsx(here("_data/publications.xlsx"))
 publications_table <- publications %>%
   arrange(desc(year), type) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link
-  #mutate(title = str_c("<span style='text-decoration: underline'>", title, "</span>")) %>% #underline title
-  mutate(award = ifelse(is.na(award), "", str_c(
-    "<i class='fa fa-trophy'></i><em> ", award, "</em> ·"
-  )),
+  mutate(award = case_when(
+    award == "Best Paper"         ~ str_c("<i class='fa fa-trophy'></i><em> ", award, "</em> ·"),
+    award == "Honourable Mention" ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><em> ", award, "</em> ·"),
+    TRUE                          ~       ""
+  ),
   pdf = ifelse(is.na(pdf), "", str_c(" <span class='publication-extra'>[pdf](", pdf, ")</span>")),
   materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")),
   ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),

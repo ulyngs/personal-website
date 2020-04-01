@@ -51,3 +51,8 @@ images_to_resize <- image_df %>%
   filter(needs_resizing == TRUE)
 
 walk(images_to_resize$full_path, compress_and_move)
+
+
+# image_read("static/images/ribbon.png") %>%
+#   image_resize(geometry = '50') %>%
+#   image_write("static/images/ribbon_xs.png")
