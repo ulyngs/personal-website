@@ -512,3 +512,12 @@ pre code {
 code {
   background: #f8f8f8;
 }
+
+/* style block quotes */
+blockquote {
+  margin: 2em 1em;
+  padding: 0 2em;
+  border-left: 3px solid #ddd;
+  font-style: italic;
+}
+

@@ -125,7 +125,7 @@ knitr::include_graphics(str_c(image_path, "13_ext_added.jpg"), error = FALSE)
 ### Step 4: Try building the empty extension and enable it in Safari
 If you click the 'play' triangle icon in the top left, the app will again be built and run.
 
-Apple tells us that
+Apple [tells us that](https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension)
 
 > When you build your app, Xcode builds your Safari App Extension first, then embeds it inside the finished app bundle. As soon as your app runs, your extension is ready for use in Safari.
 
