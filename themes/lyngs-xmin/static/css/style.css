@@ -3,8 +3,9 @@
     border-bottom: 1px solid rgba(0,0,0,0.2)
 }
 .header-container .navbar-nav a.nav-link.active {
-  border-bottom: 1px dashed rgba(0,0,0,0.2);
+  /*border-bottom: 1px dashed rgba(0,0,0,0.2);*/
   padding-bottom: 0;
+  font-weight: 400;
 }
 
 /* style the appearance and disappearance of the header */
@@ -31,10 +32,18 @@
 
 /* font */
 body {
-  font-family: 'Open Sans';
+  /*font-family: 'Open Sans', "Muli", "Helvetica Neue", helvetica, arial, sans-serif;*/
+  font-family: "Muli", "Helvetica Neue", helvetica, arial, sans-serif;
   font-style: normal;
   font-weight: 300;
 }
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+h5 {
+  font-weight: 400;
+}
+
 h3 {
   font-size: 1.75em;
 }
@@ -90,8 +99,8 @@ a.email:hover,
 
 /* NAVBAR */
 .navbar-brand {
-  font-size: 2.5em;
-  font-weight: 300;
+  font-size: 2.3em;
+  font-weight: 200;
   color: #777 !important;
   line-height: 20px;
 }
@@ -206,7 +215,7 @@ footer {
 }
 
 .publications-page .pub-title {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .publications-page td {
