@@ -434,6 +434,7 @@ table.dataTable.no-footer {
 .blog-post .post-meta .description {
   padding-top: 1.5em;
   font-style: italic;
+  font-size: 18px;
   /*color: black;*/
 }
 
@@ -450,7 +451,7 @@ table.dataTable.no-footer {
 .blog-post .post-content p,
 .blog-post .post-content li {
   font-size: 1.1em;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 180%; 
 }
 
