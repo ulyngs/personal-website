@@ -69,7 +69,10 @@ cv_entries %>%
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" id="dissemination-tab">
 <li class="nav-item">
-<a class="nav-link active" data-toggle="tab" href="#talks">Talks</a>
+<a class="nav-link active" data-toggle="tab" href="#media">Media</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#talks">Talks</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" data-toggle="tab" href="#posters">Posters</a>
@@ -110,38 +113,31 @@ poster_table <- cv_entries %>%
   select(year_begin, what) %>% 
   arrange(desc(year_begin))
 
+
+media_table <- cv_entries %>% 
+  filter(type == 'media') %>%
+  select(year_begin, what) 
 ```
 
-
-<!-- ### Talks -->
-```{r, message=FALSE, warning=FALSE, out.width='100%'}
-
-  
-```
-
-<!-- ### Posters -->
-```{r}
-
-```
 
 ```{r results='asis'}
 # Tab panes
 cat('<div class="tab-content">')
-cat('<div class="tab-pane container active" id="talks">')
-#first tab content here
+
+# media tab
+cat('<div class="tab-pane container active" id="media">')
+media_table %>% kable()
+cat('</div>')
+
+# talks tab
+cat('<div class="tab-pane container fade" id="talks">')
 talks_table %>% datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
 cat('</div>')
 
+# posters tab
 cat('<div class="tab-pane container fade" id="posters">')
-#second tab content here
 poster_table %>% kable()
 cat('</div>')
-
-# cat('<div class="tab-pane container fade" id="publications">')
-# # 3rd tab content here
-# publications_table %>%
-#   datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
-# cat('</div>')
 
 cat('</div>') 
 ```
@@ -162,16 +158,7 @@ cv_entries %>%
   kable()
 ```
 
-## Other
-### Media coverage
-```{r}
-cv_entries %>% 
-  filter(type == 'media') %>%
-  select(year_begin, what) %>% 
-  kable()
-```
-
-### Service
+## Service
 ```{r}
 cv_entries %>% 
   filter(type == 'service') %>% 
