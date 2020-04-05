@@ -1,5 +1,6 @@
 ---
 title: Home
+
 ---
 
 ```{r setup, include=FALSE}
@@ -29,6 +30,7 @@ I may be available for consultancy, teaching, or workshop facilitation in relati
 ```
 
 ```{block type="col-lg-3 col-md-3", echo=TRUE}
+<div class="contact-info">
 Department of Computer Science \
 University of Oxford \
 OX1 3QD Oxford, UK \
@@ -37,6 +39,7 @@ ulrik.lyngs@cs.ox.ac.uk \
   <a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
   <a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
   <a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+</div>
 </div>
 ```
 
