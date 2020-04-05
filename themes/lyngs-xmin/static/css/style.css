@@ -111,6 +111,9 @@ a.email:hover,
 
 
 /* front page */
+.contact-info {
+  padding-left: 1em;
+}
 .link-wrapper {
   margin-top: 0.5em;
 }
