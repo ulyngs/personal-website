@@ -60,3 +60,14 @@
 </script>
 
 {{ partial "footer.html" . }}
+
+{{ if eq .Params.code_folding "hide" }}
+<!-- Init code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding();
+});
+</script>
+<script src="{{ "js/codefolding.js" | relURL }}"></script>
+
+{{ end }}
