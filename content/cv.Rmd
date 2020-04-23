@@ -69,13 +69,13 @@ cv_entries %>%
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" id="dissemination-tab">
 <li class="nav-item">
-<a class="nav-link active" data-toggle="tab" href="#media">Media</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-toggle="tab" href="#talks">Talks</a>
+<a class="nav-link active" data-toggle="tab" href="#talks">Talks</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" data-toggle="tab" href="#posters">Posters</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#media">Media</a>
 </li>
 <!-- <li class="nav-item"> -->
 <!-- <a class="nav-link" data-toggle="tab" href="#publications">Publications</a> -->
@@ -124,19 +124,19 @@ media_table <- cv_entries %>%
 # Tab panes
 cat('<div class="tab-content">')
 
-# media tab
-cat('<div class="tab-pane container active" id="media">')
-media_table %>% kable()
-cat('</div>')
-
 # talks tab
-cat('<div class="tab-pane container fade" id="talks">')
+cat('<div class="tab-pane container active" id="talks">')
 talks_table %>% datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
 cat('</div>')
 
 # posters tab
 cat('<div class="tab-pane container fade" id="posters">')
 poster_table %>% kable()
+cat('</div>')
+
+# media tab
+cat('<div class="tab-pane container fade" id="media">')
+media_table %>% kable()
 cat('</div>')
 
 cat('</div>') 
