@@ -55,7 +55,8 @@ cv_entries %>%
 ## Grants and awards
 ```{r}
 cv_entries %>% 
-  filter(type == 'grants_and_awards') %>% 
+  filter(type == 'grants_and_awards') %>%
+  filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
   select(year_begin, what) %>% 
   kable()
