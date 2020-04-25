@@ -100,7 +100,9 @@ publications_table <- publications %>%
 talks_table <- cv_entries %>% 
   filter(type == 'talk') %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
-  mutate(what = str_c("<em>", what, "</em>, ", where)) %>% 
+  mutate(what = ifelse(is.na(slides),
+                       str_c("<em>", what, "</em>, ", where),
+                       str_c("<em>", what, "</em>, ", where, "<br><a href=", slides, ">Slides</a>"))) %>%   
   select(Date = date, Talk = what) %>% 
   mutate(Date = as_date(Date)) %>% 
   arrange(desc(Date)) %>% 
