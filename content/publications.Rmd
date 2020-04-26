@@ -6,6 +6,7 @@ menu: main
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(here)
+library(lubridate)
 knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 ```
 
@@ -16,10 +17,10 @@ knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 <div class="col-sm-9">
 ```{r}
 # create the table data
-publications <- readxl::read_xlsx(here("_data/publications.xlsx"))
+publications <- readxl::read_xlsx(here::here("_data", "publications.xlsx"))
 
 publications_table <- publications %>%
-  arrange(desc(year), type) %>%
+  arrange(desc(date), type) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link
   mutate(award = case_when(
     award == "Best Paper"         ~ str_c("<i class='fa fa-trophy'></i><em> ", award, "</em> ·"),
@@ -39,19 +40,20 @@ publications_table <- publications %>%
                                  sep = " ")
            ) %>%          
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) # make my name bold
+
 ```
 
 ```{r results='asis'}
 # draw a table with heading for each year
-years <- publications$year %>% unique()
+years <- publications$date %>% year() %>% unique()
 
 for (cur_year in years){
   publications_table %>% 
-    filter(year == cur_year) %>% 
+    filter(year(date) == cur_year) %>% 
     select(type, citation) %>%
     knitr::kable(caption = cur_year, format = "html", table.attr='class="table-responsive"', escape = FALSE) %>%
     print()
-}
+} 
 ```
 </div>
 
