@@ -8,16 +8,17 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(knitr)
 library(here)
+library(lubridate)
 
 #### publications #####
-publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
+publications <- readxl::read_xlsx(here::here("_data", "publications.xlsx"))
 
 #### cv entries #####
-cv_entries <- readxl::read_xlsx(here("_data", "cv_entries.xlsx"))
+cv_entries <- readxl::read_xlsx(here::here("_data", "cv_entries.xlsx"))
 
 #### projects ####
-projects <- readxl::read_xlsx(here("_data", "projects.xlsx"))
- 
+projects <- readxl::read_xlsx(here::here("_data", "projects.xlsx"))
+
 ```
 
 
@@ -53,7 +54,7 @@ generate_project_row <- function(id){
   cat("<div class='row project-work'>")
   project_work <- publications %>% 
     filter(project == id) %>% 
-      arrange(desc(year)) %>% 
+      arrange(desc(year(date))) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
                           ifelse(is.na(teaser_video),
                                  str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
