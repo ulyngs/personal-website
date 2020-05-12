@@ -26,7 +26,7 @@ I am a computer scientist and cognitive psychologist, doing a PhD at the [Depart
 My research focuses on **attention and self-control in relation to use of digital devices**. 
 Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 
-I may be available for consultancy, teaching, or workshop facilitation in relation to digital distraction or reproducible research with R Markdown, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+I may be available for consultancy, teaching, or workshop facilitation in relation to digital distraction, data science, or reproducible research with R Markdown, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
 ```
 
 ```{block type="col-lg-3 col-md-3", echo=TRUE}
