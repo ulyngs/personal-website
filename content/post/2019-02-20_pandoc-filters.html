@@ -68,7 +68,7 @@ author: Ulrik Lyngs
 Some text with *italics* and also **bold**.</code></pre>
 <p>When pandoc reads this, it splits it up into a <code>Meta</code> block containing the stuff in the YAML header (in this case title and author), and a list of <code>Block</code> elements containing the actual content (in this case two blocks, a ‘<code>Header</code>’ and a ‘<code>Para</code>’).</p>
 <p>If you’ve got pandoc accessible at the terminal, you can see what this looks like by creating a file named <strong>text.Rmd</strong>, putting the content above into it, navigating to its location, and then typing in the command <code>pandoc -s -t native test.Rmd</code>:</p>
-<pre class="terminal"><code>~ ulyngs$ pandoc -s -t native text.Rmd
+<pre class="bash"><code>~ ulyngs$ pandoc -s -t native text.Rmd
 
 Pandoc (Meta {unMeta = fromList [(&quot;author&quot;,MetaInlines [Str &quot;Ulrik&quot;,
 Space,Str &quot;Lyngs&quot;]),(&quot;title&quot;,MetaInlines [Str &quot;AST-what?&quot;])]})

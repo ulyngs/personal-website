@@ -94,7 +94,7 @@ When pandoc reads this, it splits it up into a `Meta` block containing the stuff
 
 If you've got pandoc accessible at the terminal, you can see what this looks like by creating a file named **text.Rmd**, putting the content above into it, navigating to its location, and then typing in the command `pandoc -s -t native test.Rmd`:
 
-```terminal
+```bash
 ~ ulyngs$ pandoc -s -t native text.Rmd
 
 Pandoc (Meta {unMeta = fromList [("author",MetaInlines [Str "Ulrik",
