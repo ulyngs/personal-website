@@ -21,12 +21,14 @@ featured_work <- readxl::read_xlsx(here("_data", "featured_work.xlsx"))
 ```
 
 ```{block type="col-lg-6 col-md-6", echo=TRUE}
-I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, with the [Human Centred Computing group](https://www.cs.ox.ac.uk/research/HCC/).
+I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, with the [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
 
 My research focuses on **attention and self-control in relation to use of digital devices**. 
 Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 
-I may be available for consultancy, teaching, or workshop facilitation in relation to digital distraction, data science, or reproducible research with R Markdown, as well as for musical bookings --- do <a href="mailto:ulrik.lyngs@cs.ox.ac.uk?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+I may be available for consultancy, speaking, or workshop facilitation in relation to digital distraction and productivity, or reproducible research and data science with R Markdown --- <a href="mailto:ulrik.lyngs@gmail.com?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+
+
 ```
 
 ```{block type="col-lg-3 col-md-3", echo=TRUE}
