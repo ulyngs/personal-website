@@ -56,11 +56,11 @@ generate_project_row <- function(id){
     filter(project == id) %>% 
       arrange(desc(year(date))) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
-                          ifelse(is.na(teaser_video),
+                          ifelse(is.na(full_talk_embed),
                                  str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
                                  authors_full, "<br>*", 
                                  venue_abbrev, "*"),
-                                 str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', teaser_video, '" allowfullscreen></iframe></div>')
+                                 str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', full_talk_embed, '" allowfullscreen></iframe></div>')
                                 ),
                           "</div>" )
              )
