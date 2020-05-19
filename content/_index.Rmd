@@ -10,7 +10,7 @@ library(knitr)
 library(here)
 library(glue)
 
-featured_work <- readxl::read_xlsx(here("_data", "featured_work.xlsx"))
+featured_work <- read_csv(here("_data", "featured_work.csv"))
 
 ```
 

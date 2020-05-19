@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 <div class="col-sm-9">
 ```{r}
 # create the table data
-publications <- readxl::read_xlsx(here::here("_data", "publications.xlsx"))
+publications <- read_csv(here::here("_data", "publications.csv"))
 
 publications_table <- publications %>%
   arrange(desc(date), type) %>%
@@ -28,7 +28,7 @@ publications_table <- publications %>%
     TRUE                          ~       ""
   ),
   pdf = ifelse(is.na(pdf), "", str_c(" <span class='publication-extra'>[pdf](", pdf, ")</span>")),
-  materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")),
+  materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")), 
   ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
   video = ifelse(is.na(video), "", str_c(" · <span class='publication-extra'>[video](", video, ")</span>")),

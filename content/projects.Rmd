@@ -11,13 +11,13 @@ library(here)
 library(lubridate)
 
 #### publications #####
-publications <- readxl::read_xlsx(here::here("_data", "publications.xlsx"))
+publications <- read_csv(here::here("_data", "publications.csv"))
 
 #### cv entries #####
-cv_entries <- readxl::read_xlsx(here::here("_data", "cv_entries.xlsx"))
+cv_entries <- read_csv(here::here("_data", "cv_entries.csv"))
 
 #### projects ####
-projects <- readxl::read_xlsx(here::here("_data", "projects.xlsx"))
+projects <- read_csv(here::here("_data", "projects.csv"))
 
 ```
 
