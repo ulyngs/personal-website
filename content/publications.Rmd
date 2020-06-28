@@ -4,10 +4,15 @@ menu: main
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 library(tidyverse)
 library(here)
 library(lubridate)
-knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
+library(googlesheets4)
+gs4_deauth()
+
+publications <- read_sheet("https://docs.google.com/spreadsheets/d/1TLYapjdnCfsDCqHMwFI5P3YcnqYMZ1vp2p_hfmdaufQ/edit?usp=sharing", col_types = "c")
+
 ```
 
 <div class="row publications-page">
@@ -17,8 +22,6 @@ knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 <div class="col-sm-9">
 ```{r}
 # create the table data
-publications <- read_csv(here::here("_data", "publications.csv"))
-
 publications_table <- publications %>%
   arrange(desc(date), type) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link

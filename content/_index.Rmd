@@ -9,8 +9,10 @@ library(tidyverse)
 library(knitr)
 library(here)
 library(glue)
+library(googlesheets4)
+gs4_deauth()
 
-featured_work <- read_csv(here("_data", "featured_work.csv"))
+featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing")
 
 ```
 

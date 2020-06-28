@@ -20,15 +20,15 @@ library(knitr)
 library(here)
 library(lubridate)
 library(DT)
+library(googlesheets4)
+gs4_deauth()
 
 #### publications #####
-#publications <- readxl::read_xlsx(here("_data", "publications.xlsx"))
-publications <- read_csv("../_data/publications.csv")
+publications <- read_sheet("https://docs.google.com/spreadsheets/d/1TLYapjdnCfsDCqHMwFI5P3YcnqYMZ1vp2p_hfmdaufQ/edit?usp=sharing")
 
 #### all other entries #####
-#cv_entries <- readxl::read_xlsx(here::here("_data", "excel", "cv_entries.xlsx"))
-cv_entries <- read_csv("../_data/cv_entries.csv") %>% 
-  mutate(year_begin = as.character(year_begin))
+cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1txUzW9HbViQl8U12L7RfU5S_lodYymyppWI6Kym4rRo/edit?usp=sharing",
+                         col_types = "c")
 
 ```
 
