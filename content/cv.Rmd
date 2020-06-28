@@ -24,11 +24,15 @@ library(googlesheets4)
 gs4_deauth()
 
 #### publications #####
-publications <- read_sheet("https://docs.google.com/spreadsheets/d/1TLYapjdnCfsDCqHMwFI5P3YcnqYMZ1vp2p_hfmdaufQ/edit?usp=sharing")
+publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
+           sheet = "publications",
+           col_types = "c")
 
 #### all other entries #####
-cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1txUzW9HbViQl8U12L7RfU5S_lodYymyppWI6Kym4rRo/edit?usp=sharing",
-                         col_types = "c")
+cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
+           sheet = "cv_entries",
+           col_types = "c")
+
 
 ```
 

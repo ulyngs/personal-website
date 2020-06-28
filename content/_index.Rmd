@@ -12,7 +12,8 @@ library(glue)
 library(googlesheets4)
 gs4_deauth()
 
-featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing")
+featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
+           sheet = "featured_work")
 
 ```
 

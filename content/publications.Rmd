@@ -11,8 +11,9 @@ library(lubridate)
 library(googlesheets4)
 gs4_deauth()
 
-publications <- read_sheet("https://docs.google.com/spreadsheets/d/1TLYapjdnCfsDCqHMwFI5P3YcnqYMZ1vp2p_hfmdaufQ/edit?usp=sharing", col_types = "c")
-
+publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
+           sheet = "publications",
+           col_types = "c")
 ```
 
 <div class="row publications-page">
