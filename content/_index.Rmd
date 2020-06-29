@@ -65,10 +65,10 @@ generate_featured_work <- function(cur_title){
   
   # add column with teaser
   cat(str_c("<div class='col-sm-3 teaser'>",
-            ifelse(!is.na(current_featured$full_talk_embed),
+            ifelse(!is.na(current_featured$teaser_video_embed),
                    glue("<div class='embed-responsive embed-responsive-16by9'>",
-                   "<iframe class='embed-responsive-item featured-work-graphic' src='{current_featured$full_talk_embed}' allowfullscreen></iframe>",
-                   "</div>"),
+                   "<iframe class='embed-responsive-item featured-work-graphic' src='{current_featured$teaser_video_embed}' allowfullscreen></iframe>",
+                   "</div>"), 
                    glue("<a href='{current_featured$teaser_link}'>",
                    "<img alt='{current_featured$teaser_alt_text}' src='{current_featured$teaser_image}' class='img-fluid featured-work-graphic'/>",
                    "</a>")

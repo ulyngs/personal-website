@@ -232,12 +232,16 @@ footer {
 }
 
 .publications-page tbody td:first-child {
-  padding-right: 1.5em;
+  padding-right: 2em;
   /*vertical-align: top;*/
-  width: 15%;
+  width: 10%;
 }
 .publications-page tbody td:nth-child(2) {
-  width: 85%;
+  width: 55%;
+  padding-right: 2em;
+}
+.publications-page tbody td:nth-child(3) {
+  width: 25%;
 }
 
 

@@ -7,6 +7,7 @@ menu: main
 knitr::opts_chunk$set(echo=FALSE, message = FALSE, warning = FALSE)
 library(tidyverse)
 library(here)
+library(glue)
 library(lubridate)
 library(googlesheets4)
 gs4_deauth()
@@ -20,7 +21,7 @@ publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm
 
 <div class="col-sm-2"></div>
 
-<div class="col-sm-9">
+<div class="col-sm-10">
 ```{r}
 # create the table data
 publications_table <- publications %>%
@@ -35,15 +36,20 @@ publications_table <- publications %>%
   materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")), 
   ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
-  video = ifelse(is.na(video), "", str_c(" · <span class='publication-extra'>[video](", video, ")</span>")),
+  full_talk = ifelse(is.na(full_talk), "", str_c(" · <span class='publication-extra'>[video of full talk](", full_talk, ")</span>")),
   bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>"))) %>% 
   mutate(citation = str_c("<span class=pub-title>", title, "</span><br>", 
                                  authors_full, "<br>",
                                  venue, "<br>",
-                                 award, pdf, materials, ebook, blog, video, bibtex,
+                                 award, pdf, materials, ebook, blog, full_talk, bibtex,
                                  sep = " ")
            ) %>%          
-  mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) # make my name bold
+  mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name bold
+  mutate(teaser_video_embed = case_when(
+      str_detect(teaser_video_embed, "youtube") ~ glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='{teaser_video_embed}' allowfullscreen></iframe></div>"),
+      str_detect(teaser_video_embed, "vimeo") ~ glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='{teaser_video_embed}' allow='fullscreen'></iframe></div>"),
+      is.na(teaser_video_embed) ~ ""
+    ))
 
 ```
 
@@ -54,14 +60,14 @@ years <- publications$date %>% year() %>% unique()
 for (cur_year in years){
   publications_table %>% 
     filter(year(date) == cur_year) %>% 
-    select(type, citation) %>%
+    select(type, citation, teaser_video_embed) %>%
     knitr::kable(caption = cur_year, format = "html", table.attr='class="table-responsive"', escape = FALSE) %>%
     print()
 } 
 ```
 </div>
 
-<div class="col-sm-1"></div>
+<!-- <div class="col-sm-1"></div> -->
 
 <!-- close publications page --> 
 </div>
