@@ -19,11 +19,11 @@ featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLq
 
 <!-- personal -->
 <div class="row">
-```{block type="col-lg-3 col-md-3", echo=TRUE}
+```{block type="col-lg-3 col-md-6 col-sm-12", echo=TRUE}
 <img alt="Photo of Ulrik Lyngs" src="/images/headshot_small.jpg" class="img-fluid featured-work-graphic"/>
 ```
 
-```{block type="col-lg-6 col-md-6", echo=TRUE}
+```{block type="col-lg-6 col-md-6 col-sm-6", echo=TRUE}
 I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, with the [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
 
 My research focuses on **attention and self-control in relation to use of digital devices**. 
@@ -34,7 +34,7 @@ I may be available for consultancy, speaking, or workshop facilitation in relati
 
 ```
 
-```{block type="col-lg-3 col-md-3", echo=TRUE}
+```{block type="col-lg-3 col-md-12 col-sm-6", echo=TRUE}
 <div class="contact-info">
 Department of Computer Science \
 University of Oxford \
@@ -64,7 +64,7 @@ generate_featured_work <- function(cur_title){
   cat("<div class='row featured-work-entry'>")
   
   # add column with teaser
-  cat(str_c("<div class='col-sm-3 teaser'>",
+  cat(str_c("<div class='col-lg-3 col-sm-6 teaser'>",
             ifelse(!is.na(current_featured$teaser_video_embed),
                    glue("<div class='embed-responsive embed-responsive-16by9'>",
                    "<iframe class='embed-responsive-item featured-work-graphic' src='{current_featured$teaser_video_embed}' allowfullscreen></iframe>",
@@ -77,7 +77,7 @@ generate_featured_work <- function(cur_title){
       )
 
   # add column with the content
-  cat(glue("<div class='col-sm-9'>",
+  cat(glue("<div class='col-lg-9 col-sm-6'>",
            "<h5>{current_featured$title}</h5>",
            "<div class='featured-links'><p>{current_featured$links}</p></div>",
            "<p><span class='tldr-label'>Summary: </span>{current_featured$tldr}</p>",
