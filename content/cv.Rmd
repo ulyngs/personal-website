@@ -19,10 +19,11 @@ library(tidyverse)
 library(knitr)
 library(here)
 library(lubridate)
+library(kableExtra)
 library(DT)
 library(googlesheets4)
 gs4_deauth()
-
+ 
 #### publications #####
 publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
            sheet = "publications",
@@ -55,16 +56,19 @@ cv_entries %>%
   mutate(year = str_c(year_begin, " --- ", year_end)) %>% 
   select(year, what) %>% 
   kable()
+
 ```
 
 ## Grants and awards
 ```{r}
+
 cv_entries %>% 
   filter(type == 'grants_and_awards') %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
   select(year_begin, what) %>% 
   kable()
+  #column_spec(1, width = "16%")
 ```
 
 <h2 data-toc-text="Dissemination">Research dissemination</h2>
@@ -164,7 +168,7 @@ cv_entries %>%
     str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where))) %>% 
   mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>% 
   select(year, what) %>% 
-  kable()
+  kable(escape = FALSE)
 ```
 
 ## Service
@@ -184,7 +188,7 @@ cv_entries %>%
                        str_c(year_begin, " --- ", year_end),
                        year_begin)) %>% 
   select(year, what) %>% 
-  kable()
+  kable(escape = FALSE)
 
 ```
 
@@ -200,7 +204,7 @@ cv_entries %>%
   arrange(desc(year_begin)) %>% 
   mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>% 
   select(year, what) %>% 
-  kable()
+  kable(escape = FALSE)
 ```
 
 <h2 data-toc-text="Development">Professional development</h2>
@@ -234,7 +238,7 @@ cv_entries %>%
   mutate(what = str_c(what, ", ", where, "<br>", additional_info)) %>% 
   select(year_begin, what) %>% 
   arrange(desc(year_begin)) %>% 
-  kable(align = c('l', 'l'))
+  kable(align = c('l', 'l'), escape = FALSE)
 ```
 
 # Personal
@@ -247,7 +251,7 @@ cv_entries %>%
   mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>%
   arrange(desc(year), desc(year_end)) %>%
   select(year, what) %>%
-  kable()
+  kable(escape = FALSE) 
 ```
 
 </div>
