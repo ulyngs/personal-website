@@ -244,6 +244,19 @@ footer {
   width: 25%;
 }
 
+@media (max-width: 990px) {
+  .publications-page tbody td:first-child {
+    display: none;
+  }
+  .publications-page tbody td:nth-child(2) {
+    width: 60%;
+    padding-right: 2em;
+  }
+  .publications-page tbody td:nth-child(3) {
+    width: 40%;
+  }
+}
+
 
 /* ---- CV PAGE ---- */
 #toc {
