@@ -199,6 +199,13 @@ footer {
 
 
 /* ------ PUBLICATIONS PAGE ------ */
+a.anchor {
+    display: block;
+    position: relative;
+    top: -4em;
+    visibility: hidden;
+}
+
 .publications-page td {
   font-size: 0.99em;
 }

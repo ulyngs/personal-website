@@ -15,7 +15,10 @@ gs4_deauth()
 #### publications #####
 publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
            sheet = "publications",
-           col_types = "c")
+           col_types = "c") %>% 
+  mutate(anchor = ifelse(is.na(short_title), 
+                        janitor::make_clean_names(title),
+                        janitor::make_clean_names(short_title)))
 
 #### cv entries #####
 cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
@@ -63,13 +66,10 @@ generate_project_row <- function(id){
     filter(project == id) %>% 
       arrange(desc(year(date))) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
-                          ifelse(is.na(full_talk_embed),
-                                 str_c("<p class='project-work-entry-title'>[**", title, "**](", pdf, ")<br>",
-                                 authors_full, "<br>*", 
-                                 venue_abbrev, "*"),
-                                 str_c('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item featured-work-graphic" src="', full_talk_embed, '" allowfullscreen></iframe></div>')
-                                ),
-                          "</div>" )
+                          "<p class='project-work-entry-title'>[**", title, "**](/publications/#", anchor, ")<br>",
+                          authors_full, "<br>*", 
+                          venue_abbrev, "*</div>" 
+                          )
              )
   cat(project_work$html)
   cat("</div>")

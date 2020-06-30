@@ -14,7 +14,10 @@ gs4_deauth()
 
 publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
            sheet = "publications",
-           col_types = "c")
+           col_types = "c") %>% 
+  mutate(anchor = ifelse(is.na(short_title), 
+                        janitor::make_clean_names(title),
+                        janitor::make_clean_names(short_title)))
 ```
 
 <div class="row publications-page">
@@ -38,12 +41,14 @@ publications_table <- publications %>%
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
   full_talk = ifelse(is.na(full_talk), "", str_c(" · <span class='publication-extra'>[video of full talk](", full_talk, ")</span>")),
   bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>"))) %>% 
-  mutate(citation = str_c("<span class=pub-title>", title, "</span><br>", 
-                                 authors_full, "<br>",
-                                 venue, "<br>",
-                                 award, pdf, materials, ebook, blog, full_talk, bibtex,
-                                 sep = " ")
-           ) %>%          
+  mutate(citation = str_c("<a class='anchor' id='", anchor, "'></a>",
+                          "<span class=pub-title>", title, "</span><br>"),
+         citation = str_c(citation,
+                          authors_full, "<br>",
+                          venue, "<br>",
+                          award, pdf, materials, ebook, blog, full_talk, bibtex,
+                          sep = " ")
+           ) %>% 
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name bold
   mutate(teaser_video_embed = case_when(
       str_detect(teaser_video_embed, "youtube") ~ glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='{teaser_video_embed}' allowfullscreen></iframe></div>"),
