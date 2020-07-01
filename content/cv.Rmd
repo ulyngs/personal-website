@@ -53,7 +53,7 @@ Download a brief version of [my CV as PDF](/pdfs/2020_lyngs_cv_brief.pdf).
 cv_entries %>% 
   filter(type == 'education') %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
-  mutate(year = str_c(year_begin, " --- ", year_end)) %>% 
+  mutate(year = str_c(year(date_begin), " --- ", year(date_end))) %>% 
   select(year, what) %>% 
   kable()
 
@@ -61,14 +61,13 @@ cv_entries %>%
 
 ## Grants and awards
 ```{r}
-
 cv_entries %>% 
   filter(type == 'grants_and_awards') %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
-  select(year_begin, what) %>% 
-  kable()
-  #column_spec(1, width = "16%")
+  mutate(year = year(date_begin)) %>% 
+  select(year, what) %>% 
+  kable(align = c("l", "l"))
 ```
 
 <h2 data-toc-text="Dissemination">Research dissemination</h2>
@@ -113,7 +112,7 @@ talks_table <- cv_entries %>%
   mutate(what = ifelse(is.na(slides),
                        str_c("<em>", what, "</em>, ", where),
                        str_c("<em>", what, "</em>, ", where, "<br><a href=", slides, ">Slides</a>"))) %>%   
-  select(Date = date, Talk = what) %>% 
+  select(Date = date_begin, Talk = what) %>% 
   mutate(Date = as_date(Date)) %>% 
   arrange(desc(Date)) %>% 
   mutate(Date = str_c(year(Date),
@@ -122,13 +121,15 @@ talks_table <- cv_entries %>%
 
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
-  mutate(what = str_c("*", what, "*, ", where)) %>% 
+  mutate(what = str_c("*", what, "*, ", where),
+         year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
   arrange(desc(year_begin))
 
 
 media_table <- cv_entries %>% 
   filter(type == 'media') %>%
+  mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) 
 ```
 
@@ -166,16 +167,22 @@ cv_entries %>%
   mutate(what = ifelse(!is.na(additional_info), 
     str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
     str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where))) %>% 
-  mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>% 
+  mutate(year = case_when(
+    is.na(date_end) ~ as.character(year(date_begin)),
+    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
+    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
+    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
+    is.na(date_end) ~ as.character(year(date_begin))
+  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
+  
 ```
 
 ## Service
 ```{r}
 cv_entries %>% 
   filter(type == 'service') %>% 
-  mutate(year_end = ifelse(year_end == "present", "", year_end)) %>%
   mutate(where = ifelse(!is.na(url), str_c("[", where, "](", url, ")"), where)) %>% 
   mutate(what = ifelse(!is.na(additional_info),
                        str_c(what,
@@ -184,9 +191,14 @@ cv_entries %>%
                       str_c(what,
                       "<br class='work-break'>", 
                       where))) %>% 
-  mutate(year = ifelse(!is.na(year_end), 
-                       str_c(year_begin, " --- ", year_end),
-                       year_begin)) %>% 
+  arrange(desc(date_end), desc(date_begin)) %>% 
+  mutate(year = case_when(
+    is.na(date_end) ~ as.character(year(date_begin)),
+    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
+    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
+    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
+    is.na(date_end) ~ as.character(year(date_begin))
+  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
@@ -201,8 +213,14 @@ cv_entries %>%
   filter(type == 'work', is.na(website)) %>% 
   mutate(additional_info = replace_na(additional_info, "")) %>% 
   mutate(what = str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
-  arrange(desc(year_begin)) %>% 
-  mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>% 
+  arrange(desc(date_begin)) %>% 
+  mutate(year = case_when(
+    is.na(date_end) ~ as.character(year(date_begin)),
+    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
+    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
+    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
+    is.na(date_end) ~ as.character(year(date_begin))
+  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 ```
@@ -214,8 +232,9 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'prof-dev') %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
-  kable()
+  kable(align = c("l", "l"))
 ```
 
 # Technical
@@ -236,6 +255,7 @@ cv_entries %>%
   filter(type == 'programming') %>% 
   replace_na(list(where = "", additional_info = "")) %>% 
   mutate(what = str_c(what, ", ", where, "<br>", additional_info)) %>% 
+  mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
   arrange(desc(year_begin)) %>% 
   kable(align = c('l', 'l'), escape = FALSE)
@@ -248,8 +268,14 @@ cv_entries %>%
   filter(type == 'volunteering') %>%
   mutate(what = str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where)) %>%
   mutate(what = ifelse(!is.na(additional_info), str_c(what, "<br>", additional_info), what)) %>%
-  mutate(year = ifelse(!is.na(year_end), str_c(year_begin, " --- ", year_end), year_begin)) %>%
-  arrange(desc(year), desc(year_end)) %>%
+  mutate(year = case_when(
+    is.na(date_end) ~ as.character(year(date_begin)),
+    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
+    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
+    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
+    is.na(date_end) ~ as.character(year(date_begin))
+  )) %>% 
+  arrange(desc(date_end)) %>% 
   select(year, what) %>%
   kable(escape = FALSE) 
 ```

@@ -64,7 +64,7 @@ generate_project_row <- function(id){
   cat("<div class='row project-work'>")
   project_work <- publications %>% 
     filter(project == id) %>% 
-      arrange(desc(year(date))) %>% 
+      arrange(desc(date)) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
                           "<p class='project-work-entry-title'>[**", title, "**](/publications/#", anchor, ")<br>",
                           authors_full, "<br>*", 
