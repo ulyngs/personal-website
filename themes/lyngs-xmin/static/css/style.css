@@ -521,10 +521,6 @@ table.dataTable.no-footer {
   font-size: 1em;
 }
 
-.utterances {
-  margin-top: 2em;
-}
-
 /* style code blocks */
 .hljs {
   background: #f8f8f8;
