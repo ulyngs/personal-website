@@ -242,10 +242,15 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'technical') %>% 
-  mutate(what = str_c("• ", what, " ", additional_info)) %>% 
+  mutate(icon = case_when(
+    str_detect(what, "data analysis") ~ "fa-bar-chart",
+    str_detect(what, "research") ~ "fa-flask",
+    str_detect(what, "Web") ~ "fa-laptop"
+  )) %>% 
+  mutate(what = str_c("<i class='fa fa-lg ", icon, "'></i> &nbsp;", what, " ", additional_info)) %>% 
   select(type, what) %>% 
   mutate(type = "") %>% 
-  kable()
+  kable(escape=FALSE)
 ```
 
 <h2 data-toc-text="Software">Software development</h2>
