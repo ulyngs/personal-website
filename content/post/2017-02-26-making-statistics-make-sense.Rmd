@@ -43,7 +43,7 @@ knitr::include_graphics(str_c(image_path, "fishing-histogram.jpg"), error = FALS
 These are the distributions of people answering ’Never’, ‘Sometimes’, and ‘Always’ to my two questions (‘Always’ means that you just can’t ever stop yourselves fishing, or, that you just can’t stop putting fish in your mouth because it’s too delicious). I ask each person both questions, so each person has one score in one distribution and one in the other, and it’s the relationship between the two that we are interested in. We can show the data in another way to get the combinations of answers:
 
 ```{r}
-knitr::include_graphics(str_c(image_path, "fishing-xtab.jpg"), error = FALSE) 
+knitr::include_graphics(str_c(image_path, "fishing-xtab.png"), error = FALSE) 
 ```
 
 
