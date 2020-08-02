@@ -59,16 +59,28 @@ cv_entries %>%
 
 ```
 
-## Grants and awards
+## Awards and honours
 ```{r}
 cv_entries %>% 
-  filter(type == 'grants_and_awards') %>%
+  filter(type == 'awards') %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = str_c(what, ", ", where)) %>% 
   mutate(year = year(date_begin)) %>% 
   select(year, what) %>% 
   kable(align = c("l", "l"))
 ```
+ 
+## Grants
+```{r}
+cv_entries %>% 
+  filter(type == 'grants') %>%
+  filter(!(website == "n") | is.na(website)) %>% 
+  mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(year = year(date_begin)) %>% 
+  select(year, what) %>% 
+  kable(align = c("l", "l"))
+```
+
 
 <h2 data-toc-text="Dissemination">Research dissemination</h2>
 <!-- ## Research dissemination -->
@@ -145,12 +157,12 @@ cat('</div>')
 
 # posters tab
 cat('<div class="tab-pane container fade" id="posters">')
-poster_table %>% kable()
+poster_table %>% kable(align = c("l", "l"))
 cat('</div>')
 
 # media tab
 cat('<div class="tab-pane container fade" id="media">')
-media_table %>% kable()
+media_table %>% kable(align = c("l", "l"))
 cat('</div>')
 
 cat('</div>') 
