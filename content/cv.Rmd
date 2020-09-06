@@ -64,7 +64,11 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'awards') %>%
   filter(!(website == "n") | is.na(website)) %>% 
-  mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(what = if_else(
+    !is.na(where),
+    str_c(what, ", ", where),
+    what)
+  ) %>% 
   mutate(year = year(date_begin)) %>% 
   select(year, what) %>% 
   kable(align = c("l", "l"))
@@ -75,10 +79,14 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'grants') %>%
   filter(!(website == "n") | is.na(website)) %>% 
-  mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(what = if_else(
+    !is.na(where),
+    str_c(what, ", ", where),
+    what)
+  ) %>% 
   mutate(year = year(date_begin)) %>% 
   select(year, what) %>% 
-  kable(align = c("l", "l"))
+  kable(align = c("l", "l")) 
 ```
 
 
