@@ -36,14 +36,23 @@ projects <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1U
 generate_project_row <- function(id){
   cat("<div class='row project-entries'>")
   
-  # add column with teaser image
-  teaser_image_path <- projects %>% 
+  teaser_type <- projects %>% 
     filter(project_id == id) %>% 
-    pull(teaser_image)
-  cat(str_c("<div class='col-lg-3 col-md-3'>", 
-            "<img src=", teaser_image_path,
-            " class='img-fluid featured-work-graphic'/></div>")
-      )
+    pull(teaser_type)
+  
+  # add column with teaser
+  teaser_path <- projects %>% 
+    filter(project_id == id) %>% 
+    pull(teaser_path)
+  
+  cat(str_c("<div class='col-lg-3 col-md-3'>",
+            if_else(teaser_type == "image",
+                    str_c("<img src=", teaser_path,
+                          " class='img-fluid featured-work-graphic'/>"),
+                    str_c("<div class='embed-responsive embed-responsive-16by9'>",
+              "<iframe class='embed-responsive-item featured-work-graphic' src='",
+              teaser_path, "' allowfullscreen></iframe></div>")),
+            "</div>"))
    
   # open column with project entries
   cat("<div class='col-lg-9 col-md-9'>") 
