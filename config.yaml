@@ -2,7 +2,6 @@ baseurl: "https://ulriklyngs.com/"
 languageCode: "en-us"
 title: "ULRIK LYNGS"
 theme: "lyngs-xmin"
-googleAnalytics: "UA-84972342-1"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 footnotereturnlinkcontents: "↩"
 
