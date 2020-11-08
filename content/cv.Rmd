@@ -127,7 +127,7 @@ publications_table <- publications %>%
   select(type, citation)
 
 talks_table <- cv_entries %>% 
-  filter(type == 'talk') %>% 
+  filter(str_detect(type, 'talk')) %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
   mutate(what = ifelse(is.na(slides),
                        str_c("<em>", what, "</em>, ", where),
