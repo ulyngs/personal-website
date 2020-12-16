@@ -326,6 +326,10 @@ table.dataTable.no-footer {
   font-size: 1em;
 }
 
+.cv-entry-title {
+  font-weight: bold;
+}
+
 .cv-page .tab-content .tab-pane {
   padding: 0;
   margin: 0;
