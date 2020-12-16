@@ -43,7 +43,7 @@ I am passionate about using insights from the behavioural neurosciences to **des
 
 My **academic and professional background** is highly interdisciplinary, and I try to integrate best practices from many work spheres, such as using tools from large-scale event management to structure academic projects.
 
-My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)). 
+My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
 *[Download my CV as PDF](/pdfs/2020_nov_academic_cv.pdf).*
 
@@ -52,10 +52,10 @@ My **personal interests** include travelling, samatha meditation, dancing (Cuban
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
-  mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
   mutate(year = str_c(year(date_begin), " --- ", year(date_end))) %>% 
   select(year, what) %>% 
-  kable()
+  kable(escape = FALSE)
 
 ```
 
@@ -66,25 +66,32 @@ cv_entries %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = if_else(
     !is.na(where),
-    str_c(what, ", ", where),
-    what)
+    str_c("<span class='cv-entry-title'>", what, "</span>, ", where),
+    str_c("<span class='cv-entry-title'>", what, "</span>"))
   ) %>% 
   mutate(year = year(date_begin)) %>% 
   select(year, what) %>% 
-  kable(align = c("l", "l"))
+  kable(align = c("l", "l"), escape = FALSE)
 ```
  
 ## Grants
 ```{r}
 cv_entries %>% 
-  filter(type == 'minor_grants' | type == 'major_grants') %>%
+  filter(type == 'minor_grants' | type == 'major_grants',
+         is.na(exclude)) %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = if_else(
     !is.na(additional_info),
-    str_c(what, ", ", where, "<br>", additional_info),
-    str_c(what, ", ", where))
+    str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info),
+    str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
   ) %>% 
-  mutate(year = year(date_begin)) %>% 
+  mutate(year = case_when(
+    is.na(date_end) ~ as.character(year(date_begin)),
+    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
+    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
+    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
+    is.na(date_end) ~ as.character(year(date_begin))
+  )) %>%
   select(year, what) %>% 
   kable(align = c("l", "l"), escape = FALSE) 
 ```
@@ -130,8 +137,8 @@ talks_table <- cv_entries %>%
   filter(str_detect(type, 'talk')) %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
   mutate(what = ifelse(is.na(slides),
-                       str_c("<em>", what, "</em>, ", where),
-                       str_c("<em>", what, "</em>, ", where, "<br><a href=", slides, ">Slides</a>"))) %>%   
+                       str_c("<span class='cv-entry-title'>", where, "</span>, ", what),
+                       str_c("<span class='cv-entry-title'>", where, "</span>, ", what, "<br><a href=", slides, ">Slides</a>"))) %>%   
   select(Date = date_begin, Talk = what) %>% 
   mutate(Date = as_date(Date)) %>% 
   arrange(desc(Date)) %>% 
@@ -141,7 +148,7 @@ talks_table <- cv_entries %>%
 
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
-  mutate(what = str_c("*", what, "*, ", where),
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where),
          year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
   arrange(desc(year_begin))
@@ -149,6 +156,7 @@ poster_table <- cv_entries %>%
 
 media_table <- cv_entries %>% 
   filter(type == 'media') %>%
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>")) %>% 
   mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) 
 ```
@@ -165,12 +173,12 @@ cat('</div>')
 
 # posters tab
 cat('<div class="tab-pane container fade" id="posters">')
-poster_table %>% kable(align = c("l", "l"))
+poster_table %>% kable(align = c("l", "l"), escape = FALSE)
 cat('</div>')
 
 # media tab
 cat('<div class="tab-pane container fade" id="media">')
-media_table %>% kable(align = c("l", "l"))
+media_table %>% kable(align = c("l", "l"), escape = FALSE)
 cat('</div>')
 
 cat('</div>') 
@@ -185,8 +193,8 @@ cat('</div>')
 cv_entries %>% 
   filter(type == 'teaching') %>% 
   mutate(what = ifelse(!is.na(additional_info), 
-    str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
-    str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where))) %>% 
+    str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
+    str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where))) %>% 
   mutate(year = case_when(
     is.na(date_end) ~ as.character(year(date_begin)),
     date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
@@ -205,10 +213,10 @@ cv_entries %>%
   filter(type == 'service') %>% 
   mutate(where = ifelse(!is.na(url), str_c("[", where, "](", url, ")"), where)) %>% 
   mutate(what = ifelse(!is.na(additional_info),
-                       str_c("<span class='work-title'>", what,
+                       str_c("<span class='cv-entry-title'>", what,
                       "</span><br class='work-break'>", 
                       where),
-                      str_c("<span class='work-title'>", what,
+                      str_c("<span class='cv-entry-title'>", what,
                       "</span><br class='work-break'>", 
                       where))) %>% 
   arrange(desc(date_end), desc(date_begin)) %>% 
@@ -232,7 +240,7 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'work', is.na(website)) %>% 
   mutate(additional_info = replace_na(additional_info, "")) %>% 
-  mutate(what = str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
   arrange(desc(date_begin)) %>% 
   mutate(year = case_when(
     is.na(date_end) ~ as.character(year(date_begin)),
@@ -251,10 +259,10 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'prof-dev') %>% 
-  mutate(what = str_c(what, ", ", where)) %>% 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
   mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
-  kable(align = c("l", "l"))
+  kable(align = c("l", "l"), escape = FALSE)
 ```
 
 # Technical
@@ -267,7 +275,7 @@ cv_entries %>%
     str_detect(what, "research") ~ "fa-flask",
     str_detect(what, "Web") ~ "fa-laptop"
   )) %>% 
-  mutate(what = str_c("<i class='fa fa-lg ", icon, "'></i> &nbsp;", what, " ", additional_info)) %>% 
+  mutate(what = str_c("<i class='fa fa-lg ", icon, "'></i> &nbsp;<span class='cv-entry-title'>", what, "</span> ", additional_info)) %>% 
   select(type, what) %>% 
   mutate(type = "") %>% 
   kable(escape=FALSE)
@@ -277,9 +285,9 @@ cv_entries %>%
 <!-- ## Software development -->
 ```{r}
 cv_entries %>% 
-  filter(type == 'programming') %>% 
+  filter(type == 'programming', is.na(exclude)) %>% 
   replace_na(list(where = "", additional_info = "")) %>% 
-  mutate(what = str_c(what, ", ", where, "<br>", additional_info)) %>% 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info)) %>% 
   mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
   arrange(desc(year_begin)) %>% 
@@ -291,7 +299,7 @@ cv_entries %>%
 ```{r}
 cv_entries %>%
   filter(type == 'volunteering') %>%
-  mutate(what = str_c("<span class='work-title'>", what, "</span><br class='work-break'>", where)) %>%
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where)) %>%
   mutate(what = ifelse(!is.na(additional_info), str_c(what, "<br>", additional_info), what)) %>%
   mutate(year = case_when(
     is.na(date_end) ~ as.character(year(date_begin)),
