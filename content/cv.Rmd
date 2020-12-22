@@ -25,16 +25,32 @@ library(googlesheets4)
 gs4_deauth()
  
 #### publications #####
-publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "publications",
-           col_types = "c")
+publications <- read_csv(here::here("data/publications.csv"))
 
 #### all other entries #####
-cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "cv_entries",
-           col_types = "c")
+cv_entries <- read_csv(here::here("data/cv_entries.csv")) %>% 
+  mutate(year_begin = year(date_begin)) %>%
+  mutate(year_end = case_when(
+    date_end == "present" ~ date_end,
+    !is.na(date_end) ~ str_sub(date_end, 1, 4),
+    is.na(date_end) ~ date_end
+  )) %>%
+  mutate(year = ifelse((is.na(year_end) | year_begin == year_end),
+                      year_begin,
+                      str_c(year_begin, " --- ", year_end)))
 
 
+blank_year_when_repeated <- function(cv_entry_tibble){
+  cv_entry_tibble %>% 
+    mutate(row_number = row_number()) %>% 
+    mutate(year_begin = as.character(year_begin),
+           year_begin = case_when(
+             row_number == 1 ~ year_begin,
+             year_begin == lag(year_begin) ~ "",
+             year_begin != lag(year_begin) ~ year_begin
+           )) %>% 
+    mutate(year = if_else(!is.na(lag(year)) & lag(year) == year, "", year))
+}
 ```
 
 # Summary
@@ -53,7 +69,6 @@ My **personal interests** include travelling, samatha meditation, dancing (Cuban
 cv_entries %>% 
   filter(type == 'education') %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
-  mutate(year = str_c(year(date_begin), " --- ", year(date_end))) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
@@ -69,8 +84,8 @@ cv_entries %>%
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where),
     str_c("<span class='cv-entry-title'>", what, "</span>"))
   ) %>% 
-  mutate(year = year(date_begin)) %>% 
-  select(year, what) %>% 
+  blank_year_when_repeated() %>% 
+  select(year_begin, what) %>% 
   kable(align = c("l", "l"), escape = FALSE)
 ```
  
@@ -85,13 +100,7 @@ cv_entries %>%
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info),
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
   ) %>% 
-  mutate(year = case_when(
-    is.na(date_end) ~ as.character(year(date_begin)),
-    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
-    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
-    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
-    is.na(date_end) ~ as.character(year(date_begin))
-  )) %>%
+  blank_year_when_repeated() %>% 
   select(year, what) %>% 
   kable(align = c("l", "l"), escape = FALSE) 
 ```
@@ -139,12 +148,11 @@ talks_table <- cv_entries %>%
   mutate(what = ifelse(is.na(slides),
                        str_c("<span class='cv-entry-title'>", where, "</span>, ", what),
                        str_c("<span class='cv-entry-title'>", where, "</span>, ", what, "<br><a href=", slides, ">Slides</a>"))) %>%   
-  select(Date = date_begin, Talk = what) %>% 
-  mutate(Date = as_date(Date)) %>% 
-  arrange(desc(Date)) %>% 
-  mutate(Date = str_c(year(Date),
-                      ", ",
-                      month(Date, label = TRUE)))
+  blank_year_when_repeated() %>% 
+  mutate(date_begin = as_date(date_begin)) %>% 
+  arrange(desc(date_begin)) %>% 
+  mutate(month = month(date_begin, label = TRUE)) %>% 
+  select(year, month, what)
 
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
@@ -168,7 +176,7 @@ cat('<div class="tab-content">')
 
 # talks tab
 cat('<div class="tab-pane container active" id="talks">')
-talks_table %>% datatable(rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
+talks_table %>% datatable(elementId = "talks-table-dt", rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
 cat('</div>')
 
 # posters tab
@@ -195,13 +203,6 @@ cv_entries %>%
   mutate(what = ifelse(!is.na(additional_info), 
     str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
     str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where))) %>% 
-  mutate(year = case_when(
-    is.na(date_end) ~ as.character(year(date_begin)),
-    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
-    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
-    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
-    is.na(date_end) ~ as.character(year(date_begin))
-  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
   
@@ -220,13 +221,6 @@ cv_entries %>%
                       "</span><br class='work-break'>", 
                       where))) %>% 
   arrange(desc(date_end), desc(date_begin)) %>% 
-  mutate(year = case_when(
-    is.na(date_end) ~ as.character(year(date_begin)),
-    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
-    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
-    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
-    is.na(date_end) ~ as.character(year(date_begin))
-  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
@@ -242,13 +236,6 @@ cv_entries %>%
   mutate(additional_info = replace_na(additional_info, "")) %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
   arrange(desc(date_begin)) %>% 
-  mutate(year = case_when(
-    is.na(date_end) ~ as.character(year(date_begin)),
-    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
-    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
-    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
-    is.na(date_end) ~ as.character(year(date_begin))
-  )) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 ```
@@ -260,7 +247,6 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'prof-dev') %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
-  mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what) %>% 
   kable(align = c("l", "l"), escape = FALSE)
 ```
@@ -288,9 +274,8 @@ cv_entries %>%
   filter(type == 'programming', is.na(exclude)) %>% 
   replace_na(list(where = "", additional_info = "")) %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info)) %>% 
-  mutate(year_begin = year(date_begin)) %>% 
-  select(year_begin, what) %>% 
-  arrange(desc(year_begin)) %>% 
+  arrange(desc(year_end)) %>% 
+  select(year, what) %>% 
   kable(align = c('l', 'l'), escape = FALSE)
 ```
 
@@ -301,13 +286,6 @@ cv_entries %>%
   filter(type == 'volunteering') %>%
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where)) %>%
   mutate(what = ifelse(!is.na(additional_info), str_c(what, "<br>", additional_info), what)) %>%
-  mutate(year = case_when(
-    is.na(date_end) ~ as.character(year(date_begin)),
-    date_end == "present" ~ str_c(year(date_begin), " --- ", date_end),
-    !is.na(date_end) & (as.character(year(date_begin)) != as.character(str_sub(date_end, 1, 4))) ~ str_c(year(date_begin), " --- ", str_sub(date_end, 1, 4)),
-    !is.na(date_end) & (as.character(year(date_begin)) == as.character(str_sub(date_end, 1, 4))) ~ as.character(year(date_begin)),
-    is.na(date_end) ~ as.character(year(date_begin))
-  )) %>% 
   arrange(desc(date_end)) %>% 
   select(year, what) %>%
   kable(escape = FALSE) 

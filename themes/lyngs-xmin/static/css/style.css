@@ -359,7 +359,7 @@ table.dataTable.no-footer {
   margin-top: 1.5em;
 }
 .cv-page thead {
-  display: none;
+  display: none !important;
 }
 .cv-page table{
   margin-bottom: 3em;
@@ -377,6 +377,17 @@ table.dataTable.no-footer {
 .cv-page tbody td:nth-child(2) {
   width: 82%;
 }
+
+/* the talks table has three columns */
+.cv-page #talks-table-dt tbody td:nth-child(1),
+.cv-page #talks-table-dt tbody td:nth-child(2) {
+  width: 9%;
+  vertical-align: top;
+}
+.cv-page #talks-table-dt tbody td:nth-child(3) {
+  width: 82%;
+}
+
 .cv-page td {
   padding-bottom: 0.2em;
 }
