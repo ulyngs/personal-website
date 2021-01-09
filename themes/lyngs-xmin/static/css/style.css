@@ -346,6 +346,10 @@ table.dataTable.no-footer {
   margin-bottom: 1.5em;
 }
 
+.cv-page .tab-content #talks-table-dt table {
+  margin-bottom: 0.3em;
+}
+
 .cv-page h1 {
   font-size: 2.2em;
 }
@@ -356,7 +360,7 @@ table.dataTable.no-footer {
   font-size: 1.3em;
 }
 .cv-page .domain-header {
-  margin-top: 1.5em;
+  margin-top: 2.5em;
 }
 .cv-page thead {
   display: none !important;
@@ -397,6 +401,24 @@ table.dataTable.no-footer {
 .cv-page .datatables {
   margin-bottom: 2em;
 }
+
+.cv-page .datatables .paginate_button.current {
+  border: none !important;
+  background: none !important;
+  font-weight: bold;
+}
+.cv-page .datatables a.paginate_button:hover {
+  background: rgba(0,0,0,.04) !important;
+  color: black !important;
+  border: none !important;
+}
+.cv-page .datatables .dataTables_length select {
+  background-color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
 
 
 /* ---- BLOG ---- */
