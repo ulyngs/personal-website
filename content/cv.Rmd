@@ -61,14 +61,19 @@ My **academic and professional background** is highly interdisciplinary, and I t
 
 My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
-*[Download my CV as PDF](/pdfs/2020_dec_academic_cv.pdf).*
+<a class="btn btn-light" href="/pdfs/2020_dec_academic_cv.pdf" role="button"><i class="fa fa-download"></i> Download CV as PDF</a>
 
 # Academia {.domain-header}
 ## Education
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
+  mutate(additional_info = ifelse(str_detect(additional_info, "and"), 
+                                  str_c("<span class='supervisor'>Supervisors: </span>", additional_info),
+                                  str_c("<span class='supervisor'>Supervisor: </span>", additional_info))) %>% 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where,
+                      "<br>", additional_info,
+                      "<br><span class='thesis-title'>Thesis: </span>", additional_info2)) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
