@@ -31,8 +31,8 @@ publications_table <- publications %>%
   arrange(desc(date), type) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link
   mutate(award = case_when(
-    award == "Best Paper"         ~ str_c("<i class='fa fa-trophy'></i><em> ", award, "</em> ·"),
-    award == "Honourable Mention" ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><em> ", award, "</em> ·"),
+    !is.na(award) & str_detect(award, "honourable")         ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><em> ", award, "</em> ·"),
+    !is.na(award) ~ str_c("<i class='fa fa-trophy'></i><em> ", award, "</em> ·"),
     TRUE                          ~       ""
   ),
   pdf = ifelse(is.na(pdf), "", str_c(" <span class='publication-extra'>[pdf](", pdf, ")</span>")),
@@ -45,9 +45,9 @@ publications_table <- publications %>%
                           "<span class=pub-title>", title, "</span><br>"),
          citation = str_c(citation,
                           authors_full, "<br>",
-                          venue, "<br>",
+                          venue_abbrev, ": ", venue, "<br>",
                           award, pdf, materials, ebook, blog, full_talk, bibtex,
-                          sep = " ")
+                          sep = "")
            ) %>% 
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name bold
   mutate(teaser_video_embed = case_when(
