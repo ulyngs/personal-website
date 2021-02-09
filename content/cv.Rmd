@@ -149,18 +149,22 @@ publications_table <- publications %>%
 
 talks_table <- cv_entries %>% 
   filter(str_detect(type, 'talk')) %>% 
-  mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
+  mutate(across(institution:where, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
   replace_na(list(institution = "", department = "", where = "")) %>% 
   mutate(where = ifelse(where != "" & institution != "", str_c(", ", where), where),
          department = ifelse(department != "", str_c(", ", department), department),
-         slides = ifelse(!is.na(slides), str_c("<br><a href=", slides, ">Slides</a>"), "")) %>%
+         slides = ifelse(!is.na(slides), str_c("<a href=", slides, ">Slides</a>"), ""),
+         video = ifelse(!is.na(video), str_c("<a href=", video, ">Video</a>"), ""),
+         conditional_break = ifelse(!is.na(slides) | !is.na(video), "<br>", "")) %>%
   mutate(what = str_c("<p><span class='cv-entry-title'>", 
                       institution,
                       where,
                       "</span>",
                       department, 
                       "</p><p class='talk-title'>", what,
+                      conditional_break,
                       slides,
+                      video,
                       "</p>"
                       )) %>%   
   blank_year_when_repeated() %>% 
@@ -313,4 +317,3 @@ cv_entries %>%
 <div class="col-sm-1"></div>
 
 </div>
-
