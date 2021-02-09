@@ -12,9 +12,7 @@ library(lubridate)
 library(googlesheets4)
 gs4_deauth()
 
-publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "publications",
-           col_types = "c") %>% 
+publications <- read_csv(here::here("data/publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
                         janitor::make_clean_names(title),
                         janitor::make_clean_names(short_title)))
@@ -40,13 +38,21 @@ publications_table <- publications %>%
   ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
   full_talk = ifelse(is.na(full_talk), "", str_c(" · <span class='publication-extra'>[video of full talk](", full_talk, ")</span>")),
-  bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>"))) %>% 
+  bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>")),
+  abstract_id = str_c("abstract_", anchor),
+  abstract_btn = ifelse(is.na(abstract), "", 
+                    str_c(" · <span class='abstract-toggle collapsed' data-toggle='collapse' href='#", abstract_id, "' aria-expanded='false' aria-controls='", abstract_id, "'>abstract <i class='fa' aria-hidden='true'></i></span>")),
+  abstract_collapse = ifelse(is.na(abstract), "",
+                             str_c('<div id="', abstract_id, '" class="collapse abstract-text">', abstract, '</div>'))) %>% 
   mutate(citation = str_c("<a class='anchor' id='", anchor, "'></a>",
                           "<span class=pub-title>", title, "</span><br>"),
-         citation = str_c(citation,
+         citation = str_c("<div>", 
+                          citation,
                           authors_full, "<br>",
                           venue_abbrev, ": ", venue, "<br>",
-                          award, pdf, materials, ebook, blog, full_talk, bibtex,
+                          award, pdf, materials, ebook, blog, full_talk, bibtex, abstract_btn,
+                          "</div>",
+                          abstract_collapse,
                           sep = "")
            ) %>% 
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name bold

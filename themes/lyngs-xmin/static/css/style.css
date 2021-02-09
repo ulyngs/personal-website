@@ -589,3 +589,23 @@ blockquote {
   font-style: italic;
 }
 
+.publications-page [data-toggle="collapse"] i:before{
+    content: "\f146";
+}
+
+.publications-page [data-toggle="collapse"].collapsed i:before{
+    content: "\f0fe";
+}
+.publications-page i {
+  color: #777;
+  font-size: 0.8em;
+}
+
+.publications-page .abstract-toggle {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.publications-page .abstract-text {
+  margin-bottom: 2em;
+}
