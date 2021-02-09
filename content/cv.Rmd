@@ -150,9 +150,19 @@ publications_table <- publications %>%
 talks_table <- cv_entries %>% 
   filter(str_detect(type, 'talk')) %>% 
   mutate(where = str_replace(where, "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>")) %>% 
-  mutate(what = ifelse(is.na(slides),
-                       str_c("<span class='cv-entry-title'>", where, "</span>, ", what),
-                       str_c("<span class='cv-entry-title'>", where, "</span>, ", what, "<br><a href=", slides, ">Slides</a>"))) %>%   
+  replace_na(list(institution = "", department = "", where = "")) %>% 
+  mutate(where = ifelse(where != "" & institution != "", str_c(", ", where), where),
+         department = ifelse(department != "", str_c(", ", department), department),
+         slides = ifelse(!is.na(slides), str_c("<br><a href=", slides, ">Slides</a>"), "")) %>%
+  mutate(what = str_c("<p><span class='cv-entry-title'>", 
+                      institution,
+                      where,
+                      "</span>",
+                      department, 
+                      "</p><p class='talk-title'>", what,
+                      slides,
+                      "</p>"
+                      )) %>%   
   blank_year_when_repeated() %>% 
   mutate(date_begin = as_date(date_begin)) %>% 
   arrange(desc(date_begin)) %>% 
@@ -172,6 +182,8 @@ media_table <- cv_entries %>%
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>")) %>% 
   mutate(year_begin = year(date_begin)) %>% 
   select(year_begin, what)
+
+
 ```
 
 
