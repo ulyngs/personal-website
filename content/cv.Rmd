@@ -197,7 +197,14 @@ cat('<div class="tab-content">')
 
 # talks tab
 cat('<div class="tab-pane container active" id="talks">')
-talks_table %>% datatable(elementId = "talks-table-dt", rownames = FALSE, escape = FALSE, class = 'row-border', options = list(pageLength = 10))
+talks_table %>% 
+  datatable(elementId = "talks-table-dt", 
+            rownames = FALSE, 
+            escape = FALSE, 
+            class = 'row-border', 
+            options = list(lengthMenu = list(c(10, -1), c("10", "All")))
+            )
+
 cat('</div>')
 
 # posters tab
