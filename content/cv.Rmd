@@ -61,7 +61,7 @@ My **academic and professional background** is highly interdisciplinary, and I t
 
 My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
-<a class="btn btn-light" href="/pdfs/2021_jan_academic_cv.pdf" role="button"><i class="fa fa-download"></i> Download CV as PDF</a>
+<a class="btn btn-light" href="/pdfs/academic_cv.pdf" role="button"><i class="fa fa-download"></i> Download CV as PDF</a>
 
 # Academia {.domain-header}
 ## Education
