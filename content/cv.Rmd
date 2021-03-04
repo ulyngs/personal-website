@@ -64,6 +64,17 @@ My **personal interests** include travelling, samatha meditation, dancing (Cuban
 <a class="btn btn-light" href="/pdfs/academic_cv.pdf" role="button"><i class="fa fa-download"></i> Download CV as PDF</a>
 
 # Academia {.domain-header}
+<h2 data-toc-text="Positions">Research positions</h2>
+```{r}
+cv_entries %>% 
+  filter(type == 'research_positions', is.na(exclude)) %>%
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br>", 
+                      where)) %>% 
+  select(year, what) %>% 
+  kable(escape = FALSE)
+
+```
+
 ## Education
 ```{r}
 cv_entries %>% 
@@ -79,7 +90,7 @@ cv_entries %>%
 
 ```
 
-## Awards and honours
+<h2 data-toc-text="Awards">Awards and honours</h2>
 ```{r}
 cv_entries %>% 
   filter(type == 'awards') %>%
@@ -94,7 +105,7 @@ cv_entries %>%
   kable(align = c("l", "l"), escape = FALSE)
 ```
  
-## Grants
+<h2 data-toc-text="Grants">Grants and funding</h2>
 ```{r}
 cv_entries %>% 
   filter(type == 'minor_grants' | type == 'major_grants',
