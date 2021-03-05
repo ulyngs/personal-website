@@ -72,7 +72,7 @@ generate_project_row <- function(id){
   # add row with project work
   cat("<div class='row project-work'>")
   project_work <- publications %>% 
-    filter(project == id) %>% 
+    filter(str_detect(project, id)) %>% 
       arrange(desc(date)) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
                           "<p class='project-work-entry-title'>[**", title, "**](/publications/#", anchor, ")<br>",
@@ -93,4 +93,5 @@ generate_project_row <- function(id){
 walk(projects$project_id, generate_project_row)
 
 ```
+
 
