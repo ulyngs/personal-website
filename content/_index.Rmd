@@ -25,12 +25,12 @@ featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLq
 ```
 
 ```{block type="col-lg-6 col-md-6 col-sm-6", echo=TRUE}
-I am a computer scientist and cognitive psychologist, doing a PhD at the [Department of Computer Science](https://www.cs.ox.ac.uk/people/ulrik.lyngs/), University of Oxford, with the [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
+I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
 
-My research focuses on **attention and self-control in relation to use of digital devices**. 
+My work focuses on **attention and self-control in relation to use of digital devices** like smartphones and laptops.
+
 Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
-
-I may be available for speaking, consultancy, or workshop facilitation on digital distraction or reproducible research and data science with R Markdown --- <a href="mailto:ulrik.lyngs@gmail.com?Subject=Contact%20through%20ulriklyngs.com" target="_top">get in touch.</a>
+Previously, I was a festival producer at [HowTheLightGetsIn](https://howthelightgetsin.org).
 
 
 ```
