@@ -241,10 +241,10 @@ a.anchor {
 .publications-page tbody td:first-child {
   padding-right: 2em;
   /*vertical-align: top;*/
-  width: 10%;
+  width: 12%;
 }
 .publications-page tbody td:nth-child(2) {
-  width: 55%;
+  width: 63%;
   padding-right: 2em;
 }
 .publications-page tbody td:nth-child(3) {
