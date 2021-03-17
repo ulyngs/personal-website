@@ -117,8 +117,8 @@ a.email:hover,
 .link-wrapper {
   margin-top: 0.5em;
 }
-#recent-work {
-  margin-bottom: 0.5em;
+.featured-work h2 {
+  margin-bottom: 0.8em;
 }
 .featured-work {
   margin-top: 5em;
@@ -211,9 +211,9 @@ a.anchor {
 }
 .publications-page caption {
   caption-side: top;
-  font-size: 1.5em;
+  font-size: 1.8em;
   padding: 0;
-  margin-bottom: 0px;
+  margin-bottom: 0.8em;
   color: black;
 }
 .publications-page caption span {
@@ -363,6 +363,8 @@ table.dataTable.no-footer {
 }
 .cv-page h2 {
   font-size: 1.7em;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
 }
 .cv-page h3 {
   font-size: 1.3em;
@@ -383,6 +385,7 @@ table.dataTable.no-footer {
 }
 .cv-page tbody td:first-child {
   padding-right: 1.5em;
+  padding-left: 0;
   vertical-align: top;
   width: 18%;
 }
