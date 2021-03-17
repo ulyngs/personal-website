@@ -609,3 +609,10 @@ blockquote {
 .publications-page .abstract-text {
   margin-bottom: 2em;
 }
+
+.publications-page .fa-trophy {
+  color: black;
+}
+.publications-page .award-text {
+  color: #901b2a;
+}
