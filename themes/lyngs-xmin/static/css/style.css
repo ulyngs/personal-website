@@ -430,6 +430,9 @@ table.dataTable.no-footer {
   border: 1px solid rgba(0,0,0,.05);
 }
 
+.cv-page .talk-translation {
+  font-style: italic;
+}
 
 
 /* ---- BLOG ---- */
@@ -619,3 +622,4 @@ blockquote {
 .publications-page .award-text {
   color: #901b2a;
 }
+
