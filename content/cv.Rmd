@@ -161,7 +161,11 @@ publications_table <- publications %>%
 talks_table <- cv_entries %>% 
   filter(str_detect(type, 'talk')) %>% 
   mutate(across(institution:where, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
-  replace_na(list(institution = "", department = "", where = "")) %>% 
+  mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
+  replace_na(list(institution = "", 
+                  department = "", 
+                  where = "", 
+                  what_translation = "")) %>% 
   mutate(where = ifelse(where != "" & institution != "", str_c(", ", where), where),
          department = ifelse(department != "", str_c(", ", department), department),
          slides = ifelse(!is.na(slides), str_c("<a href=", slides, ">Slides</a>"), ""),
@@ -172,7 +176,7 @@ talks_table <- cv_entries %>%
                       where,
                       "</span>",
                       department, 
-                      "</p><p class='talk-title'>", what,
+                      "</p><p class='talk-title'>", what, "<span class='talk-translation'> ", what_translation, "</span>",
                       conditional_break,
                       slides,
                       video,
@@ -186,8 +190,28 @@ talks_table <- cv_entries %>%
 
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where),
-         year_begin = year(date_begin)) %>% 
+  mutate(across(institution:where, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
+  mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
+  replace_na(list(institution = "", 
+                  department = "", 
+                  where = "", 
+                  what_translation = "")) %>% 
+  mutate(where = ifelse(where != "" & institution != "", str_c(", ", where), where),
+         department = ifelse(department != "", str_c(", ", department), department),
+         slides = ifelse(!is.na(slides), str_c("<a href=", slides, ">Slides</a>"), ""),
+         video = ifelse(!is.na(video), str_c("<a href=", video, ">Video</a>"), ""),
+         conditional_break = ifelse(!is.na(slides) | !is.na(video), "<br>", "")) %>%
+  mutate(what = str_c("<p><span class='cv-entry-title'>", 
+                      institution,
+                      where,
+                      "</span>",
+                      department, 
+                      "</p><p class='talk-title'>", what, "<span class='talk-translation'> ", what_translation, "</span>",
+                      conditional_break,
+                      slides,
+                      video,
+                      "</p>"
+                      )) %>%   
   select(year_begin, what) %>% 
   arrange(desc(year_begin))
 
