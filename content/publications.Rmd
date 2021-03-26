@@ -29,13 +29,13 @@ publications_table <- publications %>%
   arrange(desc(date), type) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link
   mutate(award = case_when(
-    !is.na(award) & str_detect(award, "honourable")         ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><span class='award-text'> ", award, "</span> ·"),
-    !is.na(award) ~ str_c("<i class='fa fa-trophy'></i><span class='award-text'> ", award, "</span> ·"),
+    !is.na(award) & str_detect(award, "honourable")         ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><span class='award-text'> ", award, "</span> <br>"),
+    !is.na(award) ~ str_c("<i class='fa fa-trophy'></i><span class='award-text'> ", award, "</span> <br>"),
     TRUE                          ~       ""
   ),
   pdf = ifelse(is.na(pdf), "", str_c(" <span class='publication-extra'>[pdf](", pdf, ")</span>")),
-  materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")), 
   ebook = ifelse(is.na(ebook), "", str_c(" · <span class='publication-extra'>[e-book](", ebook, ")</span>")),
+  materials = ifelse(is.na(materials), "", str_c(" · <span class='publication-extra'>[materials](", materials, ")</span>")),
   blog = ifelse(is.na(blog), "", str_c(" · <span class='publication-extra'>[blog](", blog, ")</span>")),
   full_talk = ifelse(is.na(full_talk), "", str_c(" · <span class='publication-extra'>[video of full talk](", full_talk, ")</span>")),
   bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>")),
@@ -50,7 +50,7 @@ publications_table <- publications %>%
                           citation,
                           authors_full, "<br>",
                           venue_abbrev, ": ", venue, "<br>",
-                          award, pdf, materials, ebook, blog, full_talk, bibtex, abstract_btn,
+                          award, pdf, ebook, blog, full_talk, bibtex, materials, abstract_btn,
                           "</div>",
                           abstract_collapse,
                           sep = "")
