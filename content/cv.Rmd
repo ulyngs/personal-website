@@ -1,6 +1,8 @@
 ---
 title: "CV"
 menu: main
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -182,10 +184,10 @@ talks_table <- cv_entries %>%
                       video,
                       "</p>"
                       )) %>%   
-  blank_year_when_repeated() %>% 
   mutate(date_begin = as_date(date_begin)) %>% 
   arrange(desc(date_begin)) %>% 
   mutate(month = month(date_begin, label = TRUE)) %>% 
+  blank_year_when_repeated() %>% 
   select(year, month, what)
 
 poster_table <- cv_entries %>%  
