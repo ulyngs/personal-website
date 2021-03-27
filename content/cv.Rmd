@@ -48,12 +48,22 @@ blank_year_when_repeated <- function(cv_entry_tibble){
     mutate(year_begin = as.character(year_begin),
            year_begin = case_when(
              row_number == 1 ~ year_begin,
-             year_begin == lag(year_begin) ~ "",
+             year_begin == lag(year_begin) ~ str_c('<span class="repeated-year">', year_begin, '</span>'),
              year_begin != lag(year_begin) ~ year_begin
            )) %>% 
-    mutate(year = if_else(!is.na(lag(year)) & lag(year) == year, "", year))
+    mutate(year = if_else(!is.na(lag(year)) & lag(year) == year, 
+                          str_c('<span class="repeated-year">', year, '</span>'),
+                          year))
 }
 ```
+
+
+```{css}
+.repeated-year {
+  color: white;
+}
+```
+
 
 # Summary
 
@@ -188,7 +198,8 @@ talks_table <- cv_entries %>%
   arrange(desc(date_begin)) %>% 
   mutate(month = month(date_begin, label = TRUE)) %>% 
   blank_year_when_repeated() %>% 
-  select(year, month, what)
+  select(year_begin, month, what)
+
 
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
