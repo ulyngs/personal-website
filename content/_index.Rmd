@@ -20,34 +20,33 @@ featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLq
 
 <!-- personal -->
 <div class="row">
-```{block type="col-lg-3 col-md-6 col-sm-12", echo=TRUE}
+:::{.col-lg-3 .col-md-6 .col-sm-12}
 <img alt="Photo of Ulrik Lyngs" src="/images/headshot_small.jpg" class="img-fluid featured-work-graphic"/>
-```
+:::
 
-```{block type="col-lg-6 col-md-6 col-sm-6", echo=TRUE}
+
+:::{.col-lg-6 .col-md-6 .col-sm-6}
 I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
 
 My work focuses on **attention and self-control in relation to use of digital devices** like smartphones and laptops.
 
 Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 Previously, I was a festival producer at [HowTheLightGetsIn](https://howthelightgetsin.org).
+:::
 
-
-```
-
-```{block type="col-lg-3 col-md-12 col-sm-6", echo=TRUE}
+:::{.col-lg-3 .col-md-12 .col-sm-6}
 <div class="contact-info">
-Department of Computer Science \
+<p>Department of Computer Science \
 University of Oxford \
 OX1 3QD Oxford, UK \
-ulrik.lyngs@cs.ox.ac.uk \
+ulrik.lyngs@cs.ox.ac.uk</p>
 <div class="link-wrapper">
-  <a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-  <a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
-  <a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+<a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+<a href="https://twitter.com/ulyngs" class="twitter-link"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
 </div>
 </div>
-```
+:::
 
 </div>
 
