@@ -23,15 +23,13 @@ library(here)
 library(lubridate)
 library(kableExtra)
 library(DT)
-library(googlesheets4)
-gs4_deauth()
  
 #### publications #####
 publications <- read_csv(here::here("data/publications.csv"))
 
 #### all other entries #####
 cv_entries <- read_csv(here::here("data/cv_entries.csv")) %>% 
-  mutate(year_begin = year(date_begin)) %>%
+  mutate(year_begin = year(date)) %>%
   mutate(year_end = case_when(
     date_end == "present" ~ date_end,
     !is.na(date_end) ~ str_sub(date_end, 1, 4),
@@ -73,7 +71,7 @@ My **academic and professional background** is highly interdisciplinary, and I t
 
 My **personal interests** include travelling, samatha meditation, dancing (Cuban salsa and swing), surfing, and playing music (often with my concept band the [Karaoke Collective](https://karaokecollective.com)).
 
-<a class="btn btn-light" href="/pdfs/academic_cv.pdf" role="button"><i class="fa fa-download"></i> Download CV as PDF</a>
+<a class="btn btn-light" href="/pdfs/academic_cv.pdf" role="button"><i class="fa fa-download"></i> CV as PDF</a>
 
 # Academia {.domain-header}
 <h2 data-toc-text="Positions">Research positions</h2>
@@ -91,12 +89,9 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
-  mutate(additional_info = ifelse(str_detect(additional_info, "and"), 
-                                  str_c("<span class='supervisor'>Supervisors: </span>", additional_info),
-                                  str_c("<span class='supervisor'>Supervisor: </span>", additional_info))) %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where,
                       "<br>", additional_info,
-                      "<br><span class='thesis-title'>Thesis: </span>", additional_info2)) %>% 
+                      "<br>", additional_info2)) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
@@ -183,20 +178,22 @@ talks_table <- cv_entries %>%
          slides = ifelse(!is.na(slides), str_c("<a href=", slides, ">Slides</a>"), ""),
          video = ifelse(!is.na(video), str_c("<a href=", video, ">Video</a>"), ""),
          conditional_break = ifelse(!is.na(slides) | !is.na(video), "<br>", "")) %>%
+  mutate(additional_info = if_else(!is.na(additional_info), str_c(", ", additional_info), "")) %>% 
   mutate(what = str_c("<p><span class='cv-entry-title'>", 
                       institution,
                       where,
                       "</span>",
                       department, 
+                      additional_info,
                       "</p><p class='talk-title'>", what, "<span class='talk-translation'> ", what_translation, "</span>",
                       conditional_break,
                       slides,
                       video,
                       "</p>"
                       )) %>%   
-  mutate(date_begin = as_date(date_begin)) %>% 
-  arrange(desc(date_begin)) %>% 
-  mutate(month = month(date_begin, label = TRUE)) %>% 
+  mutate(date = as_date(date)) %>% 
+  arrange(desc(date)) %>% 
+  mutate(month = month(date, label = TRUE)) %>% 
   blank_year_when_repeated() %>% 
   select(year_begin, month, what)
 
@@ -232,7 +229,7 @@ poster_table <- cv_entries %>%
 media_table <- cv_entries %>% 
   filter(type == 'media') %>%
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>")) %>% 
-  mutate(year_begin = year(date_begin)) %>% 
+  mutate(year_begin = year(date)) %>% 
   select(year_begin, what)
 
 
@@ -296,7 +293,7 @@ cv_entries %>%
                       str_c("<span class='cv-entry-title'>", what,
                       "</span><br class='work-break'>", 
                       where))) %>% 
-  arrange(desc(date_end), desc(date_begin)) %>% 
+  arrange(desc(date_end), desc(date)) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 
@@ -311,7 +308,7 @@ cv_entries %>%
   filter(type == 'work', is.na(website)) %>% 
   mutate(additional_info = replace_na(additional_info, "")) %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
-  arrange(desc(date_begin)) %>% 
+  arrange(desc(date)) %>% 
   select(year, what) %>% 
   kable(escape = FALSE)
 ```
