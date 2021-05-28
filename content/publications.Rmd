@@ -57,6 +57,10 @@ publications_table <- publications %>%
            ) %>% 
   mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name bold
   mutate(teaser_video_embed = case_when(
+    is.na(teaser_video_embed) & !is.na(full_talk_embed) ~ full_talk_embed,
+    TRUE ~ teaser_video_embed
+  )) %>%
+  mutate(teaser_video_embed = case_when(
       str_detect(teaser_video_embed, "youtube") ~ glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='{teaser_video_embed}' allowfullscreen></iframe></div>"),
       str_detect(teaser_video_embed, "vimeo") ~ glue("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='{teaser_video_embed}' allow='fullscreen'></iframe></div>"),
       is.na(teaser_video_embed) ~ ""
