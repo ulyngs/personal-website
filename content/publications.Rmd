@@ -15,7 +15,10 @@ gs4_deauth()
 publications <- read_csv(here::here("data/publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
                         janitor::make_clean_names(title),
-                        janitor::make_clean_names(short_title)))
+                        janitor::make_clean_names(short_title))) %>% 
+  filter(is.na(exclude)) %>% 
+  select(-exclude)
+
 ```
 
 <div class="row publications-page">
