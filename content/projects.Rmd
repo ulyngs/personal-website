@@ -13,21 +13,16 @@ library(googlesheets4)
 gs4_deauth()
 
 #### publications #####
-publications <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "publications",
-           col_types = "c") %>% 
+publications <- read_csv(here::here("data", "publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
                         janitor::make_clean_names(title),
                         janitor::make_clean_names(short_title)))
 
 #### cv entries #####
-cv_entries <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "cv_entries",
-           col_types = "c")
+cv_entries <- read_csv(here::here("data", "cv_entries.csv"))
 
 #### projects ####
-projects <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing",
-           sheet = "projects")
+projects <- read_csv(here::here("data", "projects.csv"))
 
 ```
 
@@ -74,8 +69,12 @@ generate_project_row <- function(id){
   project_work <- publications %>% 
     filter(str_detect(project, id)) %>% 
       arrange(desc(date)) %>% 
+      mutate(hyperlink = case_when(
+        str_detect(title, "Understanding Personal Digital Self-Control Struggles") ~ "https://ulyngs.github.io/phd-thesis/chapter-workshops.html",
+        TRUE ~ str_c("/publications/#", anchor)
+      )) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
-                          "<p class='project-work-entry-title'>[**", title, "**](/publications/#", anchor, ")<br>",
+                          "<p class='project-work-entry-title'>[**", title, "**](", hyperlink, ")<br>",
                           authors_full, "<br>*", 
                           venue_abbrev, "*</div>" 
                           )
