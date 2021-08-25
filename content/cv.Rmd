@@ -159,8 +159,9 @@ publications_table <- publications %>%
   select(type, citation)
 
 talks_table <- cv_entries %>% 
-  filter(str_detect(type, 'talk')) %>% 
-  mutate(across(institution:where, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
+  filter(str_detect(type, 'talk')) %>%
+  # replace markdown hyperlink syntax w/ html
+  mutate(across(what:additional_info, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
   mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
   replace_na(list(institution = "", 
                   department = "", 
