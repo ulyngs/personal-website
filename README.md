@@ -6,7 +6,7 @@ The website is built with [Hugo](https://gohugo.io) and [`blogdown`](https://boo
 I created the theme for this website, `lyngs-xmin`, on the foundation of Yihui Xie's [XMin](https://github.com/yihui/hugo-xmin) theme, to which I added Bootstrap 4, ported the design from my old website, then hacked from there.
 
 ## Features
-- content on the Home page ('recent work'), Projects, Publications, and CV pages is pulled in from [this google sheet](https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing)
+- content on the Home page ('recent work'), Projects, Publications, and CV pages is pulled in from [this google sheet](https://docs.google.com/spreadsheets/d/1ta71CAGkcLqm-W1UdVRA_JJSddWV2TsrRZsCnQlmOis/edit?usp=sharing) using the script **sync_w_gsheets.R** and stored in **data/**
 - blog post comments with [utteranc.es](https://utteranc.es), a lightweight comments widget built on GitHub issues
 - code syntax highlighting with [highlight.js](https://highlightjs.org)
 - hiding of header on scroll with [headroom.js](https://wicky.nillia.ms/headroom.js/)
