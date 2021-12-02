@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE, out.width = '100%', fig.align = 'center')
 # don't number figures with a caption
 knitr::opts_knit$set(bookdown.internal.label = FALSE)
 
-image_path <- "/post/2021-10-07-latex_templates_for_rmd_in_4_steps/"
+image_path <- "/post/2021-12-02-four_steps_latex_rmd/"
 
 # stop knitr from throwing an error when image path doesn't (yet) exist
 options(knitr.graphics.error = FALSE)
@@ -68,11 +68,13 @@ Well it turns out that dollar signs (\$) have a special meaning for [pandoc](htt
 Basically, when pandoc sees a dollar sign in your template, then it thinks you want it to plug in some variable from your R Markdown file.
 
 How do we solve this?
-Well, we just throw more money at the problem: **for pandoc, a dollar sign in your template is escapes with another dollar sign...** So replace all the single \\\$ with \\\$\$ in **.plos_latex_template.tex.**
+Well, we just throw more money at the problem: **for pandoc, a dollar sign in your template is escapes with another dollar sign...** So replace all the single \$ with \$\$ in **.plos_latex_template.tex.**
 
 If we now knit to PDF, we get the expected output:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/compile_correct.png){width="522"}
+```{r}
+knitr::include_graphics(str_c(image_path, "compile_correct.png"))
+```
 
 # Pull in desired content from the R Markdown file
 
@@ -127,7 +129,9 @@ Let's change it to this:
 
 Now, if we knit we get this:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-title.png){width="392"}
+```{r}
+knitr::include_graphics(str_c(image_path, "pull-title.png"))
+```
 
 The variable names in your yaml header can be completely arbitrary, by the way.
 They don't have to match something that pandoc has seen before.
@@ -164,7 +168,10 @@ $silly-author-summary$
 
 And when we knit we get the expected output:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-yaml-silly.png){width="394"}
+```{r}
+knitr::include_graphics(str_c(image_path, "pull-yaml-silly.png"))
+```
+
 
 ## Pulling in the body content
 
@@ -186,7 +193,10 @@ $body$
 
 And when we knit we get:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-body.png){width="388"}
+```{r}
+knitr::include_graphics(str_c(image_path, "pull-body.png"))
+```
+
 
 (Note that there are some references at the bottom here, even though nothing's cited in the text. In the PLOS template, the references section is manually inserted in the **.tex** template, and I left this section in at the bottom of the file. We'll get to this in a minute!)
 
@@ -243,7 +253,10 @@ $endif$
 What this will do is that *if* our R Markdown document includes code chunks that have `echo=TRUE` so that the code will be displayed, *then* the necessary LaTeX packages and environments will be added to the template automatically.
 If we knit again, then we see the expected output:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/enable-code.png){width="400"}
+```{r}
+knitr::include_graphics(str_c(image_path, "enable-code.png"))
+```
+
 
 # Decide how to include citations
 
@@ -332,7 +345,9 @@ This is a citation: @lyngs2019
 
 And when we knit, we get the expected output:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-csl.png){width="395"}
+```{r}
+knitr::include_graphics(str_c(image_path, "citations-csl.png"))
+```
 
 If we inspect the generated **.tex** file when we build to PDF (save this by adding `keep_tex: true` under the `bookdown::pdf_document2` options), we can see that the citation text itself in the body is included as plain text:
 
@@ -386,7 +401,9 @@ The PLOS template also includes the `cite` package --- we comment this out to us
 
 When we knit, we get this:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-natbib.png){width="390"}
+```{r}
+knitr::include_graphics(str_c(image_path, "citations-natbib.png"))
+```
 
 If we inspect the generated **.tex** file behind the PDF, we can see that our citation is generated with the `\citep` command, and the bibliography is simply generated from the `\bibliography` call.
 
@@ -429,7 +446,10 @@ In the specific case of the PLOS template, it turns out we also need to change `
 
 When we knit, we get this:
 
-![](/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-biblatex.png){width="393"}
+```{r}
+knitr::include_graphics(str_c(image_path, "citations-biblatex.png"))
+```
+
 
 And if we inspect the generated **.tex** file behind the PDF, we can see that our citation is inserted in this way:
 

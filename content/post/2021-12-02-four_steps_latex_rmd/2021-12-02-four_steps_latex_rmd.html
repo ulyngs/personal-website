@@ -44,9 +44,9 @@ Execution halted</code></pre>
 Well it turns out that dollar signs ($) have a special meaning for <a href="https://pandoc.org">pandoc</a>, the program that is responsible for part of the journey from R Markdown file to PDF output.
 Basically, when pandoc sees a dollar sign in your template, then it thinks you want it to plug in some variable from your R Markdown file.</p>
 <p>How do we solve this?
-Well, we just throw more money at the problem: <strong>for pandoc, a dollar sign in your template is escapes with another dollar sign…</strong> So replace all the single \$ with \$$ in <strong>.plos_latex_template.tex.</strong></p>
+Well, we just throw more money at the problem: <strong>for pandoc, a dollar sign in your template is escapes with another dollar sign…</strong> So replace all the single $ with $$ in <strong>.plos_latex_template.tex.</strong></p>
 <p>If we now knit to PDF, we get the expected output:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/compile_correct.png" width="522" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/compile_correct.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="pull-in-desired-content-from-the-r-markdown-file" class="section level1">
 <h1>Pull in desired content from the R Markdown file</h1>
@@ -86,7 +86,7 @@ It’s here:</p>
 }
 \newline</code></pre>
 <p>Now, if we knit we get this:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-title.png" width="392" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-title.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>The variable names in your yaml header can be completely arbitrary, by the way.
 They don’t have to match something that pandoc has seen before.
 So let’s pull in also something for the abstract and the author summary, but use silly names:</p>
@@ -113,7 +113,7 @@ $silly-abstract$
 \section*{Author summary}
 $silly-author-summary$</code></pre>
 <p>And when we knit we get the expected output:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-yaml-silly.png" width="394" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-yaml-silly.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="pulling-in-the-body-content" class="section level2">
 <h2>Pulling in the body content</h2>
@@ -125,7 +125,7 @@ Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur e
 <p>becomes just</p>
 <pre class="latex"><code>$body$</code></pre>
 <p>And when we knit we get:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/pull-body.png" width="388" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-body.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>(Note that there are some references at the bottom here, even though nothing’s cited in the text. In the PLOS template, the references section is manually inserted in the <strong>.tex</strong> template, and I left this section in at the bottom of the file. We’ll get to this in a minute!)</p>
 </div>
 </div>
@@ -169,7 +169,7 @@ $highlighting-macros$
 $endif$</code></pre>
 <p>What this will do is that <em>if</em> our R Markdown document includes code chunks that have <code>echo=TRUE</code> so that the code will be displayed, <em>then</em> the necessary LaTeX packages and environments will be added to the template automatically.
 If we knit again, then we see the expected output:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/enable-code.png" width="400" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/enable-code.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="decide-how-to-include-citations" class="section level1">
 <h1>Decide how to include citations</h1>
@@ -248,7 +248,7 @@ This is a citation: @lyngs2019
 
 # References</code></pre>
 <p>And when we knit, we get the expected output:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-csl.png" width="395" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-csl.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>If we inspect the generated <strong>.tex</strong> file when we build to PDF (save this by adding <code>keep_tex: true</code> under the <code>bookdown::pdf_document2</code> options), we can see that the citation text itself in the body is included as plain text:</p>
 <pre class="latex"><code>This is a citation: Lyngs et al. (2019)</code></pre>
 <p>And in the references section the citation is included in a <code>CSLReferences</code> environment like this:</p>
@@ -284,7 +284,7 @@ The PLOS template also includes the <code>cite</code> package — we comment thi
 \bibliography{$bibliography$}
 \end{document}</code></pre>
 <p>When we knit, we get this:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-natbib.png" width="390" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-natbib.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>If we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is generated with the <code>\citep</code> command, and the bibliography is simply generated from the <code>\bibliography</code> call.</p>
 <pre class="latex"><code>This is a citation: \citep{lyngs2019}
 
@@ -313,7 +313,7 @@ bibliography: references.bib</code></pre>
 \end{document}</code></pre>
 <p>In the specific case of the PLOS template, it turns out we also need to change <code>\usepackage[utf8x]{inputenc}</code> to <code>\usepackage[utf8]{inputenc}</code>, see <a href="https://tex.stackexchange.com/questions/49610/use-biblatex-and-utf8">StackOverflow</a>.</p>
 <p>When we knit, we get this:</p>
-<p><img src="/post/2021-10-07-latex_templates_for_rmd_in_4_steps/citations-biblatex.png" width="393" /></p>
+<p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-biblatex.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>And if we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is inserted in this way:</p>
 <p>If we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is generated with the <code>\autocite</code> command, and the bibliography is simply generated from the <code>\printbibliography</code> call.</p>
 <pre class="latex"><code>This is a citation: \autocite{lyngs2019}
