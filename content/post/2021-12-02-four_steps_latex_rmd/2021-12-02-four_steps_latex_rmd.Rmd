@@ -135,7 +135,6 @@ Now, if you knit you get this:
 knitr::include_graphics(str_c(image_path, "pull-title.png"))
 ```
 
-The variable names in your yaml header can be completely arbitrary --- yhey don't have to match something that pandoc has seen before.
 So let's pull in also the abstract and the author summary, from the R Markdown file, but use silly names to illustrate:
 
 ``` markdown
@@ -216,7 +215,7 @@ output:
 
 This is a test.
 
-```{r, echo=TRUE}
+`r ''````{r, echo=TRUE}
 2 + 2
 ```
 ````
