@@ -1,7 +1,7 @@
 ---
 title: "4 steps to using a LaTeX template with R Markdown"
 description: |
-  You might often want to use a LaTeX template from some journal with R Markdown. Is is relatively simple to do so, but it can be really frustrating to figure out how it works.
+  You may often want to use a LaTeX template from some journal with R Markdown. Is is relatively simple to do so, but it can be frustrating to figure out how it works.
 author: "Ulrik Lyngs"
 date: 2021-12-02
 categories:
@@ -14,16 +14,18 @@ teaser: "/post/2021-12-02-four_steps_latex_rmd/teaser.png"
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>I do all my academic writing in <a href="https://bookdown.org/yihui/rmarkdown/" title="R Markdown: The Definitive Guide">R Markdown</a>, so that my work can be more transparent and reproducible for others and my future self.
-Along the way, I created a few packages for writing <a href="https://github.com/ulyngs/oxforddown" title="the `oxforddown` template for thesis writing">theses</a> and <a href="https://ulriklyngs.com/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/">articles</a> that use some specific LaTeX template to format your PDF output for some specific purpose.</p>
-<p>As I have gone through this process, I’ve learned that there are 4 specific steps in adapting a LaTeX template for use with R Markdown.
-In this post, I go over what they are, and illustrate them with the <a href="https://journals.plos.org/plosone/s/latex">PLOS LaTeX template</a>.</p>
-<div id="make-the-template-compile-on-its-own-aka-watch-your" class="section level1">
-<h1>Make the template compile on its own (aka, watch your $)</h1>
-<p>The first step is to do the simplest thing we could.
-That is, just download the LaTeX template files from your journal/conference and tell your R Markdown document to use the <strong>.tex</strong> file for pdf output, without making any changes.</p>
-<p>So imagine we download the <a href="https://journals.plos.org/plosone/s/latex">PLOS LaTeX template</a>, which will give us a folder called <strong>plos-latex-template</strong> that includes the file <strong>plos_latex_template.tex</strong>.</p>
-<p>Let’s create a new R Markdown file with this content:</p>
+<p>I do all my academic writing in <a href="https://bookdown.org/yihui/rmarkdown/" title="R Markdown: The Definitive Guide">R Markdown</a>.
+This makes my work more transparent and reproducible for others and my future self.</p>
+<p>Along the way, I have often needed to use a specific LaTeX template from some <a href="https://ulriklyngs.com/post/2018/10/29/r-packages-for-chi-papers-with-r-markdown/">conference</a> to format my PDF output from R Markdown.
+Over time, I’ve learned that there are 4 steps involved in doing this.</p>
+<p>In this post, I go over these four steps, and illustrate them with the <a href="https://journals.plos.org/plosone/s/latex">PLOS LaTeX template</a>.</p>
+<div id="step-1-make-the-template-compile-on-its-own-aka-watch-your" class="section level1">
+<h1>Step 1: Make the template compile on its own (aka, watch your $)</h1>
+<p>The first step is to do the simplest thing you can.
+Download the LaTeX template files from your journal/conference.
+Then create a new R Markdown document and simply tell it to use the <strong>.tex</strong> file for PDF output, and try to knit it.</p>
+<p>For example, if you go and download the <a href="https://journals.plos.org/plosone/s/latex">PLOS LaTeX template</a>, we get a folder that includes the file <strong>plos_latex_template.tex</strong>.
+Then create a new R Markdown file with this content:</p>
 <pre class="markdown"><code>---
 output: 
   bookdown::pdf_document2:
@@ -33,33 +35,33 @@ output:
 # Hello, LaTeX template!
 
 This is a test.</code></pre>
-<p>Yay, let’s try knitting to PDF!
-Argh, we get this error message:</p>
+<p>Try knitting to PDF!
+Argh, we get an error message:</p>
 <pre class="markdown"><code>Error compiling template &quot;plos_latex_template.tex&quot; (line 57, column 121):
 unexpected &quot;2&quot;
 expecting &quot;$&quot;
 Error: pandoc document conversion failed with error 5
 Execution halted</code></pre>
 <p>What’s going on?
-Well it turns out that dollar signs ($) have a special meaning for <a href="https://pandoc.org">pandoc</a>, the program that is responsible for part of the journey from R Markdown file to PDF output.
-Basically, when pandoc sees a dollar sign in your template, then it thinks you want it to plug in some variable from your R Markdown file.</p>
+It turns out that dollar signs ($) have special meaning for <a href="https://pandoc.org">pandoc</a>, the program that’s responsible for some of the journey from R Markdown to PDF.
+When pandoc sees a dollar sign in your template, it thinks you want to plug in stuff from your R Markdown file.</p>
 <p>How do we solve this?
-Well, we just throw more money at the problem: <strong>for pandoc, a dollar sign in your template is escapes with another dollar sign…</strong> So replace all the single $ with $$ in <strong>.plos_latex_template.tex.</strong></p>
-<p>If we now knit to PDF, we get the expected output:</p>
+Just throw more money at the problem! That is, <strong>for pandoc, a dollar sign in your template is escaped with another dollar sign.</strong> So let’s try and replace all single $ with $$ in <strong>plos_latex_template.tex.</strong></p>
+<p>If you now knit to PDF, you get the expected output:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/compile_correct.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Awesome!
+Our R Markdown file compiled using PLOS’ <strong>.tex</strong> file as a template!</p>
 </div>
-<div id="pull-in-desired-content-from-the-r-markdown-file" class="section level1">
-<h1>Pull in desired content from the R Markdown file</h1>
-<p>Great!
-Our R Markdown file compiled using the <strong>.tex</strong> file as a template!
-The only content we see is the sample content from the <strong>.tex</strong> file.
+<div id="step-2-pull-in-desired-content-from-the-r-markdown-file" class="section level1">
+<h1>Step 2: Pull in desired content from the R Markdown file</h1>
+<p>The only content we see in the PDF is the sample content from PLOS’ <strong>.tex</strong> template.
 How do we insert content from our R Markdown file?
 <strong>Use dollar signs:</strong></p>
-<p>Whenever pandoc sees something in the <strong>.tex</strong> file surrounded by single dollar signs, it’ll look for something that corresponds in the R Markdown file.
-We need to ask ourselves this: what and where do we want to plug in stuff from the YAML header (i.e., the stuff in between <code>---</code> at the top), and where do we want to plug in our body content?</p>
+<p>When pandoc sees something in the <strong>.tex</strong> file surrounded by single dollar signs, it’ll look for something that corresponds to it in the R Markdown file.
+Ask yourself this: What and where do you want to plug in stuff from the YAML header (i.e., the stuff in between <code>---</code> at the top)? And where do we want to plug in your body content?</p>
 <div id="pulling-in-stuff-from-the-yaml-header" class="section level2">
 <h2>Pulling in stuff from the YAML header</h2>
-<p>So we could start by simply adding a title to our R Markdown file, like so:</p>
+<p>We can start by simply adding a title to our R Markdown file:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 output: 
@@ -70,7 +72,7 @@ output:
 # Hello, LaTeX template!
 
 This is a test.</code></pre>
-<p>Then we open up <strong>plos_latex_template.tex</strong> and looks for where we find the title.
+<p>Then open up <strong>plos_latex_template.tex</strong> and look for the title.
 It’s here:</p>
 <pre class="latex"><code>% Title must be 250 characters or less.
 \begin{flushleft}
@@ -78,18 +80,17 @@ It’s here:</p>
 \textbf\newline{Title of submission to PLOS journals} % Please use &quot;sentence case&quot; for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline</code></pre>
-<p>Let’s change it to this:</p>
+<p>Change it to this:</p>
 <pre class="latex"><code>% Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
 \textbf\newline{$title$} % Please use &quot;sentence case&quot; for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline</code></pre>
-<p>Now, if we knit we get this:</p>
+<p>Now, if you knit you get this:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-title.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>The variable names in your yaml header can be completely arbitrary, by the way.
-They don’t have to match something that pandoc has seen before.
-So let’s pull in also something for the abstract and the author summary, but use silly names:</p>
+<p>The variable names in your yaml header can be completely arbitrary — yhey don’t have to match something that pandoc has seen before.
+So let’s pull in also the abstract and the author summary, from the R Markdown file, but use silly names to illustrate:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
@@ -102,7 +103,7 @@ output:
 # Hello, LaTeX template!
 
 This is a test.</code></pre>
-<p>Then we find the abstract and author summary sections in <strong>plos_latex_template.tex</strong> and replace the sample content with our silly variables:</p>
+<p>Then find the abstract and author summary sections in <strong>plos_latex_template.tex</strong> and replace the sample content with our silly variables:</p>
 <pre class="latex"><code>% Please keep the abstract below 300 words
 \section*{Abstract}
 $silly-abstract$
@@ -112,26 +113,25 @@ $silly-abstract$
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
 $silly-author-summary$</code></pre>
-<p>And when we knit we get the expected output:</p>
+<p>When you knit you get the expected output:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-yaml-silly.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="pulling-in-the-body-content" class="section level2">
 <h2>Pulling in the body content</h2>
-<p>The body content is pulled in with a special variable: Wherever we write <code>$body$</code> in the <strong>.tex</strong> template, pandoc will insert our the body content.</p>
-<p>So in the case of the PLOS template, we replace everything from the introduction to the acknowledgments sections with simply <code>$body$</code>:</p>
+<p>The body content is pulled in with a special variable: when you write <code>$body$</code> in the template, pandoc will insert your body content.</p>
+<p>In the case of the PLOS template, replace everything from the introduction to end of the document with simply <code>$body$</code>. So</p>
 <pre class="latex"><code>% Use &quot;Eq&quot; instead of &quot;Equation&quot; for equation citations.
 \section*{Introduction}
 Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed...</code></pre>
 <p>becomes just</p>
 <pre class="latex"><code>$body$</code></pre>
-<p>And when we knit we get:</p>
+<p>When you knit you get:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-body.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>(Note that there are some references at the bottom here, even though nothing’s cited in the text. In the PLOS template, the references section is manually inserted in the <strong>.tex</strong> template, and I left this section in at the bottom of the file. We’ll get to this in a minute!)</p>
 </div>
 </div>
-<div id="enable-code-inclusion" class="section level1">
-<h1>Enable code inclusion</h1>
-<p>Next, you’ll notice that if we add a code chunk in our R Markdown file, with the chunk option <code>echo=TRUE</code>, we’ll get an error:</p>
+<div id="step-3-enable-code-inclusion" class="section level1">
+<h1>Step 3: Enable code inclusion</h1>
+<p>You’ll notice that if you add a code chunk in our R Markdown file, with the chunk option <code>echo=TRUE</code>, you get an error:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 output: 
@@ -151,40 +151,41 @@ This is a test.
 ```
 ## [1] 4
 ```</code></pre>
-<p>Specifically, we get this:</p>
+<p>Here’s the error:</p>
 <pre class="markdown"><code>! LaTeX Error: Environment Shaded undefined.
 
 Error: LaTeX failed to compile using-latex-templates.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See using-latex-templates.log for more info.
 Execution halted</code></pre>
-<p>As the error message suggests, this is because code chunks are included in the <strong>.tex</strong> output in a ‘Shaded’ environment, like so in our example:</p>
+<p>As the error message suggests, this is because code chunks are included in LaTeX file in a ‘Shaded’ environment.
+In our example, it looks like this:</p>
 <pre class="latex"><code>\begin{Shaded}
 \begin{Highlighting}[]
 \DecValTok{2} \SpecialCharTok{+} \DecValTok{2}
 \end{Highlighting}
 \end{Shaded}</code></pre>
-<p>But our template <strong>.tex</strong> file doesn’t currently define this environment.</p>
-<p>We fix it by adding the following lines to the LaTeX template, somewhere before the <code>\begin{document}</code> command:</p>
+<p>The problem is that our template <strong>.tex</strong> file doesn’t define this environment.
+Fix it by adding these three lines to the LaTeX template, before the <code>\begin{document}</code> command:</p>
 <pre class="latex"><code>$if(highlighting-macros)$
 $highlighting-macros$
 $endif$</code></pre>
-<p>What this will do is that <em>if</em> our R Markdown document includes code chunks that have <code>echo=TRUE</code> so that the code will be displayed, <em>then</em> the necessary LaTeX packages and environments will be added to the template automatically.
-If we knit again, then we see the expected output:</p>
+<p>What this will do is that <em>if</em> our R Markdown document includes code chunks with <code>echo=TRUE</code>, so that the code is displayed, <em>then</em> the necessary LaTeX packages and environments will automatically be added to the template.</p>
+<p>If you knit again, you see the expected output:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/enable-code.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="decide-how-to-include-citations" class="section level1">
-<h1>Decide how to include citations</h1>
-<p>Finally, we need to think about how we want to include citations.
-We have at least three options available:</p>
+<div id="step-4-decide-how-to-include-citations" class="section level1">
+<h1>Step 4: Decide how to include citations</h1>
+<p>Finally, you need to think about how you want to include citations.
+There’s (at least) three options:</p>
 <ol style="list-style-type: decimal">
 <li>Use CSL (<a href="https://citationstyles.org">Citation Style Language</a>) references</li>
 <li>Use the <code>natbib</code> LaTeX package</li>
 <li>Use the <code>biblatex</code> LaTeX package</li>
 </ol>
-<p>Let’s look at each of these options.</p>
+<p>Let’s look at each.</p>
 <div id="csl-references" class="section level2">
 <h2>CSL references</h2>
 <p>The <a href="https://citationstyles.org">Citation Style Language</a> is an open-source project supported by Zotero, Mendeley, RefWorks, and others, and is the approach <code>pandoc</code> uses by default.
-To enable it, we need to include the following in our LaTeX template:</p>
+To enable it, you need to include the following in your LaTeX template:</p>
 <pre class="latex"><code>$if(csl-refs)$
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
@@ -210,8 +211,8 @@ To enable it, we need to include the following in our LaTeX template:</p>
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$</code></pre>
-<p>(These commands come from the default <span class="math display">\[`pandoc` LaTeX template\]</span>(<a href="https://github.com/jgm/pandoc/blob/master/data/templates/default.latex" class="uri">https://github.com/jgm/pandoc/blob/master/data/templates/default.latex</a>) and is how <code>pandoc</code> usually tells LaTeX how to include references output).</p>
-<p>For illustration purposes, let’s create a new file that we’ll call <strong>references.bib</strong> and save it with this content:</p>
+<p>(These commands come from the default <a href="https://github.com/jgm/pandoc/blob/master/data/templates/default.latex"><code>pandoc</code> LaTeX template</a> and is how <code>pandoc</code> usually tells LaTeX how to include references).</p>
+<p>For illustration purposes, create a new file that called <strong>references.bib</strong> and save it with this content:</p>
 <pre class="bibtex"><code>@InProceedings{lyngs2019,
   title = {Self-{{Control}} in {{Cyberspace}}: Applying {{Dual Systems Theory}} to a {{Review}} of {{Digital Self}}-{{Control Tools}}},
   booktitle = {{{CHIConference}} on {{Human Factors}} in {{Computing Systems Proceedings}} ({{CHI}} 2019)},
@@ -221,7 +222,7 @@ $endif$</code></pre>
   location = {{New York, NY, USA}},
   doi = {10.1145/3290605.3300361}
 }</code></pre>
-<p>Now let’s point to this as our bibliography in our R Markdown file, cite it, and add a ‘References’ heading by the end of the document:</p>
+<p>Now point to this as your bibliography in your R Markdown file, cite it, and add a ‘References’ heading by the end of the document:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
@@ -247,11 +248,11 @@ This is a citation: @lyngs2019
 ```
 
 # References</code></pre>
-<p>And when we knit, we get the expected output:</p>
+<p>When you knit, you get the expected output:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-csl.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>If we inspect the generated <strong>.tex</strong> file when we build to PDF (save this by adding <code>keep_tex: true</code> under the <code>bookdown::pdf_document2</code> options), we can see that the citation text itself in the body is included as plain text:</p>
+<p>If you inspect the generated <strong>.tex</strong> file when we build to PDF (you can save this by adding <code>keep_tex: true</code> under the <code>bookdown::pdf_document2</code> options), you can see that the citation text itself is included as plain text in the body:</p>
 <pre class="latex"><code>This is a citation: Lyngs et al. (2019)</code></pre>
-<p>And in the references section the citation is included in a <code>CSLReferences</code> environment like this:</p>
+<p>And the references section is generated with embedding the citation in a <code>CSLReferences</code> environment:</p>
 <pre class="latex"><code>\begin{CSLReferences}{1}{0}
 \leavevmode\vadjust pre{\hypertarget{ref-lyngs2019}{}}%
 Lyngs, Ulrik, Kai Lukoff, Petr Slovak, Reuben Binns, Adam Slack, Michael Inzlicht, Max Van Kleek, and Nigel Shadbolt. 2019. {``Self-{Control} in {Cyberspace}: Applying {Dual Systems Theory} to a {Review} of {Digital Self}-{Control Tools}.&#39;&#39;} In \emph{{CHIConference} on {Human Factors} in {Computing Systems Proceedings} ({CHI} 2019)}. {New York, NY, USA}: {ACM}. \url{https://doi.org/10.1145/3290605.3300361}.
@@ -267,25 +268,23 @@ output:
     template: plos_latex_template.tex
     citation_package: natbib
 bibliography: references.bib</code></pre>
-<p>Then, <strong>in the LaTeX template</strong> (1) add `\usepackage<span class="math display">\[options\]</span>{natbib}` to include the <code>natbib</code> package, and set a <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">citation style</a> with `\bibliographystyle{stylename}`, somewhere before `\begin{document}`.
-(2) point to your bibliography before <code>\end{document}</code>.</p>
-<p>In our example, the PLOS template already comes with a style sheet in their <strong>plos2015.bst</strong> file, so we’ll use that.
-The PLOS template also includes the <code>cite</code> package — we comment this out to use <code>natbib</code> instead.</p>
-<pre class="latex"><code>% cite package, to clean up citations in the main text. Do not remove.
-% \usepackage{cite}
-
-...
-
-\usepackage[numbers]{natbib}
+<p>Then, <strong>in the LaTeX template</strong>, first (1) add <code>\usepackage[options]{natbib}</code>, and set a <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">citation style</a> with <code>\bibliographystyle{stylename}</code>, somewhere before <code>\begin{document}</code>.
+Then, (2) point to your bibliography with <code>\bibliography{your-reference-file}</code> before <code>\end{document}</code>.</p>
+<p>In our example, the PLOS template came with a style sheet in their <strong>plos2015.bst</strong> file, so we’ll use that.</p>
+<pre class="latex"><code>\usepackage[numbers]{natbib}
 \bibliographystyle{plos2015.bst}
 
 ...
 
 \bibliography{$bibliography$}
 \end{document}</code></pre>
-<p>When we knit, we get this:</p>
+<p>The PLOS template also includes the <code>cite</code> package. Comment this out, because we’re now using <code>natbib</code> instead.</p>
+<pre class="latex"><code>% cite package, to clean up citations in the main text. Do not remove.
+% \usepackage{cite}
+</code></pre>
+<p>When you knit, you get this:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-natbib.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>If we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is generated with the <code>\citep</code> command, and the bibliography is simply generated from the <code>\bibliography</code> call.</p>
+<p>If you inspect the <strong>.tex</strong> file generating the PDF, you can see that the citation is generated with the <code>\citep</code> command, and that the bibliography is simply generated from a <code>\bibliography</code> call.</p>
 <pre class="latex"><code>This is a citation: \citep{lyngs2019}
 
 ...
@@ -294,16 +293,15 @@ The PLOS template also includes the <code>cite</code> package — we comment thi
 </div>
 <div id="biblatex" class="section level2">
 <h2>Biblatex</h2>
-<p>To use <a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex"><code>biblatex</code></a> for citations, follow quite similar steps to the ones for <code>natbib</code>.
-First, add <code>citation_package: biblatex</code> in the YAML header of your R Markdown file:</p>
+<p>To use <a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex"><code>biblatex</code></a> for citations, first add <code>citation_package: biblatex</code> in the YAML header of your R Markdown file:</p>
 <pre class="latex"><code>...
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
     citation_package: biblatex
 bibliography: references.bib</code></pre>
-<p>Then, <strong>in the LaTeX template</strong> (1) add `\usepackage{biblatex}` and point to your bibliography with `\addbibresource{references}` before `\begin{document}`.
-(2) set where to print out your bibliography with the command `\printbibliography`.</p>
+<p>Then, <strong>in the LaTeX template</strong>, you first (1) add <code>\usepackage{biblatex}</code> and point to your bibliography with <code>\addbibresource{your-references-file}</code>, somewhere before <code>\begin{document}</code>.
+Second, (2) add the command <code>\printbibliography</code> where you want the references section to be printed.</p>
 <pre class="latex"><code>\usepackage{biblatex}
 \addbibresource{$bibliography$}
 
@@ -311,11 +309,10 @@ bibliography: references.bib</code></pre>
 
 \printbibliography
 \end{document}</code></pre>
-<p>In the specific case of the PLOS template, it turns out we also need to change <code>\usepackage[utf8x]{inputenc}</code> to <code>\usepackage[utf8]{inputenc}</code>, see <a href="https://tex.stackexchange.com/questions/49610/use-biblatex-and-utf8">StackOverflow</a>.</p>
-<p>When we knit, we get this:</p>
+<p>In the specific case of the PLOS template, it turns out we also need to change <code>\usepackage[utf8x]{inputenc}</code> to <code>\usepackage[utf8]{inputenc}</code>, for reasons explained on <a href="https://tex.stackexchange.com/questions/49610/use-biblatex-and-utf8">StackOverflow</a>.</p>
+<p>When you knit, you get this:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/citations-biblatex.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>And if we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is inserted in this way:</p>
-<p>If we inspect the generated <strong>.tex</strong> file behind the PDF, we can see that our citation is generated with the <code>\autocite</code> command, and the bibliography is simply generated from the <code>\printbibliography</code> call.</p>
+<p>If you inspect the <strong>.tex</strong> file generating the PDF, you can see that our citation is inserted with the <code>\autocite</code> command, whereas the bibliography is simply generated with the <code>\printbibliography</code> call.</p>
 <pre class="latex"><code>This is a citation: \autocite{lyngs2019}
 
 ...
