@@ -1,7 +1,7 @@
 ---
 title: "4 steps to using a LaTeX template with R Markdown"
 description: |
-  You may often want to use a LaTeX template from some journal with R Markdown. Is is relatively simple to do so, but it can be frustrating to figure out how it works.
+  You may often want to use a LaTeX template from some journal with R Markdown. Is is relatively simple to do so, but it can be frustrating to figure out how.
 author: "Ulrik Lyngs"
 date: 2021-12-02
 categories:
