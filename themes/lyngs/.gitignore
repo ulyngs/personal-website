@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+exampleSite/public
+.DS_Store
+themes/hugo-xmin/

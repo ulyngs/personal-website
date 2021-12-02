@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    
+    <!-- UL: use Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- add CSS for floating table of contents-->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+    
+    <!-- add font awesome and academicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    
+    <!-- add support for DT datatables -->
+    <link href="{{ "lib/datatables-css-0.0.0/datatables-crosstalk.css" | relURL }}" rel="stylesheet">
+    <link href="{{ "lib/dt-core-1.10.20/css/jquery.dataTables.min.css" | relURL }}" rel="stylesheet">
+    <link href="{{ "lib/dt-core-1.10.20/css/jquery.dataTables.extra.css" | relURL }}" rel="stylesheet">
+    <link href="{{ "lib/crosstalk-1.0.0/css/crosstalk.css" | relURL }}" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
+    
+    <!-- add highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    
+    <!-- add lyngs-xmin stylesheet -->
+    <link rel="stylesheet" href="/css/style.css"/>
+    
+    {{ partial "head_custom.html" . }}
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpeg">
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <div class="header-container">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mr-auto headroom navbar-header">
+        <div class="container">
+        <a class="navbar-brand" href="/index.html">ULRIK LYNGS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            {{ $currentPage := . }}
+          
+            {{ range .Site.Menus.main }}
+              <li class="nav-item"><a class="nav-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a></li> -->
+            {{ end }}
+          </ul>
+          
+        </div>
+      </nav>
+      </div>
+      
+    </div>

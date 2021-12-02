@@ -1,0 +1,45 @@
+  <footer class="footer container">
+  {{ partial "foot_custom.html" . }}
+  {{ with .Site.Params.footer }}
+  <hr/>
+  {{ . | markdownify }}
+  {{ end }}
+  </footer>
+  
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  
+  <!-- add support for DT datatables -->
+  <script src="{{ "lib/htmlwidgets-1.5.1/htmlwidgets.js" | relURL }}"></script>
+  <script src="{{ "lib/jquery-1.12.4/jquery.min.js" | relURL }}"></script>
+  <script src="{{ "lib/datatables-binding-0.12/datatables.js" | relURL }}"></script>
+  <script src="{{ "lib/dt-core-1.10.20/js/jquery.dataTables.min.js" | relURL }}"></script> 
+  <script src="{{ "lib/crosstalk-1.0.0/js/crosstalk.min.js" | relURL }}"></script> 
+  
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <!-- use headroom.js (http://wicky.nillia.ms/headroom.js/) for hiding the header on scroll -->
+  <script src="/js/headroom.js"></script>
+  <script>
+    // grab an element
+    var myElement = document.querySelector(".navbar-header");
+    // construct an instance of Headroom, passing the element
+    var headroom  = new Headroom(myElement);
+    // initialise
+    headroom.init();
+  </script>
+  
+  <!-- for floating TOC on CV page -->
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+  
+  <!-- highlight.js for syntax highlighting -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/tex.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<div class="main-container container">
+
+  {{if not .IsHome }}
+  <h1>{{ .Title | markdownify }}</h1>
+  {{ end }}
+  
+  {{ .Content }}
+  
+  <h1>THIS IS DRAWING FROM THEMES/LYNGS-XMIN/LAYOUTS/_DEFAULT/LIST.HTML</h1>
+  
+  <ul>
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+    {{ range (where $pages "Section" "!=" "") }}
+    <li>
+      <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+    {{ end }}
+  </ul>
+
+</div>
+
+{{ partial "footer.html" . }}

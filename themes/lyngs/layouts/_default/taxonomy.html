@@ -1,0 +1,61 @@
+{{ partial "header.html" . }}
+
+<div class="main-container container">
+  
+  <main>
+    
+    <!--<h1>THIS IS DRAWING FROM THEMES/LYNGS-XMIN/LAYOUTS/_DEFAULT/TAXONOMY.HTML</h1>-->
+
+    <div class="row list-blog-posts">
+      <!-- this is for the posts -->
+      <div class="col-sm-10 blog-post-entries">
+    
+        {{ range .Pages }}
+        <div class="row blog-post-entry">
+            <div class="col-sm-2">
+              {{ .Date.Format "January 2, 2006" }}
+            </div>
+                
+          <div class="col-sm-6">
+              <h3 class="blog-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h3>
+              <p>{{ .Params.description | markdownify }}</p>
+            </div>
+            
+            <div class="col-sm-4">
+                <a href="{{ .RelPermalink }}"><img src="{{ .Params.teaser }}" class="img-fluid"></a>
+            </div>
+        
+        </div>
+        {{ end }}
+      </div>
+      
+      <!-- this is for the categories -->
+          <div class="col-sm-2 posts-sidebar">
+            
+            {{- $currentTaxonomy := index (split .URL "/") 2 -}}
+            
+            <h3>Categories</h3>
+            <ul>
+              {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages.ByTitle }}
+                <li>
+                    <!-- bold the link if it's the category we're currently looking at -->
+                    {{ if eq (.Title | urlize) $currentTaxonomy }}
+                      <a href="{{.Permalink}}"><strong>{{.Title}}</strong></a><span class="postcount"> ({{len .Pages }})</span>
+                    
+                    {{ else }}
+                      <a href="{{.Permalink}}">{{.Title}}</a><span class="postcount"> ({{len .Pages }})</span>
+                      
+                    {{ end }}
+                    
+                </li>
+              {{end}}
+              
+            </ul>
+          </div>
+    
+    </div>
+
+  </main>
+</div>
+
+{{ partial "footer.html" . }}

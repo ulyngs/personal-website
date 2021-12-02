@@ -1,0 +1,625 @@
+.header-container .navbar {
+    background-color: white !important;
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+}
+.header-container .navbar-nav a.nav-link.active {
+  /*border-bottom: 1px dashed rgba(0,0,0,0.2);*/
+  padding-bottom: 0;
+  font-weight: 400;
+}
+
+/* style the appearance and disappearance of the header */
+.headroom {
+    will-change: transform;
+    transition: transform 250ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+.navbar-nav a {
+  color: black !important;
+}
+
+.navbar-hide {
+    top: -56px;
+}
+
+
+
+/* font */
+body {
+  /*font-family: 'Open Sans', "Muli", "Helvetica Neue", helvetica, arial, sans-serif;*/
+  font-family: "Muli", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+h5 {
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+body .main-container p {
+  font-size: 1em;
+  line-height: 170%; 
+}
+
+code {
+  font-family: Consolas, Courier, "Courier New", 'STKaiti', 'KaiTi', 'SimKai', monospace;
+  /*background: #f9f9f9;*/
+  color: black;
+}
+
+/**** HYPERLINKS ******/
+/* by default black, underlined and no line on hover */
+a {
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+  border-bottom: none;
+}
+
+/* for these, don't have them underline, but make them lighter on hover */
+.posts-sidebar a,
+.blog-post #toc a,
+.featured-work-entry .teaser a,
+.pub-title a,
+.blog-title a,
+.cv-navbar a,
+.navbar a,
+.link-wrapper a,
+a.email,
+.project-work-entry-title a {
+  border-bottom: none;
+  opacity: 1.0;
+  color: black;
+}
+.posts-sidebar a:hover,
+.pub-title a:hover,
+.blog-title a:hover,
+.navbar a.nav-link:hover,
+a.email:hover,
+.row.project-entries .project-work-entry-title a:hover {
+  /*text-decoration: underline;*/
+  color: black;
+  opacity: 0.65;
+}
+
+
+/* NAVBAR */
+.navbar-brand {
+  font-size: 2.3em;
+  font-weight: 200;
+  color: #777 !important;
+  line-height: 20px;
+}
+/* push content down below the sticky navbar */
+.main-container {
+  padding-top: 7.5em;
+}
+
+
+/* front page */
+.contact-info {
+  padding-left: 1em;
+}
+.link-wrapper {
+  margin-top: 0.5em;
+}
+.featured-work h2 {
+  margin-bottom: 0.8em;
+}
+.featured-work {
+  margin-top: 5em;
+}
+.featured-work-entry {
+  margin-bottom: 2em;
+}
+/* this fixes spacing on mobile */
+.featured-work-entry iframe {
+  padding-bottom: 0.8em;
+}
+.featured-work-graphic {
+  padding-right: 2em;
+  padding-bottom: 0.8em;
+}
+.tldr-label {
+  font-style: italic;
+}
+
+
+/* footer */
+footer {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+
+
+/*----- PROJECT PAGE -----*/
+.row.project-entries {
+  margin-bottom: 2em;
+}
+.row.project-entries img {
+  padding-bottom: 0.8em;
+}
+
+.project-work {
+  margin-bottom: 2em;
+  margin-left: 0em;
+  padding-left: 0;
+  margin-top: 1.6em;
+}
+.project-work-entry {
+  padding: 0.7em 0.5em;
+}
+.project-work-entry iframe {
+  padding: 0.2em 1em 0.2em 0em;
+}
+.project-work-entry p {
+  font-size: 0.95em !important;
+}
+
+.project-entries .status-current {
+  display: none;
+  /*color: #1b8931;*/
+  color: grey;
+  font-size: 0.5em;
+  padding: 3px
+  margin-left: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  top: -3px;
+}
+ 
+.project-entries .status-past {
+  display: none;
+  /*color: #72492C;*/
+  color: grey;
+  font-size: 0.5em;
+  padding: 3px;
+  margin-left: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  top: -3px;
+}
+
+
+/* ------ PUBLICATIONS PAGE ------ */
+a.anchor {
+    display: block;
+    position: relative;
+    top: -4em;
+    visibility: hidden;
+}
+
+.publications-page td {
+  font-size: 0.99em;
+}
+.publications-page caption {
+  caption-side: top;
+  font-size: 1.8em;
+  padding: 0;
+  margin-bottom: 0.8em;
+  color: black;
+}
+.publications-page caption span {
+  display: none;
+}
+
+.publications-page thead {
+  display: none;
+}
+
+.publications-page .pub-title {
+  font-weight: 500;
+}
+
+.publications-page td {
+  padding-bottom: 1em;
+}
+
+.publications-page table {
+  margin-bottom: 3em;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.publications-page tbody td:first-child {
+  padding-right: 2em;
+  /*vertical-align: top;*/
+  width: 12%;
+}
+.publications-page tbody td:nth-child(2) {
+  width: 63%;
+  padding-right: 2em;
+}
+.publications-page tbody td:nth-child(3) {
+  width: 25%;
+}
+
+@media (max-width: 990px) {
+  .publications-page tbody td:first-child {
+    display: none;
+  }
+  .publications-page tbody td:nth-child(2) {
+    width: 60%;
+    padding-right: 2em;
+  }
+  .publications-page tbody td:nth-child(3) {
+    width: 40%;
+  }
+}
+
+
+/* ---- CV PAGE ---- */
+#toc {
+  position: fixed;
+  top: 7.8em !important;
+}
+#toc .nav-link {
+  padding-left: 0.4em;
+}
+
+/* small screens */
+@media (max-width: 990px) {
+  #toc {
+    width: 600px;
+  }
+  .blog-content .post-content {
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .main-container {
+    padding-top: 6em;
+  }
+  
+  #toc {
+    width: 300px
+  }
+  
+  /* override stickyness so that the navigation does not follow scrolling */
+  nav[data-toggle="toc"] {
+    margin-bottom: 1em;
+    margin-top: -1em;
+    position: static !important;
+    top: 2em;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle="toc"] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  
+  /*nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }*/
+  
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.cv-entries tbody td {
+  border-bottom: none !important;
+  border-top: none !important;
+  padding: 0.2em 0em 0.4em 0.2em;
+  font-size: 1em;
+}
+
+.cv-entry-title {
+  font-weight: bold;
+}
+
+.cv-page .tab-content .tab-pane {
+  padding: 0;
+  margin: 0;
+}
+
+.cv-page .tab-content label {
+  padding: 1em 0em 0.8em 0.2em;
+}
+.cv-page .tab-content .tab-pane td {
+  padding: 0.2em 0em 0.4em 0.2em;
+}
+.cv-page .tab-content table {
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+.cv-page .tab-content #talks table,
+.cv-page .tab-content #posters table {
+  margin-bottom: 0.3em;
+}
+
+.cv-page .tab-content #talks p,
+.cv-page .tab-content #posters p {
+  margin-bottom: 1px;
+}
+
+
+
+.cv-page h1 {
+  font-size: 2.2em;
+}
+.cv-page h2 {
+  font-size: 1.7em;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+.cv-page h3 {
+  font-size: 1.3em;
+}
+.cv-page .domain-header {
+  margin-top: 2.5em;
+}
+.cv-page thead {
+  display: none !important;
+}
+.cv-page table{
+  margin-bottom: 3em;
+  table-layout: fixed;
+  width: 100%;
+}
+.cv-page .datatables.html-widget {
+  margin-bottom: 3em !important;
+}
+.cv-page tbody td:first-child {
+  padding-right: 1.5em;
+  padding-left: 0;
+  vertical-align: top;
+  width: 18%;
+}
+.cv-page tbody td:nth-child(2) {
+  width: 82%;
+}
+
+/* the talks table has three columns */
+.cv-page #talks-table-dt tbody td:nth-child(1),
+.cv-page #talks-table-dt tbody td:nth-child(2) {
+  width: 9%;
+  vertical-align: top;
+}
+.cv-page #talks-table-dt tbody td:nth-child(3) {
+  width: 82%;
+}
+
+.cv-page td {
+  padding-bottom: 0.2em;
+}
+.cv-page .work-title {
+  font-size: 1.2em;
+}
+.cv-page .datatables {
+  margin-bottom: 2em;
+}
+
+.cv-page .datatables .paginate_button.current {
+  border: none !important;
+  background: none !important;
+  font-weight: bold;
+}
+.cv-page .datatables a.paginate_button:hover {
+  background: rgba(0,0,0,.04) !important;
+  color: black !important;
+  border: none !important;
+}
+.cv-page .datatables .dataTables_length select {
+  background-color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+.cv-page .talk-translation {
+  font-style: italic;
+}
+
+
+/* ---- BLOG ---- */
+.blog-post .post-meta {
+  max-width: 900px;
+}
+.blog-post .blog-content {
+  max-width: 680px;
+  margin-left: 1em;
+}
+
+.blog-post-entry {
+  margin-bottom: 4em;
+  /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+  padding-bottom: 2em;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.posts-sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 1.5em;
+  line-height: 1.7em;
+}
+.posts-sidebar a {
+  color: black;
+}
+
+/* ---- BLOG POST ---- */
+/* toc navbar */
+.blog-post #toc li ul {
+  padding-left: 0.3em;
+}
+.blog-post #toc {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4.8em;
+  margin-top: 1em;
+}
+.blog-post #hide-button {
+  /*position: -webkit-sticky;
+  position: sticky;
+  top: 6.5em;*/
+  margin-top: 0.5em;
+  background-color: #eee;
+  border-right: lightgrey;
+  border-bottom: lightgrey;
+  opacity: 0.8;
+}
+
+.blog-post #toc a {
+  opacity: 0.5;
+  border-left: none;
+}
+.blog-post #toc a:hover,
+.blog-post #toc a.nav-link.active {
+  opacity: 1;
+}
+
+.blog-post .post-meta .byline {
+  color: #777;
+  margin-bottom: 0;
+}
+.blog-post .post-meta {
+  margin-bottom: 2em;
+}
+.blog-post .post-meta img {
+  padding: 2em;
+}
+.blog-post .post-meta .description {
+  padding-top: 1.5em;
+  font-style: italic;
+  font-size: 18px;
+  /*color: black;*/
+}
+
+
+.blog-post hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 1em;
+  max-width: 300px;
+}
+
+.blog-post .post-content p,
+.blog-post .post-content li {
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 180%; 
+}
+
+@media (min-width: 1080px) {
+    .blog-post .post-content p,
+    .blog-post .post-content li {
+      font-size: 18px;
+      font-weight: 400;
+  }
+}
+
+.blog-post .post-content ul {
+  margin-bottom: 2em;
+}
+.blog-post .post-content img {
+  padding: 1em;
+}
+.blog-post .post-content .figure {
+  margin-bottom: 2em;
+}
+.blog-post .post-content .caption {
+  color: rgba(0, 0, 0, 0.541176);
+  font-size: 1.05em;
+}
+.blog-post .post-content h1,
+.blog-post .post-content h2,
+.blog-post .post-content h3 {
+  margin-top: 2em;
+}
+.blog-post .post-content h1 {
+  font-size: 2em;
+}
+.blog-post .post-content h2 {
+  font-size: 1.75em;
+}
+.blog-post .post-content h3 {
+  font-size: 1.5em;
+}
+.blog-post .footnotes li p {
+  font-size: 1em;
+}
+
+/* style code blocks */
+.hljs {
+  background: #f8f8f8;
+  color: #333;
+  padding: 1em;
+}
+pre code {
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 5px #eee;
+  line-height: 1.75;
+}
+code {
+  background: #f8f8f8;
+}
+
+/* style block quotes */
+blockquote {
+  margin: 2em 1em;
+  padding: 0 2em;
+  border-left: 3px solid #ddd;
+  font-style: italic;
+}
+
+.publications-page [data-toggle="collapse"] i:before{
+    content: "\f146";
+}
+
+.publications-page [data-toggle="collapse"].collapsed i:before{
+    content: "\f0fe";
+}
+.publications-page i {
+  color: #777;
+  font-size: 0.8em;
+}
+
+.publications-page .abstract-toggle {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.publications-page .abstract-text {
+  margin-bottom: 2em;
+}
+
+.publications-page .fa-trophy {
+  color: black;
+}
+.publications-page .award-text {
+  color: #901b2a;
+}
+
