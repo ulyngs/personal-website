@@ -58,10 +58,10 @@ Our R Markdown file compiled using PLOS’ <strong>.tex</strong> file as a templ
 How do we insert content from our R Markdown file?
 <strong>Use dollar signs:</strong></p>
 <p>When pandoc sees something in the <strong>.tex</strong> file surrounded by single dollar signs, it’ll look for something that corresponds to it in the R Markdown file.
-Ask yourself this: What and where do you want to plug in stuff from the YAML header (i.e., the stuff in between <code>---</code> at the top)? And where do we want to plug in your body content?</p>
+Ask yourself this: What and where do you want to plug in stuff from the YAML header (i.e., the stuff in between <code>---</code> at the top)? And where do you want to plug in your body content?</p>
 <div id="pulling-in-stuff-from-the-yaml-header" class="section level2">
 <h2>Pulling in stuff from the YAML header</h2>
-<p>We can start by simply adding a title to our R Markdown file:</p>
+<p>You can start by simply adding a title to your R Markdown file:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 output: 
@@ -89,7 +89,8 @@ It’s here:</p>
 \newline</code></pre>
 <p>Now, if you knit you get this:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-title.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>So let’s pull in also the abstract and the author summary, from the R Markdown file, but use silly names to illustrate:</p>
+<p>The variable names in your YAML header can be complete arbitrary - they don’t have to be something that <code>pandoc</code> has seen before.
+Let’s pull in also the abstract and the author summary, from the R Markdown file, and use silly names:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
@@ -117,11 +118,11 @@ $silly-author-summary$</code></pre>
 </div>
 <div id="pulling-in-the-body-content" class="section level2">
 <h2>Pulling in the body content</h2>
-<p>The body content is pulled in with a special variable: when you write <code>$body$</code> in the template, pandoc will insert your body content.</p>
-<p>In the case of the PLOS template, replace everything from the introduction to end of the document with simply <code>$body$</code>. So</p>
+<p>The body content is pulled in with a special variable: if you write <code>$body$</code> somewhere in the template, pandoc will insert your body content there.</p>
+<p>In our example with the PLOS template, try replacing everything from the introduction to end of the document with simply <code>$body$</code>. So</p>
 <pre class="latex"><code>% Use &quot;Eq&quot; instead of &quot;Equation&quot; for equation citations.
 \section*{Introduction}
-Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed...</code></pre>
+Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit...</code></pre>
 <p>becomes just</p>
 <pre class="latex"><code>$body$</code></pre>
 <p>When you knit you get:</p>

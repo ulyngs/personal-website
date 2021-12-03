@@ -87,11 +87,11 @@ How do we insert content from our R Markdown file?
 **Use dollar signs:**
 
 When pandoc sees something in the **.tex** file surrounded by single dollar signs, it'll look for something that corresponds to it in the R Markdown file.
-Ask yourself this: What and where do you want to plug in stuff from the YAML header (i.e., the stuff in between `---` at the top)? And where do we want to plug in your body content?
+Ask yourself this: What and where do you want to plug in stuff from the YAML header (i.e., the stuff in between `---` at the top)? And where do you want to plug in your body content?
 
 ## Pulling in stuff from the YAML header
 
-We can start by simply adding a title to our R Markdown file:
+You can start by simply adding a title to your R Markdown file:
 
 ``` markdown
 ---
@@ -135,7 +135,8 @@ Now, if you knit you get this:
 knitr::include_graphics(str_c(image_path, "pull-title.png"))
 ```
 
-So let's pull in also the abstract and the author summary, from the R Markdown file, but use silly names to illustrate:
+The variable names in your YAML header can be complete arbitrary - they don't have to be something that `pandoc` has seen before.
+Let's pull in also the abstract and the author summary, from the R Markdown file, and use silly names:
 
 ``` markdown
 ---
@@ -175,15 +176,15 @@ knitr::include_graphics(str_c(image_path, "pull-yaml-silly.png"))
 
 ## Pulling in the body content
 
-The body content is pulled in with a special variable: when you write `$body$` in the template, pandoc will insert your body content.
+The body content is pulled in with a special variable: if you write `$body$` somewhere in the template, pandoc will insert your body content there.
 
-In the case of the PLOS template, replace everything from the introduction to end of the document with simply `$body$`. So
+In our example with the PLOS template, try replacing everything from the introduction to end of the document with simply `$body$`. So
 
 
 ``` latex
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
-Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed...
+Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit...
 ```
 
 becomes just
