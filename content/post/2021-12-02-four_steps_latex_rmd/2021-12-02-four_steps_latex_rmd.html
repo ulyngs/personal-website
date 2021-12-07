@@ -1,5 +1,5 @@
 ---
-title: "4 steps to using a LaTeX template with R Markdown"
+title: "How to Adapt Any LaTeX Template for Use With R Markdown in Four Steps"
 description: |
   You may often want to use a LaTeX template from some journal with R Markdown. Is is relatively simple to do so, but it can be frustrating to figure out how.
 author: "Ulrik Lyngs"
@@ -23,7 +23,7 @@ Over time, I’ve learned that there are 4 steps involved in doing this.</p>
 <h1>Step 1: Make the template compile on its own (aka, watch your $)</h1>
 <p>The first step is to do the simplest thing you can.
 Download the LaTeX template files from your journal/conference.
-Then create a new R Markdown document and simply tell it to use the <strong>.tex</strong> file for PDF output, and try to knit it.</p>
+Then create a new R Markdown document, tell it to use the <strong>.tex</strong> file for PDF output, and try to knit it.</p>
 <p>For example, if you go and download the <a href="https://journals.plos.org/plosone/s/latex">PLOS LaTeX template</a>, we get a folder that includes the file <strong>plos_latex_template.tex</strong>.
 Then create a new R Markdown file with this content:</p>
 <pre class="markdown"><code>---
