@@ -49,10 +49,11 @@ publications_table <- publications %>%
                              str_c('<div id="', abstract_id, '" class="collapse abstract-text">', abstract, '</div>'))) %>% 
   mutate(citation = str_c("<a class='anchor' id='", anchor, "'></a>",
                           "<span class=pub-title>", title, "</span><br>"),
+         venue_abbrev = if_else(!is.na(venue_abbrev), str_c(venue_abbrev, ": "), ""),
          citation = str_c("<div>", 
                           citation,
                           authors_full, "<br>",
-                          venue_abbrev, ": ", venue, "<br>",
+                          venue_abbrev, venue, "<br>",
                           award, pdf, ebook, blog, full_talk, bibtex, materials, abstract_btn,
                           "</div>",
                           abstract_collapse,
