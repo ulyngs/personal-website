@@ -1,7 +1,7 @@
 ---
 title: "Digging Science Out of a Hole: The Reproducibility Index"
 description: |
-  Science is in trouble. We find ourselves with a mess of publications in which true findings are scattered among false positives. An unacceptably wide range of claims can be made to seem legitimate by cherrypicking the literature. We urgently need a transparent metric for the level of confidence to have in specific findings - we urgently need a 'Reproducibility Index'.
+  Science is in trouble. We find ourselves with a mess of publications in which true findings are scattered among false positives. An unacceptably wide range of claims can be made to seem legitimate by cherrypicking the literature. We urgently need a transparent metric for the level of confidence to have in specific findings --- a 'Reproducibility Index'.
 author: "Ulrik Lyngs"
 date: 2016-09-26
 categories:
@@ -10,22 +10,22 @@ teaser: "/post/2018-10-28-digging-science-out-of-a-hole-the-reproducibility-inde
 
 ---
 
-_Note: After I wrote this blog post, helpful folks over at [PsychMAP](https://www.facebook.com/groups/psychmap/) shared some excellent initiatives that address the same issue: [Curate Science](http://curatescience.org) is a crowdsourced collection and annotation of replications, and [Pub Peer](https://pubpeer.com) is a browser plug-in that gives you other researchers' comments on the article you're reading. Check them out!_
+_Note: After I wrote this blog post, helpful folks at [PsychMAP](https://www.facebook.com/groups/psychmap/) shared some excellent initiatives addressing the same issue: [Curate Science](http://curatescience.org) is a crowdsourced collection and annotation of replications, and [Pub Peer](https://pubpeer.com) is a browser plug-in providing other researchers' comments on the article you're reading. Check them out!_
 
 Science is in trouble. 
-For decades, we have paid lip service to the notion that scientific knowledge can be trusted because it is reproducible. 
-However, as many researchers suspected, too much of what we think we know doesn’t hold up. 
+We pay lip service to the notion that scientific knowledge can be trusted because it is reproducible. 
+However, as many researchers suspected, too much of what we think we know doesn't hold up. 
 The [Reproducibility Project](http://science.sciencemag.org/content/349/6251/aac4716) tried to reproduce 100 papers randomly chosen from top psychology journals, and found that only one third of original results replicated. 
 In a [survey by _Nature_](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970), 70% of researchers said they had tried and failed to reproduce other researchers’ experiments, and more than half had failed reproduce their own. 
 In a series of Registered Replication Reports, in which a large number of labs independently conduct direct replications of the same study, [textbook psychology findings have failed to reproduce](https://www.academia.edu/27868304/Registered_Replication_Report_Strack_Martin_and_Stepper_1988_In_press_Perspectives_on_Psychological_Science).  
 
-The causes of the crisis are painfully obvious: 
+The causes are painfully obvious: 
 Publishing articles is how researchers build reputations, and get (and keep) jobs. 
 At the same time, scientific journals traditionally publish papers only if they contain positive and novel findings. 
-By default, therefore, published work is almost never direct replications of previously published findings, but rather tweaks and extensions thereof (‘conceptual replications’), and data from experiments that didn’t work just aren’t published.  
+Therefore, published work is very rarely direct replications of previously published findings, but only tweaks and extensions thereof (‘conceptual replications’). Similarly, data from experiments that didn’t work never see the light of day.
 
-There used to be good reasons for this system. 
-At the time of print journals, it seemed a waste of precious space to publish studies that didn’t work, or which merely reiterated what we already knew. 
+There used to be good reasons for this. 
+At the time of print journals, it seemed a waste of precious space to publish studies that didn’t work, or which merely reiterated what we already knew.
 However, the downsides are serious: 
 When failed experiments aren’t published, research efforts are wasted by trying and failing at studies that others have already tried and failed at. 
 Worse, the 'publish or perish' culture incentivises researchers to [dig deep into their data for anything that passes conventional thresholds for statistical significance](http://pss.sagepub.com/content/22/11/1359.short). 
