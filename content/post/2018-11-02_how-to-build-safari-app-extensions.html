@@ -12,6 +12,7 @@ teaser: "/post/2018-11-02-how-to-build-safari-app-extensions/10_add_safari_ext.j
 
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><em>You can <a href="https://apps.apple.com/gb/app/no-distractions-for-facebook/id1464306838?mt=12">find the Safari App Extension I describe in this blog post on the App Store</a> — if you find this blog post valuable, please consider downloading a copy!</em></p>
@@ -28,7 +29,7 @@ At some point in the not to distant future, the only way to get a Safari extensi
 <p><em>Sigh.</em> I kinda like using Safari, mostly because Apple is putting more and more emphasis on protecting user privacy in times of ubiquitous tracking. Unfortunately, that means that any Safari extensions I’d like to build must be developed using Apple’s <a href="https://developer.apple.com/xcode/">IDE <em>Xcode</em></a>.</p>
 <p>I tried to do this but it was painful.
 Mostly because I couldn’t find a single tutorial online that just walked through a basic example. I did eventually figure things out using <a href="https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension">Apple’s documentation</a> and <a href="https://developer.apple.com/videos/play/wwdc2016/214">talks from the Safari team at WWDC</a>, but it was more way <a href="https://forums.developer.apple.com/thread/109893">more frustrating and time consuming than necessary</a>.</p>
-<p>So, to make this learning quicker and easier for others, here’s a tutorial that walks through a simple example of how to build my <code>&quot;No Distractions&quot; for Facebook</code> as a Safari App Extension:</p>
+<p>So, to make this learning quicker and easier for others, here’s a tutorial that walks through a simple example of how to build my <code>"No Distractions" for Facebook</code> as a Safari App Extension:</p>
 <div id="step-1-get-xcode" class="section level3">
 <h3>Step 1: Get Xcode</h3>
 <p>If you haven’t already, install Apple’s IDE <a href="https://developer.apple.com/xcode/">Xcode</a>.</p>
@@ -42,7 +43,7 @@ Mostly because I couldn’t find a single tutorial online that just walked throu
 Create cocoa app
 </p>
 </div>
-<p>Give the project a name, e.g. ‘Facebook Minimiser’. Untick ‘Use Storyboards’, ‘Include Unit Tests’ and ‘Include UI Tests’, as we’ll just do a minimal example, then click ‘next’.</p>
+<p>Give the project a name, e.g. ‘Facebook Minimiser’. Untick ‘Use Storyboards’, ‘Include Unit Tests’ and ‘Include UI Tests’, as we’ll just do a minimal example, then click ‘next’.</p>
 <div class="figure" style="text-align: center">
 <img src="/post/2018-11-02-how-to-build-safari-app-extensions/3_name_project.png" alt="Name project" width="100%" />
 <p class="caption">
@@ -101,7 +102,7 @@ Adding extension target
 Choosing Safari Extension template
 </p>
 </div>
-<p>Give the extension a name, e.g. ‘Facebook Minimiser Extension’ and click ‘Finish’:</p>
+<p>Give the extension a name, e.g. ‘Facebook Minimiser Extension’ and click ‘Finish’:</p>
 <div class="figure" style="text-align: center">
 <img src="/post/2018-11-02-how-to-build-safari-app-extensions/11_name_ext.png" alt="Name extension target" width="100%" />
 <p class="caption">
@@ -302,6 +303,6 @@ Distraction-free Facebook!
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>The <strong>Info.plist</strong> file is quite similar to the <strong>manifest.json</strong> file used in Chrome extensions.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>The <strong>Info.plist</strong> file is quite similar to the <strong>manifest.json</strong> file used in Chrome extensions.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

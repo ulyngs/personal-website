@@ -13,6 +13,7 @@ categories:
 teaser: "/post/2019-02-20_pandoc-filters/preview.png"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="the-problem" class="section level1">
@@ -25,7 +26,7 @@ To highlight post-viva corrections, the template has a feature that lets you wra
 One of the main points of the <code>oxforddown</code> package is to let you compile your thesis to <a href="https://github.com/ulyngs/oxforddown/blob/master/docs/_main.pdf">PDF in the OxThesis template format</a> <em>or</em> to <a href="https://ulyngs.github.io/oxforddown/">HTML in the ‘gitbook’ format</a>.</p>
 <p>For entire chunks of corrections, it was relatively simple.
 I could use the syntax <code>```{block type='correction'}</code> in the chunk options to create a <a href="https://bookdown.org/yihui/bookdown/custom-blocks.html">custom block</a>.
-In PDF output, this would put the content between <code>\begin{mccorrection}</code> and <code>\end{mccorrection}</code>; in HTML output, the content would be wrapped in a div with class ‘mccorrection’, as in <code>&lt;div class=&quot;correction&quot;&gt; my corrected long text here &lt;/div&gt;</code>.</p>
+In PDF output, this would put the content between <code>\begin{mccorrection}</code> and <code>\end{mccorrection}</code>; in HTML output, the content would be wrapped in a div with class ‘mccorrection’, as in <code>&lt;div class="correction"&gt; my corrected long text here &lt;/div&gt;</code>.</p>
 <p>But for inline corrections, it was tricky:<br />
 If I used raw LaTeX, it would break the HTML output.<br />
 If I used raw HTML, it would break the PDF output.<br />
@@ -142,7 +143,7 @@ end</code></pre>
 Turns out pandoc recognises inline <code>span</code> elements.</p>
 <p>The solution was therefore quite simple:<br />
 In my source document I could wrap inline-text passages I wanted to highlight in a <code>span</code> element, <code>&lt;span&gt;like this&lt;/span&gt;</code>.
-To avoid highlighting <em>all</em> span elements, I would also add a class ‘correction’, as in <code>&lt;span class=&quot;correction&quot;&gt;like this&lt;/span&gt;</code>.</p>
+To avoid highlighting <em>all</em> span elements, I would also add a class ‘correction’, as in <code>&lt;span class="correction"&gt;like this&lt;/span&gt;</code>.</p>
 <div id="solving-for-html" class="section level2">
 <h2>Solving for HTML</h2>
 <p>When outputting to HTML, highlighting these passages was then simply a matter of styling with CSS: I created a new text file <strong>style.css</strong> and in it added</p>
@@ -196,7 +197,7 @@ Note that unless you are using a LaTeX template which has a command <code>mccorr
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
 <p>It can be tricky to figure out how pandoc filters and the lua language work.</p>
-<p>When you try making your own filters, you might want to start by playing around with print statements (in the filter above, I tried printing to the console the list of classes assigned to an element with <code>print(table.concat(el.classes,&quot;, &quot;))</code>; I also tried printing out true/false as to whether the ‘correction’ class was indeed the first one with <code>print(el.classes[1] == &quot;correction&quot;))</code>; etc.).</p>
+<p>When you try making your own filters, you might want to start by playing around with print statements (in the filter above, I tried printing to the console the list of classes assigned to an element with <code>print(table.concat(el.classes,", "))</code>; I also tried printing out true/false as to whether the ‘correction’ class was indeed the first one with <code>print(el.classes[1] == "correction"))</code>; etc.).</p>
 <p>And of course have a look at the example filters on <a href="github.com/pandoc/lua-filters">https://github.com/pandoc/lua-filters</a> and look for examples that resemble what you need.</p>
 <p>Good luck!</p>
 </div>
