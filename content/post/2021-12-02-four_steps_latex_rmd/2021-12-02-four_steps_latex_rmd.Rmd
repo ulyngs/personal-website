@@ -138,8 +138,8 @@ Now, if you knit you get this:
 knitr::include_graphics(str_c(image_path, "pull-title.png"))
 ```
 
-The variable names in your YAML header can be complete arbitrary - they don't have to be something that `pandoc` has seen before.
-Let's pull in also the abstract and the author summary, from the R Markdown file, and use silly names:
+The variable names in your YAML header are arbitrary - they don't have to be something that `pandoc` has seen before.
+Let's pull in also the abstract and the author summary, from the R Markdown file, and use silly variable names we make up ourselves:
 
 ``` markdown
 ---
@@ -156,7 +156,7 @@ output:
 This is a test.
 ```
 
-Then find the abstract and author summary sections in **plos_latex_template.tex** and replace the sample content with our silly variables:
+Then find the abstract and author summary sections in **plos_latex_template.tex** and replace the sample content there with our silly variable names:
 
 ``` latex
 % Please keep the abstract below 300 words
@@ -179,9 +179,9 @@ knitr::include_graphics(str_c(image_path, "pull-yaml-silly.png"))
 
 ## Pulling in the body content
 
-The body content is pulled in with a special variable: if you write `$body$` somewhere in the template, pandoc will insert your body content there.
+The body content is pulled in with a special variable: wherever you write `$body$` in the template, pandoc will insert your body content.
 
-In our example with the PLOS template, try replacing everything from the introduction to end of the document with simply `$body$`. So
+In our example with the PLOS template, try replacing everything from the introduction to end of the document with the body content from your R Markdown source file. So
 
 
 ``` latex

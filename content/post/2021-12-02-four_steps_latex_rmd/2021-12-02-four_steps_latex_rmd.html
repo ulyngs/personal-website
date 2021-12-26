@@ -92,8 +92,8 @@ It’s here:</p>
 \newline</code></pre>
 <p>Now, if you knit you get this:</p>
 <p><img src="/post/2021-12-02-four_steps_latex_rmd/pull-title.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>The variable names in your YAML header can be complete arbitrary - they don’t have to be something that <code>pandoc</code> has seen before.
-Let’s pull in also the abstract and the author summary, from the R Markdown file, and use silly names:</p>
+<p>The variable names in your YAML header are arbitrary - they don’t have to be something that <code>pandoc</code> has seen before.
+Let’s pull in also the abstract and the author summary, from the R Markdown file, and use silly variable names we make up ourselves:</p>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
@@ -106,7 +106,7 @@ output:
 # Hello, LaTeX template!
 
 This is a test.</code></pre>
-<p>Then find the abstract and author summary sections in <strong>plos_latex_template.tex</strong> and replace the sample content with our silly variables:</p>
+<p>Then find the abstract and author summary sections in <strong>plos_latex_template.tex</strong> and replace the sample content there with our silly variable names:</p>
 <pre class="latex"><code>% Please keep the abstract below 300 words
 \section*{Abstract}
 $silly-abstract$
@@ -121,8 +121,8 @@ $silly-author-summary$</code></pre>
 </div>
 <div id="pulling-in-the-body-content" class="section level2">
 <h2>Pulling in the body content</h2>
-<p>The body content is pulled in with a special variable: if you write <code>$body$</code> somewhere in the template, pandoc will insert your body content there.</p>
-<p>In our example with the PLOS template, try replacing everything from the introduction to end of the document with simply <code>$body$</code>. So</p>
+<p>The body content is pulled in with a special variable: wherever you write <code>$body$</code> in the template, pandoc will insert your body content.</p>
+<p>In our example with the PLOS template, try replacing everything from the introduction to end of the document with the body content from your R Markdown source file. So</p>
 <pre class="latex"><code>% Use &quot;Eq&quot; instead of &quot;Equation&quot; for equation citations.
 \section*{Introduction}
 Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit...</code></pre>
