@@ -23,6 +23,7 @@ library(here)
 library(lubridate)
 library(kableExtra)
 library(DT)
+library(glue)
  
 #### publications #####
 publications <- read_csv(here::here("data/publications.csv"))
@@ -331,17 +332,30 @@ cv_entries %>%
   kable(escape=FALSE)
 ```
 
-<h2 data-toc-text="Software">Software development</h2>
-<!-- ## Software development -->
+## R packages
 ```{r}
 cv_entries %>% 
-  filter(type == 'programming', is.na(exclude)) %>% 
+  filter(type == 'software-rstats' & is.na(exclude)) %>% 
   replace_na(list(where = "", additional_info = "")) %>% 
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info)) %>% 
-  arrange(desc(year_end)) %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}")) %>%
+  arrange(desc(year)) %>% 
+  mutate(row_number = row_number()) %>% 
   select(year, what) %>% 
-  kable(align = c('l', 'l'), escape = FALSE)
+  kable(escape=FALSE)
 ```
+
+## Apps
+```{r}
+cv_entries %>% 
+  filter(type == 'software-browser-extensions' & is.na(exclude)) %>% 
+  replace_na(list(where = "", additional_info = "")) %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}")) %>%
+  arrange(desc(year)) %>% 
+  mutate(row_number = row_number()) %>% 
+  select(year, what) %>% 
+  kable(escape=FALSE)
+```
+
 
 # Personal
 ## Skills & volunteering
