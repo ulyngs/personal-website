@@ -22,6 +22,8 @@ image_path <- "/post/2018-11-02-how-to-build-safari-app-extensions/"
 
 *You can [find the Safari App Extension I describe in this blog post on the App Store](https://apps.apple.com/gb/app/newsfeed-toggle-for-facebook/id1598798014) --- if you find this blog post valuable, please consider downloading a copy!* 
 
+**NOTE 11 Jan 2022: This post is out of date, as Apple has now brought back support for Safari Extensions that use similar syntax to extensions for Chrome and Firefox. You might still find this post informative, but I recommend having a look at [this](https://developer.apple.com/videos/play/wwdc2021/10027) and [this](https://developer.apple.com/videos/play/wwdc2021/10104) video from WWDC'21 where Apple developers explain how 'Safari Web Extensions' are now developed.**
+
 I previously wrote a little browser extension for Chrome and Safari that reduces Facebook to just the functionality I find useful, by removing the newsfeed and most other things that distract me on the front page.
 
 ```{r, fig.cap="Facebook with no distractions"}
