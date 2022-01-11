@@ -20,7 +20,7 @@ knitr::opts_knit$set(bookdown.internal.label = FALSE)
 image_path <- "/post/2018-11-02-how-to-build-safari-app-extensions/"
 ```
 
-*You can [find the Safari App Extension I describe in this blog post on the App Store](https://apps.apple.com/gb/app/no-distractions-for-facebook/id1464306838?mt=12) --- if you find this blog post valuable, please consider downloading a copy!* 
+*You can [find the Safari App Extension I describe in this blog post on the App Store](https://apps.apple.com/gb/app/newsfeed-toggle-for-facebook/id1598798014) --- if you find this blog post valuable, please consider downloading a copy!* 
 
 I previously wrote a little browser extension for Chrome and Safari that reduces Facebook to just the functionality I find useful, by removing the newsfeed and most other things that distract me on the front page.
 
