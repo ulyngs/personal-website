@@ -51,10 +51,6 @@ output:
   bookdown::pdf_document2:
     template: plos_latex_template.tex
 ---
-
-# Hello, LaTeX template!
-
-This is a test.
 ```
 
 Try knitting to PDF!
@@ -103,10 +99,6 @@ output:
   bookdown::pdf_document2:
     template: plos_latex_template.tex
 ---
-
-# Hello, LaTeX template!
-
-This is a test.
 ```
 
 Then open up **plos_latex_template.tex** and look for the title.
@@ -145,15 +137,11 @@ Let's pull in also the abstract and the author summary, from the R Markdown file
 ---
 title: "R Markdown + LaTeX Templates = <3"
 silly-abstract: "This is the greatest and best abstract in the world."
-silly-author-summary: "The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have seized to be."
+silly-author-summary: "The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be."
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
 ---
-
-# Hello, LaTeX template!
-
-This is a test.
 ```
 
 Then find the abstract and author summary sections in **plos_latex_template.tex** and replace the sample content there with our silly variable names:
@@ -178,6 +166,23 @@ knitr::include_graphics(str_c(image_path, "pull-yaml-silly.png"))
 
 
 ## Pulling in the body content
+
+First, let's add a bit of body content to our R Markdown file:
+
+``` markdown
+---
+title: "R Markdown + LaTeX Templates = <3"
+silly-abstract: "This is the greatest and best abstract in the world."
+silly-author-summary: "The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be."
+output: 
+  bookdown::pdf_document2:
+    template: plos_latex_template.tex
+---
+
+# Hello, LaTeX template!
+
+This is a test.
+```
 
 The body content is pulled in with a special variable: wherever you write `$body$` in the template, pandoc will insert your body content.
 
@@ -328,7 +333,7 @@ Now point to this as your bibliography in your R Markdown file, cite it, and add
 ---
 title: "R Markdown + LaTeX Templates = <3"
 silly-abstract: "This is the greatest and best abstract in the world."
-silly-author-summary: "The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have seized to be."
+silly-author-summary: "The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be."
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex

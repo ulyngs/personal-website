@@ -33,11 +33,7 @@ Then create a new R Markdown file with this content:</p>
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
----
-
-# Hello, LaTeX template!
-
-This is a test.</code></pre>
+---</code></pre>
 <p>Try knitting to PDF!
 Argh, we get an error message:</p>
 <pre class="markdown"><code>Error compiling template &quot;plos_latex_template.tex&quot; (line 57, column 121):
@@ -70,11 +66,7 @@ title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
----
-
-# Hello, LaTeX template!
-
-This is a test.</code></pre>
+---</code></pre>
 <p>Then open up <strong>plos_latex_template.tex</strong> and look for the title.
 It’s here:</p>
 <pre class="latex"><code>% Title must be 250 characters or less.
@@ -97,15 +89,11 @@ Let’s pull in also the abstract and the author summary, from the R Markdown fi
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
-silly-author-summary: &quot;The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have seized to be.&quot;
+silly-author-summary: &quot;The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be.&quot;
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
----
-
-# Hello, LaTeX template!
-
-This is a test.</code></pre>
+---</code></pre>
 <p>Then find the abstract and author summary sections in <strong>plos_latex_template.tex</strong> and replace the sample content there with our silly variable names:</p>
 <pre class="latex"><code>% Please keep the abstract below 300 words
 \section*{Abstract}
@@ -121,6 +109,19 @@ $silly-author-summary$</code></pre>
 </div>
 <div id="pulling-in-the-body-content" class="section level2">
 <h2>Pulling in the body content</h2>
+<p>First, let’s add a bit of body content to our R Markdown file:</p>
+<pre class="markdown"><code>---
+title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
+silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
+silly-author-summary: &quot;The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be.&quot;
+output: 
+  bookdown::pdf_document2:
+    template: plos_latex_template.tex
+---
+
+# Hello, LaTeX template!
+
+This is a test.</code></pre>
 <p>The body content is pulled in with a special variable: wherever you write <code>$body$</code> in the template, pandoc will insert your body content.</p>
 <p>In our example with the PLOS template, try replacing everything from the introduction to end of the document with the body content from your R Markdown source file. So</p>
 <pre class="latex"><code>% Use &quot;Eq&quot; instead of &quot;Equation&quot; for equation citations.
@@ -224,7 +225,7 @@ $endif$</code></pre>
 <pre class="markdown"><code>---
 title: &quot;R Markdown + LaTeX Templates = &lt;3&quot;
 silly-abstract: &quot;This is the greatest and best abstract in the world.&quot;
-silly-author-summary: &quot;The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have seized to be.&quot;
+silly-author-summary: &quot;The important thing to know about this paper is that it is was written in close collaboration with Tenacious D, without whom our academic universe would have ceased to be.&quot;
 output: 
   bookdown::pdf_document2:
     template: plos_latex_template.tex
