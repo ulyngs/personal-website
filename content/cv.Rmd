@@ -2,7 +2,7 @@
 title: "CV"
 menu: main
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 
@@ -124,9 +124,9 @@ cv_entries %>%
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info),
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
   ) %>% 
-  blank_year_when_repeated() %>% 
-  mutate(year_end = if_else(is.na(year_end), year_begin, year_end)) %>% 
+  mutate(year_end = if_else(is.na(year_end), as.character(year_begin), year_end)) %>% 
   arrange(desc(year_end)) %>% 
+  blank_year_when_repeated() %>% 
   select(year, what) %>% 
   kable(align = c("l", "l"), escape = FALSE) 
 ```
