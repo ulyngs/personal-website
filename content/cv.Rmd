@@ -125,6 +125,8 @@ cv_entries %>%
     str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
   ) %>% 
   blank_year_when_repeated() %>% 
+  mutate(year_end = if_else(is.na(year_end), year_begin, year_end)) %>% 
+  arrange(desc(year_end)) %>% 
   select(year, what) %>% 
   kable(align = c("l", "l"), escape = FALSE) 
 ```
