@@ -21,8 +21,6 @@ knitr::opts_knit$set(bookdown.internal.label = FALSE)
 image_path <- "/post/2018-10-29-r-packages-for-chi-papers-with-r-markdown/"
 ```
 
-**_UPDATE, 16 Aug 2022: Quarto, the successor to R Markdown, comes with an [ACM template](https://quarto.org/docs/journals/formats.html). Go and use this instead! :)_**
-
 So, I previously wrote at [great length](https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/) about how to use the [ACM Master Article LaTeX templates](https://www.acm.org/publications/proceedings-template) (or any other LaTeX templates) in tandem with R Markdown to write transparent and reproducible papers.
 
 To make it speedy and easy in practice specifically in relation to the [ACM CHI Conference](https://sigchi.org), I ended up creating two R packages which provides R Markdown templates for submissions in the latest formats for [ACM CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) as well as [ACM CHI Extended Abstracts](https://github.com/ulyngs/chi-ea-rmd-template).

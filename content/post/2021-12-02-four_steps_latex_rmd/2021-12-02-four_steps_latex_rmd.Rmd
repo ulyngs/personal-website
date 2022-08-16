@@ -28,8 +28,6 @@ options(knitr.graphics.error = FALSE)
 
 ```
 
-**_UPDATE, 16 Aug 2022: Quarto, the successor to R Markdown, now has support for [custom templates](https://quarto.org/docs/journals/formats.html). This includes partials that make it easier to create your own templates with Quarto than with R Markdown. Go and have a look! :)_**
-
 I do all my academic writing in [R Markdown](https://bookdown.org/yihui/rmarkdown/ "R Markdown: The Definitive Guide"). 
 This makes my work more transparent and reproducible for others and my future self.
 

@@ -13,6 +13,7 @@ categories:
 teaser: "/post/2019-02-20_pandoc-filters/preview.png"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="the-problem" class="section level1">
@@ -20,7 +21,7 @@ teaser: "/post/2019-02-20_pandoc-filters/preview.png"
 <p>I’m developing an R package called <a href="https://github.com/ulyngs/oxforddown"><code>oxforddown</code></a> to write my PhD thesis in R Markdown and format it with the time-tested <a href="https://github.com/mcmanigle/OxThesis"><code>OxThesis</code></a> LaTeX template used by many an Oxford grad student.</p>
 <p>However, one feature of the OxThesis template just wouldn’t play nicely with R Markdown:<br />
 To highlight post-viva corrections, the template has a feature that lets you wrap inline corrections in the LaTeX command <code>\mccorrect{corrected text here}</code> and put longer blocks of corrections in the LaTeX environment <code>\begin{mccorrection} corrected long text here \end{correction}</code>. When doing so, these parts are given a blue background in the resulting PDF:</p>
-<p><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/inline.png" width="100%" style="display: block; margin: auto;" /><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/chunk.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2019-02-20_pandoc-filters/inline.png" width="100%" style="display: block; margin: auto;" /><img src="/post/2019-02-20_pandoc-filters/chunk.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>This feature was difficult to get to work simultaneously for my intended outputs:
 One of the main points of the <code>oxforddown</code> package is to let you compile your thesis to <a href="https://github.com/ulyngs/oxforddown/blob/master/docs/_main.pdf">PDF in the OxThesis template format</a> <em>or</em> to <a href="https://ulyngs.github.io/oxforddown/">HTML in the ‘gitbook’ format</a>.</p>
 <p>For entire chunks of corrections, it was relatively simple.
@@ -110,7 +111,7 @@ output:
 
 Some text with *italics* and also **bold**.</code></pre>
 <p>If we leave <strong>toy_filter.lua</strong> empty and knit <strong>text.Rmd</strong>, the PDF output is unaltered:</p>
-<p><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/lua-no.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2019-02-20_pandoc-filters/lua-no.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Now let’s use <strong>toy_filter.lua</strong> as a filter to change the author name to ‘Hello, World!’.
 The filter should find the YAML metadata in the abstract syntax tree (AST) and manipulate the author, before pandoc goes on to convert it to a <strong>.tex</strong> file from which a PDF can be built.</p>
 <p>To do this, we create a function with the name of the element in the AST we want to manipulate, in this case <code>Meta</code>.
@@ -120,7 +121,7 @@ This function should manipulate the author and return a modified version:</p>
   return m
 end</code></pre>
 <p>If we save <strong>toy_filter.lua</strong> and now knit <strong>text.Rmd</strong> to PDF, this is the result:</p>
-<p><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/lua-yes.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2019-02-20_pandoc-filters/lua-yes.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="manipulate-text-formatting" class="section level2">
 <h2>Manipulate text formatting</h2>
@@ -131,7 +132,7 @@ end</code></pre>
   return pandoc.Strong(element.content)
 end</code></pre>
 <p>Now, when we save <strong>toy_filter.lua</strong> and knit <strong>text.Rmd</strong> to PDF, we get this:</p>
-<p><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/lua-bold.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2019-02-20_pandoc-filters/lua-bold.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="solving-the-original-problem" class="section level1">
@@ -168,7 +169,7 @@ Some text with *italics* and also **bold**.
 And &lt;span class=&quot;correction&quot;&gt;this text&lt;/span&gt;, but not this, 
 &lt;span class=&quot;correction&quot;&gt;should be highlighted&lt;/span&gt;.</code></pre>
 <p>I now got this when outputting to HTML:</p>
-<p><img src="../../../../../../../../../../post/2019-02-20_pandoc-filters/solved-html.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2019-02-20_pandoc-filters/solved-html.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="solving-for-pdf" class="section level2">
 <h2>Solving for PDF</h2>

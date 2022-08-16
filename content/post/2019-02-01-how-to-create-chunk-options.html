@@ -13,6 +13,7 @@ teaser: "/post/2019-02-01-how-to-create-chunk-options/preview.png"
 
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>For the <a href="http://chi2019.acm.org">2019 ACM CHI conference</a> I wanted to go all in on reproducibility by writing our paper submission completely in R Markdown and knit to PDF via the ACM’s LaTeX template.
@@ -60,13 +61,12 @@ Figure 1: A random plot
 ##             fence_char, tolower(options$engine))
 ##         x = gsub(r, &quot;\n&quot;, x)
 ##     }
-##     x = pandoc_div(x, options[[&quot;attr.chunk&quot;]], options[[&quot;class.chunk&quot;]])
 ##     if (is.null(s &lt;- options$indent)) 
 ##         return(x)
 ##     line_prompt(x, prompt = s, continue = s)
 ## }
-## &lt;bytecode: 0x7fd651500920&gt;
-## &lt;environment: 0x7fd651502ae0&gt;</code></pre>
+## &lt;bytecode: 0x7f935fb9cb58&gt;
+## &lt;environment: 0x7f935fb9f178&gt;</code></pre>
 <p>Then we modify it:</p>
 <pre class="r"><code>knit_hooks$set(chunk = function(x, options) {
   return(&quot;Hello, world!&quot;)
@@ -201,7 +201,7 @@ knit_hooks$set(chunk = function(x, options) {
 <p>You can inspect this in context <a href="https://github.com/ulyngs/chi-proc-rmd-template/blob/master/inst/rmarkdown/templates/acm_chi_proc/skeleton/skeleton.Rmd">here</a>.</p>
 <p>Now go ahead and put your newfound customisation powers into practice!</p>
 </div>
-<div class="footnotes footnotes-end-of-document">
+<div class="footnotes">
 <hr />
 <ol>
 <li id="fn1"><p>If you want to follow along with this example, you must use a LaTeX template in which the command <code>\Description</code> has been defined.

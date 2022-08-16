@@ -20,9 +20,6 @@ knitr::opts_knit$set(bookdown.internal.label = FALSE)
 image_path <- "/post/2018-07-18-how-to-write-acm-articles-with-r-markdown/"
 ```
 
-**_UPDATE, 16 Aug 2022: Quarto, the successor to R Markdown, comes with an [ACM template](https://quarto.org/docs/journals/formats.html). Go and use this instead! :)_**
-
-
 *NOTE: After writing this post, I [created two R packages](https://ulriklyngs.com/blog/r-packages-for-chi-papers-with-r-markdown) which add R Markdown templates for [CHI Proceedings](https://github.com/ulyngs/chi-proc-rmd-template) and [CHI Extended Abstract](https://github.com/ulyngs/chi-ea-rmd-template) manuscript to RStudio. They implement the steps detailed in this post (and more) and provide examples within the sample content.*
 
 I love [R Markdown](https://bookdown.org/yihui/rmarkdown/). I use R for almost all my data analyses and visualisations, and Rmd files help me keep an interactive lab notebook of the steps I took while making it quick and easy to reproduce everything.
