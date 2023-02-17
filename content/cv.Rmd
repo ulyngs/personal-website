@@ -148,19 +148,6 @@ cv_entries %>%
 </ul>
 
 ```{r create-tables}
-publications_table <- publications %>%
-  mutate(year = lubridate::year(date)) %>% 
-  arrange(desc(year), type) %>% 
-  mutate(author_year = str_c(authors_full, " (", year, "). ")) %>%
-  #mutate(author_year = str_c("*", authors, " (", year, ")*. ")) %>%  #italicise authors and year
-  mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>%
-  mutate(citation = ifelse(!is.na(award),
-                           str_c(author_year, title, venue, "<i class='fas fa-award'></i><em>", award, "</em>", sep = " "),
-                           str_c(author_year, title, venue, sep = " "))) %>%
-  mutate(citation = str_replace(citation, "Ulrik Lyngs", "_Ulrik Lyngs_")) %>%  # make my name italicised
-  filter(type != "master's thesis") %>%
-  select(type, citation)
-
 talks_table <- cv_entries %>% 
   filter(str_detect(type, 'talk')) %>%
   # replace markdown hyperlink syntax w/ html

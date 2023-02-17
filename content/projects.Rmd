@@ -75,7 +75,7 @@ generate_project_row <- function(id){
       )) %>% 
       mutate(html = str_c("<div class='col-sm-4 project-work-entry'>",
                           "<p class='project-work-entry-title'>[**", title, "**](", hyperlink, ")<br>",
-                          authors_full, "<br>*", 
+                          authors, "<br>*", 
                           venue_abbrev, "*</div>" 
                           )
              )
