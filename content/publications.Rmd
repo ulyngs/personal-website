@@ -44,7 +44,7 @@ publications_table <- publications %>%
   bibtex = ifelse(is.na(bibtex), "", str_c(" · <span class='publication-extra'>[bibtex](", bibtex, ")</span>")),
   abstract_id = str_c("abstract_", anchor),
   abstract_btn = ifelse(is.na(abstract), "", 
-                    str_c(" · <span class='abstract-toggle collapsed' data-toggle='collapse' href='#", abstract_id, "' aria-expanded='false' aria-controls='", abstract_id, "'>abstract <i class='fa' aria-hidden='true'></i></span>")),
+                    str_c(ifelse(pdf == "", "", " ·"),  " <span class='abstract-toggle collapsed' data-toggle='collapse' href='#", abstract_id, "' aria-expanded='false' aria-controls='", abstract_id, "'>abstract <i class='fa' aria-hidden='true'></i></span>")),
   abstract_collapse = ifelse(is.na(abstract), "",
                              str_c('<div id="', abstract_id, '" class="collapse abstract-text">', abstract, '</div>'))) %>% 
   mutate(citation = str_c("<a class='anchor' id='", anchor, "'></a>",
