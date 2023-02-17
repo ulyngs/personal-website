@@ -28,7 +28,7 @@ featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLq
 :::{.col-lg-6 .col-md-6 .col-sm-6}
 I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
 
-My work focuses on **attention and self-regulation in relation to use of digital devices** like smartphones and laptops.
+My research focuses on **attention and self-control on digital devices** such as smartphones and laptops. I am passionate about open and transparent scholarship, and teach workflows for reproducible research.
 
 Outside of academia, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 Previously, I was a festival producer at [HowTheLightGetsIn](https://howthelightgetsin.org).
@@ -52,7 +52,7 @@ ulrik.lyngs@cs.ox.ac.uk</p>
 
 <!-- featured work -->
 <div class="featured-work">
-## Recent work
+## Featured work
 </div>
 
 ```{r results='asis', echo=FALSE}
