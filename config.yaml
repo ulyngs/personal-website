@@ -34,5 +34,4 @@ params:
     description: "Personal website of Ulrik Lyngs."
     footer: |
         &copy; Ulrik Lyngs 2020. 
-        Powered by [Hugo](https://gohugo.io) and [blogdown](https://bookdown.org/yihui/blogdown/). \
-        [Source of this website](https://github.com/ulyngs/personal-website).
+        Powered by [Hugo](https://gohugo.io) and [blogdown](https://bookdown.org/yihui/blogdown/).
