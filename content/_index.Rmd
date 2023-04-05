@@ -1,6 +1,5 @@
 ---
 title: Home
-
 ---
 
 ```{r setup, include=FALSE}
@@ -9,6 +8,8 @@ library(tidyverse)
 library(knitr)
 library(here)
 library(glue)
+library(htmltools)
+library(shiny)
 library(googlesheets4)
 gs4_deauth()
 
@@ -19,11 +20,11 @@ featured_work <- read_sheet("https://docs.google.com/spreadsheets/d/1ta71CAGkcLq
 ```
 
 <!-- personal -->
+<div class="main-container container">
 <div class="row">
 :::{.col-lg-3 .col-md-6 .col-sm-12}
 <img alt="Photo of Ulrik Lyngs" src="/images/grad_headshot3.jpeg" class="img-fluid featured-work-graphic"/>
 :::
-
 
 :::{.col-lg-6 .col-md-6 .col-sm-6}
 I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
@@ -49,13 +50,200 @@ ulrik.lyngs@cs.ox.ac.uk</p>
 :::
 
 </div>
+</div>  <!-- close main container -->
+
+
 
 <!-- featured work -->
-<div class="featured-work">
-## Featured work
-</div>
 
-```{r results='asis', echo=FALSE}
+
+```{r}
+div(class="main-container container",
+    h1("Featured work"),
+    fluidRow(class="featured-work",
+  column(12, class="featured-category",
+         h3("Designing to support digital self-control"),
+      fluidRow(
+        column(6, class="featured-category-description",
+               HTML('<p>On online stores for apps and browser extensions, hundreds of apps and browser extensions promise to help us control our time and attention on smartphones and laptops. These \'digital self-control tools\' can block distractions, track device use, remind us of our intentions, gamify our intended use, and more.</p>
+                    <p>I use the evolving landscape of these tools to explore what good design that helps us stay in control of digital device use looks like. To understand why they work - and why there is a challenge in the first place - I use <a href="https://ulriklyngs.com/post/2019/04/30/367-tools-of-resistance-in-the-battle-for-online-attention/#the-psychology-behind-the-tools-1">psychological models of self-control</a>.</p>
+                    <p>I have studied digital self-control since 2015, with a large number of wonderful collaborators including <a href="https://www.jesus.ox.ac.uk/about-jesus-college/our-community/people/nigel-shadbolt/">Sir Nigel Shadbolt</a> (who supervised my PhD), <a href="https://kailukoff.com/">Kai Lukoff</a>, <a href="https://petrslovak.com">Petr Slovák</a>, <a href="https://hip.cat/emax/">Max Van Kleek</a>, <a href="https://www.kasperhornbaek.dk">Kasper Hornbæk</a>, <a href="https://www.reubenbinns.com">Reuben Binns</a>, <a href="https://oaklab.org">Jakob Eg Larsen</a>, <a href="https://www.cs.ox.ac.uk/people/jun.zhao/">Jun Zhao</a>, <a href="http://michaelinzlicht.com">Michael Inzlicht</a>, <a href="https://sites.google.com/site/helenewilladsen/home">Helene Willadsen</a>, <a href="https://www.cs.ox.ac.uk/people/laura.csuka/>Laura Csuka</a>, <a href="https://www.cs.ox.ac.uk/people/claudine.tinsman/>Claudine Tinsman</a>, and <a href="https://www.cs.ox.ac.uk/people/lize.alberts/">Lize Alberts</a>.</p>')
+          ),
+        column(6,
+               fluidRow(
+                 column(6,
+                        div(class="card",
+                   div(class="card-body",
+                       h5(class="card-title",
+                          "Which design patterns are explored in digital self-control tools?"),
+                      HTML('<p>In <a href="https://ulriklyngs.com/publications#applying_dual_systems_theory_to_digital_self_control_tools" class="card-link">Self-Control in Cyberspace</a> we reviewed design features in 376 tools, and used a dual systems model of self-control to analyse them (CHI\'19 <img src="/images/ribbon_xs.png" style="height: 1em;"><em style="font-size:0.9em;">Honourable Mention Award</em>)</p>'),
+                      HTML('<p>In <a href="https://ulriklyngs.com/publications#the_goldilocks_level_of_support_using_user_reviews_ratings_and_installation_numbers_to_investigate_digital_self_control_tools" class="card-link">The Goldilocks Level of Support</a> we analysed ~54,000 user reviews to understand how people use the tools, and what their key design challenges are (IJHCS, 2022)</p>'),
+                      HTML('<div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kf-TwEo954s" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        ')),
+                   )),
+                   #tags$img(class="card-img-bottom", src="/post/2019-04-30_367-tools-of-resistance/preview.jpg")),
+                 column(6,
+                        div(class="card",
+                            div(class="card-body",
+                                h5(class="card-title",
+                                   "Which design patterns actually work?"),
+                                HTML('<p class="card-text">In <a href="https://ulriklyngs.com/publications#switch_tube_a_proof_of_concept_system_introducing_adaptable_commitment_interfaces_as_a_tool_for_digital_wellbeing" class="card-link">SwitchTube</a>, we showed the benefits of letting people switch between a search-first and a recommendations-first interface on YouTube. (CHI\'23)</p>
+                                     <p>In <a href="https://ulriklyngs.com/publications#evaluating_design_interventions_for_self_control_on_facebook" class="card-link">“I Just Want to Hack Myself to Not Get Distracted”</a>, we tested the effects of removing the newsfeed or adding goal reminders on Facebook (CHI\'20)</p><br><br>'),
+                                 HTML('<div class="embed-responsive embed-responsive-16by9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/zj9I-2gjths" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                '))
+                            #tags$img(class="card-img-bottom", src="/images/goal-support.png")
+                    ))
+                  )
+               )
+      )
+  )))
+
+div(class="main-container container",
+    fluidRow(
+      column(12, class="featured-category",
+         h3("Helping people find the right digital self-control solutions"),
+      fluidRow(
+        column(6,
+               HTML('<p>Writing rigorous academic papers is one thing. But what should a person who just wants to find effective solutions <em>do</em>? Academics papers don\'t normally give concrete advice, nor make the tools they build publicly available.</p>
+                    <p>To help people control their time and attention on digital devices, I run a workshop that assists people who struggle with digital distraction. I developed the workshop with the incredible Maureen Freed, who formerly was Deputy Head of Counselling at the University of Oxford.</p>
+<p>I also develop digital self-control tools for the Safari browser. I originally did this for my personal use, but I shared the apps on the Apple App store and made the code open source.</p>')
+          ),
+        column(6,
+               fluidRow(
+                 column(6,
+                        div(class="card",
+                            div(class="card-body",
+                                HTML('<h5 class="card-title">Coaching interventions for digital self-control</h5>
+                                     <p class="card-text">My ReDD workshop helps people reflect on their challenges and goals, find the right digital self-control tools to help, and get the support they need to apply them.</p>
+                                     <p>I have run 100+ workshops with 800+ participants at universities and high schools in the UK, Denmark, and Thailand.</p>')),
+                          tags$img(class="card-img-bottom", src="/images/redd-workshop/redd-logo-rect-small.jpg")
+                            )),
+                 column(6,
+                        div(class="card",
+                            div(class="card-body",
+                                HTML('<h5 class="card-title">Open-source self-control tools for Safari</h5>
+                                    <p><span class="extension-title">"No Distractions" for YouTube</span> lets you hide distractions on YouTube, and set a delay time and motivational message before you can change the settings.</p>
+                                    <div class="app-links-wrapper">
+                                      <a class="app-store-link" href="https://apps.apple.com/app/no-distractions-for-youtube/id1482507016"><img src="images/appstore.svg"></img></a>
+                                      <a class="gh-link" href="https://github.com/ulyngs/open-source-no-distractions-for-youtube"><i class="fa fa-github fa-2x"></i></a>
+                                    </div>
+                                    <p><span class="extension-title">MindShield</span> is a more general solution that lets you hide distractions on YouTube, Facebook, Twitter, Instagram, LinkedIn, and Google search.</p>
+                                    <div class="app-links-wrapper">
+                                      <a class="app-store-link" href="https://apps.apple.com/gb/app/mindshield/id1660218371"><img src="images/appstore.svg"></img></a>
+                                      <a class="gh-link" href="https://github.com/ulyngs/mindshield-open-source"><i class="fa fa-github fa-2x"></i></a>
+                                    </div>'))
+                            #tags$img(class="card-img-bottom", src="/images/safari-ext-logos.png")
+                   ))
+          )
+        )
+      )
+    )
+  )
+)
+
+div(class="main-container container",
+    fluidRow(
+      column(12, class="featured-category",
+         h3("Open and transparent research practices"),
+      fluidRow(
+        column(3,
+               HTML('<p>I was exposed to the ‘reproducibility crisis’ early on when I studied psychology, which made me passionate about open, transparent, and reproducible research practices.</p> 
+                    <p>Since 2018, I have shared materials, analysis scripts, and data for all my first-authored work, and written my
+papers as reproducible documents in <a href="https://rmarkdown.rstudio.com">R Markdown</a> or <a href="https://quarto.org">Quarto</a>. I also teach open research practices and develop related open-source tools.</p>')
+          ),
+        column(9,
+               fluidRow(
+                 column(4,
+                        div(class="card",
+                         div(class="card-body",
+                             h5(class="card-title", "Reproducible research with R Markdown and Quarto"),
+                             p(class="card-text", "I teach workshops on best practices in reproducible research with literate programming."),
+                             HTML('<p><a href="https://ulyngs.github.io/rmarkdown-workshop/">Example course slides</a></p>')),
+                         HTML('<a class="no-underline" href="https://ulyngs.github.io/rmarkdown-workshop/"><img class="card-img-bottom" src="/images/rmd-workshop_small.jpg"></a>
+                              ')
+                         )
+                        ),
+                 column(4,
+                        div(class="card",
+                            div(class="card-body",
+                                HTML('<h5 class="card-title"><code>oxforddown</code><br>Oxford University Thesis Template for R Markdown</h5>
+                                     <p>I wrote <a href="https://ulyngs.github.io/phd-thesis/">my PhD thesis</a> as a reproducible R Markdown document, formatted with a traditional Oxford University LaTeX template.</p>
+                                     <p>I open-sourced my template, and it has now been used by hundreds of students.</p>
+                                     <p>
+                                      <a href="https://www.youtube.com/playlist?list=PLkIUogDmN_nA6f3UJ0tWHlxGITUjbuldE">Video tutorials</a>
+                                      <a class="gh-link" href="https://github.com/ulyngs/oxforddown"><i class="fa fa-github fa-2x"></i></a>
+                                     </p>')),
+                            HTML('<a class="no-underline" href="https://github.com/ulyngs/oxforddown"><img class="card-img-bottom" src="/images/oxforddown_compiled_pdf_small.jpg"></a>
+                              ')
+                   )),
+                 column(4,
+                        div(class="card",
+                            div(class="card-body",
+                                HTML('<h5 class="card-title"><code>pagedownCV</code><br>Dynamic CV generation with R Markdown</h5>
+                                     <p>Keeping an academic resumé updated is tedious and error-prone.</p>
+                                     <p>I created a tool that automatically generates a CV in different formats based on entries kept in a spreadsheet.</p>
+                                     <p><a class="gh-link" href="https://github.com/ulyngs/pagedownCV"><i class="fa fa-github fa-2x"></i></a></p>')),
+                            HTML('<a class="no-underline" href="https://github.com/ulyngs/pagedownCV"><img class="card-img-bottom" src="/images/cv-formats.jpg"></a>
+                              ')
+                   ))
+               )
+              )
+      )
+  )
+))
+
+
+```
+
+
+```{r, echo=FALSE, results='asis'}
+featured_videos <- tribble(
+  ~embed_link,                                  ~description,
+  "https://www.youtube.com/embed/QClOST9hIG4",   "Attention, Freedom, Digital Addiction and Dating Apps @ Barnes Philosophy Club, London 2023",
+  "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition, 2021",
+  "https://www.youtube.com/embed/aU0uetWJXis",   "Demo of my workflow for writing reproducible academic papers with R Markdown @ Reproducible Research Oxford, 2021",
+  "https://www.youtube.com/embed/LBHxcuCMjnk",   "Tutorial video for my 'oxforddown' template for thesis writing with R Markdown, 2021",
+  "https://www.youtube.com/embed/bsBpGkPV83w",   "Presenting our research on design interventions for self-control on Facebook @ CHI 2020",
+  "https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
+  "https://www.youtube.com/embed/sJf_F7faczU",   "Presenting our analysis of digital self-control tools on the Google Play, Chrome Web, and Apple App stores @ CHI 2019",
+  "https://www.youtube.com/embed/2TeIvEunO84",   "Showreel for my live karaoke band. Drop me a line if you want to book us :)"
+)
+
+generate_grid_entry <- function(embed_link, description){
+  column(3,
+         HTML(glue('
+              <div class="card">
+                <div class="card-image">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="{embed_link}" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">{description}</p>
+                </div>
+              </div>
+              '))
+         )
+}
+
+grid_entries <- purrr::map2(featured_videos$embed_link, featured_videos$description, generate_grid_entry)
+
+div(class="main-container container",
+    h1("Featured talks"),
+    fluidRow(class="featured-talk-videos",
+         grid_entries)
+)
+```
+
+
+
+
+
+```{r results='asis', echo=FALSE, eval=FALSE}
 generate_featured_work <- function(cur_title){
   # grab current featured row
   current_featured <- featured_work %>% 

@@ -120,9 +120,6 @@ a.email:hover,
 .featured-work h2 {
   margin-bottom: 0.8em;
 }
-.featured-work {
-  margin-top: 5em;
-}
 .featured-work-entry {
   margin-bottom: 2em;
 }
@@ -623,3 +620,50 @@ blockquote {
   color: #901b2a;
 }
 
+
+.card-img-top {
+    width: 100%;
+    height: 7vw;
+    object-fit: contain;
+}
+.featured-category .card-body,
+.featured-category .card-img-bottom {
+  padding: 0 2em 0 1em;
+}
+.featured-category .card {
+  border: none;
+}
+.extension-title {
+  font-weight: 350;
+}
+.featured-category h3 {
+  margin-bottom: 0.5em;
+}
+.featured-category-description {
+  padding-right: 4em;
+}
+.gh-link,
+.app-store-link {
+  border-bottom: none;
+  vertical-align: middle;
+  padding-left: 0.5em;
+}
+.app-store-link img {
+  height: 2em;
+}
+.app-links-wrapper {
+  margin-bottom: 1.5em;
+}
+.featured-talk-videos .col-sm-3 {
+    border: 4px solid #fff;
+    border-radius: 3px;
+    padding: 1em;
+    background-color: white;
+    padding-bottom: 10px;
+}
+.featured-talk-videos .card {
+  min-height: 19vw;
+}
+a.no-underline {
+  border-bottom: none;
+}
