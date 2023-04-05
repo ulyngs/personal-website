@@ -635,9 +635,11 @@ blockquote {
 .featured-category .card {
   border: none;
   padding-bottom: 0.8em;
-}
-.colored .featured-category .card {
   padding-top: 0.8em;
+  margin-bottom: 2em;
+}
+.not-colored .featured-category .card {
+  background-color: #eeeeee;
 }
 .extension-title {
   font-weight: 400;
@@ -645,8 +647,11 @@ blockquote {
 .featured-category h3 {
   margin-bottom: 0.5em;
 }
+.featured-category .col-lg-3.description {
+  padding-right: 3em;
+}
 .featured-category-description {
-  padding-right: 4em;
+  padding-right: 4.5em;
 }
 .gh-link,
 .app-store-link {
@@ -668,7 +673,7 @@ blockquote {
     padding-bottom: 10px;
 }
 .featured-talk-videos .card {
-  min-height: 17vw;
+  min-height: 18em;
 }
 a.no-underline {
   border-bottom: none;
@@ -701,5 +706,5 @@ hr.info-separator {
 }
 
 .main-container-wrapper.colored {
-  background-color: #eee;
+  background-color: #eeeeee;
 }
