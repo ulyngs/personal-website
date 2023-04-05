@@ -2,6 +2,9 @@
 title: Home
 ---
 
+<script src="js/scripts.js"></script>
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
@@ -131,6 +134,12 @@ div(class="main-container container",
                                       <a class="app-store-link" href="https://apps.apple.com/app/no-distractions-for-youtube/id1482507016"><img src="images/appstore.svg"></img></a>
                                       <a class="gh-link" href="https://github.com/ulyngs/open-source-no-distractions-for-youtube"><i class="fa fa-github fa-2x"></i></a>
                                     </div>
+                                    <div class="gif-container" onclick="playGif(this)">
+                                      <img class="thumbnail" src="images/yt-demo.jpg" alt="Thumbnail">
+                                      <img class="play-icon" src="images/play-icon.svg" alt="Play">
+                                      <img class="gif" src="images/yt-demo.gif" alt="Demonstration of a Safari extension that allows you to hide specific elements of the user interface." style="display:none;">
+                                  </div>
+                                    
                                     <p><span class="extension-title">MindShield</span> is a more general solution that lets you hide distractions on YouTube, Facebook, Twitter, Instagram, LinkedIn, and Google search.</p>
                                     <div class="app-links-wrapper">
                                       <a class="app-store-link" href="https://apps.apple.com/gb/app/mindshield/id1660218371"><img src="images/appstore.svg"></img></a>
@@ -205,11 +214,11 @@ featured_videos <- tribble(
   ~embed_link,                                  ~description,
   "https://www.youtube.com/embed/QClOST9hIG4",   "Attention, Freedom, Digital Addiction and Dating Apps @ Barnes Philosophy Club, London 2023",
   "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition, 2021",
-  "https://www.youtube.com/embed/aU0uetWJXis",   "Demo of my workflow for writing reproducible academic papers with R Markdown @ Reproducible Research Oxford, 2021",
+  "https://www.youtube.com/embed/aU0uetWJXis",   "Demo of my workflow for reproducible papers with R Markdown @ Reproducible Research Oxford, 2021",
   "https://www.youtube.com/embed/LBHxcuCMjnk",   "Tutorial video for my 'oxforddown' template for thesis writing with R Markdown, 2021",
   "https://www.youtube.com/embed/bsBpGkPV83w",   "Presenting our research on design interventions for self-control on Facebook @ CHI 2020",
   "https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
-  "https://www.youtube.com/embed/sJf_F7faczU",   "Presenting our analysis of digital self-control tools on the Google Play, Chrome Web, and Apple App stores @ CHI 2019",
+  "https://www.youtube.com/embed/sJf_F7faczU",   "Our analysis of digital self-control tools on the Google Play, Chrome Web, and Apple App stores @ CHI 2019",
   "https://www.youtube.com/embed/2TeIvEunO84",   "Showreel for my live karaoke band. Drop me a line if you want to book us :)"
 )
 
