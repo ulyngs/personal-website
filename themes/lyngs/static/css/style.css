@@ -32,7 +32,6 @@
 
 /* font */
 body {
-  /*font-family: 'Open Sans', "Muli", "Helvetica Neue", helvetica, arial, sans-serif;*/
   font-family: "Muli", "Helvetica Neue", helvetica, arial, sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -108,7 +107,10 @@ a.email:hover,
 .main-container {
   padding-top: 7.5em;
 }
-
+.main-container.featured {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
 
 /* front page */
 .contact-info {
@@ -632,6 +634,8 @@ blockquote {
 }
 .featured-category .card {
   border: none;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
 }
 .extension-title {
   font-weight: 400;
@@ -645,7 +649,7 @@ blockquote {
 .gh-link,
 .app-store-link {
   border-bottom: none;
-  vertical-align: middle;
+  vertical-align: bottom;
   padding-left: 0.5em;
 }
 .app-store-link img {
@@ -654,11 +658,11 @@ blockquote {
 .app-links-wrapper {
   margin-bottom: 1.5em;
 }
-.featured-talk-videos .col-sm-3 {
-    border: 4px solid #fff;
+.featured-talk-videos .col-lg-3,
+.featured-talk-videos .col-md-4 {
     border-radius: 3px;
     padding: 1em;
-    background-color: white;
+    /*background-color: white;*/
     padding-bottom: 10px;
 }
 .featured-talk-videos .card {
@@ -689,4 +693,11 @@ a.no-underline {
     transform: translate(-50%, -50%);
     z-index: 1;
     height: 55%;
+}
+hr.info-separator {
+  margin-top: 2em;
+}
+
+.main-container-wrapper.colored {
+  background-color: #eee;
 }
