@@ -694,7 +694,7 @@ a.no-underline {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    height: 55%;
+    height: 40%;
 }
 hr.info-separator {
   margin-top: 2em;
