@@ -634,8 +634,10 @@ blockquote {
 }
 .featured-category .card {
   border: none;
-  padding-top: 0.8em;
   padding-bottom: 0.8em;
+}
+.colored .featured-category .card {
+  padding-top: 0.8em;
 }
 .extension-title {
   font-weight: 400;
