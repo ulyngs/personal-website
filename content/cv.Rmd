@@ -113,10 +113,10 @@ cv_entries %>%
   kable(align = c("l", "l"), escape = FALSE)
 ```
  
-<h2 data-toc-text="Grants">Grants and funding</h2>
+<h2 data-toc-text="Grants">Major grants and funding</h2>
 ```{r}
 cv_entries %>% 
-  filter(type == 'minor_grants' | type == 'major_grants',
+  filter(type == 'major_grants',
          is.na(exclude)) %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = if_else(
