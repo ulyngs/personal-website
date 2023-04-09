@@ -122,7 +122,7 @@ div(class="main-container-wrapper colored",
                           div(class="card",
                               div(class="card-body",
                                   HTML('<h5 class="card-title">Coaching interventions for digital self-control</h5>
-                                       <p class="card-text">My ReDD workshop helps people reflect on their challenges and goals, find the right digital self-control tools to help, and get the support they need to apply them.</p>
+                                       <p class="card-text">The Reduce Digital Distraction (ReDD) workshop helps people reflect on their challenges and goals, find the right digital self-control tools to help, and get the support they need to apply them.</p>
                                        <p>I have run 100+ workshops with 800+ participants at universities and high schools in the UK, Denmark, and Thailand.</p>')),
                             tags$img(class="card-img-bottom", src="/images/redd-workshop/redd-logo-rect-small.jpg")
                               )),
