@@ -212,10 +212,9 @@ poster_table <- cv_entries %>%
 
 media_table <- cv_entries %>% 
   filter(type == 'media') %>%
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>")) %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{where}</span>, {what}")) |>
   mutate(year_begin = year(date)) %>% 
   select(year_begin, what)
-
 
 ```
 
