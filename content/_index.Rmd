@@ -79,7 +79,7 @@ div(class="main-container-wrapper not-colored",
                      div(class="card-body",
                          h5(class="card-title",
                             "Which design patterns are explored in digital self-control tools?"),
-                        HTML('<p>In <a href="https://ulriklyngs.com/publications#applying_dual_systems_theory_to_digital_self_control_tools" class="card-link">Self-Control in Cyberspace</a> we reviewed design features in 376 tools, and used a dual systems model of self-control to analyse them (CHI\'19 <img src="/images/ribbon_xs.png" style="height: 1em;"><em style="font-size:0.9em;">Honourable Mention Award</em>)</p>'),
+                        HTML('<p>In <a href="https://ulriklyngs.com/publications#applying_dual_systems_theory_to_digital_self_control_tools" class="card-link">Self-Control in Cyberspace</a> we reviewed design features in 376 tools, and used a dual systems model of self-control to analyse them (CHI\'19 <img src="/images/ribbon_xs.png" style="height: 1em;"> <em style="font-size:0.9em;">Honourable Mention Award</em>)</p>'),
                         HTML('<p>In <a href="https://ulriklyngs.com/publications#the_goldilocks_level_of_support_using_user_reviews_ratings_and_installation_numbers_to_investigate_digital_self_control_tools" class="card-link">The Goldilocks Level of Support</a> we analysed ~54,000 user reviews to understand how people use the tools, and what their key design challenges are (IJHCS, 2022)</p>'),
                         HTML('<div class="embed-responsive embed-responsive-16by9">
                           <iframe width="560" height="315" src="https://www.youtube.com/embed/kf-TwEo954s" frameborder="0" allowfullscreen></iframe>
@@ -92,7 +92,7 @@ div(class="main-container-wrapper not-colored",
                               div(class="card-body",
                                   h5(class="card-title",
                                      "Which design patterns actually work?"),
-                                  HTML('<p class="card-text">In <a href="https://ulriklyngs.com/publications#switch_tube_a_proof_of_concept_system_introducing_adaptable_commitment_interfaces_as_a_tool_for_digital_wellbeing" class="card-link">SwitchTube</a>, we showed the benefits of letting people switch between a search-first and a recommendations-first interface on YouTube. (CHI\'23)</p>
+                                  HTML('<p class="card-text">In <a href="https://ulriklyngs.com/publications#switch_tube_a_proof_of_concept_system_introducing_adaptable_commitment_interfaces_as_a_tool_for_digital_wellbeing" class="card-link">SwitchTube</a>, we showed the value of letting people switch between a search-first and a recommendations-first interface on YouTube. (CHI\'23 <img src="/images/ribbon_xs.png" style="height: 1em;"> <em style="font-size:0.9em;">Honourable Mention Award</em>))</p>
                                        <p>In <a href="https://ulriklyngs.com/publications#evaluating_design_interventions_for_self_control_on_facebook" class="card-link">“I Just Want to Hack Myself to Not Get Distracted”</a>, we tested the effects of removing the newsfeed or adding goal reminders on Facebook (CHI\'20)</p><br><br>'),
                                    HTML('<div class="embed-responsive embed-responsive-16by9">
                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/zj9I-2gjths" frameborder="0" allowfullscreen></iframe>
