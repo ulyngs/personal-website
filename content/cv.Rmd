@@ -337,8 +337,8 @@ cv_entries %>%
 cv_entries %>% 
   filter(type == 'software-browser-extensions' & is.na(exclude)) %>% 
   replace_na(list(where = "", additional_info = "")) %>% 
-  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}")) %>%
-  arrange(desc(year)) %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}")) |> 
+  arrange(desc(date_end), desc(date)) |> 
   mutate(row_number = row_number()) %>% 
   select(year, what) %>% 
   kable(escape=FALSE)
