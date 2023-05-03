@@ -70,23 +70,22 @@ div(class="main-container-wrapper not-colored",
           column(6, class="featured-category-description",
                  HTML('<p>On online stores for apps and browser extensions, hundreds of apps and browser extensions promise to help us control our time and attention on smartphones and laptops. These \'digital self-control tools\' can block distractions, track device use, remind us of our intentions, gamify intended use, and more.</p>
                       <p>I use the evolving landscape of these tools to explore what good design that helps us stay in control of digital device use looks like. To understand why they work - and why there is a challenge in the first place - I use <a href="https://ulriklyngs.com/post/2019/04/30/367-tools-of-resistance-in-the-battle-for-online-attention/#the-psychology-behind-the-tools-1">psychological models of self-control</a>.</p>
-                      <p>I have studied digital self-control since 2015, with a large number of wonderful collaborators including <a href="https://www.jesus.ox.ac.uk/about-jesus-college/our-community/people/nigel-shadbolt/">Sir Nigel Shadbolt</a> (who supervised my PhD), <a href="https://kailukoff.com/">Kai Lukoff</a>, <a href="https://petrslovak.com">Petr Slovák</a>, <a href="https://hip.cat/emax/">Max Van Kleek</a>, <a href="https://www.kasperhornbaek.dk">Kasper Hornbæk</a>, <a href="https://www.reubenbinns.com">Reuben Binns</a>, <a href="https://oaklab.org">Jakob Eg Larsen</a>, <a href="https://www.cs.ox.ac.uk/people/jun.zhao/">Jun Zhao</a>, <a href="http://michaelinzlicht.com">Michael Inzlicht</a>, <a href="https://sites.google.com/site/helenewilladsen/home">Helene Willadsen</a>, <a href="https://www.cs.ox.ac.uk/people/laura.csuka/">Laura Csuka</a>, <a href="https://www.cs.ox.ac.uk/people/claudine.tinsman/">Claudine Tinsman</a>, and <a href="https://www.cs.ox.ac.uk/people/lize.alberts/">Lize Alberts</a>.</p>')
+                      <p>I have studied digital self-control since 2015, with a large number of wonderful collaborators including <a href="https://www.jesus.ox.ac.uk/about-jesus-college/our-community/people/nigel-shadbolt/">Sir Nigel Shadbolt</a> (who supervised my PhD), <a href="https://kailukoff.com/">Kai Lukoff</a>, <a href="https://petrslovak.com">Petr Slovák</a>, <a href="https://hip.cat/emax/">Max Van Kleek</a>, <a href="https://www.kasperhornbaek.dk">Kasper Hornbæk</a>, <a href="https://www.reubenbinns.com">Reuben Binns</a>, <a href="https://oaklab.org">Jakob Eg Larsen</a>, <a href="https://www.cs.ox.ac.uk/people/jun.zhao/">Jun Zhao</a>, <a href="http://michaelinzlicht.com">Michael Inzlicht</a>, <a href="https://sites.google.com/site/helenewilladsen/home">Helene Willadsen</a>, <a href="https://dmlevy.ischool.uw.edu">David Levy</a>, <a href="https://www.cs.ox.ac.uk/people/laura.csuka/">Laura Csuka</a>, <a href="https://www.cs.ox.ac.uk/people/claudine.tinsman/">Claudine Tinsman</a>, and <a href="https://www.cs.ox.ac.uk/people/lize.alberts/">Lize Alberts</a>.</p>')
             ),
           column(6,
                  fluidRow(
                    div(class="col-lg-6 col-md-12",
-                          div(class="card",
-                     div(class="card-body",
+                     div(class="card",
+                       div(class="card-body",
                          h5(class="card-title",
                             "Which design patterns are explored in digital self-control tools?"),
-                        HTML('<p>In <a href="https://ulriklyngs.com/publications#applying_dual_systems_theory_to_digital_self_control_tools" class="card-link">Self-Control in Cyberspace</a> we reviewed design features in 376 tools, and used a dual systems model of self-control to analyse them (CHI\'19 <img src="/images/ribbon_xs.png" style="height: 1em;"> <em style="font-size:0.9em;">Honourable Mention Award</em>)</p>'),
-                        HTML('<p>In <a href="https://ulriklyngs.com/publications#the_goldilocks_level_of_support_using_user_reviews_ratings_and_installation_numbers_to_investigate_digital_self_control_tools" class="card-link">The Goldilocks Level of Support</a> we analysed ~54,000 user reviews to understand how people use the tools, and what their key design challenges are (IJHCS, 2022)</p>'),
-                        HTML('<div class="embed-responsive embed-responsive-16by9">
+                         HTML('<p>In <a href="https://ulriklyngs.com/publications#applying_dual_systems_theory_to_digital_self_control_tools" class="card-link">Self-Control in Cyberspace</a> we reviewed design features in 376 tools, and used a dual systems model of self-control to analyse them (CHI\'19 <img src="/images/ribbon_xs.png" style="height: 1em;"> <em style="font-size:0.9em;">Honourable Mention Award</em>)</p>'),
+                         HTML('<p>In <a href="https://ulriklyngs.com/publications#the_goldilocks_level_of_support_using_user_reviews_ratings_and_installation_numbers_to_investigate_digital_self_control_tools" class="card-link">The Goldilocks Level of Support</a> we analysed ~54,000 user reviews to understand how people use the tools, and what their key design challenges are (IJHCS, 2022)</p>'),
+                         HTML('<div class="embed-responsive embed-responsive-16by9">
                           <iframe width="560" height="315" src="https://www.youtube.com/embed/kf-TwEo954s" frameborder="0" allowfullscreen></iframe>
                           </div>
                           ')),
                      )),
-                     #tags$img(class="card-img-bottom", src="/post/2019-04-30_367-tools-of-resistance/preview.jpg")),
                    div(class="col-lg-6 col-md-12",
                           div(class="card",
                               div(class="card-body",
@@ -98,7 +97,6 @@ div(class="main-container-wrapper not-colored",
                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/zj9I-2gjths" frameborder="0" allowfullscreen></iframe>
                                   </div>
                                   '))
-                              #tags$img(class="card-img-bottom", src="/images/goal-support.png")
                       ))
                     )
                  )
