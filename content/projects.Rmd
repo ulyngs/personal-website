@@ -9,8 +9,6 @@ library(tidyverse)
 library(knitr)
 library(here)
 library(lubridate)
-library(googlesheets4)
-gs4_deauth()
 
 #### publications #####
 publications <- read_csv(here::here("data", "publications.csv")) %>% 
