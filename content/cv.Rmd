@@ -1,8 +1,8 @@
 ---
 title: "CV"
 menu: main
-editor_options: 
-  chunk_output_type: inline
+params:
+  fetchSheet: no
 ---
 
 
@@ -24,7 +24,14 @@ library(lubridate)
 library(kableExtra)
 library(DT)
 library(glue)
- 
+
+# fetch sheets from google sheet
+if(params$fetchSheet){
+  source(here::here("sync_w_gsheets.R"))
+  walk(sheets, store_sheet_in_csv)
+}
+
+
 #### publications #####
 publications <- read_csv(here::here("data/publications.csv"))
 
