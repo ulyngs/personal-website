@@ -32,7 +32,7 @@
       <!-- this is for the categories -->
           <div class="col-sm-2 posts-sidebar">
             
-            {{- $currentTaxonomy := index (split .URL "/") 2 -}}
+            {{- $currentTaxonomy := index (split .Permalink "/") 2 -}}
             
             <h3>Categories</h3>
             <ul>
