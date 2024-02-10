@@ -250,19 +250,6 @@ a.anchor {
   width: 25%;
 }
 
-@media (max-width: 990px) {
-  .publications-page tbody td:first-child {
-    display: none;
-  }
-  .publications-page tbody td:nth-child(2) {
-    width: 60%;
-    padding-right: 2em;
-  }
-  .publications-page tbody td:nth-child(3) {
-    width: 40%;
-  }
-}
-
 
 /* ---- CV PAGE ---- */
 #toc {
@@ -273,46 +260,7 @@ a.anchor {
   padding-left: 0.4em;
 }
 
-/* small screens */
-@media (max-width: 990px) {
-  #toc {
-    width: 600px;
-  }
-  .blog-content .post-content {
-    margin-top: 1.5em;
-  }
-}
 
-@media (max-width: 768px) {
-  
-  .main-container {
-    padding-top: 6em;
-  }
-  
-  #toc {
-    width: 300px
-  }
-  
-  /* override stickyness so that the navigation does not follow scrolling */
-  nav[data-toggle="toc"] {
-    margin-bottom: 1em;
-    margin-top: -1em;
-    position: static !important;
-    top: 2em;
-  }
-
-  /* PICK ONE */
-  /* don't expand nested items, which pushes down the rest of the page when navigating */
-  nav[data-toggle="toc"] .nav .active .nav {
-    display: none;
-  }
-  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
-  
-  /*nav[data-toggle='toc'] .nav .nav {
-    display: block;
-  }*/
-  
-}
 
 table.dataTable.no-footer {
     border-bottom: none !important;
@@ -532,14 +480,6 @@ table.dataTable.no-footer {
   line-height: 180%; 
 }
 
-@media (min-width: 1080px) {
-    .blog-post .post-content p,
-    .blog-post .post-content li {
-      font-size: 18px;
-      font-weight: 400;
-  }
-}
-
 .blog-post .post-content ul {
   margin-bottom: 2em;
 }
@@ -707,4 +647,85 @@ hr.info-separator {
 
 .main-container-wrapper.colored {
   background-color: #eeeeee;
+}
+
+
+@media (min-width: 1080px) {
+    .blog-post .post-content p,
+    .blog-post .post-content li {
+      font-size: 18px;
+      font-weight: 400;
+  }
+}
+
+/* small screens */
+@media (max-width: 990px) {
+  #toc {
+    width: 600px;
+  }
+  .blog-content .post-content {
+    margin-top: 1.5em;
+  }
+  
+  .publications-page tbody td:first-child {
+    display: none;
+  }
+  .publications-page tbody td:nth-child(2) {
+    width: 60%;
+    padding-right: 2em;
+  }
+  .publications-page tbody td:nth-child(3) {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .publications-page tbody td:nth-child(2) {
+    width: 100%;
+    padding-right: 2em;
+  }
+  .publications-page tbody td:nth-child(3) {
+    width: 85%;
+  }
+  
+  .publications-page tbody td {
+    padding-bottom: 0;
+  }
+  
+  .publications-page tbody td:nth-child(3) {
+    padding-bottom: 1em;
+  }
+  
+  .pub-video {
+    margin-bottom: 2em;
+    margin-top: 0.3em;
+  }
+  
+  .main-container {
+    padding-top: 6em;
+  }
+  
+  #toc {
+    width: 300px
+  }
+  
+  /* override stickyness so that the navigation does not follow scrolling */
+  nav[data-toggle="toc"] {
+    margin-bottom: 1em;
+    margin-top: -1em;
+    position: static !important;
+    top: 2em;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle="toc"] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  
+  /*nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }*/
+  
 }
