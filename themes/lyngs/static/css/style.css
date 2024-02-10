@@ -680,6 +680,12 @@ hr.info-separator {
 }
 
 @media (max-width: 768px) {
+  table {
+      width: 100%;
+  }
+  td {
+    display: block;
+  }
   .publications-page tbody td:nth-child(2) {
     width: 100%;
     padding-right: 2em;
