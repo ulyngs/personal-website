@@ -9,8 +9,6 @@ library(tidyverse)
 library(here)
 library(glue)
 library(lubridate)
-library(googlesheets4)
-gs4_deauth()
 
 publications <- read_csv(here::here("data/publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
