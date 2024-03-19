@@ -24,6 +24,7 @@ library(shiny)
 
 :::{.col-lg-6 .col-md-6 .col-sm-6}
 I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
+I am also a member of the 
 
 My research focuses on **attention and self-control on digital devices** such as smartphones and laptops. I am passionate about open and transparent scholarship, and teach workflows for reproducible research.
 
@@ -105,7 +106,7 @@ div(class="main-container-wrapper colored",
           column(6, class="featured-category-description",
                  HTML('<p>Writing rigorous academic papers is one thing. But what should a person who just wants to find effective solutions <em>do</em>? Academics don\'t usually provide concrete advice, nor make the tools they build publicly available.</p>
                       <p>To help people control their time and attention on digital devices, I run the \'Reduce Digital Distraction\' workshop. I developed the workshop with the incredible Maureen Freed, who formerly was Deputy Head of Counselling at the University of Oxford.</p>
-  <p>I also develop digital self-control tools for the Safari browser. I originally did this for my personal use, but have shared the apps on the Apple App store and made the code open source.</p>')
+  <p>I also develop digital self-control tools for the Safari browser. I originally did this for my personal use, but shared the apps on the Apple App store and made the code open source.</p>')
             ),
           column(6,
                  fluidRow(
@@ -113,8 +114,8 @@ div(class="main-container-wrapper colored",
                           div(class="card",
                               div(class="card-body",
                                   HTML('<h5 class="card-title">Coaching interventions for digital self-control</h5>
-                                       <p class="card-text">The Reduce Digital Distraction (ReDD) workshop helps people reflect on their challenges and goals, find the right digital self-control tools to help, and get the support they need to apply them.</p>
-                                       <p>I have run 100+ workshops with 800+ participants at universities and high schools in the UK, Denmark, and Thailand.</p>')),
+                                       <p class="card-text">The Reduce Digital Distraction (ReDD) workshop helps people reflect on their challenges and goals around device use, and apply digital self-control tools to help.</p>
+                                       <p>I have run ~150 workshops with 1200+ participants at universities and high schools in the UK, Denmark, and Thailand. Our paper <a href="https://ulriklyngs.com/publications#i_finally_felt_i_had_the_tools_to_control_these_urges_empowering_students_to_achieve_their_device_use_goals_with_the_reduce_digital_distraction_workshop" class="card-link">“I finally felt I had the tools to control these urges”</a> presents insights from participants in Oxford.</p>')),
                             tags$img(class="card-img-bottom", src="/images/redd-workshop/redd-logo-rect-small.jpg")
                               )),
                    div(class="col-lg-6 col-md-12",
