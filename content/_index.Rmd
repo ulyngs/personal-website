@@ -205,12 +205,13 @@ div(class="main-container-wrapper not-colored",
 ```{r, echo=FALSE, results='asis'}
 featured_videos <- tribble(
   ~embed_link,                                  ~description,
+  "https://youtube.com/embed/ffm6wXsDDa8",      "Presenting insights from 280 student participants in the Reduce Digital Distraction Workshop @ CHI 2024 ",
   "https://www.youtube.com/embed/QClOST9hIG4",   "Attention, Freedom, Digital Addiction and Dating Apps @ Barnes Philosophy Club, London 2023",
   "https://www.youtube.com/embed/aU0uetWJXis",   "Demo of my workflow for reproducible papers with R Markdown @ Reproducible Research Oxford, 2021",
-  "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition, 2021",
+  "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition at the University of Oxford, 2021",
   "https://www.youtube.com/embed/LBHxcuCMjnk",   "Tutorial video for my 'oxforddown' template for thesis writing with R Markdown, 2021",
   "https://www.youtube.com/embed/bsBpGkPV83w",   "Presenting our research on design interventions for self-control on Facebook @ CHI 2020",
-  "https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
+  #"https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
   "https://www.youtube.com/embed/sJf_F7faczU",   "Our analysis of digital self-control tools on the Google Play, Chrome Web, and Apple App stores @ CHI 2019",
   "https://www.youtube.com/embed/2TeIvEunO84",   "Showreel for the Karaoke Collective. Drop me a line if you want to book us :)"
 )
