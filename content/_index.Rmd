@@ -26,7 +26,7 @@ library(shiny)
 
 :::{.col-lg-6 .col-md-6 .col-sm-6}
 I am a [Carlsberg Foundation Oxford Visiting Fellow](https://www.carlsbergfondet.dk/da/Forskningsaktiviteter/Bevillingsstatistik/Bevillingsoversigt/CF20_0678_Ulrik-Lyngs) at the University of Oxford's [Human Centred Computing group](https://hcc.cs.ox.ac.uk/).
-In Denmark, I am also a research representative on [Medierådet for Børn og Unge](https://medieraadet.dk/#gb_ContentPlaceHolderDefault_bottomGrid_ctl02) (*the Media Council for Children and Young People*).
+In Denmark, I am also a research representative on [Medierådet for Børn og Unge](https://medieraadet.dk/#gb_ContentPlaceHolderDefault_bottomGrid_ctl02) (*the Media Council for Children and Youth*).
 
 My research focuses on **attention and self-control on digital devices** such as smartphones and laptops. I am passionate about open and transparent scholarship, and teach workflows for reproducible research.
 
@@ -53,8 +53,6 @@ ulrik.lyngs@cs.ox.ac.uk</p>
 </div>  <!-- close main container -->
 
 <!-- featured work -->
-
-
 ```{r}
 div(class="main-container-wrapper not-colored",
   div(class="main-container container featured",
@@ -208,7 +206,7 @@ featured_videos <- tribble(
   "https://youtube.com/embed/ffm6wXsDDa8",      "Presenting insights from 280 student participants in the Reduce Digital Distraction Workshop @ CHI 2024 ",
   "https://www.youtube.com/embed/QClOST9hIG4",   "Attention, Freedom, Digital Addiction and Dating Apps @ Barnes Philosophy Club, London 2023",
   "https://www.youtube.com/embed/aU0uetWJXis",   "Demo of my workflow for reproducible papers with R Markdown @ Reproducible Research Oxford, 2021",
-  "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition at the University of Oxford, 2021",
+  "https://www.youtube.com/embed/G-EpPpIGsws",   "Summary of my PhD research @ the '3 Minute Thesis' competition at University of Oxford, 2021",
   "https://www.youtube.com/embed/LBHxcuCMjnk",   "Tutorial video for my 'oxforddown' template for thesis writing with R Markdown, 2021",
   "https://www.youtube.com/embed/bsBpGkPV83w",   "Presenting our research on design interventions for self-control on Facebook @ CHI 2020",
   #"https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
