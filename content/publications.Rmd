@@ -15,8 +15,19 @@ publications <- read_csv(here::here("data/publications.csv")) %>%
                         janitor::make_clean_names(title),
                         janitor::make_clean_names(short_title))) %>% 
   filter(is.na(exclude)) %>% 
-  select(-exclude)
-
+  select(-exclude) |> 
+  # add ordering
+  mutate(weight = case_when(
+    type == "conference paper"  ~ 1,
+    type == "journal article"   ~ 2,
+    type == "extended abstract" ~ 3,
+    type == "book chapter"      ~ 4,
+    type == "thesis"            ~ 5,
+    type == "workshop paper"    ~ 6,
+    type == "colloquium paper"  ~ 7,
+    type == "research report"   ~ 8,
+    type == "magazine article"  ~ 9
+  ))
 ```
 
 <div class="row publications-page">
@@ -27,7 +38,7 @@ publications <- read_csv(here::here("data/publications.csv")) %>%
 ```{r}
 # create the table data
 publications_table <- publications %>%
-  arrange(desc(date), type) %>%
+  arrange(desc(award), weight, desc(date)) %>%
   mutate(title = ifelse(!is.na(url), str_c("[", title, "](", url, ")"), title)) %>% #turn title into link
   mutate(award = case_when(
     !is.na(award) & str_detect(award, "honourable")         ~ str_c("<img src='/images/ribbon_xs.png' style='height: 1em;'><span class='award-text'> ", award, "</span> <br>"),
