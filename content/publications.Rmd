@@ -9,6 +9,9 @@ library(tidyverse)
 library(here)
 library(glue)
 library(lubridate)
+library(kableExtra)
+
+first_col_width <- "9%"
 
 publications <- read_csv(here::here("data/publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
@@ -90,6 +93,7 @@ for (cur_year in years){
     filter(year(date) == cur_year) %>% 
     select(type, citation, teaser_video_embed) %>%
     knitr::kable(caption = cur_year, format = "html", table.attr='class="table-responsive"', escape = FALSE) %>%
+  column_spec(1, width = first_col_width) |> 
     print()
 } 
 ```

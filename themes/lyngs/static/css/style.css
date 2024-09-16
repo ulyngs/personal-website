@@ -229,25 +229,13 @@ a.anchor {
 
 .publications-page td {
   padding-bottom: 1em;
+  padding-right: 2.5em;
 }
 
 .publications-page table {
   margin-bottom: 3em;
   table-layout: fixed;
   width: 100%;
-}
-
-.publications-page tbody td:first-child {
-  padding-right: 2em;
-  /*vertical-align: top;*/
-  width: 12%;
-}
-.publications-page tbody td:nth-child(2) {
-  width: 63%;
-  padding-right: 2em;
-}
-.publications-page tbody td:nth-child(3) {
-  width: 25%;
 }
 
 
@@ -322,37 +310,18 @@ table.dataTable.no-footer {
 .cv-page thead {
   display: none !important;
 }
-.cv-page table{
+.cv-page table {
   margin-bottom: 3em;
-  table-layout: fixed;
+  table-layout: fixed !important;
   width: 100%;
+}
+.cv-page td {
+  padding-bottom: 0.2em;
 }
 .cv-page .datatables.html-widget {
   margin-bottom: 3em !important;
 }
-.cv-page tbody td:first-child {
-  padding-right: 1.5em;
-  padding-left: 0;
-  vertical-align: top;
-  width: 18%;
-}
-.cv-page tbody td:nth-child(2) {
-  width: 82%;
-}
 
-/* the talks table has three columns */
-.cv-page #talks-table-dt tbody td:nth-child(1),
-.cv-page #talks-table-dt tbody td:nth-child(2) {
-  width: 9%;
-  vertical-align: top;
-}
-.cv-page #talks-table-dt tbody td:nth-child(3) {
-  width: 82%;
-}
-
-.cv-page td {
-  padding-bottom: 0.2em;
-}
 .cv-page .work-title {
   font-size: 1.2em;
 }
@@ -379,6 +348,16 @@ table.dataTable.no-footer {
 
 .cv-page .talk-translation {
   font-style: italic;
+}
+
+/* the talks table has three columns */
+.cv-page #talks-table-dt tbody td:nth-child(1),
+.cv-page #talks-table-dt tbody td:nth-child(2) {
+  width: 9%;
+  vertical-align: top;
+}
+.cv-page #talks-table-dt tbody td:nth-child(3) {
+  width: 82%;
 }
 
 
