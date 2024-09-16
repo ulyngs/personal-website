@@ -211,7 +211,7 @@ featured_videos <- tribble(
   "https://www.youtube.com/embed/bsBpGkPV83w",   "Presenting our research on design interventions for self-control on Facebook @ CHI 2020",
   #"https://www.youtube.com/embed/LjWivZIiS78",   "Part I of my video lecture series on computational text analysis @ Oxford Centre for Hindu Studies, 2020",
   "https://www.youtube.com/embed/sJf_F7faczU",   "Our analysis of digital self-control tools on the Google Play, Chrome Web, and Apple App stores @ CHI 2019",
-  "https://www.youtube.com/embed/2TeIvEunO84",   "Showreel for the Karaoke Collective. Drop me a line if you want to book us :)"
+  "https://www.youtube.com/embed/04c9a1l433A",   "Showreel for the Karaoke Collective. Drop me a line if you want to book us :)"
 )
 
 generate_grid_entry <- function(embed_link, description){
