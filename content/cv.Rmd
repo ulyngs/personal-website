@@ -31,6 +31,7 @@ if(params$fetchSheet){
   walk(sheets, store_sheet_in_csv)
 }
 
+first_col_width <- "18%"
 
 #### publications #####
 publications <- read_csv(here::here("data/publications.csv"))
@@ -89,7 +90,8 @@ cv_entries %>%
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br>", 
                       where)) %>% 
   select(year, what) %>% 
-  kable(escape = FALSE)
+  kable(escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 
 ```
 
@@ -97,15 +99,19 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where,
-                      "<br>", additional_info,
-                      "<br>", additional_info2)) %>% 
+  mutate(what = glue::glue('
+                           <span class="cv-entry-title">{what}</span>, {where}<br/>
+                           {additional_info}<br/>
+                           {additional_info2}')) %>% 
   select(year, what) %>% 
-  kable(escape = FALSE)
+  kable(escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
+
 
 ```
 
 <h2 data-toc-text="Awards">Awards and honours</h2>
+
 ```{r}
 cv_entries %>% 
   filter(type == 'awards') %>%
@@ -117,10 +123,12 @@ cv_entries %>%
   ) %>% 
   blank_year_when_repeated() %>% 
   select(year_begin, what) %>% 
-  kable(align = c("l", "l"), escape = FALSE)
+  kable(align = c("l", "l"), escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
  
 <h2 data-toc-text="Grants">Major grants and funding</h2>
+
 ```{r}
 cv_entries %>% 
   filter(type == 'major_grants',
@@ -128,14 +136,19 @@ cv_entries %>%
   filter(!(website == "n") | is.na(website)) %>% 
   mutate(what = if_else(
     !is.na(additional_info),
-    str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info),
-    str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
+      glue::glue('
+        <span class="cv-entry-title">{what}</span>, {where}<br/>
+        {additional_info}'),
+      glue::glue('
+        <span class="cv-entry-title">{what}</span>, {where}
+      '))
   ) %>% 
   mutate(year_end = if_else(is.na(year_end), as.character(year_begin), year_end)) %>% 
   arrange(desc(year_end)) %>% 
   blank_year_when_repeated() %>% 
   select(year, what) %>% 
-  kable(align = c("l", "l"), escape = FALSE) 
+  kable(align = c("l", "l"), escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 
@@ -237,8 +250,14 @@ talks_table %>%
             rownames = FALSE, 
             escape = FALSE, 
             class = 'row-border', 
-            options = list(lengthMenu = list(c(10, -1), c("10", "All")))
+            options = list(
+              lengthMenu = list(c(10, -1), c("10", "All")),
+              columnDefs = list(
+                list(width = '9%', targets = 0),  # Set 20% width for the first column
+                list(width = '9%', targets = 1)   # Set 30% width for the second column
+              ))
             )
+
 
 cat('</div>')
 
@@ -267,7 +286,8 @@ cv_entries %>%
     str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
     str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where))) %>% 
   select(year, what) %>% 
-  kable(escape = FALSE)
+  kable(escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
   
 ```
 
@@ -285,7 +305,8 @@ cv_entries %>%
                       where))) %>% 
   arrange(desc(date_end), desc(date)) %>% 
   select(year, what) %>% 
-  kable(escape = FALSE)
+  kable(escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 
 ```
 
@@ -299,7 +320,8 @@ cv_entries %>%
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info)) %>% 
   arrange(desc(date)) %>% 
   select(year, what) %>% 
-  kable(escape = FALSE)
+  kable(escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 <h2 data-toc-text="Development">Professional development</h2>
@@ -308,7 +330,8 @@ cv_entries %>%
   filter(type == 'prof-dev') %>% 
   mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", where)) %>% 
   select(year_begin, what) %>% 
-  kable(align = c("l", "l"), escape = FALSE)
+  kable(align = c("l", "l"), escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 # Technical
@@ -324,7 +347,8 @@ cv_entries %>%
   mutate(what = str_c("<i class='fa fa-lg ", icon, "'></i> &nbsp;<span class='cv-entry-title'>", what, "</span> ", additional_info)) %>% 
   select(type, what) %>% 
   mutate(type = "") %>% 
-  kable(escape=FALSE)
+  kable(escape=FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 ## R packages
@@ -336,7 +360,8 @@ cv_entries %>%
   arrange(desc(year)) %>% 
   mutate(row_number = row_number()) %>% 
   select(year, what) %>% 
-  kable(escape=FALSE)
+  kable(escape=FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 ## Apps
@@ -348,7 +373,8 @@ cv_entries %>%
   arrange(desc(date_end), desc(date)) |> 
   mutate(row_number = row_number()) %>% 
   select(year, what) %>% 
-  kable(escape=FALSE)
+  kable(escape=FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 
@@ -361,7 +387,8 @@ cv_entries %>%
   mutate(what = ifelse(!is.na(additional_info), str_c(what, "<br>", additional_info), what)) %>%
   arrange(desc(date_end)) %>% 
   select(year, what) %>%
-  kable(escape = FALSE) 
+  kable(escape=FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 ```
 
 </div>
