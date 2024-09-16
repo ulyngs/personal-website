@@ -1,6 +1,8 @@
 ---
 title: Projects
 menu: main
+params:
+  fetchSheet: no
 ---
 
 ```{r setup, include=FALSE}
@@ -10,11 +12,29 @@ library(knitr)
 library(here)
 library(lubridate)
 
+# fetch sheets from google sheet
+if(params$fetchSheet){
+  source(here::here("sync_w_gsheets.R"))
+  walk(sheets, store_sheet_in_csv)
+}
+
 #### publications #####
 publications <- read_csv(here::here("data", "publications.csv")) %>% 
   mutate(anchor = ifelse(is.na(short_title), 
                         janitor::make_clean_names(title),
-                        janitor::make_clean_names(short_title)))
+                        janitor::make_clean_names(short_title))) |> 
+  # add ordering
+  mutate(weight = case_when(
+    type == "conference paper"  ~ 1,
+    type == "journal article"   ~ 2,
+    type == "extended abstract" ~ 3,
+    type == "book chapter"      ~ 4,
+    type == "thesis"            ~ 5,
+    type == "workshop paper"    ~ 6,
+    type == "colloquium paper"  ~ 7,
+    type == "research report"   ~ 8,
+    type == "magazine article"  ~ 9
+  ))
 
 #### cv entries #####
 cv_entries <- read_csv(here::here("data", "cv_entries.csv"))
@@ -66,7 +86,7 @@ generate_project_row <- function(id){
   cat("<div class='row project-work'>")
   project_work <- publications %>% 
     filter(str_detect(project, id)) %>% 
-      arrange(desc(date)) %>% 
+      arrange(desc(lubridate::year(date)), weight) %>% 
       mutate(hyperlink = case_when(
         str_detect(title, "Understanding Personal Digital Self-Control Struggles") ~ "https://ulyngs.github.io/phd-thesis/chapter-workshops.html",
         TRUE ~ str_c("/publications/#", anchor)
