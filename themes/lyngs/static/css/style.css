@@ -2,6 +2,10 @@
   vertical-align: top;
 }
 
+.cv-page tbody td:last-child {
+  padding-bottom: 1.5em;
+}
+
 .header-container .navbar {
     background-color: white !important;
     border-bottom: 1px solid rgba(0,0,0,0.2)
@@ -669,6 +673,11 @@ hr.info-separator {
   td {
     display: block;
   }
+  .cv-page tbody td:nth-child(1) {
+    width: 100% !important;
+    padding-bottom: 0.1em;
+  }
+  
   .publications-page tbody td:nth-child(2) {
     width: 100%;
     padding-right: 2em;
