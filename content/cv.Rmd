@@ -205,7 +205,9 @@ talks_table <- cv_entries %>%
 poster_table <- cv_entries %>%  
   filter(type == 'poster') %>%
   mutate(across(institution:where, ~str_replace(., "\\[([^]]*)\\]\\(([^\\s^\\)]*)[\\s\\)]", "<a href='\\2'>\\1</a>"))) %>% 
-  mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
+  mutate(what_translation = ifelse(!is.na(what_translation), 
+                                   str_c("(", what_translation, ")"), 
+                                   what_translation)) %>% 
   replace_na(list(institution = "", 
                   department = "", 
                   where = "", 
@@ -263,12 +265,16 @@ cat('</div>')
 
 # posters tab
 cat('<div class="tab-pane container fade" id="posters">')
-poster_table %>% kable(align = c("l", "l"), escape = FALSE)
+poster_table |> 
+  kable(align = c("l", "l"), escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 cat('</div>')
 
 # media tab
 cat('<div class="tab-pane container fade" id="media">')
-media_table %>% kable(align = c("l", "l"), escape = FALSE)
+media_table |> 
+  kable(align = c("l", "l"), escape = FALSE, format = "html") |> 
+  column_spec(1, width = first_col_width)
 cat('</div>')
 
 cat('</div>') 
