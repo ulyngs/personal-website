@@ -1,3 +1,5 @@
+
+
 .cv-entries table td {
   vertical-align: top;
 }
@@ -666,7 +668,40 @@ hr.info-separator {
   }
 }
 
+@media (min-width: 768px){
+  .link-wrapper .fa-envelope {
+    font-size: 2.6em;
+  }
+  .link-wrapper .ai-google-scholar {
+    font-size: 3.2em;
+  }
+}
+
+@media (min-width: 992px){
+  .link-wrapper a {
+    margin-bottom: 15px;
+    display: block;
+  }
+}
+
+@media (max-width: 992px){ 
+  .link-wrapper a {
+    margin-right: 15px;
+  } 
+}
+
 @media (max-width: 768px) {
+  .link-wrapper i {
+    font-size: 2.2em;
+  }
+  .link-wrapper .fa-envelope {
+    font-size: 2em;
+  }
+  .link-wrapper .ai-google-scholar {
+    font-size: 2.3em;
+  }
+  
+  
   table {
       width: 100%;
   }

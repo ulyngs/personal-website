@@ -36,9 +36,9 @@ Previously, I was a festival producer at [HowTheLightGetsIn](https://howthelight
 :::{.col-lg-2 .col-md-12 .col-sm-6}
 <div class="contact-info">
 <div class="link-wrapper">
-<a href="mailto:ulrik@redd-project.org"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
-<a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-<a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-2x" aria-hidden="true"></i></a>
+<a href="mailto:ulrik@redd-project.org"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
+<a href="https://github.com/ulyngs" class="git-link"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+<a href="https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en" class="scholar-link"><i class="ai ai-google-scholar ai-3x" aria-hidden="true"></i></a>
 </div>
 </div>
 :::
