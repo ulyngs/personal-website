@@ -27,7 +27,7 @@ library(shiny)
 :::{.col-lg-7 .col-md-6 .col-sm-6}
 I am co-founder of the [Reduce Digital Distraction](https://redd-project.org) Project, which helps people redesign their digital life to serve their goals & needs.
 
-I am also an external postdoc at the University of Copenhagen's Human Centred Computing Section, and research representative on Denmark's [Media Council for Children and Youth](https://medieraadet.dk/#gb_ContentPlaceHolderDefault_bottomGrid_ctl02).
+I am also Research Fellow at [Linacre College](https://www.linacre.ox.ac.uk), external postdoc at the University of Copenhagen's Human Centred Computing Section, and research representative on Denmark's [Media Council for Children and Youth](https://medieraadet.dk/#gb_ContentPlaceHolderDefault_bottomGrid_ctl02).
 
 When I don't think about digital distraction, I play various instruments in [The Karaoke Collective](https://karaokecollective.com).
 Previously, I was a festival producer at [HowTheLightGetsIn](https://howthelightgetsin.org).
