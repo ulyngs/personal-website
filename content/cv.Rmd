@@ -37,13 +37,13 @@ first_col_width <- "18%"
 publications <- read_csv(here::here("data/publications.csv"))
 
 #### all other entries #####
-cv_entries <- read_csv(here::here("data/cv_entries.csv")) %>% 
-  mutate(year_begin = year(date)) %>%
+cv_entries <- read_csv(here::here("data/cv_entries.csv")) |> 
+  mutate(year_begin = year(date)) |> 
   mutate(year_end = case_when(
     date_end == "present" ~ date_end,
     !is.na(date_end) ~ str_sub(date_end, 1, 4),
     is.na(date_end) ~ date_end
-  )) %>%
+  )) |> 
   mutate(year = ifelse((is.na(year_end) | year_begin == year_end),
                       year_begin,
                       str_c(year_begin, " --- ", year_end)))
@@ -87,7 +87,7 @@ My **personal interests** include backpacking, samatha meditation, dancing (Cuba
 ```{r}
 cv_entries %>% 
   filter(type == 'research_positions', is.na(exclude)) %>%
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br>", 
+  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span>, ", institution, "<br>", 
                       where)) %>% 
   select(year, what) %>% 
   kable(escape = FALSE, format = "html") |> 
