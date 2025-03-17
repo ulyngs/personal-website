@@ -228,14 +228,18 @@ poster_table <- cv_entries %>%
                       video,
                       "</p>"
                       )) %>%   
-  select(year_begin, what) %>% 
-  arrange(desc(year_begin))
+  arrange(desc(year_begin)) |> 
+  blank_year_when_repeated() |> 
+  select(year_begin, what)
+  
 
 
 media_table <- cv_entries %>% 
   filter(type == 'media') %>%
   mutate(what = glue("<span class='cv-entry-title'>{where}</span>, {what}")) |>
   mutate(year_begin = year(date)) %>% 
+  arrange(desc(year_begin)) |> 
+  blank_year_when_repeated() |> 
   select(year_begin, what)
 
 ```
