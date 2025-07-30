@@ -110,8 +110,8 @@ div(class="main-container-wrapper colored",
                               div(class="card-body",
                                   HTML('<h5 class="card-title">Coaching interventions for digital self-control</h5>
                                        <p class="card-text">The Reduce Digital Distraction (ReDD) workshop helps people reflect on their challenges and goals around device use, and apply digital self-control tools to help.</p>
-                                       <p>I have run ~150 workshops with 1200+ participants at universities and high schools in the UK, Denmark, and Thailand. Our paper <a href="https://ulriklyngs.com/publications#i_finally_felt_i_had_the_tools_to_control_these_urges_empowering_students_to_achieve_their_device_use_goals_with_the_reduce_digital_distraction_workshop" class="card-link">“I finally felt I had the tools to control these urges”</a> presents insights from participants in Oxford.</p>')),
-                            tags$img(class="card-img-bottom", src="/images/redd-workshop/redd-logo-rect-small.jpg")
+                                       <p>I have run 200+ workshops with 2,000+ participants at universities and high schools in the UK, Denmark, and Thailand. Our paper <a href="https://ulriklyngs.com/publications#i_finally_felt_i_had_the_tools_to_control_these_urges_empowering_students_to_achieve_their_device_use_goals_with_the_reduce_digital_distraction_workshop" class="card-link">“I finally felt I had the tools to control these urges”</a> presents insights from participants in Oxford.</p>')),
+                            tags$img(class="card-img-bottom", src="/images/redd-workshop/redd-logo.png")
                               )),
                    div(class="col-lg-6 col-md-12",
                           div(class="card",
